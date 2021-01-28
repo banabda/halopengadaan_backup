@@ -12,12 +12,26 @@
 }
 
 .section-three{
+    background-repeat: no-repeat;
+    
+    background-size: 50%;
+    background-position-y: -10vh;
+    background-position-x: -10vw;
     height: 100vh;
+    z-index: 9;
 }
 .section-two{
     height: 100vh;
     &-content{
         padding-top: 200px;
+        .linear-bg{
+            border-radius: 25px;
+            border: none;
+            width: 20vw;
+            height: 10vh;
+            background-image: linear-gradient(to right, red , yellow);
+            color: #000;
+        }
     }
 }
 

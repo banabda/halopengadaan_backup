@@ -56,27 +56,55 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="row mb-5">
-                    <div class="col">
+                    <div class="col-md-12">
                         <h1 class="text-center">Untuk Siapa Layanan Ini?</h1>
                     </div>
                 </div>
-                <div class="row mb-5">
-                    <div class="col-md-3 text-center">Bumn</div>
-                    <div class="col-md-3 text-center">Bumn</div>
-                    <div class="col-md-3 text-center">Bumn</div>
-                    <div class="col-md-3 text-center">Bumn</div>
+                <div class="row mb-3">
+                    <div class="col-md-3 text-center">
+                        <button class="linear-bg" disabled>
+                            Pemerintah Pusat
+                        </button>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <button class="linear-bg" disabled>
+                            Pemerintah Daerah
+                        </button>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <button class="linear-bg" disabled>
+                            BUMN
+                        </button>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <button class="linear-bg" disabled>
+                            BUMD
+                        </button>
+                    </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-md-3 text-center">Bumn</div>
-                    <div class="col-md-3 text-center">Bumn</div>
-                    <div class="col-md-3 text-center">Bumn</div>
+                    <div class="col-md-3 text-center">
+                        <button class="linear-bg" disabled>
+                            BLU
+                        </button>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <button class="linear-bg" disabled>
+                            BLUD
+                        </button>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <button class="linear-bg" disabled>
+                            Penyedia
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     
 </div>
-<div class="section-three">
-    
+<div class="section-three" style="background-image: url('{{ asset('images/background-sec3.png') }}');">
+
 </div>
 @endsection
