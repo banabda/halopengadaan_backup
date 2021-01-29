@@ -10023,6 +10023,9 @@ h3 {
 .section-two-content {
   padding-top: 200px;
 }
+.section-two-content .div-lienar-bg {
+  margin: 0 0.2vw;
+}
 .section-two-content .linear-bg {
   border-radius: 25px;
   border: none;
@@ -10072,7 +10075,7 @@ h3 {
   letter-spacing: 3px;
 }
 .section-one-content .head {
-  font-size: 30px;
+  font-size: 1rem;
   line-height: 40px;
   transform: translateY(40px);
   transition: all 0.7s;
@@ -10132,4 +10135,22 @@ h3 {
   transform: translateY(0px);
   transition-delay: 0.6s;
   opacity: 1;
+}
+
+@media (max-width: 575.98px) {
+  .section-one {
+    background-size: 200%;
+  }
+  .section-one-content {
+    margin-top: 3vh;
+  }
+  .section-one-content-image {
+    margin-top: 10vh;
+    width: 50vw;
+    height: 40vh;
+  }
+
+  .section-three {
+    background-position-y: 0;
+  }
 }

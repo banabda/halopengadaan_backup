@@ -60,40 +60,40 @@
                         <h1 class="text-center">Untuk Siapa Layanan Ini?</h1>
                     </div>
                 </div>
-                <div class="row mb-3">
-                    <div class="col-md-3 text-center">
+                <div class="row mb-3 justify-content-center">
+                    <div class="col-xs-2 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             Pemerintah Pusat
                         </button>
                     </div>
-                    <div class="col-md-3 text-center">
+                    <div class="col-xs-2 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             Pemerintah Daerah
                         </button>
                     </div>
-                    <div class="col-md-3 text-center">
+                    <div class="col-xs-2 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             BUMN
                         </button>
                     </div>
-                    <div class="col-md-3 text-center">
+                    <div class="col-xs-2 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             BUMD
                         </button>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-md-3 text-center">
+                    <div class="col-xs-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             BLU
                         </button>
                     </div>
-                    <div class="col-md-3 text-center">
+                    <div class="col-xs-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             BLUD
                         </button>
                     </div>
-                    <div class="col-md-3 text-center">
+                    <div class="col-xs-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             Penyedia
                         </button>

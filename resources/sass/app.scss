@@ -24,6 +24,9 @@
     height: 100vh;
     &-content{
         padding-top: 200px;
+        .div-lienar-bg{
+          margin: 0 0.2vw;
+        }
         .linear-bg{
             border-radius: 25px;
             border: none;
@@ -34,6 +37,11 @@
         }
     }
 }
+
+// @include media-breakpoint-only(xs) { 
+
+//  }
+
 
 .section-one{
     background-repeat: no-repeat;
@@ -80,7 +88,7 @@
           }
           
           .head {
-            font-size: 30px;
+            font-size: 1rem;
             line-height: 40px;
             
             transform: translateY(40px);
@@ -152,4 +160,21 @@
           }
           
     }
+}
+
+@include media-breakpoint-down(xs) {
+  .section-one{
+    background-size: 200%;
+    &-content{
+      margin-top: 3vh;
+      &-image{
+        margin-top: 10vh;
+        width: 50vw;
+        height: 40vh;
+      }
+    }
+  }
+  .section-three{
+    background-position-y: 0;
+  }
 }
