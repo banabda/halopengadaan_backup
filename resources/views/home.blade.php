@@ -22,11 +22,7 @@
                 </div> --}}
 
                 <h1 class="font-weight-bold section-content-header">Halo Pengadaan</h1>
-                <p class="section-content-paragraph">Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna. Melibatkan  Banyak Pakar dengan berbagai
-                    Keahlian khusus, serta memiliki Quality Assurance,
-                    dimana semua jawaban terhadap pertanyaan akan
-                    dibedah dengan secara seksama berdasarkan peraturan 
-                    perundang undangan.</p>
+                <p class="section-content-paragraph text-justify">Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna. </p>
 
             </div>
             <div class="col-md-6">
@@ -108,7 +104,7 @@
     <div class="container section-three-content">
         <div class="row justify-content-center">
             <div class="col-md-5">
-                <div class="section-three-content-image">
+                <div class="section-three-content-image mt-5">
                     <div class="overlay">
                         <div class="items"></div>
                         <div class="items head">
@@ -127,18 +123,23 @@
                 </div>
             </div>
             <div class="col-md-7">
-                <p class="section-content-paragraph">Halo Pengadaan ini di kembangkan Oleh LPKN Training
+                <p class="section-content-paragraph text-justify">
+                    Halo Pengadaan ini di kembangkan Oleh LPKN Training
                     Center yang merupakan LPP dari LKPP, sebagai wujud
                     pengembangan dan Inovasi pada Bidang Pengadaan
                     Barang/Jasa sekaligus membangun ekosistempenga
-                    dan dengan melibatkan berbagai stakeholder yang ada.
+                    dan dengan melibatkan berbagai stakeholder yang ada. </p>
+                    <p class="section-content-paragraph text-justify">
                     Untuk mendapatkan layanan ini, membutuhkan
                     keanggotaan (membership) bulanan, konsultasi bagi
-                    member dilakukan secara Online (via WA). Jika
-                    membutuhkan layanan khusus lainnya berupa Diskusi
+                    member dilakukan secara Online (via WA).
+                    </p>
+                    <p class="section-content-paragraph text-justify">
+                    Jika membutuhkan layanan khusus lainnya berupa Diskusi
                     Online Via ZOOM dan juga Jawaban tertulis, dapat
                     dilakukan dengan sebelumnya sudah terdaftar sebagai
-                    Member.</p>
+                    Member.
+                    </p>
             </div>
         </div>
     </div>
