@@ -21,15 +21,15 @@
                     </div>
                 </div> --}}
 
-                <h1 class="font-weight-bold">Halo Pengadaan</h1>
-                <p>Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna. Melibatkan  Banyak Pakar dengan berbagai
+                <h1 class="font-weight-bold section-one-content-header">Halo Pengadaan</h1>
+                <p class="section-one-content-paragraph">Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna. Melibatkan  Banyak Pakar dengan berbagai
                     Keahlian khusus, serta memiliki Quality Assurance,
                     dimana semua jawaban terhadap pertanyaan akan
                     dibedah dengan secara seksama berdasarkan peraturan 
                     perundang undangan.</p>
 
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 p-2">
                 <div class="section-one-content-image">
                     <div class="overlay">
                         <div class="items"></div>
@@ -61,39 +61,39 @@
                     </div>
                 </div>
                 <div class="row mb-3 justify-content-center">
-                    <div class="col-xs-2 text-center div-lienar-bg">
+                    <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             Pemerintah Pusat
                         </button>
                     </div>
-                    <div class="col-xs-2 text-center div-lienar-bg">
+                    <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             Pemerintah Daerah
                         </button>
                     </div>
-                    <div class="col-xs-2 text-center div-lienar-bg">
+                    <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             BUMN
                         </button>
                     </div>
-                    <div class="col-xs-2 text-center div-lienar-bg">
+                    <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             BUMD
                         </button>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-xs-3 text-center div-lienar-bg">
+                    <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             BLU
                         </button>
                     </div>
-                    <div class="col-xs-3 text-center div-lienar-bg">
+                    <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             BLUD
                         </button>
                     </div>
-                    <div class="col-xs-3 text-center div-lienar-bg">
+                    <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             Penyedia
                         </button>
