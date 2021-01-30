@@ -10136,7 +10136,7 @@ h3 {
   border: none;
   height: 10vh;
   width: 200px;
-  background-image: linear-gradient(to right, red, yellow);
+  background-image: linear-gradient(to right, #F3F9A7, #CAC531);
   color: #000;
 }
 
