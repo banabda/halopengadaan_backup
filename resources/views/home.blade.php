@@ -57,7 +57,7 @@
             <div class="col-md-12">
                 <div class="row mb-5">
                     <div class="col-md-12">
-                        <h1 class="text-center">Untuk Siapa Layanan Ini?</h1>
+                        <h1 class="text-center section-content-header">Untuk Siapa Layanan Ini?</h1>
                     </div>
                 </div>
                 <div class="row mb-3 justify-content-center">
@@ -139,6 +139,17 @@
                     Online Via ZOOM dan juga Jawaban tertulis, dapat
                     dilakukan dengan sebelumnya sudah terdaftar sebagai
                     Member.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-four">
+    <div class="container section-four-content">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center section-content-header">
+                    Jenis Layanan
+                </h1>
             </div>
         </div>
     </div>
