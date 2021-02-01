@@ -10030,8 +10030,8 @@ h3 {
 }
 
 .items {
-  padding-left: 20px;
-  letter-spacing: 3px;
+  padding: 0 20px;
+  letter-spacing: 2px;
 }
 
 .head {
@@ -10079,11 +10079,17 @@ h3 {
   margin-left: 10px;
 }
 
+.section-four {
+  height: 100vh;
+}
+.section-four-content {
+  padding-top: 10vh;
+}
+
 .section-three {
   background-repeat: no-repeat;
-  background-size: 50%;
+  background-size: 40%;
   background-position-y: -10vh;
-  background-position-x: -10vw;
   height: 100vh;
 }
 .section-three-content {
@@ -10185,6 +10191,12 @@ h3 {
 }
 
 @media (max-width: 575.98px) {
+  .head {
+    font-size: 0.7rem;
+    letter-spacing: 0;
+    line-height: 3vh;
+  }
+
   .section-content-paragraph {
     font-size: 1rem;
   }
@@ -10202,9 +10214,12 @@ h3 {
   .section-one-content-image {
     margin-top: 10vh;
     width: 50vw;
-    height: 40vh;
+    height: 30vh;
   }
 
+  .section-two-content {
+    padding-top: 15vh;
+  }
   .section-two-content .linear-bg {
     height: 5vh;
     margin-bottom: 10px;

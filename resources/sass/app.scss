@@ -37,14 +37,13 @@
   
   
 .items {
-  padding-left: 20px;
-  letter-spacing: 3px;
+  padding: 0 20px;
+  letter-spacing: 2px;
 }
   
 .head {
   font-size: 1rem;
   line-height: 40px;
-  
   transform: translateY(40px);
   transition: all 0.7s;
   hr {
@@ -88,12 +87,20 @@
     margin-left: 10px;
   }
 }
+
+.section-four{
+  height: 100vh;
+  &-content{
+    padding-top: 10vh;
+  }
+}
+
 .section-three{
     background-repeat: no-repeat;
     
-    background-size: 50%;
+    background-size: 40%;
     background-position-y: -10vh;
-    background-position-x: -10vw;
+    // background-position-x: 10vw;
     height: 100vh;
 
     &-content{
@@ -212,6 +219,11 @@
   
 }
 @include media-breakpoint-down(xs) {
+  .head {
+    font-size: 0.7rem;
+    letter-spacing: 0;
+    line-height: 3vh;
+  }
   .section-content-paragraph{
     font-size: 1rem;
   }
@@ -225,12 +237,13 @@
       &-image{
         margin-top: 10vh;
         width: 50vw;
-        height: 40vh;
+        height: 30vh;
       }
     }
   }
   .section-two{
     &-content{
+      padding-top: 15vh;
       .linear-bg{
         height: 5vh;
         margin-bottom: 10px ;

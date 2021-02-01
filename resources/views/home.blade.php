@@ -148,9 +148,41 @@
     <div class="container section-four-content">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center section-content-header">
+                <h1 class="text-center section-content-header mb-3">
                     Jenis Layanan
                 </h1>
+                <div class="row justify-content-center mb-3">
+                    <div class="col-md-3">
+                        <img class="mx-auto" src="{{ asset('images/ahli.png')}}" style="display: block"  width="60%" alt="ahli">
+                        <p class="text-center section-content-paragraph">Ditangani oleh para ahli dan berpengalaman</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="{{ asset('images/sumber.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                        <p class="text-center section-content-paragraph">Sumber jawaban dikelola oleh tim</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="{{ asset('images/online.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                        <p class="text-center section-content-paragraph">Online (pertanyaan via Whatsapp)</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="{{ asset('images/waktu.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                        <p class="text-center section-content-paragraph">Hemat waktu</p>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-3">
+                        <img src="{{ asset('images/biaya.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                        <p class="text-center section-content-paragraph">Hemat biaya</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="{{ asset('images/respon.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                        <p class="text-center section-content-paragraph">Respon yang cepat</p>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="{{ asset('images/identitas.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                        <p class="text-center section-content-paragraph">Identitas terjaga</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
