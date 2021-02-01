@@ -149,7 +149,7 @@
         <div class="row">
             <div class="col-md-12">
                 <h1 class="text-center section-content-header mb-3">
-                    Jenis Layanan
+                    Kelebihan Layanan
                 </h1>
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-3">
@@ -183,6 +183,17 @@
                         <p class="text-center section-content-paragraph">Identitas terjaga</p>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section-five">
+    <div class="container section-five-content">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center section-content-header mb-3">
+                    Jenis Layanan
+                </h1>
             </div>
         </div>
     </div>
