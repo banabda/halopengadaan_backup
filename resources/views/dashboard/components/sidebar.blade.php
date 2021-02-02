@@ -8,8 +8,8 @@
 				 <a href="index.html">
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">
-						  <img src="{{ asset('dashboard/') }}images/logo-dark.png" alt="">
-						  <h3><b>Sunny</b> Admin</h3>
+						  <img src="{{ asset('images/lpkn-logo.png') }}" alt="">
+						  {{-- <h3><b>Sunny</b> Admin</h3> --}}
 					 </div>
 				</a>
 			</div>
@@ -294,8 +294,10 @@
         </li>
 
 		<li>
-          <a href="auth_login.html">
-            <i data-feather="lock"></i>
+          <a href="{{ route('logout') }}"
+          onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+            <i data-feather="alert-triangle"></i>
 			<span>Log Out</span>
           </a>
         </li>
@@ -312,3 +314,4 @@
 		<a href="javascript:void(0)" class="link" data-toggle="tooltip" title="" data-original-title="Logout"><i class="ti-lock"></i></a>
 	</div>
 </aside>
+@include('auth.logout')
