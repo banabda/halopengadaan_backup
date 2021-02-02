@@ -17,6 +17,7 @@
 
 .section-content-paragraph{
   font-size: 1.3rem;
+  word-wrap: break-word;
 }
 
 .overlay {
@@ -249,11 +250,14 @@
     font-size: 2rem;
   }
   .section-one{
-    background-size: 200%;
+    background-size: 175%;
     &-content{
+      p{
+        margin-top: 2vh;
+      }
       margin-top: 4vh;
       &-image{
-        margin-top: 10vh;
+        margin-top: 30vh;
         width: 50vw;
         height: 30vh;
       }
@@ -269,6 +273,50 @@
     }
   }
   .section-three{
-    background-position-y: 0;
+    background-position-y: -20px;
+    background-size: 150%;
+    &-content{
+      height: 100vh;
+      padding-top: 0;
+      .divprapgraph{
+        font-weight: bold;
+      }
+      .divimage{
+        height: 40vh;
+      }
+      &-image{
+      margin-top: 0;
+      width: 50vw;
+      height: 30vh;
+      }
+    }
+  }
+  .section-four{
+    &-content{
+      padding-top: 0;
+      .kelebihanimg{
+        width: 60%;
+        margin-bottom: 1vh;
+      }
+      .divkelebihan{
+        width: 45vw;
+      }
+    }
+  }
+  .section-five{
+    &-content{
+      .linear-bg{
+        // height: 40vh;
+        // width: 300px;
+        margin-bottom: 5vh;
+      }
+      .imagemember{
+        height: 15vh;
+      }
+      .linear-bg.big{
+        height: 50vh;
+        width: 300px;
+      }
+    }
   }
 }

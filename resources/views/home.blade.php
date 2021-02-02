@@ -56,7 +56,7 @@
                         <h1 class="text-center section-content-header">Untuk Siapa Layanan Ini?</h1>
                     </div>
                 </div>
-                <div class="row mb-3 justify-content-center">
+                <div class="row mb-md-3 justify-content-center">
                     <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             Pemerintah Pusat
@@ -103,7 +103,7 @@
 <div class="section-three" style="background-image: url('{{ asset('images/background-sec3.png') }}');">
     <div class="container section-three-content">
         <div class="row justify-content-center">
-            <div class="col-md-5">
+            <div class="col-md-5 divimage">
                 <div class="section-three-content-image mt-5">
                     <div class="overlay">
                         <div class="items"></div>
@@ -122,7 +122,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 divprapgraph">
                 <p class="section-content-paragraph text-justify">
                     Halo Pengadaan ini di kembangkan Oleh LPKN Training
                     Center yang merupakan LPP dari LKPP, sebagai wujud
@@ -134,12 +134,12 @@
                     keanggotaan (membership) bulanan, konsultasi bagi
                     member dilakukan secara Online (via WA).
                     </p>
-                    <p class="section-content-paragraph text-justify">
+                    {{-- <p class="section-content-paragraph text-justify">
                     Jika membutuhkan layanan khusus lainnya berupa Diskusi
                     Online Via ZOOM dan juga Jawaban tertulis, dapat
                     dilakukan dengan sebelumnya sudah terdaftar sebagai
                     Member.
-                    </p>
+                    </p> --}}
             </div>
         </div>
     </div>
@@ -148,38 +148,38 @@
     <div class="container section-four-content">
         <div class="row">
             <div class="col-md-12">
-                <h1 class="text-center section-content-header mb-3">
+                <h1 class="text-center section-content-header mb-5">
                     Kelebihan Layanan
                 </h1>
                 <div class="row justify-content-center mb-3">
-                    <div class="col-md-3">
-                        <img class="mx-auto" src="{{ asset('images/ahli.png')}}" style="display: block"  width="60%" alt="ahli">
+                    <div class="col-md-3 col-xs-6 divkelebihan">
+                        <img class="mx-auto kelebihanimg" src="{{ asset('images/ahli.png')}}" style="display: block"  width="60%" alt="ahli">
                         <p class="text-center section-content-paragraph">Ditangani oleh para ahli dan berpengalaman</p>
                     </div>
-                    <div class="col-md-3">
-                        <img src="{{ asset('images/sumber.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                    <div class="col-md-3 col-xs-6 divkelebihan">
+                        <img src="{{ asset('images/sumber.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Sumber jawaban dikelola oleh tim</p>
                     </div>
-                    <div class="col-md-3">
-                        <img src="{{ asset('images/online.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                    <div class="col-md-3 col-xs-6 divkelebihan">
+                        <img src="{{ asset('images/online.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Online (pertanyaan via Whatsapp)</p>
                     </div>
-                    <div class="col-md-3">
-                        <img src="{{ asset('images/waktu.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                    <div class="col-md-3 col-xs-6 divkelebihan">
+                        <img src="{{ asset('images/waktu.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Hemat waktu</p>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-md-3">
-                        <img src="{{ asset('images/biaya.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                    <div class="col-md-3 col-xs-6 divkelebihan">
+                        <img src="{{ asset('images/biaya.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Hemat biaya</p>
                     </div>
-                    <div class="col-md-3">
-                        <img src="{{ asset('images/respon.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                    <div class="col-md-3 col-xs-6 divkelebihan">
+                        <img src="{{ asset('images/respon.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Respon yang cepat</p>
                     </div>
-                    <div class="col-md-3">
-                        <img src="{{ asset('images/identitas.png')}}"  style="display: block"  width="60%" class="mx-auto" alt="ahli">
+                    <div class="col-md-3 col-xs-6 divkelebihan">
+                        <img src="{{ asset('images/identitas.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Identitas terjaga</p>
                     </div>
                 </div>
@@ -194,7 +194,7 @@
                 <h1 class="text-center section-content-header mb-5">
                     Jenis Layanan
                 </h1>
-                <div class="row justify-content-center mb-4">
+                <div class="row justify-content-center mb-md-4">
                     <div class="col-md-4 col-jenis text-center">
                         <div class="row linear-bg mx-auto py-4 px-3">
                             <div class="w-100"></div>
@@ -238,7 +238,22 @@
                         </div>
                     </div>
                     <div class="col-md-8 col-jenis text-left">
-                        <div class="linear-bg big mx-auto py-4 px-5 d-flex align-items-center" style="display: block">
+                        <div class="row linear-bg big mx-auto d-md-flex py-4 px-3">
+                            <div class="col align-self-center mt-2 text-center">
+                                <img class="imagemember" src="{{ asset('images/membership.png')}}" alt="" height="180vh">
+                            </div>
+                            <div class="col text-left align-self-center">
+                                <h4 class="font-weight-bold">Fasilitas membership</h4>
+                                <p>• Layanan Konsultasi Online 
+                                    <br>• Voucer Pelatihan senilai Rp. 250.000,-
+                                    <br>• Akses Khusus Berbagai Video Pembelajaran terkait Pengadaan
+                                </p>
+                            </div>
+                            {{-- <div style="width: 10%"></div> --}}
+                        </div>
+                    </div>
+                    {{-- <div class="col-md-8 col-jenis text-left">
+                        <div class="linear-bg big mx-auto py-4 px-5 d-md-flex align-items-center" style="display: block">
                             <img src="{{ asset('images/membership.png')}}" alt="" width="25%">
                             <div class="ml-4">
                                 <h4 class="font-weight-bold">Fasilitas membership</h4>
@@ -247,7 +262,7 @@
                                     <br>• Akses Khusus Berbagai Video Pembelajaran terkait Pengadaan</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

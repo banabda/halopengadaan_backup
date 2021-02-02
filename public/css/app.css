@@ -10014,6 +10014,7 @@ h3 {
 
 .section-content-paragraph {
   font-size: 1.3rem;
+  word-wrap: break-word;
 }
 
 .overlay {
@@ -10224,13 +10225,16 @@ h3 {
   }
 
   .section-one {
-    background-size: 200%;
+    background-size: 175%;
   }
   .section-one-content {
     margin-top: 4vh;
   }
+  .section-one-content p {
+    margin-top: 2vh;
+  }
   .section-one-content-image {
-    margin-top: 10vh;
+    margin-top: 30vh;
     width: 50vw;
     height: 30vh;
   }
@@ -10244,6 +10248,44 @@ h3 {
   }
 
   .section-three {
-    background-position-y: 0;
+    background-position-y: -20px;
+    background-size: 150%;
+  }
+  .section-three-content {
+    height: 100vh;
+    padding-top: 0;
+  }
+  .section-three-content .divprapgraph {
+    font-weight: bold;
+  }
+  .section-three-content .divimage {
+    height: 40vh;
+  }
+  .section-three-content-image {
+    margin-top: 0;
+    width: 50vw;
+    height: 30vh;
+  }
+
+  .section-four-content {
+    padding-top: 0;
+  }
+  .section-four-content .kelebihanimg {
+    width: 60%;
+    margin-bottom: 1vh;
+  }
+  .section-four-content .divkelebihan {
+    width: 45vw;
+  }
+
+  .section-five-content .linear-bg {
+    margin-bottom: 5vh;
+  }
+  .section-five-content .imagemember {
+    height: 15vh;
+  }
+  .section-five-content .linear-bg.big {
+    height: 50vh;
+    width: 300px;
   }
 }
