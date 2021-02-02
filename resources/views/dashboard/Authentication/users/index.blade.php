@@ -8,13 +8,13 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-                  <h3 class="page-title">Data Tables</h3>
+                  <h3 class="page-title">Data Users</h3>
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                              <li class="breadcrumb-item" aria-current="page">Tables</li>
-                              <li class="breadcrumb-item active" aria-current="page">Data Tables</li>
+                              <li class="breadcrumb-item" aria-current="page">Auth</li>
+                              <li class="breadcrumb-item active" aria-current="page">Data Users</li>
                           </ol>
                       </nav>
                   </div>
@@ -29,7 +29,8 @@
 
            <div class="box">
               <div class="box-header with-border">
-                <h3 class="box-title">Data Table With Full Features</h3>
+                {{-- <h3 class="box-title">Data Table With Full Features</h3> --}}
+                <a href="{{ route('user.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5">New User</button></a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -76,7 +77,7 @@
               serverSide: true,
               ajax: "{{ route('user.index') }}",
               columns: [
-                {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false, className : "text-center"},
+                {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
                 // {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},

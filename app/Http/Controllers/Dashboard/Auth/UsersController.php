@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Yajra\DataTables\Facades\DataTables;
 
 class UsersController extends Controller
@@ -34,7 +35,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.Authentication.users.create');
     }
 
     /**
@@ -45,7 +46,19 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $data = $request->all();
+        $data['password'] = Hash::make($data['password']);
+
+        $user = User::create($data);
+        return redirect()->route('user.index')->with('success', 'User Created Successfully');
+
+        dd($data);
     }
 
     /**

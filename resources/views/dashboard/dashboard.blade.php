@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="{{ asset('dashboard/images/favicon.ico') }}">
 
     <title>{{ config('app.name') }}</title>
@@ -22,7 +23,7 @@
     <!-- Data Tables -->
     {{-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css"> --}}
 
-    <script src="{{ asset('dashboard/main/js/pages/data-table.js') }}"></script>
+
   </head>
 
 <body class="hold-transition light-skin sidebar-mini theme-primary fixed">
@@ -309,13 +310,14 @@
 	<script src="{{ asset('dashboard/main/js/vendors.min.js') }}"></script>
     <script src="{{ asset('dashboard/assets/icons/feather-icons/feather.min.js') }}"></script>
 	<script src="{{ asset('dashboard/assets/vendor_components/easypiechart/dist/jquery.easypiechart.js') }}"></script>
-	<script src="{{ asset('dashboard/assets/vendor_components/apexcharts-bundle/irregular-data-series.js') }}"></script>
-    <script src="{{ asset('dashboard/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
+	{{-- <script src="{{ asset('dashboard/assets/vendor_components/apexcharts-bundle/irregular-data-series.js') }}"></script>
+    <script src="{{ asset('dashboard/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script> --}}
+    {{-- <script src="{{ asset('dashboard/main/js/pages/data-table.js') }}"></script> --}}
 
-	<!-- Sunny Admin App -->
+    <!-- Sunny Admin App -->
 	<script src="{{ asset('dashboard/main/js/template.js') }}"></script>
 	<script src="{{ asset('dashboard/main/js/pages/dashboard.js') }}"></script>
-
+    {{-- <script src="{{ asset('dashboard/main/js/pages/data-table.js') }}"></script> --}}
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
 </body>
