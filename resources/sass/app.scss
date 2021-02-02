@@ -17,6 +17,7 @@
 
 .section-content-paragraph{
   font-size: 1.3rem;
+  word-wrap: break-word;
 }
 
 .overlay {
@@ -269,6 +270,34 @@
     }
   }
   .section-three{
-    background-position-y: 0;
+    background-position-y: -20px;
+    background-size: 150%;
+    &-content{
+      height: 100vh;
+      padding-top: 0;
+      .divprapgraph{
+        font-weight: bold;
+      }
+      .divimage{
+        height: 40vh;
+      }
+      &-image{
+      margin-top: 0;
+      width: 50vw;
+      height: 30vh;
+      }
+    }
+  }
+  .section-four{
+    &-content{
+      padding-top: 0;
+      .kelebihanimg{
+        width: 60%;
+        margin-bottom: 1vh;
+      }
+      .divkelebihan{
+        width: 45vw;
+      }
+    }
   }
 }
