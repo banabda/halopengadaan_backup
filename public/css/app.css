@@ -10274,4 +10274,15 @@ h3 {
   .section-four-content .divkelebihan {
     width: 45vw;
   }
+
+  .section-five-content .linear-bg {
+    margin-bottom: 5vh;
+  }
+  .section-five-content .imagemember {
+    height: 15vh;
+  }
+  .section-five-content .linear-bg.big {
+    height: 50vh;
+    width: 300px;
+  }
 }

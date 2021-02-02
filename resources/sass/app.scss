@@ -300,4 +300,20 @@
       }
     }
   }
+  .section-five{
+    &-content{
+      .linear-bg{
+        // height: 40vh;
+        // width: 300px;
+        margin-bottom: 5vh;
+      }
+      .imagemember{
+        height: 15vh;
+      }
+      .linear-bg.big{
+        height: 50vh;
+        width: 300px;
+      }
+    }
+  }
 }

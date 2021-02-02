@@ -56,7 +56,7 @@
                         <h1 class="text-center section-content-header">Untuk Siapa Layanan Ini?</h1>
                     </div>
                 </div>
-                <div class="row mb-3 justify-content-center">
+                <div class="row mb-md-3 justify-content-center">
                     <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg" disabled>
                             Pemerintah Pusat
@@ -194,7 +194,7 @@
                 <h1 class="text-center section-content-header mb-5">
                     Jenis Layanan
                 </h1>
-                <div class="row justify-content-center mb-4">
+                <div class="row justify-content-center mb-md-4">
                     <div class="col-md-4 col-jenis text-center">
                         <div class="row linear-bg mx-auto py-4 px-3">
                             <div class="w-100"></div>
@@ -238,7 +238,22 @@
                         </div>
                     </div>
                     <div class="col-md-8 col-jenis text-left">
-                        <div class="linear-bg big mx-auto py-4 px-5 d-flex align-items-center" style="display: block">
+                        <div class="row linear-bg big mx-auto d-md-flex py-4 px-3">
+                            <div class="col align-self-center mt-2 text-center">
+                                <img class="imagemember" src="{{ asset('images/membership.png')}}" alt="" height="180vh">
+                            </div>
+                            <div class="col text-left align-self-center">
+                                <h4 class="font-weight-bold">Fasilitas membership</h4>
+                                <p>• Layanan Konsultasi Online 
+                                    <br>• Voucer Pelatihan senilai Rp. 250.000,-
+                                    <br>• Akses Khusus Berbagai Video Pembelajaran terkait Pengadaan
+                                </p>
+                            </div>
+                            {{-- <div style="width: 10%"></div> --}}
+                        </div>
+                    </div>
+                    {{-- <div class="col-md-8 col-jenis text-left">
+                        <div class="linear-bg big mx-auto py-4 px-5 d-md-flex align-items-center" style="display: block">
                             <img src="{{ asset('images/membership.png')}}" alt="" width="25%">
                             <div class="ml-4">
                                 <h4 class="font-weight-bold">Fasilitas membership</h4>
@@ -247,7 +262,7 @@
                                     <br>• Akses Khusus Berbagai Video Pembelajaran terkait Pengadaan</p>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
