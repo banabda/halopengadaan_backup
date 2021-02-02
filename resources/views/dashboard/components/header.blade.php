@@ -20,11 +20,11 @@
       <div class="navbar-custom-menu r-side">
         <ul class="nav navbar-nav">
 		  <!-- full Screen -->
-	      <li class="search-bar">
+	      {{-- <li class="search-bar">
 			  <div class="lookup lookup-circle lookup-right">
 			     <input type="text" name="s">
 			  </div>
-		  </li>
+		  </li> --}}
 		  <!-- Notifications -->
 		  <li class="dropdown notifications-menu">
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle" data-toggle="dropdown" title="Notifications">
@@ -45,7 +45,7 @@
 				</div>
 			  </li>
 
-			  <li>
+			  {{-- <li>
 				<!-- inner menu: contains the actual data -->
 				<ul class="menu sm-scrol">
 				  <li>
@@ -87,14 +87,14 @@
 			  </li>
 			  <li class="footer">
 				  <a href="#">View all</a>
-			  </li>
+			  </li> --}}
 			</ul>
 		  </li>
 
 	      <!-- User Account-->
           <li class="dropdown user user-menu">
 			<a href="#" class="waves-effect waves-light rounded dropdown-toggle p-0" data-toggle="dropdown" title="User">
-				<img src="{{ asset('dashboard/') }}images/avatar/1.jpg" alt="">
+				<img src="https://avatars.dicebear.com/4.5/api/initials/{{ Auth::user()->name }}.svg" alt="">
 			</a>
 			<ul class="dropdown-menu animated flipInX">
 			  <li class="user-body">

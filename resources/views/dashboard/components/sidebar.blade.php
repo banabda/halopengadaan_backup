@@ -19,27 +19,20 @@
       <ul class="sidebar-menu" data-widget="tree">
 
 		<li>
-          <a href="index.html">
+          <a href="{{ route('dashboard.index') }}">
             <i data-feather="pie-chart"></i>
 			<span>Dashboard</span>
           </a>
         </li>
 
-        <li class="treeview">
+        <li>
           <a href="#">
             <i data-feather="message-circle"></i>
-            <span>Application</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
+            <span>Data Pendaftar</span>
           </a>
-          <ul class="treeview-menu">
-            <li><a href="chat.html"><i class="ti-more"></i>Chat</a></li>
-            <li><a href="calendar.html"><i class="ti-more"></i>Calendar</a></li>
-          </ul>
         </li>
 
-        <li class="treeview">
+        {{-- <li class="treeview">
           <a href="#">
             <i data-feather="mail"></i> <span>Mailbox</span>
             <span class="pull-right-container">
@@ -68,7 +61,7 @@
             <li><a href="faq.html"><i class="ti-more"></i>FAQs</a></li>
             <li><a href="timeline.html"><i class="ti-more"></i>Timeline</a></li>
           </ul>
-        </li>
+        </li> --}}
 
         <li class="header nav-small-cap">Keamanan</li>
         <li class="treeview">
