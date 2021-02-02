@@ -10225,13 +10225,16 @@ h3 {
   }
 
   .section-one {
-    background-size: 200%;
+    background-size: 175%;
   }
   .section-one-content {
     margin-top: 4vh;
   }
+  .section-one-content p {
+    margin-top: 2vh;
+  }
   .section-one-content-image {
-    margin-top: 10vh;
+    margin-top: 30vh;
     width: 50vw;
     height: 30vh;
   }
