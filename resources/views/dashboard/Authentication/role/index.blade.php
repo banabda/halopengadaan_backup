@@ -35,7 +35,7 @@
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
-                    <table id="tableUser" class="table table-bordered table-striped">
+                    <table id="tableRole" class="table table-bordered table-striped">
                       <thead>
                           <tr>
                               <th>No</th>
@@ -74,7 +74,7 @@
 <script>
     var table;
       $(function() {
-          table = $('#tableUser').DataTable({
+          table = $('#tableRole').DataTable({
               processing: true,
               serverSide: true,
               ajax: "{{ route('role.index') }}",

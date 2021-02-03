@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Dashboard\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Yajra\DataTables\Facades\DataTables;
 
-class RoleController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,11 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $data = Role::all();
+        $data = Permission::all();
         if (request()->ajax()) {
             return DataTables()->of($data)
             ->addColumn('action', function($row){
-                $btn = '<a class="btn btn-md btn-info mr-2" href="'. route("role.edit", $row->id) .'">
+                $btn = '<a class="btn btn-md btn-info mr-2" href="'. route("user.edit", $row->id) .'">
                 <i class="fa fa-edit"></i> Edit </a>';
                 $btn .= '<a class="btn btn-md btn-info delete-confirm" id="'. $row->id .'" href="javascript:void(0)">
                 <i class="fa fa-trash"></i> Hapus </a>';
@@ -31,7 +31,7 @@ class RoleController extends Controller
             ->addIndexColumn()
             ->make(true);
         }
-        return view('dashboard.Authentication.role.index');
+        return view('dashboard.Authentication.permissions.index');
     }
 
     /**
@@ -41,7 +41,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('dashboard.Authentication.role.create');
+        return view('dashboard.Authentication.permissions.create');
     }
 
     /**
@@ -52,15 +52,9 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'name' => 'required',
-            'guard_name' => 'required'
-        ]);
-
         $data = $request->all();
-        $role = Role::firstOrCreate($data);
-
-        return redirect()->route('role.index')->with('success', 'Role Created Successfully');
+        $permission = Permission::create($data);
+        return redirect()->route('permission.index')->with('success', 'Permission Created Successfully');
     }
 
     /**
@@ -82,8 +76,8 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $data = Role::find($id);
-        return view('dashboard.Authentication.role.edit', compact('data'));
+        $data = Permission::find($id);
+        return view('dashboard.Authentication.permissions.edit');
     }
 
     /**
@@ -96,10 +90,9 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->all();
-        $role = Role::find($id);
-        $role->update($data);
-
-        return redirect()->route('role.index')->with('success', 'Role Edited Successfully');
+        $permission = Permission::find($id);
+        $permission->update($data);
+        return redirect()->route('permission.index')->with('success','Permission Edited Successfully');
     }
 
     /**
@@ -110,12 +103,10 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $role = Role::find($id);
-        $role->delete();
-
+        $permission = Permission::find($id);
+        $permission->delete();
         return response()->json([
-            'status'    => "ok",
-            'route' => route('role.index')
-        ], 200);
+            'status' => 'ok'
+        ]);
     }
 }

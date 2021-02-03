@@ -30,4 +30,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function()
 
     // Role
     Route::resource('role', 'Dashboard\Auth\RoleController');
+
+    // Permission
+    Route::resource('permission', 'Dashboard\Auth\PermissionController');
 });

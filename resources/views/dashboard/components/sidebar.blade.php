@@ -73,8 +73,8 @@
               </span>
             </a>
             <ul class="treeview-menu">
-              <li><a href="components_alerts.html"><i class="ti-more"></i>Users</a></li>
-              <li><a href="components_badges.html"><i class="ti-more"></i>Role</a></li>
+              <li><a href="{{ route('user.index') }}"><i class="ti-more"></i>Users</a></li>
+              <li><a href="{{ route('role.index') }}"><i class="ti-more"></i>Roles</a></li>
               <li><a href="components_buttons.html"><i class="ti-more"></i>Permissions</a></li>
             </ul>
         </li>
