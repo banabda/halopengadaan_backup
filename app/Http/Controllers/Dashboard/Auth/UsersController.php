@@ -18,8 +18,6 @@ class UsersController extends Controller
     public function index()
     {
         $data = User::all();
-        // dd($data);
-
         if (request()->ajax()) {
             return DataTables()->of($data)
             ->addIndexColumn()
@@ -58,7 +56,6 @@ class UsersController extends Controller
         $user = User::create($data);
         return redirect()->route('user.index')->with('success', 'User Created Successfully');
 
-        dd($data);
     }
 
     /**

@@ -27,4 +27,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth']], function()
 
     // Users
     Route::resource('user', 'Dashboard\Auth\UsersController');
+
+    // Role
+    Route::resource('role', 'Dashboard\Auth\RoleController');
 });

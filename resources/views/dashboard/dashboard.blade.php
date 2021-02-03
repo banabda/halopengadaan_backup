@@ -319,6 +319,10 @@
 	<script src="{{ asset('dashboard/main/js/pages/dashboard.js') }}"></script>
     {{-- <script src="{{ asset('dashboard/main/js/pages/data-table.js') }}"></script> --}}
 
+    <!-- CDN DataTables -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+
+    <!-- CDN Sweet Alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </body>
 </html>
