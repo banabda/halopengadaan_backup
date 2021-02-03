@@ -20,14 +20,9 @@ class RoleController extends Controller
             return DataTables()->of($data)
             ->addColumn('action', function($row){
                 $btn = '<a class="btn btn-md btn-info mr-2" href="'. route("role.edit", $row->id) .'">
-                <i class="fa fa-edit"></i> Edit
-              </a>';
+                <i class="fa fa-edit"></i> Edit </a>';
                 $btn .= '<a class="btn btn-md btn-info delete-confirm" id="'. $row->id .'" href="javascript:void(0)">
-                <i class="fa fa-trash"></i> Hapus
-              </a>';
-                // $btn .= '<a href="'.route("article.edit",$row->id).'" class="edit btn btn-primary btn-sm" title="Edit"><i class="fas fa-pencil-alt"></i></a>';
-                // $btn .= '<a type="button" href="javascript:0;" id="'.$row->id.'" class="btn btn-danger btn-sm delete-confirm" title="Hapus"><i class="fa fa-trash"></i></a>';
-                // $btn .='</div>';
+                <i class="fa fa-trash"></i> Hapus </a>';
 
                 return $btn;
             })

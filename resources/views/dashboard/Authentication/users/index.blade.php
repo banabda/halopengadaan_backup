@@ -41,6 +41,8 @@
                               <th>No</th>
                               <th>Name</th>
                               <th>Email</th>
+                              {{-- <th>Role</th> --}}
+                              <th>Action</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -51,6 +53,8 @@
                               <th>No</th>
                               <th>Name</th>
                               <th>Email</th>
+                              {{-- <th>Role</th> --}}
+                              <th>Action</th>
                           </tr>
                       </tfoot>
                     </table>
@@ -80,7 +84,7 @@
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
-                // {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
+                {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
               ]
           });
           table.on( 'order.dt search.dt', function () {
@@ -89,5 +93,44 @@
             } );
         } ).draw();
       });
+</script>
+<script>
+    $(document).on('click', '.delete-confirm', function(){
+        var id_role = $(this).attr("id");
+        // console.log(id_role);
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        event.preventDefault();
+        Swal.fire({
+            title: "Apakah Anda Yakin Ingin Menghapus Ini?",
+            // type: "info",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: "Delete",
+            confirmButtonColor: "#ff0055",
+            cancelButtonColor: "#999999",
+            reverseButtons: true,
+            focusConfirm: false,
+            focusCancel: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type:'DELETE',
+                    url: "{{url('admin/user')}}/" + id_role,
+                    success:function(data)
+                    {
+                        if(data.status == "ok"){
+                            table.draw(false);
+                        }
+                    },
+                    error: function(data){
+                    }
+                });
+            }
+        })
+    });
 </script>
 @endsection

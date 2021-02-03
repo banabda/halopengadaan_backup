@@ -20,6 +20,15 @@ class UsersController extends Controller
         $data = User::all();
         if (request()->ajax()) {
             return DataTables()->of($data)
+            ->addColumn('action', function($row){
+                $btn = '<a class="btn btn-md btn-info mr-2" href="'. route("user.edit", $row->id) .'">
+                <i class="fa fa-edit"></i> Edit </a>';
+                $btn .= '<a class="btn btn-md btn-info delete-confirm" id="'. $row->id .'" href="javascript:void(0)">
+                <i class="fa fa-trash"></i> Hapus </a>';
+
+                return $btn;
+            })
+            ->rawColumns(['action'])
             ->addIndexColumn()
             ->make(true);
         }
@@ -77,7 +86,8 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::find($id);
+        return view('dashboard.Authentication.users.edit', compact('data'));
     }
 
     /**
@@ -89,7 +99,11 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->all();
+        $user = User::find($id);
+        $data['password'] = Hash::make($data['password']);
+        $user->update($data);
+        return redirect()->route('user.index')->with('success','User Edited Successfully');
     }
 
     /**
@@ -100,6 +114,11 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        $user->delete();
+        return response()->json([
+            'status'    => "ok",
+            'route' => route('role.index')
+        ], 200);
     }
 }
