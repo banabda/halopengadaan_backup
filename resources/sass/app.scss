@@ -125,8 +125,8 @@
     &-content{
       padding-top: 100px;
       &-image{
-        width: 20vw;
-        height: 40vh;
+        width: 250px;
+        height: 250px;
         
         position: absolute;
         top:0; right: 0; left: 0; bottom: 0;
@@ -175,7 +175,7 @@
         .linear-bg{
             border-radius: 25px;
             border: none;
-            height: 10vh;
+            height: 75px;
             width: 200px;
             background-image: linear-gradient(to right, #F3F9A7 ,#CAC531);
             color: #000;
@@ -191,8 +191,8 @@
     &-content{
         margin-top: 100px;
         &-image{
-            width: 30vw;
-            height: 60vh;
+            width: 350px;
+            height: 350px;
             
             position: absolute;
             top:0; right: 0; left: 0; bottom: 0;
