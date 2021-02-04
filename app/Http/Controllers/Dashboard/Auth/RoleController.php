@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -41,7 +42,8 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('dashboard.Authentication.role.create');
+        $permission = Permission::all();
+        return view('dashboard.Authentication.role.create', compact('permission'));
     }
 
     /**
@@ -58,7 +60,10 @@ class RoleController extends Controller
         ]);
 
         $data = $request->all();
-        $role = Role::firstOrCreate($data);
+        $role = Role::firstOrCreate([
+            'name' => $request->name
+        ]);
+        $role->syncPermissions($request->input('permission'));
 
         return redirect()->route('role.index')->with('success', 'Role Created Successfully');
     }
