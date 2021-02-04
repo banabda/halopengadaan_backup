@@ -30,7 +30,7 @@
            <div class="box">
               <div class="box-header with-border">
                 {{-- <h3 class="box-title">Data Table With Full Features</h3> --}}
-                <a href="{{ route('role.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5">New Permission</button></a>
+                <a href="{{ route('permission.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5">New Permission</button></a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -77,7 +77,7 @@
           table = $('#tablePermission').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{ route('role.index') }}",
+              ajax: "{{ route('permission.index') }}",
               columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
                 {data: 'name', name: 'name'},

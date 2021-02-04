@@ -7,13 +7,13 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-                  <h3 class="page-title">Create New Role</h3>
+                  <h3 class="page-title">Edit Role</h3>
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
                               <li class="breadcrumb-item" aria-current="page">Auth</li>
-                              <li class="breadcrumb-item active" aria-current="page">Create Role</li>
+                              <li class="breadcrumb-item active" aria-current="page">Edit Role</li>
                           </ol>
                       </nav>
                   </div>
@@ -27,7 +27,7 @@
           <div class="col-lg-12 col-12">
                 <div class="box">
                   <div class="box-header with-border">
-                    <h4 class="box-title">New Role</h4>
+                    <h4 class="box-title">Edit Role</h4>
                   </div>
                   <!-- /.box-header -->
                   <form class="form" id="editRole" action="{{ route('role.update', $data->id) }}">
