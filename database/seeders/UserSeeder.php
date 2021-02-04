@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Permission;
 
 class UserSeeder extends Seeder
 {
@@ -15,10 +16,27 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::create([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
+        $admin = User::firstOrCreate([
+            'name' => 'IT LPKN',
+            'email' => 'it@lpkn.id',
             'password' => Hash::make('123123')
         ]);
+
+        $narasumber = User::firstOrCreate([
+            'name' => 'Narasumber LPKN',
+            'email' => 'narasumber@lpkn.id',
+            'password' => Hash::make('123123')
+        ]);
+
+        $user = User::firstOrCreate([
+            'name' => 'Saulia Karina',
+            'email' => 'sauliakarina@lpkn.id',
+            'password' => Hash::make('123123')
+        ]);
+
+        $narasumber->assignRole('narasumber');
+        $user->assignRole('user');
+        $admin->assignRole('super admin')->givePermissionTo(Permission::all());
     }
+
 }

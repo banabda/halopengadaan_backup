@@ -118,7 +118,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type:'DELETE',
-                    url: "{{url('admin/role')}}/" + id_role,
+                    url: "{{url('admin/permission')}}/" + id_role,
                     success:function(data)
                     {
                         if(data.status == "ok"){
