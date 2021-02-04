@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Dashboard\Auth;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 use Yajra\DataTables\Facades\DataTables;
 
 class UsersController extends Controller
@@ -42,7 +44,8 @@ class UsersController extends Controller
      */
     public function create()
     {
-        return view('dashboard.Authentication.users.create');
+        $data = Role::all();
+        return view('dashboard.Authentication.users.create', compact('data'));
     }
 
     /**
@@ -63,6 +66,7 @@ class UsersController extends Controller
         $data['password'] = Hash::make($data['password']);
 
         $user = User::create($data);
+        $user->assignRole($request->input('role'));
         return redirect()->route('user.index')->with('success', 'User Created Successfully');
 
     }
@@ -87,7 +91,9 @@ class UsersController extends Controller
     public function edit($id)
     {
         $data = User::find($id);
-        return view('dashboard.Authentication.users.edit', compact('data'));
+        $role = Role::all();
+        $userRole = $data->roles->pluck('name','name')->first();
+        return view('dashboard.Authentication.users.edit', compact('data','role','userRole'));
     }
 
     /**
@@ -103,6 +109,9 @@ class UsersController extends Controller
         $user = User::find($id);
         $data['password'] = Hash::make($data['password']);
         $user->update($data);
+        
+        DB::table('model_has_roles')->where('model_id',$id)->delete();
+        $user->assignRole($request->input('role'));
         return redirect()->route('user.index')->with('success','User Edited Successfully');
     }
 
