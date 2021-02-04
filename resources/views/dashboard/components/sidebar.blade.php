@@ -32,6 +32,13 @@
           </a>
         </li>
 
+        <li>
+            <a href="#">
+              <i data-feather="server"></i>
+              <span>Data Narasumber</span>
+            </a>
+          </li>
+
         {{-- <li class="treeview">
           <a href="#">
             <i data-feather="mail"></i> <span>Mailbox</span>
