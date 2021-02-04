@@ -90,13 +90,13 @@
 }
 
 .section-five{
-  height: 100vh;
+  height: 500px;
   &-content{
     padding-top: 5vh;
     .linear-bg{
       border-radius: 5vw;
       border: none;
-      height: 40vh;
+      height: 300px;
       width: 300px;
       background-image: linear-gradient(to bottom, #F3F9A7 ,#CAC531);
       color: #000;
@@ -108,7 +108,7 @@
 }
 
 .section-four{
-  height: 100vh;
+  height: 700px;
   &-content{
     padding-top: 10vh;
   }
@@ -120,7 +120,7 @@
     background-size: 40%;
     background-position-y: -10vh;
     // background-position-x: 10vw;
-    height: 100vh;
+    height: 700px;
 
     &-content{
       padding-top: 100px;
@@ -169,7 +169,7 @@
 }
 
 .section-two{
-    height: 100vh;
+    height: 700px;
     &-content{
         padding-top: 200px;
         .linear-bg{
@@ -187,7 +187,7 @@
 .section-one{
     background-repeat: no-repeat;
     background-size: 80%;
-    height: 100vh;
+    height: 700px;
     &-content{
         margin-top: 100px;
         &-image{

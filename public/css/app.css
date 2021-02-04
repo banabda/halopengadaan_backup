@@ -10081,7 +10081,7 @@ h3 {
 }
 
 .section-five {
-  height: 100vh;
+  height: 500px;
 }
 .section-five-content {
   padding-top: 5vh;
@@ -10089,7 +10089,7 @@ h3 {
 .section-five-content .linear-bg {
   border-radius: 5vw;
   border: none;
-  height: 40vh;
+  height: 300px;
   width: 300px;
   background-image: linear-gradient(to bottom, #F3F9A7, #CAC531);
   color: #000;
@@ -10099,7 +10099,7 @@ h3 {
 }
 
 .section-four {
-  height: 100vh;
+  height: 700px;
 }
 .section-four-content {
   padding-top: 10vh;
@@ -10109,7 +10109,7 @@ h3 {
   background-repeat: no-repeat;
   background-size: 40%;
   background-position-y: -10vh;
-  height: 100vh;
+  height: 700px;
 }
 .section-three-content {
   padding-top: 100px;
@@ -10151,7 +10151,7 @@ h3 {
 }
 
 .section-two {
-  height: 100vh;
+  height: 700px;
 }
 .section-two-content {
   padding-top: 200px;
@@ -10168,7 +10168,7 @@ h3 {
 .section-one {
   background-repeat: no-repeat;
   background-size: 80%;
-  height: 100vh;
+  height: 700px;
 }
 .section-one-content {
   margin-top: 100px;
