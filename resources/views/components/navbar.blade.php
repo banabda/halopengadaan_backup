@@ -17,19 +17,19 @@
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link" href="#">{{ __('Tetang Kami') }}</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link" href="#">{{ __('Artikel') }}</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link" href="#">{{ __('Regulasi') }}</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item mx-2">
                         <a class="nav-link" href="#">{{ __('Profil Praktisi Pengadaan') }}</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item mx-2 dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMembership" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ __('Membership') }}
                         </a>
@@ -61,7 +61,7 @@
                             @endguest
                         </div>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item mx-2 dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownLayanan" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ __('Layanan') }}
                         </a>
