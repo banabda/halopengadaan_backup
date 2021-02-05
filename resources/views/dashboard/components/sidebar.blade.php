@@ -5,7 +5,7 @@
 
         <div class="user-profile">
 			<div class="ulogo">
-				 <a href="index.html">
+				 <a href="{{ route('landing') }}">
 				  <!-- logo for regular state and mobile devices -->
 					 <div class="d-flex align-items-center justify-content-center">
 						  <img src="{{ asset('images/lpkn-logo.png') }}" alt="">
@@ -31,6 +31,13 @@
             <span>Data Pendaftar</span>
           </a>
         </li>
+
+        <li>
+            <a href="#">
+              <i data-feather="server"></i>
+              <span>Data Narasumber</span>
+            </a>
+          </li>
 
         {{-- <li class="treeview">
           <a href="#">

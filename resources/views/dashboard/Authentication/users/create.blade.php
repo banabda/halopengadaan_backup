@@ -59,8 +59,14 @@
                             </div>
                             <div class="col-md-6">
                               <div class="form-group">
-                                <label >Konfirmasi Password</label>
-                                <input type="password" id="confirm_password" class="form-control" placeholder="Konfirmasi Password">
+                                <label for="role">Pilih Role :</label>
+                                <select class="custom-select form-control" id="role" name="role">
+                                    <option value="">Pilih Role</option>
+                                    @foreach ($data as $item)
+                                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                    @endforeach
+                                </select>
+                                {{-- <input type="password" id="confirm_password" class="form-control" placeholder="Konfirmasi Password"> --}}
                               </div>
                             </div>
                           </div>
@@ -82,17 +88,17 @@
 </div>
 
 <script>
-    $('#password, #confirm_password').on('keyup', function () {
-        if ($('#password').val() == $('#confirm_password').val()) {
-            $('#message').html('Password Cocok').css('color', 'green');
-        } else
-            $('#message').html('Password Tidak Sama').css('color', 'red');
-    });
+    // $('#password, #confirm_password').on('keyup', function () {
+    //     if ($('#password').val() == $('#confirm_password').val()) {
+    //         $('#message').html('Password Cocok').css('color', 'green');
+    //     } else
+    //         $('#message').html('Password Tidak Sama').css('color', 'red');
+    // });
 
     $('#createUser').on('submit', function(event){
 
     // check if the input is valid using a 'valid' property
-    if ($('#password').val() !== $('#confirm_password').val()) return false;
+    // if ($('#password').val() !== $('#confirm_password').val()) return false;
 
     event.preventDefault();
     $.ajaxSetup({

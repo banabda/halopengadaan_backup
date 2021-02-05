@@ -49,6 +49,16 @@
                               </div>
                             </div>
                           </div>
+
+                          <div class="form-group">
+                            <label>Permission</label>
+                            <div class="demo-checkbox">
+                                @foreach ($permission as $item)
+                                    <input type="checkbox" id="permission-{{ $item->id }}" name="permission[]" value="{{ $item->id }}" class="filled-in chk-col-primary"  />
+                                    <label for="permission-{{ $item->id }}">{{ $item->name }}</label>
+                                @endforeach
+                            </div>
+                          </div>
                       </div>
                       <!-- /.box-body -->
                       <div class="box-footer text-right">
