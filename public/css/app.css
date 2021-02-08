@@ -10245,11 +10245,11 @@ h3 {
 
 .section-one {
   background-repeat: no-repeat;
-  background-size: 80%;
+  background-size: 85%;
   height: 700px;
 }
 .section-one-content {
-  margin-top: 100px;
+  padding-top: 100px;
 }
 .section-one-content-image {
   width: 350px;
@@ -10304,9 +10304,6 @@ h3 {
 
   .section-one {
     background-size: 175%;
-  }
-  .section-one-content {
-    margin-top: 4vh;
   }
   .section-one-content p {
     margin-top: 2vh;

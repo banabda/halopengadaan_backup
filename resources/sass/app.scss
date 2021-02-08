@@ -266,10 +266,10 @@
 
 .section-one{
     background-repeat: no-repeat;
-    background-size: 80%;
+    background-size: 85%;
     height: 700px;
     &-content{
-        margin-top: 100px;
+        padding-top: 100px;
         &-image{
             width: 350px;
             height: 350px;
@@ -335,7 +335,6 @@
       p{
         margin-top: 2vh;
       }
-      margin-top: 4vh;
       &-image{
         margin-top: 30vh;
         width: 50vw;
