@@ -97,24 +97,3 @@
     </div>
     
 </div>
-<script>
-    const checkpoint = 500;
-    let opacity = 0;
-
-    window.addEventListener("scroll", () => {
-    const currentScroll = window.pageYOffset;
-    
-    if (currentScroll >= checkpoint && opacity < 1) {
-        opacity = 1; 
-    } 
-
-    document.querySelector(".two-tittle").style.opacity = opacity;
-    document.querySelector(".two-btn-1").style.opacity = opacity;
-    document.querySelector(".two-btn-2").style.opacity = opacity;
-    document.querySelector(".two-btn-3").style.opacity = opacity;
-    document.querySelector(".two-btn-4").style.opacity = opacity;
-    document.querySelector(".two-btn-5").style.opacity = opacity;
-    document.querySelector(".two-btn-6").style.opacity = opacity;
-    document.querySelector(".two-btn-7").style.opacity = opacity;
-    });
-</script>
