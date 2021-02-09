@@ -18,7 +18,7 @@
             <ul class="navbar-nav ml-auto font-weight-bold">
                 <!-- Authentication Links -->
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#">{{ __('Tetang Kami') }}</a>
+                        <a class="nav-link" href="#">{{ __('Tentang Kami') }}</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="#">{{ __('Artikel') }}</a>
@@ -45,19 +45,19 @@
                                 <a id="dropdown-item" class="nav-link dropdown-item" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     {{ Auth::user()->name }}
                                 </a>
-        
+
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-        
+
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
-                                
+
                             @endguest
                         </div>
                     </li>
