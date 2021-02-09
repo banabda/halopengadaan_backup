@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('coba', function () {
+    return view('components.paket');
+});
+
 Route::get('/', 'Landing\HomeController@index')->name('landing');
 
 Auth::routes();
