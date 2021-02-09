@@ -49,131 +49,8 @@
 </div>
 @include('components.section-two')
 @include('components.section-three')
-
-<div class="section-four">
-    <div class="container section-four-content">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center section-content-header mb-5">
-                    Kelebihan Layanan
-                </h1>
-                <div class="row justify-content-center mb-3">
-                    <div class="col-md-3 col-xs-6 divkelebihan">
-                        <img class="mx-auto kelebihanimg" src="{{ asset('images/ahli.png')}}" style="display: block"  width="60%" alt="ahli">
-                        <p class="text-center section-content-paragraph">Ditangani oleh para ahli dan berpengalaman</p>
-                    </div>
-                    <div class="col-md-3 col-xs-6 divkelebihan">
-                        <img src="{{ asset('images/sumber.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
-                        <p class="text-center section-content-paragraph">Sumber jawaban dikelola oleh tim</p>
-                    </div>
-                    <div class="col-md-3 col-xs-6 divkelebihan">
-                        <img src="{{ asset('images/online.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
-                        <p class="text-center section-content-paragraph">Online (pertanyaan via Whatsapp)</p>
-                    </div>
-                    <div class="col-md-3 col-xs-6 divkelebihan">
-                        <img src="{{ asset('images/waktu.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
-                        <p class="text-center section-content-paragraph">Hemat waktu</p>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-3 col-xs-6 divkelebihan">
-                        <img src="{{ asset('images/biaya.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
-                        <p class="text-center section-content-paragraph">Hemat biaya</p>
-                    </div>
-                    <div class="col-md-3 col-xs-6 divkelebihan">
-                        <img src="{{ asset('images/respon.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
-                        <p class="text-center section-content-paragraph">Respon yang cepat</p>
-                    </div>
-                    <div class="col-md-3 col-xs-6 divkelebihan">
-                        <img src="{{ asset('images/identitas.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
-                        <p class="text-center section-content-paragraph">Identitas terjaga</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="section-five">
-    <div class="container section-five-content">
-        <div class="row">
-            <div class="col-md-12">
-                <h1 class="text-center section-content-header mb-5">
-                    Jenis Layanan
-                </h1>
-                <div class="row justify-content-center mb-md-4">
-                    <div class="col-md-4 col-jenis text-center">
-                        <div class="row linear-bg mx-auto py-4 px-3">
-                            <div class="w-100"></div>
-                            <div class="col align-items-center mt-2">
-                                <img src="{{ asset('images/konsultasi-online.png')}}" alt="" height="120vh">
-                            </div>
-                            <div class="col text-center align-self-center"><h4 class="font-weight-bold">Konsultasi Online</h4><p>Rp250.000,- /bulan</p></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-jenis text-center">
-                        <div class="row linear-bg mx-auto py-4 px-3">
-                            <div class="w-100"></div>
-                            <div class="col align-items-center mt-2">
-                                <img src="{{ asset('images/konsultasi-offline.png')}}" alt="" height="100vh">
-                            </div>
-                            <div class="col text-center align-self-center"><h4 class="font-weight-bold">Konsultasi Langsung via zoom</h4><p>Rp1.500.000,- /bulan</p></div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-jenis text-center">
-                        <div class="row linear-bg mx-auto py-4 px-3">
-                            <div class="w-100"></div>
-                            <div class="col align-items-center mt-2">
-                                <img src="{{ asset('images/pertanyaan.png')}}" alt="" height="100vh">
-                            </div>
-                            <div class="col text-center align-self-center"><h4 class="font-weight-bold">Pertanyaan Tertulis</h4><p>Rp..(ditetapkan setelah melihat besaran pertanyaan)</p></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center mb-3">
-                    <div class="col-md-4 col-jenis text-center">
-                        <div class="row linear-bg mx-auto py-4 px-3">
-                            <div class="w-100"></div>
-                            <div class="col align-items-center mt-2">
-                                <img src="{{ asset('images/jam.png')}}" alt="" height="100vh">
-                            </div>
-                            <div class="w-100"></div>
-                            <div class="col text-center align-self-center">
-                                <h4 class="font-weight-bold">Jam Layanan</h4>
-                                <p>09.00 - 20.00 WIB<br>Senin - Jumat</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-jenis text-left">
-                        <div class="row linear-bg big mx-auto d-md-flex py-4 px-3">
-                            <div class="col align-self-center mt-2 text-center">
-                                <img class="imagemember" src="{{ asset('images/membership.png')}}" alt="" height="180vh">
-                            </div>
-                            <div class="col text-left align-self-center">
-                                <h4 class="font-weight-bold">Fasilitas membership</h4>
-                                <p>• Layanan Konsultasi Online 
-                                    <br>• Voucer Pelatihan senilai Rp. 250.000,-
-                                    <br>• Akses Khusus Berbagai Video Pembelajaran terkait Pengadaan
-                                </p>
-                            </div>
-                            {{-- <div style="width: 10%"></div> --}}
-                        </div>
-                    </div>
-                    {{-- <div class="col-md-8 col-jenis text-left">
-                        <div class="linear-bg big mx-auto py-4 px-5 d-md-flex align-items-center" style="display: block">
-                            <img src="{{ asset('images/membership.png')}}" alt="" width="25%">
-                            <div class="ml-4">
-                                <h4 class="font-weight-bold">Fasilitas membership</h4>
-                                <p>• Layanan Konsultasi Online 
-                                    <br>• Voucer Pelatihan senilai Rp. 250.000,-
-                                    <br>• Akses Khusus Berbagai Video Pembelajaran terkait Pengadaan</p>
-                            </div>
-                        </div>
-                    </div> --}}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@include('components.section-four')
+@include('components.section-five')
 @endsection
 <script>
     
@@ -201,6 +78,28 @@
         document.querySelector(".three-img").style.opacity = 1;
         document.querySelector(".three-p-2").style.opacity = 1;
         document.querySelector(".three-p-1").style.opacity = 1;
+    }
+
+    if (currentScroll >= 1900 && opacity[2] == 0) {
+        opacity[2] = 1; 
+        document.querySelector(".four-tittle").style.opacity = 1;
+        document.querySelector(".four-btn-1").style.opacity = 1;
+        document.querySelector(".four-btn-2").style.opacity = 1;
+        document.querySelector(".four-btn-3").style.opacity = 1;
+        document.querySelector(".four-btn-4").style.opacity = 1;
+        document.querySelector(".four-btn-5").style.opacity = 1;
+        document.querySelector(".four-btn-6").style.opacity = 1;
+        document.querySelector(".four-btn-7").style.opacity = 1;
+    }
+    
+    if (currentScroll >= 2400 && opacity[3] == 0) {
+        opacity[3] = 1; 
+        document.querySelector(".five-tittle").style.opacity = 1;
+        document.querySelector(".five-btn-1").style.opacity = 1;
+        document.querySelector(".five-btn-2").style.opacity = 1;
+        document.querySelector(".five-btn-3").style.opacity = 1;
+        document.querySelector(".five-btn-4").style.opacity = 1;
+        document.querySelector(".five-btn-5").style.opacity = 1;
     }
     });
 </script>

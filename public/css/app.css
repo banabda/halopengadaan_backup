@@ -10085,6 +10085,9 @@ h3 {
 .navbar {
   background-color: #ebeba493;
 }
+.navbar .nav-link {
+  color: #000 !important;
+}
 
 .section-content-header {
   font-size: 4rem;

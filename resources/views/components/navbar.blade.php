@@ -15,7 +15,7 @@
             </ul>
 
             <!-- Right Side Of Navbar -->
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-auto font-weight-bold">
                 <!-- Authentication Links -->
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="#">{{ __('Tentang Kami') }}</a>
