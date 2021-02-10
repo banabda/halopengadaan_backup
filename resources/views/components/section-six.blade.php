@@ -1,46 +1,23 @@
 <style>
-    .two-tittle{
-        opacity: 0;
+    .six-tittle{
+        opacity: 1;
         transition: opacity 1s;
     }
-    .two-btn-1{
-        opacity: 0;
+    .six-btn-1{
+        opacity: 1;
         transition: opacity 0.7s  ease-in;
         transition-delay: 0.2s;
     }
-    .two-btn-2{
-        opacity: 0;
+    .six-btn-2{
+        opacity: 1;
         transition: opacity 0.7s  ease-in;
         transition-delay: 0.4s;
 
     }
-    .two-btn-3{
-        opacity: 0;
+    .six-btn-3{
+        opacity: 1;
         transition: opacity 0.7s  ease-in;
         transition-delay: 0.6s;
-
-    }
-    .two-btn-4{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 0.8s;
-
-    }
-    .two-btn-5{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 1s;
-
-    }
-    .two-btn-6{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 1.2s;
-    }
-    .two-btn-7{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 1.4s;
 
     }
 </style>
