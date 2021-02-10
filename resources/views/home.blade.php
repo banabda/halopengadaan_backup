@@ -57,7 +57,7 @@
 
 </script>
 <script>
-    let opacity = [0,0,0,0];
+    let opacity = [0,0,0,0,0];
 
     window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
@@ -101,6 +101,14 @@
         document.querySelector(".five-btn-3").style.opacity = 1;
         document.querySelector(".five-btn-4").style.opacity = 1;
         document.querySelector(".five-btn-5").style.opacity = 1;
+    }
+
+    if (currentScroll >= 3200 && opacity[4] == 0) {
+        opacity[4] = 1;
+        document.querySelector(".six-tittle").style.opacity = 1;
+        document.querySelector(".six-btn-1").style.opacity = 1;
+        document.querySelector(".six-btn-2").style.opacity = 1;
+        document.querySelector(".six-btn-3").style.opacity = 1;
     }
     });
 </script>

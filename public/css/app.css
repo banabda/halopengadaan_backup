@@ -10173,11 +10173,15 @@ h3 {
   width: 300px;
   border: 8px solid transparent;
   border-radius: 50px !important;
-  background: linear-gradient(to right, white, white), linear-gradient(to bottom, #F3F9A7, #CAC531);
+  background: linear-gradient(to right, white, white), linear-gradient(to bottom, #3EC8AC, #4E90A4);
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
   color: #000;
-  box-shadow: 5px 5px 20px 15px rgba(128, 128, 128, 0.486);
+  box-shadow: 5px 5px 20px 5px rgba(128, 128, 128, 0.486);
+  transition: box-shadow 0.2s ease-in;
+}
+.section-six-content .linear-bg:hover {
+  box-shadow: 5px 5px 20px 6px gray;
 }
 
 .section-five {
