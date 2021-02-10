@@ -51,9 +51,10 @@
 @include('components.section-three')
 @include('components.section-four')
 @include('components.section-five')
+{{-- @include('components.section-six') --}}
 @endsection
 <script>
-    
+
 </script>
 <script>
     let opacity = [0,0,0,0];
@@ -62,7 +63,7 @@
     const currentScroll = window.pageYOffset;
     console.log(currentScroll, opacity)
     if (currentScroll >= 550 && opacity[0] == 0) {
-        opacity[0] = 1; 
+        opacity[0] = 1;
         document.querySelector(".two-tittle").style.opacity = 1;
         document.querySelector(".two-btn-1").style.opacity = 1;
         document.querySelector(".two-btn-2").style.opacity = 1;
@@ -71,17 +72,17 @@
         document.querySelector(".two-btn-5").style.opacity = 1;
         document.querySelector(".two-btn-6").style.opacity = 1;
         document.querySelector(".two-btn-7").style.opacity = 1;
-    } 
+    }
 
     if (currentScroll >= 1200 && opacity[1] == 0) {
-        opacity[1] = 1; 
+        opacity[1] = 1;
         document.querySelector(".three-img").style.opacity = 1;
         document.querySelector(".three-p-2").style.opacity = 1;
         document.querySelector(".three-p-1").style.opacity = 1;
     }
 
     if (currentScroll >= 1900 && opacity[2] == 0) {
-        opacity[2] = 1; 
+        opacity[2] = 1;
         document.querySelector(".four-tittle").style.opacity = 1;
         document.querySelector(".four-btn-1").style.opacity = 1;
         document.querySelector(".four-btn-2").style.opacity = 1;
@@ -91,9 +92,9 @@
         document.querySelector(".four-btn-6").style.opacity = 1;
         document.querySelector(".four-btn-7").style.opacity = 1;
     }
-    
+
     if (currentScroll >= 2400 && opacity[3] == 0) {
-        opacity[3] = 1; 
+        opacity[3] = 1;
         document.querySelector(".five-tittle").style.opacity = 1;
         document.querySelector(".five-btn-1").style.opacity = 1;
         document.querySelector(".five-btn-2").style.opacity = 1;
