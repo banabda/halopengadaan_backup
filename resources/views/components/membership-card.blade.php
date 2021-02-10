@@ -7,8 +7,8 @@
         @endforeach
 
     </ul>
-    <form action="" method="post">
-        <input type="text" name="" id="" hidden>
+    <form action="{{ route('landing.paket', $id) }}" method="post">
+        <input type="text" name="" id="" value="{{ $id }}" hidden>
         <button type="button" class="btn btn-warning my-5">DAFTAR SEKARANG</button>
     </form>
 </div>

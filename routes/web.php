@@ -22,6 +22,10 @@ Route::get('/', 'Landing\HomeController@index')->name('landing');
 
 Auth::routes();
 
+
+// Save Paket
+Route::get('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('landing.paket');
+
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
