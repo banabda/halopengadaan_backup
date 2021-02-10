@@ -172,8 +172,28 @@
   }
 }
 
+.section-six{
+  height: 750px;
+  &-content{
+    padding-top: 5vh;
+    .linear-bg{
+      height: 550px;
+      padding: 10px;
+      width: 300px;
+      border: 8px solid transparent;
+      border-radius: 50px !important;
+      background: 
+        linear-gradient(to right, white, white), 
+        linear-gradient(to bottom, #F3F9A7 ,#CAC531); 
+      background-clip: padding-box, border-box;
+      background-origin: padding-box, border-box;
+      color: #000;
+      box-shadow: 5px 5px 20px 15px rgba(128, 128, 128, 0.486); 
+    }
+  }
+}
 .section-five{
-  height: 500px;
+  height: 900px;
   &-content{
     padding-top: 5vh;
     .linear-bg{

@@ -51,6 +51,7 @@
 @include('components.section-three')
 @include('components.section-four')
 @include('components.section-five')
+@include('components.section-six')
 @endsection
 <script>
     

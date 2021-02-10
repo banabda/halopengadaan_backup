@@ -19,7 +19,6 @@ Route::get('coba', function () {
 });
 
 Route::get('/', 'Landing\HomeController@index')->name('landing');
-Route::get('/membership', 'Controller@membership')->name('membership');
 
 Auth::routes();
 

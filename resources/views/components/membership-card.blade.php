@@ -1,8 +1,11 @@
-<div class="mx-auto" style="width: 18rem; background-color: lightblue; border-radius: 10%">
-    <img src="..." class="card-img-top" alt="...">
-    <div class="card-body">
-        <h5 class="card-title">{{ $title }}</h5>
-        <p class="card-text">{{ $p1 }}</p>
-        <a href="#" class="btn btn-primary">Go somewhere</a>
-    </div>
+<div class="linear-bg mx-auto py-4 px-3 text-center">
+    <h3 class="my-5">{{ $title }}</h3>
+    <h1 class="my-5">Rp {{ $harga }},-</h1>
+    <ul class="text-left my-5">
+        @foreach ($point as $item)
+        <li>{{ $item }}</li>
+        @endforeach
+        
+    </ul>
+    <button type="button" class="btn btn-warning my-5">DAFTAR SEKARANG</button>
 </div>
