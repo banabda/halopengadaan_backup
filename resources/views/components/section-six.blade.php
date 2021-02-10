@@ -32,17 +32,17 @@
                 </div>
                 <div class="row justify-content-center mb-md-4">
                     <div class="col-md-4 col-jenis six-btn-1">
-                        @include('components.membership-card', ['title'=>'Silver', 'harga'=>'250.000', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga']])
+                        @include('components.membership-card', ['title'=>'Silver', 'harga'=>'250.000,- / Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga']])
                     </div>
                     <div class="col-md-4 col-jenis six-btn-1">
-                        @include('components.membership-card', ['title'=>'Gold', 'harga'=>'600.000', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga']])
+                        @include('components.membership-card', ['title'=>'Gold', 'harga'=>'600.000,- / 3 Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga', 'Lebih murah']])
                     </div>
                     <div class="col-md-4 col-jenis six-btn-1">
-                        @include('components.membership-card', ['title'=>'Platinum', 'harga'=>'1.500.000', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga']])
+                        @include('components.membership-card', ['title'=>'Platinum', 'harga'=>'1.500.000,- / 3 Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga', 'Konsultasi via Zoom']])
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
 </div>

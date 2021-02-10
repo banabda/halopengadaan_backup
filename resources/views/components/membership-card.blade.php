@@ -5,7 +5,10 @@
         @foreach ($point as $item)
         <li>{{ $item }}</li>
         @endforeach
-        
+
     </ul>
-    <button type="button" class="btn btn-warning my-5">DAFTAR SEKARANG</button>
+    <form action="" method="post">
+        <input type="text" name="" id="" hidden>
+        <button type="button" class="btn btn-warning my-5">DAFTAR SEKARANG</button>
+    </form>
 </div>
