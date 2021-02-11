@@ -7,18 +7,24 @@
     .btn-daftar:hover{
         color: papayawhip;
     }
+    .form-button{
+        position: absolute;
+        bottom: 30;
+        left: 10;
+        right: 0;
+    }
 </style>
 <div class="linear-bg mx-auto py-4 px-3 text-center">
     <h3 class="my-5">{{ $title }}</h3>
     <h1 class="my-5">Rp {{ $harga }},-</h1>
-    <ul class="text-left my-5">
+    <ul class="text-left">
         @foreach ($point as $item)
         <li>{{ $item }}</li>
         @endforeach
 
     </ul>
-    <form action="{{ route('landing.paket', $id) }}" method="post">
+    <form class="form-button" action="{{ route('landing.paket', $id) }}" method="post">
         <input type="text" name="" id="" value="{{ $id }}" hidden>
-        <button type="button" class="btn btn-warning my-5">DAFTAR SEKARANG</button>
+        <button type="button" class="btn btn-warning btn-daftar">DAFTAR SEKARANG</button>
     </form>
 </div>
