@@ -24,7 +24,7 @@ Auth::routes();
 
 
 // Save Paket
-Route::get('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('landing.paket');
+Route::post('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('landing.paket');
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
@@ -39,4 +39,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 
     // Permission
     Route::resource('permission', 'Dashboard\Auth\PermissionController');
+});
+
+Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
+{
+    Route::get('dashboard', 'DashboardUser\HomeController@index')->name('user.index');
 });

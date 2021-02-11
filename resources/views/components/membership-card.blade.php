@@ -23,8 +23,9 @@
         @endforeach
 
     </ul>
-    <form class="form-button" action="{{ route('landing.paket', $id) }}" method="post">
-        <input type="text" name="" id="" value="{{ $id }}" hidden>
-        <button type="button" class="btn btn-warning btn-daftar">DAFTAR SEKARANG</button>
+    <form class="form-button" action="{{ route('landing.paket', $id) }}" method="POST">
+        @csrf
+        <input type="text" name="paket" id="" value="{{ $id }}" hidden>
+        <button type="submit" class="btn btn-warning btn-daftar">DAFTAR SEKARANG</button>
     </form>
 </div>

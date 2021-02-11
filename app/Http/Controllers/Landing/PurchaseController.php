@@ -10,6 +10,10 @@ class PurchaseController extends Controller
     public function savePaket(Request $request, $id)
     {
         $data = $request->all();
-        dd($data);
+        $request->session()->put('paket', $id);
+        // echo $request->session()->get('paket');
+        return redirect()->route('register');
+        
+        // dd($data);
     }
 }
