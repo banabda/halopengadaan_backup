@@ -1,3 +1,13 @@
+<style>
+    .btn-daftar{
+        background: linear-gradient(to bottom, #3EC8AC, #4E90A4);
+        color: white;
+        border: none;
+    }
+    .btn-daftar:hover{
+        color: papayawhip;
+    }
+</style>
 <div class="linear-bg mx-auto py-4 px-3 text-center">
     <h3 class="my-5">{{ $title }}</h3>
     <h1 class="my-5">Rp {{ $harga }},-</h1>
