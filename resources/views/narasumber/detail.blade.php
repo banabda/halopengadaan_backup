@@ -11,23 +11,10 @@
 <body>
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div class="container">
 
    <!-- Main content -->
-   <section class="container">
-
-     <!-- Default box -->
-     <div class="card">
-       <div class="card-header">
-       
-         <div class="card-tools">
-           <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
-             <i class="fas fa-minus"></i></button>
-           <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
-             <i class="fas fa-times"></i></button>
-         </div>
-       </div>
-       <div class="card-body">
+<section class="content">
 @foreach($narasumber as $narasumber)
 
 <form action="" method="POST">
@@ -58,10 +45,7 @@
        </form>  
 
 @endforeach 
-         </div>
-       
-   </div>
-       <!-- /.card -->
+
  </section>
      <!-- /.content -->
  </div>

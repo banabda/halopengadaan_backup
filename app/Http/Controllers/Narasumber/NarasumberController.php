@@ -30,19 +30,28 @@ class NarasumberController extends Controller
         $data= request()->all();
             
         Narasumber::create($data);
-        // alihkan halaman ke halaman pegawai
+        // alihkan halaman ke halaman narasumber
         return back();
+        
+      
     }
-
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    
     public function store(Request $request)
     {
-        //
+        $this->validate($Request,[
+            'nama'      => 'required',
+            'email'     => 'required|unique',
+            'password'  => 'required',
+            'alamat'    => 'required',
+            'nomor_hp'  => 'required',
+            
+        ]);
     }
 
     /**
@@ -53,11 +62,11 @@ class NarasumberController extends Controller
      */
     public function detail($id)
     {
-       $bd = DB::table('narasumber')->where('id',$id)->get();
+       $narasumber = DB::table('narasumber')->where('id',$id)->get();
 
 
         // passing data pegawai yang didapat ke view edit.blade.php
-        return view('narasumbers.detail',['narasumber' => $bd]);
+        return view('narasumber.detail', compact('narasumber'));
     }
 
     /**
