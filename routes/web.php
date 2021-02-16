@@ -22,7 +22,6 @@ Route::get('/', 'Landing\HomeController@index')->name('landing');
 
 Auth::routes();
 
-
 // Save Paket
 Route::post('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('landing.paket');
 
