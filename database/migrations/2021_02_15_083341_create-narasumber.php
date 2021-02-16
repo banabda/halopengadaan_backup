@@ -15,11 +15,11 @@ class CreateNarasumber extends Migration
     {
         Schema::create('narasumber', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('nama')->nullable();
+            $table->string('nama');
             $table->string('email')->unique();
-            $table->string('password')->nullable();
+            $table->string('password');
             $table->string('alamat')->nullable();
-            $table->integer('nomor_hp')->nullable();
+            $table->integer('nomor_hp');
             $table->timestamps();
         });
     }

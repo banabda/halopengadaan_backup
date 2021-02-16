@@ -46,9 +46,10 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
     Route::get('dashboard', 'DashboardUser\HomeController@index')->name('user.index');
 });
 
-Route::prefix('narasumber')->group(function(){
-
-	Route::get('', 'Narasumber\NarasumberController@index')->name('narasumber');
+// Route::prefix('narasumber')->group(function(){
+Route::group(['prefix' => 'narasumber', 'middleware' => ['role:user']], function()
+{
+	Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
     Route::post('create','Narasumber\NarasumberController@create')->name('narasumber.create');
     Route::get('detail/{id}','Narasumber\NarasumberController@detail');
     Route::get('delete/{id}','Narasumber\NarasumberController@delete');
