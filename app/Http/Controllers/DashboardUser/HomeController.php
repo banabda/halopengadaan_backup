@@ -49,7 +49,7 @@ class HomeController extends Controller
         }
 
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
-        // dd(!is_null($profile));
+
         if (!is_null($profile)) {
             $profile->user_id = $data['user_id'];
             $profile->nama_lengkap = $data['nama_lengkap'];
@@ -69,7 +69,10 @@ class HomeController extends Controller
         } else {
             $createProfile = Profile::create($data);
         }
+    }
 
-        // dd($data);
+    public function uploadPicture(Request $request)
+    {
+        $data = $request->all();
     }
 }
