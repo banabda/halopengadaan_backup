@@ -24,13 +24,14 @@ class NarasumberController extends Controller
             'password' => 'required|string|min:8|confirmed'
         ]);
 
-        $user = User::createOrFirst([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password'])
         ]);
 
         $user->assignRole('narasumber');
-        dd($data);
+        return redirect('login');
+        // dd($data);
     }
 }
