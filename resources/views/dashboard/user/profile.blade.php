@@ -244,88 +244,171 @@
                 <!-- /.tab-pane -->
 
                 <div class="tab-pane" id="profile">
-
                   <div class="box p-15">
-                      <form class="form-horizontal form-element col-12 pt-4" action="{{ route('profile.save') }}" method="POST">
-                        @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                        <input type="hidden" name="is_complete" value="1">
-                        <div class="form-group row">
-                          <label for="inputName" class="col-sm-2 control-label pt-1">Nama Lengkap</label>
-
-                          <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputName" name="nama_lengkap" value="{{ Auth::user()->name }}" placeholder="Nama Lengkap">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputEmail" class="col-sm-2 control-label pt-1">Email</label>
-
-                          <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail" name="email" value="{{ Auth::user()->email }}" placeholder="Email Aktif">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputPhone" class="col-sm-2 control-label pt-1">Nomor HP</label>
-
-                          <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPhone" name="no_hp" value="{{ $user->profile->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputExperience" class="col-sm-2 control-label pt-1">Alamat Rumah</label>
-
-                          <div class="col-sm-10">
-                            <textarea class="form-control" id="inputExperience" name="alamat_rumah" placeholder="Alamat Lengkap">{{ $user->profile->alamat_rumah }}</textarea>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <label for="inputSkills" class="col-sm-2 control-label pt-1">Alamat Kerja</label>
-
-                          <div class="col-sm-10">
-                            <textarea class="form-control" id="inputExperience" name="alamat_kerja" placeholder="Alamat Tempat Kerja / Bisnis">{{ $user->profile->alamat_kerja }}</textarea>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Jenis Kerja</label>
+                      @if (is_null($user->profile))
+                        <form class="form-horizontal form-element col-12 pt-4" action="{{ route('profile.save') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="is_complete" value="1">
+                            <div class="form-group row">
+                            <label for="inputName" class="col-sm-2 control-label pt-1">Nama Lengkap</label>
 
                             <div class="col-sm-10">
-                              <select name="jenis_kerja" id="jenis_kerja" class="form-control">
-                                  <option>Jenis Kerja</option>
-                                  <option value="PNS" {{ ($user->profile->jenis_kerja == "PNS") ? 'selected' : '' }}>PNS</option>
-                                  <option value="BUMN"  {{ ($user->profile->jenis_kerja == "BUMN") ? 'selected' : '' }}>BUMN</option>
-                                  <option value="BUMD"  {{ ($user->profile->jenis_kerja == "BUMD") ? 'selected' : '' }}>BUMD</option>
-                                  <option value="BLU"  {{ ($user->profile->jenis_kerja == "BLU") ? 'selected' : '' }}>BLU</option>
-                                  <option value="BLUD"  {{ ($user->profile->jenis_kerja == "BLUD") ? 'selected' : '' }}>BLUD</option>
-                                  <option value="Perusahaan"  {{ ($user->profile->jenis_kerja == "Perusahaan") ? 'selected' : '' }}>Perusahaan</option>
-                              </select>
+                                <input type="text" class="form-control" id="inputName" value="{{ Auth::user()->name }}" name="nama_lengkap"  placeholder="Nama Lengkap">
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="status" class="col-sm-2 control-label pt-2">Status</label>
+                            </div>
+                            <div class="form-group row">
+                            <label for="inputEmail" class="col-sm-2 control-label pt-1">Email</label>
 
                             <div class="col-sm-10">
-                              <select name="status" id="status" class="form-control">
-                                  <option>Pilih Status</option>
-                                  <option value="Penyedia" {{ ($user->profile->status == "Penyedia") ? 'selected' : '' }}>Penyedia</option>
-                                  <option value="Pengguna" {{ ($user->profile->status == "Pengguna") ? 'selected' : '' }}>Pengguna</option>
-                              </select>
+                                <input type="email" class="form-control" id="inputEmail" value="{{ Auth::user()->email }}" name="email" placeholder="Email Aktif">
                             </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="ml-auto col-sm-10">
-                            <div class="checkbox">
-                              <input type="checkbox" id="basic_checkbox_1" checked="">
-                              <label for="basic_checkbox_1"> I agree to the</label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Terms and Conditions</a>
                             </div>
-                          </div>
-                        </div>
-                        <div class="form-group row">
-                          <div class="ml-auto col-sm-10">
-                            <button type="submit" class="btn btn-rounded btn-success">Submit</button>
-                          </div>
-                        </div>
-                      </form>
+                            <div class="form-group row">
+                            <label for="inputPhone" class="col-sm-2 control-label pt-1">Nomor HP</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPhone" name="no_hp" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="inputExperience" class="col-sm-2 control-label pt-1">Alamat Rumah</label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="inputExperience" name="alamat_rumah" placeholder="Alamat Lengkap"></textarea>
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="inputSkills" class="col-sm-2 control-label pt-1">Alamat Kerja</label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="inputExperience" name="alamat_kerja" placeholder="Alamat Tempat Kerja / Bisnis"></textarea>
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Jenis Kerja</label>
+
+                                <div class="col-sm-10">
+                                <select name="jenis_kerja" id="jenis_kerja" class="form-control">
+                                    <option>Jenis Kerja</option>
+                                    <option value="PNS">PNS</option>
+                                    <option value="BUMN" >BUMN</option>
+                                    <option value="BUMD" >BUMD</option>
+                                    <option value="BLU" >BLU</option>
+                                    <option value="BLUD" >BLUD</option>
+                                    <option value="Perusahaan" >Perusahaan</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="status" class="col-sm-2 control-label pt-2">Status</label>
+
+                                <div class="col-sm-10">
+                                <select name="status" id="status" class="form-control">
+                                    <option>Pilih Status</option>
+                                    <option value="Penyedia" >Penyedia</option>
+                                    <option value="Pengguna" >Pengguna</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                            <div class="ml-auto col-sm-10">
+                                <div class="checkbox">
+                                <input type="checkbox" id="basic_checkbox_1" checked="">
+                                <label for="basic_checkbox_1"> I agree to the</label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Terms and Conditions</a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <div class="ml-auto col-sm-10">
+                                <button type="submit" class="btn btn-rounded btn-success">Submit</button>
+                            </div>
+                            </div>
+                        </form>
+                      @else
+                        <form class="form-horizontal form-element col-12 pt-4" action="{{ route('profile.save') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="is_complete" value="1">
+                            <div class="form-group row">
+                            <label for="inputName" class="col-sm-2 control-label pt-1">Nama Lengkap</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputName" name="nama_lengkap" value="{{ Auth::user()->name }}" placeholder="Nama Lengkap">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="inputEmail" class="col-sm-2 control-label pt-1">Email</label>
+
+                            <div class="col-sm-10">
+                                <input type="email" class="form-control" id="inputEmail" name="email" value="{{ Auth::user()->email }}" placeholder="Email Aktif">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="inputPhone" class="col-sm-2 control-label pt-1">Nomor HP</label>
+
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="inputPhone" name="no_hp" value="{{ $user->profile->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="inputExperience" class="col-sm-2 control-label pt-1">Alamat Rumah</label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="inputExperience" name="alamat_rumah" placeholder="Alamat Lengkap">{{ $user->profile->alamat_rumah }}</textarea>
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <label for="inputSkills" class="col-sm-2 control-label pt-1">Alamat Kerja</label>
+
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="inputExperience" name="alamat_kerja" placeholder="Alamat Tempat Kerja / Bisnis">{{ $user->profile->alamat_kerja }}</textarea>
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Jenis Kerja</label>
+
+                                <div class="col-sm-10">
+                                <select name="jenis_kerja" id="jenis_kerja" class="form-control">
+                                    <option>Jenis Kerja</option>
+                                    <option value="PNS" {{ ($user->profile->jenis_kerja == "PNS") ? 'selected' : '' }}>PNS</option>
+                                    <option value="BUMN"  {{ ($user->profile->jenis_kerja == "BUMN") ? 'selected' : '' }}>BUMN</option>
+                                    <option value="BUMD"  {{ ($user->profile->jenis_kerja == "BUMD") ? 'selected' : '' }}>BUMD</option>
+                                    <option value="BLU"  {{ ($user->profile->jenis_kerja == "BLU") ? 'selected' : '' }}>BLU</option>
+                                    <option value="BLUD"  {{ ($user->profile->jenis_kerja == "BLUD") ? 'selected' : '' }}>BLUD</option>
+                                    <option value="Perusahaan"  {{ ($user->profile->jenis_kerja == "Perusahaan") ? 'selected' : '' }}>Perusahaan</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="status" class="col-sm-2 control-label pt-2">Status</label>
+
+                                <div class="col-sm-10">
+                                <select name="status" id="status" class="form-control">
+                                    <option>Pilih Status</option>
+                                    <option value="Penyedia" {{ ($user->profile->status == "Penyedia") ? 'selected' : '' }}>Penyedia</option>
+                                    <option value="Pengguna" {{ ($user->profile->status == "Pengguna") ? 'selected' : '' }}>Pengguna</option>
+                                </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                            <div class="ml-auto col-sm-10">
+                                <div class="checkbox">
+                                <input type="checkbox" id="basic_checkbox_1" checked="">
+                                <label for="basic_checkbox_1"> I agree to the</label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Terms and Conditions</a>
+                                </div>
+                            </div>
+                            </div>
+                            <div class="form-group row">
+                            <div class="ml-auto col-sm-10">
+                                <button type="submit" class="btn btn-rounded btn-success">Submit</button>
+                            </div>
+                            </div>
+                        </form>
+                      @endif
+
                   </div>
                 </div>
                 <!-- /.tab-pane -->
