@@ -12,4 +12,9 @@ class HomeController extends Controller
         $data = $request->session()->get('paket');
         return view('landing.content', compact('data'));
     }
+
+    public function profile()
+    {
+        return view('dashboard.user.profile');
+    }
 }

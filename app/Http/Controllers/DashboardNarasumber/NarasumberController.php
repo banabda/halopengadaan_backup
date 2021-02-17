@@ -31,7 +31,12 @@ class NarasumberController extends Controller
         ]);
 
         $user->assignRole('narasumber');
-        return redirect('login');
-        // dd($data);
+        
+        return response()->json([
+            'status' => 'ok',
+            'messages' => 'Pendaftaran Berhasil! Menunggu Konfirmasi Admin',
+            'route' => route('login')
+        ]);
+
     }
 }

@@ -46,6 +46,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 {
     Route::get('dashboard', 'DashboardUser\HomeController@index')->name('user.index');
+    Route::get('profile', 'DashboardUser\HomeController@profile')->name('user.profile');
 });
 
 // Route::prefix('narasumber')->group(function(){
