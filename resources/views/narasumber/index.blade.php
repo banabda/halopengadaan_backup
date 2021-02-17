@@ -1,20 +1,33 @@
 @extends('dashboard.dashboard')
 @section('content')
 
+<<<<<<< HEAD
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
+=======
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+>>>>>>> e1244055e4bd325479624170e351fb33c556b8ea
     <div class="container-full">
       <!-- Content Header (Page header) -->
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
+<<<<<<< HEAD
                   <h3 class="page-title">Data Narasumber</h3>
+=======
+                  <h3 class="page-title">Data Users</h3>
+>>>>>>> e1244055e4bd325479624170e351fb33c556b8ea
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
                               <li class="breadcrumb-item" aria-current="page">Auth</li>
+<<<<<<< HEAD
                               <li class="breadcrumb-item active" aria-current="page">Data Narasumber</li>
+=======
+                              <li class="breadcrumb-item active" aria-current="page">Data Users</li>
+>>>>>>> e1244055e4bd325479624170e351fb33c556b8ea
                           </ol>
                       </nav>
                   </div>
@@ -29,6 +42,7 @@
 
            <div class="box">
               <div class="box-header with-border">
+<<<<<<< HEAD
                 <h5 class="box-title">List Data Narasumber</h5>
                 <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;">Tambah Data Narasumber</button>
 
@@ -82,8 +96,47 @@
 
     </div>
 </div>
+=======
+                {{-- <h3 class="box-title">Data Table With Full Features</h3> --}}
+                <a href="{{ route('user.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5">New User</button></a>
+              </div>
+              <!-- /.box-header -->
+              <div class="box-body">
+                  <div class="table-responsive">
+                    <table id="tableUser" class="table table-bordered table-striped">
+                      <thead>
+                          <tr>
+                              <th>No</th>
+                              <th>Nama</th>
+                              <th>Email</th>
+                              <th>Password</th>
+                              <th>Alamat</th>
+                              <th>Nomor Hp</th>
+                              <th>Aksi</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+>>>>>>> e1244055e4bd325479624170e351fb33c556b8ea
 
+                      </tbody>
+                      <tfoot>
+                          <tr>
+                              <th>No</th>
+                              <th>Nama</th>
+                              <th>Email</th>
+                              <th>Password</th>
+                              <th>Alamat</th>
+                              <th>Nomor Hp</th>
+                              <th>Aksi</th>
+                          </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+              </div>
+              <!-- /.box-body -->
+            </div>
 
+<<<<<<< HEAD
 <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -145,4 +198,18 @@
 @endsection
 
 
+=======
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </section>
+      <!-- /.content -->
+
+    </div>
+</div>
+<!-- /.content-wrapper -->
+
+@endsection
+>>>>>>> e1244055e4bd325479624170e351fb33c556b8ea
 

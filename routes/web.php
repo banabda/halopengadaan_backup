@@ -22,7 +22,6 @@ Route::get('/', 'Landing\HomeController@index')->name('landing');
 
 Auth::routes();
 
-
 // Save Paket
 Route::post('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('landing.paket');
 
@@ -46,7 +45,11 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
     Route::get('dashboard', 'DashboardUser\HomeController@index')->name('user.index');
 });
 
-// Route::prefix('narasumber')->group(function(){
+// Narasumber
+    // Register Narasumber
+    Route::get('narasumber/register', 'DashboardNarasumber\NarasumberController@register')->name('narasumber.register');
+    Route::post('narasumber/register/save', 'DashboardNarasumber\NarasumberController@saveRegister')->name('narasumber.register.save');
+
 Route::group(['prefix' => 'narasumber', 'middleware' => ['role:user']], function()
 {
 	Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
