@@ -73,7 +73,8 @@
                 <!-- Profile Image -->
                 <div class="box">
                   <div class="box-body box-profile">
-                    <form action="" method="post" enctype="multipart/form-data">
+                    <form action="{{ route('profile.upload.save') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group row">
 						<label class="col-form-label col-lg-2">Foto</label>
 						<div class="col-lg-10">

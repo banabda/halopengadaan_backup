@@ -26,11 +26,9 @@ Route::get('/', 'Landing\HomeController@index')->name('landing');
 
 Auth::routes();
 
-
 // Save Paket
 Route::post('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('landing.paket');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
     Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
@@ -56,9 +54,9 @@ Route::group(['middleware' => ['auth']], function ()
 {
     Route::get('profile', 'DashboardUser\HomeController@profile')->name('profile');
     Route::post('profile/save', 'DashboardUser\HomeController@saveProfile')->name('profile.save');
+    Route::post('profile/upload/save', 'DashboardUser\HomeController@uploadPicture')->name('profile.upload.save');
 });
 
-// Route::prefix('narasumber')->group(function(){
 Route::group(['prefix' => 'narasumber', 'middleware' => ['role:user']], function()
 {
     // Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
