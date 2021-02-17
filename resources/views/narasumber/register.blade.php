@@ -67,7 +67,7 @@
             processData: false,
             success: function (response) {
                 Swal.fire({
-                    title: 'Custom animation with Animate.css',
+                    title: response.messages,
                     showClass: {
                         popup: 'animate__animated animate__fadeInDown'
                     },
@@ -75,7 +75,10 @@
                         popup: 'animate__animated animate__fadeOutUp'
                     }
                 });
-                console.log(response);
+                $('.swal2-confirm').click(function(){
+                    window.location.href = response.route;
+                });
+                
             }
         });
     });
