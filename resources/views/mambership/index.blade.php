@@ -8,13 +8,13 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-                  <h3 class="page-title">Data Narasumber</h3>
+                  <h3 class="page-title">Data Mambership</h3>
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
                               <li class="breadcrumb-item" aria-current="page">Auth</li>
-                              <li class="breadcrumb-item active" aria-current="page">Data Narasumber</li>
+                              <li class="breadcrumb-item active" aria-current="page">Data Mambership</li>
                           </ol>
                       </nav>
                   </div>
@@ -29,7 +29,7 @@
 
            <div class="box">
               <div class="box-header with-border">
-                <h5 class="box-title">List Data Narasumber</h5>
+                <h5 class="box-title">List Data Mambership</h5>
                 <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;">Tambah Data Narasumber</button>
 
               </div>
@@ -41,11 +41,12 @@
                         <thead>
                           <tr>
                             <th>No</th>
-                            <th>Nama</th>
+                            <th>Nama lengkap</th>
                             <th>Email</th>
-                            <th>Password</th>
-                            <th>Alamat</th>
-                            <th>Nomor Hp</th>
+                            <th>Nomer Whatsapp</th>
+                            <th>Tempat kerja</th>
+                            <th>Jenis</th>
+                            <th>status</th>
                             <th>Aksi</th>
                           </tr>
                         </thead>
@@ -54,16 +55,18 @@
                         @foreach($data as $dt)
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>{{$dt->nama}}</td>
+                            <td>{{$dt->nama_lengkap}}</td>
                             <td>{{$dt->email}}</td>
-                            <td>{{$dt->password}}</td>
-                            <td>{{$dt->alamat}}</td>
-                            <td>{{$dt->nomor_hp}}</td>
+                            <td>{{$dt->no_wa}}</td>
+                            <td>{{$dt->tempat_kerja}}</td>
+                            <td>{{$dt->jenis}}</td>
+                            <td>{{$dt->status}}</td>
+                            <td>{{$dt->mambership}}</td>
                         <td>
 
-                      <a href="{{ url('narasumber/detail/'.$dt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
-                      <a href="{{ url('narasumber/edit/'.$dt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                      <a href="{{ url('narasumber/delete/'.$dt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                      <a href="{{ url('mambership/detail/'.$dt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
+                      <a href="{{ url('mambership/edit/'.$dt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="{{ url('mambership/delete/'.$dt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
                       </td>
                     </tr>
                   @endforeach
@@ -87,7 +90,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Narasumber</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Mambership</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -104,7 +107,7 @@
         @endif
 
       <div class="modal-body">
-        <form action="{{route('narasumber.create') }}" method="POST">
+        <form action="{{route('mambership.create') }}" method="POST">
           {{csrf_field()}}
 
           <!-- <div class="form-group">
@@ -112,24 +115,32 @@
             <input name="id" type="text" class="form-control" id="id" aria-describedby="id" placeholder="Id"  value="{{ old('id') }}">
           </div> -->
           <div class="form-group">
-            <label for="exampleInputEmail1">Nama</label>
-            <input name="nama" type="text" class="form-control" id="nama" aria-describedby="nama" placeholder="nama"  value="{{ old('nama') }}">
+            <label for="exampleInputEmail1">Nama lengkap</label>
+            <input name="nama_lengkap" type="text" class="form-control" id="nama_lengkap" aria-describedby="nama_lengkap" placeholder="nama_lengkap"  value="{{ old('nama_lengkap') }}">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
             <input name="email" type="text" class="form-control" id="email" aria-describedby="email" placeholder="email"  value="{{ old('email') }}">
           </div>
           <div class="form-group">
-          <label for="exampleInputEmail1">Password</label>
-          <input name="password" type="textarea" class="form-control" id="password" aria-describedby="password" placeholder="password" value="{{ old('password') }}">
+          <label for="exampleInputEmail1">Nomer Whatsapp</label>
+          <input name="no_wa" type="textarea" class="form-control" id="no_wa" aria-describedby="no_wa" placeholder="no_wa" value="{{ old('no_wa') }}">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Alamat</label>
-            <input name="alamat" type="text"  class="form-control" id="alamat" placeholder="alamat" value="{{ old('alamat') }}">
+            <label for="exampleInputPassword1">Tempat kerja</label>
+            <input name="tempat_kerja" type="text"  class="form-control" id="tempat_kerja" placeholder="tempat_kerja" value="{{ old('tempat_kerja') }}">
           </div>
           <div class="form-group">
-            <label for="exampleInputPassword1">Nomor Hp</label>
-            <input name="nomor_hp" type="text"  class="form-control" id="nomor_hp" placeholder="nomor_hp" value="{{ old('nomor_hp') }}">
+            <label for="exampleInputPassword1">Jenis</label>
+            <input name="jenis" type="text"  class="form-control" id="jenis" placeholder="jenis" value="{{ old('jenis') }}">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Status</label>
+            <input name="status" type="text"  class="form-control" id="status" placeholder="status" value="{{ old('status') }}">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Mambership</label>
+            <input name="mambership" type="text"  class="form-control" id="mambership" placeholder="mambership" value="{{ old('mambership') }}">
           </div>
         </div>
         <div class="modal-footer">

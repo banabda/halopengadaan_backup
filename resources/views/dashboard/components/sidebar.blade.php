@@ -33,12 +33,17 @@
         </li>
 
         <li>
-            <a href="#">
+            <a href="{{route('narasumber')}}">
               <i data-feather="server"></i>
               <span>Data Narasumber</span>
             </a>
         </li>
-
+        <li>
+            <a href="">
+              <i data-feather="server"></i>
+              <span>Data Mambership</span>
+            </a>
+        </li>
         <li class="header nav-small-cap">Keamanan</li>
         <li class="treeview">
             <a href="#">
@@ -122,7 +127,7 @@
                 <span>Invoice</span>
               </a>
           </li>
-          
+
           <li>
             <a href="{{ route('logout') }}"
             onclick="event.preventDefault();
