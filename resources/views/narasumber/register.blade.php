@@ -50,7 +50,6 @@
 </div>
 <script>
     $('#createNarasumber').on('submit', function (event) {
-
         event.preventDefault();
         $.ajaxSetup({
             headers: {
@@ -78,7 +77,6 @@
                 $('.swal2-confirm').click(function(){
                     window.location.href = response.route;
                 });
-                
             }
         });
     });

@@ -31,6 +31,7 @@ class NarasumberController extends Controller
         ]);
 
         $user->assignRole('narasumber');
+        
         return response()->json([
             'status' => 'ok',
             'messages' => 'Pendaftaran Berhasil! Menunggu Konfirmasi Admin',
