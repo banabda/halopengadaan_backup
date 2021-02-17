@@ -249,6 +249,7 @@
                       <form class="form-horizontal form-element col-12 pt-4" action="{{ route('profile.save') }}" method="POST">
                         @csrf
                         <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
+                        <input type="hidden" name="is_complete" value="1">
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 control-label pt-1">Nama Lengkap</label>
 
@@ -267,21 +268,21 @@
                           <label for="inputPhone" class="col-sm-2 control-label pt-1">Nomor HP</label>
 
                           <div class="col-sm-10">
-                            <input type="text" class="form-control" id="inputPhone" name="no_hp"  placeholder="Terhubung dengan WhatsApp (6285683xxx)">
+                            <input type="text" class="form-control" id="inputPhone" name="no_hp" value="{{ $user->profile->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputExperience" class="col-sm-2 control-label pt-1">Alamat Rumah</label>
 
                           <div class="col-sm-10">
-                            <textarea class="form-control" id="inputExperience" name="alamat_rumah" placeholder="Alamat Lengkap"></textarea>
+                            <textarea class="form-control" id="inputExperience" name="alamat_rumah" placeholder="Alamat Lengkap">{{ $user->profile->alamat_rumah }}</textarea>
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputSkills" class="col-sm-2 control-label pt-1">Alamat Kerja</label>
 
                           <div class="col-sm-10">
-                            <textarea class="form-control" id="inputExperience" name="alamat_kerja" placeholder="Alamat Tempat Kerja / Bisnis"></textarea>
+                            <textarea class="form-control" id="inputExperience" name="alamat_kerja" placeholder="Alamat Tempat Kerja / Bisnis">{{ $user->profile->alamat_kerja }}</textarea>
                           </div>
                         </div>
                         <div class="form-group row">
@@ -290,12 +291,12 @@
                             <div class="col-sm-10">
                               <select name="jenis_kerja" id="jenis_kerja" class="form-control">
                                   <option>Jenis Kerja</option>
-                                  <option value="PNS">PNS</option>
-                                  <option value="BUMN">BUMN</option>
-                                  <option value="BUMD">BUMD</option>
-                                  <option value="BLU">BLU</option>
-                                  <option value="BLUD">BLUD</option>
-                                  <option value="Perusahaan">Perusahaan</option>
+                                  <option value="PNS" {{ ($user->profile->jenis_kerja == "PNS") ? 'selected' : '' }}>PNS</option>
+                                  <option value="BUMN"  {{ ($user->profile->jenis_kerja == "BUMN") ? 'selected' : '' }}>BUMN</option>
+                                  <option value="BUMD"  {{ ($user->profile->jenis_kerja == "BUMD") ? 'selected' : '' }}>BUMD</option>
+                                  <option value="BLU"  {{ ($user->profile->jenis_kerja == "BLU") ? 'selected' : '' }}>BLU</option>
+                                  <option value="BLUD"  {{ ($user->profile->jenis_kerja == "BLUD") ? 'selected' : '' }}>BLUD</option>
+                                  <option value="Perusahaan"  {{ ($user->profile->jenis_kerja == "Perusahaan") ? 'selected' : '' }}>Perusahaan</option>
                               </select>
                             </div>
                         </div>
@@ -305,8 +306,8 @@
                             <div class="col-sm-10">
                               <select name="status" id="status" class="form-control">
                                   <option>Pilih Status</option>
-                                  <option value="Penyedia">Penyedia</option>
-                                  <option value="Pengguna">Pengguna</option>
+                                  <option value="Penyedia" {{ ($user->profile->status == "Penyedia") ? 'selected' : '' }}>Penyedia</option>
+                                  <option value="Pengguna" {{ ($user->profile->status == "Pengguna") ? 'selected' : '' }}>Pengguna</option>
                               </select>
                             </div>
                         </div>
