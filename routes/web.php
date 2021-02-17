@@ -14,8 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('coba', function () {
-    return view('components.paket');
+Route::get('wp-admin', function () {
+    return view('wp-admin.login');
+});
+
+Route::get('lostpassword/wp-login', function () {
+    return view('wp-admin.lost-password');
 });
 
 Route::get('/', 'Landing\HomeController@index')->name('landing');
@@ -64,6 +68,7 @@ Route::group(['prefix' => 'narasumber', 'middleware' => ['role:user']], function
     Route::get('edit/{id}','Narasumber\NarasumberController@edit');
     Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
 });
+
 // Route::group(['prefix' => 'mambership', 'middleware' => ['role:user']], function()
 // {
 //     Route::get('','Mambership\MambershipController@index')->name('mambership');
