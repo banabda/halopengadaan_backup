@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Narasumber;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\narasumber;
-use DB;
+use Illuminate\Support\Facades\DB;
 class NarasumberController extends Controller
 {
     /**
@@ -28,12 +28,12 @@ class NarasumberController extends Controller
     public function create()
     {
         $data= request()->all();
-            
+
         Narasumber::create($data);
         // alihkan halaman ke halaman narasumber
         return back();
-        
-      
+
+
     }
     /**
      * Store a newly created resource in storage.
@@ -41,17 +41,17 @@ class NarasumberController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    
+
     public function store(Request $request)
     {
-        $this->validate($Request,[
-            'nama'      => 'required',
-            'email'     => 'required|unique',
-            'password'  => 'required',
-            'alamat'    => 'required',
-            'nomor_hp'  => 'required',
-            
-        ]);
+        // $this->validate($request,[
+        //     'nama'      => 'required',
+        //     'email'     => 'required|unique',
+        //     'password'  => 'required',
+        //     'alamat'    => 'required',
+        //     'nomor_hp'  => 'required',
+
+        // ]);
     }
 
     /**
@@ -99,7 +99,7 @@ class NarasumberController extends Controller
         'email' => $request->email,
         'password' => $request->password,
         'alamat' => $request->alamat,
-        'nomor_hp' => $request->nomor_hp    
+        'nomor_hp' => $request->nomor_hp
 
     ]);
     return redirect()->route('narasumber');

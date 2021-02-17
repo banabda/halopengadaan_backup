@@ -15,6 +15,7 @@
 
    <!-- Main content -->
 <section class="content">
+
 @foreach($narasumber as $narasumber)
 
 <form action="" method="POST">
@@ -24,6 +25,8 @@
            <label for="exampleInputPassword1">Id</label>
        <br><input type="text" class="form-control"  name="id" value="{{ $narasumber->id }}" readonly><br/>
        </div> -->
+
+       <div class="table-responsive" style="padding-top: 50px;">
        <div class="form-group">
            <label for="exampleInputPassword1">Nama</label>
        <br><input type="text" class="form-control" name="nama" value="{{ $narasumber->nama }}" readonly> <br/></div>
@@ -42,9 +45,11 @@
        <div class="modal-footer">
        <a href="/narasumber" type="button" class="btn btn-primary" data-dismiss="modal">Kembali</a>
        <br>
-       </form>  
+       </div>
 
-@endforeach 
+</form>
+
+@endforeach
 
  </section>
      <!-- /.content -->

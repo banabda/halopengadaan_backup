@@ -18,7 +18,7 @@
             <ul class="navbar-nav ml-auto font-weight-bold">
                 <!-- Authentication Links -->
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#">{{ __('Tentang Kami') }}</a>
+                        <a class="nav-link" href="">{{ __('Tentang Kami') }}</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="#">{{ __('Artikel') }}</a>

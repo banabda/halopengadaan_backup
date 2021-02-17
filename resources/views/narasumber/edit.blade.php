@@ -16,6 +16,7 @@
 
    <!-- Main content -->
 <section class="content">
+
 @foreach($narasumber as $narasumber)
 
 <form action="{{route('narasumber.update') }}" method="post">
@@ -25,6 +26,9 @@
            <label for="exampleInputPassword1">Id</label>
        <br><input type="text" class="form-control" required="required" name="id" value="{{ $narasumber->id }}"><br/>
        </div> -->
+
+
+    <div class="table-responsive" style="padding-top: 50px;">
        <div class="form-group">
            <label for="exampleInputPassword1">Nama</label>
        <br><input type="text" class="form-control" required="required" name="nama" value="{{ $narasumber->nama }}"><br/>
@@ -42,15 +46,18 @@
            <label for="exampleInputPassword1">Nomor Hp</label>
        <br><input type="text" class="form-control" required="required" name="nomor_hp" value="{{ $narasumber->nomor_hp }}"> <br/></div><br>
        <div class="modal-footer">
-       <a href="/narasumber" type="button" class="btn btn-danger" data-dismiss="modal">Close</a>       
+       <a href="/narasumber" type="button" class="btn btn-danger" data-dismiss="modal">Close</a>
        <input type="submit" class="btn btn-primary" value="Simpan Data">
-  </form>  
-@endforeach 
-       
+    </div>
+</form>
+
+@endforeach
+
+
  </section>
      <!-- /.content -->
  </div>
    <!-- /.content-wrapper -->
 
 </body>
-</html> 
+</html>
