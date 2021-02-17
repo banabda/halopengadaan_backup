@@ -246,26 +246,28 @@
                 <div class="tab-pane" id="profile">
 
                   <div class="box p-15">
-                      <form class="form-horizontal form-element col-12 pt-4">
+                      <form class="form-horizontal form-element col-12 pt-4" action="{{ route('profile.save') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <div class="form-group row">
                           <label for="inputName" class="col-sm-2 control-label pt-1">Nama Lengkap</label>
 
                           <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputName" name="nama_lengkap" placeholder="Nama Lengkap">
+                            <input type="text" class="form-control" id="inputName" name="nama_lengkap" value="{{ Auth::user()->name }}" placeholder="Nama Lengkap">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputEmail" class="col-sm-2 control-label pt-1">Email</label>
 
                           <div class="col-sm-10">
-                            <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email Aktif">
+                            <input type="email" class="form-control" id="inputEmail" name="email" value="{{ Auth::user()->email }}" placeholder="Email Aktif">
                           </div>
                         </div>
                         <div class="form-group row">
                           <label for="inputPhone" class="col-sm-2 control-label pt-1">Nomor HP</label>
 
                           <div class="col-sm-10">
-                            <input type="tel" class="form-control" id="inputPhone" name="no_hp" placeholder="Terhubung dengan WhatsApp">
+                            <input type="text" class="form-control" id="inputPhone" name="no_hp"  placeholder="Terhubung dengan WhatsApp (6285683xxx)">
                           </div>
                         </div>
                         <div class="form-group row">
@@ -298,10 +300,10 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Status</label>
+                            <label for="status" class="col-sm-2 control-label pt-2">Status</label>
 
                             <div class="col-sm-10">
-                              <select name="jenis_kerja" id="jenis_kerja" class="form-control">
+                              <select name="status" id="status" class="form-control">
                                   <option>Pilih Status</option>
                                   <option value="Penyedia">Penyedia</option>
                                   <option value="Pengguna">Pengguna</option>
@@ -334,7 +336,7 @@
         </div>
         <!-- /.row -->
 
-        
+
       </section>
       <!-- /.content -->
     </div>

@@ -43,7 +43,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 {
     Route::get('dashboard', 'DashboardUser\HomeController@index')->name('user.index');
-    Route::get('profile', 'DashboardUser\HomeController@profile')->name('user.profile');
+});
+
+Route::group(['middleware' => ['auth']], function ()
+{
+    Route::get('profile', 'DashboardUser\HomeController@profile')->name('profile');
+    Route::post('profile/save', 'DashboardUser\HomeController@saveProfile')->name('profile.save');
 });
 
 // Narasumber
