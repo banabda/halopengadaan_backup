@@ -134,7 +134,7 @@
         <li>
             <a href="{{ route('dashboard.index') }}">
               <i data-feather="pie-chart"></i>
-              <span>Dashboard</span>
+              <span>Daftar Konsultasi</span>
             </a>
           </li>
 

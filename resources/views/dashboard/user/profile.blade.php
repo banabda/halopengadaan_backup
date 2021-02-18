@@ -13,7 +13,6 @@
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                              <li class="breadcrumb-item" aria-current="page">Extra</li>
                               <li class="breadcrumb-item active" aria-current="page">Profile</li>
                           </ol>
                       </nav>
@@ -29,43 +28,25 @@
             <div class="col-12 col-lg-5 col-xl-4">
 
                 <div class="box box-inverse bg-img" style="background-image: url(../images/gallery/full/1.jpg);" data-overlay="2">
-                    <div class="flexbox px-20 pt-20">
-                      <label class="toggler toggler-danger text-white">
-                        <input type="checkbox">
-                        <i class="fa fa-heart"></i>
-                      </label>
-                      <div class="dropdown">
-                        <a data-toggle="dropdown" href="#"><i class="ti-more-alt rotate-90 text-white"></i></a>
-                        <div class="dropdown-menu dropdown-menu-right">
-                          <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
-                          <a class="dropdown-item" href="#"><i class="fa fa-picture-o"></i> Shots</a>
-                          <a class="dropdown-item" href="#"><i class="ti-check"></i> Follow</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item" href="#"><i class="fa fa-ban"></i> Block</a>
-                        </div>
-                      </div>
-                    </div>
 
                     <div class="box-body text-center pb-50">
                       <a href="#">
-                        <img class="avatar avatar-xxl avatar-bordered" src="" alt="">
+                        @if (is_null($user->profile))
+                            <img class="avatar avatar-xxl avatar-bordered" src="Lalala" alt="">
+                        @elseif(is_null($user->profile->foto))
+                            <img class="avatar avatar-xxl avatar-bordered" src="Lalala" alt="">
+                        @else
+                            <img class="avatar avatar-xxl avatar-bordered" src="{{ Storage::url($user->profile->foto) }}" alt="">
+                        @endif
                       </a>
-                      <h4 class="mt-2 mb-0"><a class="hover-primary text-white" href="#">Roben Parkar</a></h4>
-                      <span><i class="fa fa-map-marker w-20"></i> Miami</span>
+                      <h4 class="mt-3 mb-0"><a class="hover-primary text-white" href="#">{{ $user->name }}</a></h4>
+                      {{-- <span><i class="fa fa-map-marker w-20"></i> Miami</span> --}}
                     </div>
 
                     <ul class="box-body flexbox flex-justified text-center" data-overlay="4">
                       <li>
-                        <span class="opacity-60">Followers</span><br>
-                        <span class="font-size-20">8.6K</span>
-                      </li>
-                      <li>
-                        <span class="opacity-60">Following</span><br>
-                        <span class="font-size-20">8457</span>
-                      </li>
-                      <li>
-                        <span class="opacity-60">Tweets</span><br>
-                        <span class="font-size-20">2154</span>
+                        <span class="opacity-60">Status Account</span><br>
+                        <span class="font-size-20">Active</span>
                       </li>
                     </ul>
                   </div>
@@ -80,8 +61,13 @@
 						<div class="col-lg-10">
 							<input type="file" id="uploadFoto" name="foto" class="form-control">
 						</div>
+                        @error('foto')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
 					</div>
-                    <img id="foto_profile" width="40%" height="auto" />
+                    <img id="foto_profile" width="50%" height="auto" />
                     <br>
                     <button type="submit" class="btn btn-rounded btn-success mt-2">Submit</button>
                     </form>
@@ -96,7 +82,6 @@
             <div class="nav-tabs-custom box-profile">
               <ul class="nav nav-tabs">
                 <li><a class="active" href="#profile" data-toggle="tab">Profile</a></li>
-                {{-- <li><a href="#usertimeline" data-toggle="tab">Riwayat</a></li> --}}
               </ul>
 
               <div class="tab-content">
@@ -300,6 +285,9 @@
     $("#uploadFoto").change(function() {
         readURL(this);
     });
+</script>
+<script>
+
 </script>
 
 @endsection

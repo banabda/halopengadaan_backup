@@ -40,14 +40,15 @@ class LoginController extends Controller
     }
 
     public function authenticated(Request $request, $user)
-    {   
+    {
         if ($user->hasRole('super admin')) {
             return redirect()->route('dashboard.index');
         } elseif ($user->hasRole('user')) {
-            if ($user->profile->count() == 0) {
+            // dd(is_null($user->profile));
+            if (is_null($user->profile)) {
                 return redirect()->route('profile');
             } else {
-                return redirect()->route('user.index');
+                return redirect()->route('user.index.2');
             }
         }
 

@@ -22,6 +22,10 @@ Route::get('lostpassword/wp-login', function () {
     return view('wp-admin.lost-password');
 });
 
+Route::get('coba', function () {
+    return view('dashboard.user.daftar-membership');
+});
+
 Route::get('/', 'Landing\HomeController@index')->name('landing');
 
 Auth::routes();
@@ -58,9 +62,16 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::resource('permission', 'Dashboard\Auth\PermissionController');
 });
 
+Route::group(['middleware' => ['auth']], function ()
+{
+    Route::get('profile', 'DashboardUser\HomeController@profile')->name('profile');
+    Route::post('profile/save', 'DashboardUser\HomeController@saveProfile')->name('profile.save');
+    Route::post('profile/upload/save', 'DashboardUser\HomeController@uploadPicture')->name('profile.upload.save');
+});
+
 Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 {
-    Route::get('dashboard', 'DashboardUser\HomeController@index')->name('user.index');
+    Route::get('dashboard', 'DashboardUser\HomeController@index')->name('user.index.2');
 });
 
 // Route::prefix('narasumber')->group(function(){

@@ -20,6 +20,7 @@ class Profile extends Model
         'alamat_kerja',
         'jenis_kerja',
         'status',
+        'foto',
         'is_complete'
     ];
 
