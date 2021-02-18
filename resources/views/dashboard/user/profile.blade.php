@@ -31,10 +31,16 @@
 
                     <div class="box-body text-center pb-50">
                       <a href="#">
-                        <img class="avatar avatar-xxl avatar-bordered" src="{{ Storage::url($user->profile->foto) }}" alt="">
+                        @if (is_null($user->profile))
+                            <img class="avatar avatar-xxl avatar-bordered" src="Lalala" alt="">
+                        @elseif(is_null($user->profile->foto))
+                            <img class="avatar avatar-xxl avatar-bordered" src="Lalala" alt="">
+                        @else
+                            <img class="avatar avatar-xxl avatar-bordered" src="{{ Storage::url($user->profile->foto) }}" alt="">
+                        @endif
                       </a>
-                      <h4 class="mt-2 mb-0"><a class="hover-primary text-white" href="#">Roben Parkar</a></h4>
-                      <span><i class="fa fa-map-marker w-20"></i> Miami</span>
+                      <h4 class="mt-3 mb-0"><a class="hover-primary text-white" href="#">{{ $user->name }}</a></h4>
+                      {{-- <span><i class="fa fa-map-marker w-20"></i> Miami</span> --}}
                     </div>
 
                     <ul class="box-body flexbox flex-justified text-center" data-overlay="4">

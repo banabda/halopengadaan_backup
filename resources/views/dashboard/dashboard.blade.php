@@ -310,14 +310,13 @@
 	<script src="{{ asset('dashboard/main/js/vendors.min.js') }}"></script>
     <script src="{{ asset('dashboard/assets/icons/feather-icons/feather.min.js') }}"></script>
 	<script src="{{ asset('dashboard/assets/vendor_components/easypiechart/dist/jquery.easypiechart.js') }}"></script>
-	{{-- <script src="{{ asset('dashboard/assets/vendor_components/apexcharts-bundle/irregular-data-series.js') }}"></script>
-    <script src="{{ asset('dashboard/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script> --}}
-    {{-- <script src="{{ asset('dashboard/main/js/pages/data-table.js') }}"></script> --}}
+    <script src="{{ asset('dashboard/assets/vendor_components/jquery-steps-master/build/jquery.steps.js') }} "></script>
+    <script src="{{ asset('dashboard/assets/vendor_components/jquery-validation-1.17.0/dist/jquery.validate.min.js') }} "></script>
+    <script src="{{ asset('dashboard/main/js/pages/steps.js') }}"></script>
 
     <!-- Sunny Admin App -->
 	<script src="{{ asset('dashboard/main/js/template.js') }}"></script>
 	<script src="{{ asset('dashboard/main/js/pages/dashboard.js') }}"></script>
-    {{-- <script src="{{ asset('dashboard/main/js/pages/data-table.js') }}"></script> --}}
 
     <!-- CDN DataTables -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
