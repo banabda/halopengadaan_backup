@@ -121,10 +121,9 @@
     $(document).ready(function () {
         $('#membership').on('change', function () {
             var membership = $('#membership').val();
-            // console.log(membership);
+
             if (membership == 1) {
                 $('#card_kelebihan_paket').show();
-                console.log("Yeay Benar");
                 $('#kelebihan_paket').html('');
                 $('#kelebihan_paket').append(`
                     <li>Ditangani Para Ahli</li>
