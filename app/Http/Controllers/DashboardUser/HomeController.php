@@ -109,4 +109,20 @@ class HomeController extends Controller
 
         return redirect()->route('profile');
     }
+
+    public function registerMembership()
+    {
+        return view('dashboard.user.daftar-membership');
+    }
+
+    public function saveRegisterMembership(Request $request)
+    {
+        $data = $request->all();
+        dd($data);
+    }
+
+    public function invoice()
+    {
+        return view('dashboard.user.invoice-user');
+    }
 }

@@ -43,7 +43,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::get('edit/{id}','Narasumber\NarasumberController@edit');
     Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
 
-    // crud halaman mambership
+    // CRUD halaman mambership
     Route::get('admin','Mambership\MambershipController@index')->name('mambership');
     Route::post('buat','Mambership\MambershipController@create')->name('mambership.create');
     // Route::get('buat/{id}','Mambership\MambershipController@detail');
@@ -70,6 +70,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 
 Route::group(['middleware' => ['auth']], function ()
 {
+    // Update Profile
     Route::get('profile', 'DashboardUser\HomeController@profile')->name('profile');
     Route::post('profile/save', 'DashboardUser\HomeController@saveProfile')->name('profile.save');
     Route::post('profile/upload/save', 'DashboardUser\HomeController@uploadPicture')->name('profile.upload.save');
@@ -77,20 +78,10 @@ Route::group(['middleware' => ['auth']], function ()
 
 Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 {
-    Route::get('dashboard', 'DashboardUser\HomeController@index')->name('user.index.2');
+    // Dashboard User Membership
+    Route::get('membership', 'DashboardUser\HomeController@registerMembership')->name('user.dashboard.membership');
+    Route::post('save/membership', 'DashboardUser\HomeController@saveRegisterMembership')->name('user.dashboard.membership.save');
+
+    // Dashboard User Invoice
+    Route::get('invoice', 'DashboardUser\HomeController@invoice')->name('user.dashboard.invoice');
 });
-
-
-// Route::group(['prefix' => 'narasumber', 'middleware' => ['role:user']], function()
-// {
-
-// });
-// Route::group(['prefix' => 'mambership', 'middleware' => ['role:user']], function()
-// {
-
-// });
-// Route::group(['prefix' => 'metodepembayaran', 'middleware' => ['role:user']], function()
-// {
-
-// });
-

@@ -114,7 +114,7 @@
 
         @elserole('user')
         <li>
-            <a href="{{ route('dashboard.index') }}">
+            <a href="{{ route('user.dashboard.membership') }}">
               <i data-feather="pie-chart"></i>
               <span>Daftar Konsultasi</span>
             </a>
@@ -128,7 +128,7 @@
           </li>
 
           <li>
-              <a href="#">
+              <a href="{{ route('user.dashboard.invoice') }}">
                 <i data-feather="server"></i>
                 <span>Invoice</span>
               </a>
