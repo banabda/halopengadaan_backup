@@ -31,7 +31,7 @@
 
                     <div class="box-body text-center pb-50">
                       <a href="#">
-                        <img class="avatar avatar-xxl avatar-bordered" src="" alt="">
+                        <img class="avatar avatar-xxl avatar-bordered" src="{{ Storage::url($user->profile->foto) }}" alt="">
                       </a>
                       <h4 class="mt-2 mb-0"><a class="hover-primary text-white" href="#">Roben Parkar</a></h4>
                       <span><i class="fa fa-map-marker w-20"></i> Miami</span>
