@@ -30,7 +30,7 @@
            <div class="box">
               <div class="box-header with-border">
                 <h5 class="box-title">List Metode Pembayaran</h5>
-                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;">Tambah Data Narasumber</button>
+                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;">Tambah Metode Pembayaran</button>
 
               </div>
               <!-- /.box-header -->
@@ -50,19 +50,19 @@
                         </thead>
                     <tbody>
                         @php $no = 1; @endphp
-                        @foreach($data as $dt)
+                        @foreach($data as $mt)
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>{{$dt->nama_method}}</td>
-                            <td>{{$dt->nama_provider}}</td>
-                            <td>{{$dt->nama_rekening}}</td>
-                            <td>{{$dt->nomor_rekening}}</td>
+                            <td>{{$mt->nama_method}}</td>
+                            <td>{{$mt->nama_provider}}</td>
+                            <td>{{$mt->nama_rekening}}</td>
+                            <td>{{$mt->nomor_rekening}}</td>
 
                         <td>
 
-                      <a href="{{ url('admin/detail/'.$dt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
-                      <a href="{{ url('admin/edit/'.$dt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                      <a href="{{ url('admin/delete/'.$dt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                      <a href="{{ url('admin/detail/'.$mt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
+                      <a href="{{ url('admin/edit/'.$mt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="{{ url('admin/delete/'.$mt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
                       </td>
                     </tr>
                   @endforeach
@@ -103,13 +103,13 @@
         @endif
 
       <div class="modal-body">
-        <form action="{{route('metodepembayaran.create') }}" method="POST">
-          {{csrf_field()}}
+        <form action="{{route('metodepembayaran.store') }}" method="POST">
+          @csrf
 
-          <!-- <div class="form-group">
+          {{-- <div class="form-group">
             <label for="exampleInputEmail1">Id</label>
             <input name="id" type="text" class="form-control" id="id" aria-describedby="id" placeholder="Id"  value="{{ old('id') }}">
-          </div> -->
+          </div>  --}}
           <div class="form-group">
             <label for="exampleInputEmail1">Nama Metode</label>
             <input name="nama_method" type="text" class="form-control" id="nama_method" aria-describedby="nama_method" placeholder="nama_method"  value="{{ old('nama_method') }}">

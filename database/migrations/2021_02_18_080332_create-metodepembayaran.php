@@ -18,6 +18,7 @@ class CreateMetodepembayaran extends Migration
             $table->string('nama_method');
             $table->string('nama_provider');
             $table->string('nama_rekening');
+            $table->string('nomor_rekening');
             $table->timestamps();
         });
     }

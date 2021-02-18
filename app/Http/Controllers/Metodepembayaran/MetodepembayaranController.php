@@ -28,11 +28,7 @@ class MetodepembayaranController extends Controller
      */
     public function create()
     {
-        $data= request()->all();
-
-        Metodepembayaran::create([$data]);
-        // alihkan halaman ke halaman metodepembayaran
-        return back();
+        // return view('metodepembayaran.index');
     }
 
     /**
@@ -43,7 +39,16 @@ class MetodepembayaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // insert data ke table metode pembayaran
+        DB::table('metodepembayaran')->insert([
+            'nama_method'      => $request->nama_method,
+            'nama_provider'    => $request->nama_provider,
+            'nama_rekening'    => $request->nama_rekening,
+            'nomor_rekening'   => $request->nomor_rekening
+        ]);
+        // alihkan halaman ke halaman metodepembayaran
+        return redirect()->route('metodepembayaran');
+
     }
 
     /**

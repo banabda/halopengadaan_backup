@@ -109,7 +109,7 @@
 
       <div class="modal-body">
         <form action="{{route('mambership.create') }}" method="POST">
-          {{csrf_field()}}
+            @csrf
 
           <!-- <div class="form-group">
             <label for="exampleInputEmail1">Id</label>
