@@ -45,27 +45,9 @@
             </a>
         </li>
         <li>
-            <a href="#">
+            <a href="{{route('metodepembayaran')}}">
               <i data-feather="server"></i>
               <span>Metode Pembayaran</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-              <i data-feather="server"></i>
-              <span>Pilih Bank</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-              <i data-feather="server"></i>
-              <span>Data Pemilik Rekening</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-              <i data-feather="server"></i>
-              <span>Nomor Rekening</span>
             </a>
         </li>
         <li class="header nav-small-cap">Keamanan</li>

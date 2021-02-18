@@ -35,6 +35,7 @@ Route::post('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('land
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
+    // crud narasumber
     Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
     Route::post('create','Narasumber\NarasumberController@create')->name('narasumber.create');
     Route::get('detail/{id}','Narasumber\NarasumberController@detail');
@@ -49,6 +50,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     // Route::get('buat/{id}','Mambership\MambershipController@delete');
     // Route::get('buat/{id}','Mambership\MambershipController@edit');
     // Route::post('buat','Mambership\MambershipController@update')->name('mambership.update');
+
+     // crud halaman metode pembayaran
+     Route::get('methodadmin','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
+     Route::post('buatmethod','Metodepembayaran\MetodepembayaranController@create')->name('metodepembayaran.create');
+
 
     Route::get('dashboard', 'Dashboard\HomeController@index')->name('dashboard.index');
 
