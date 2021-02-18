@@ -132,7 +132,7 @@
 
         @elserole('user')
         <li>
-            <a href="{{ route('dashboard.index') }}">
+            <a href="{{ route('user.dashboard.membership') }}">
               <i data-feather="pie-chart"></i>
               <span>Daftar Konsultasi</span>
             </a>

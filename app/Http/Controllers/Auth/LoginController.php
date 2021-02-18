@@ -45,11 +45,11 @@ class LoginController extends Controller
             return redirect()->route('dashboard.index');
         } elseif ($user->hasRole('user')) {
 
-            if (is_null($user->profile)) {
+            // if (is_null($user->profile)) {
                 return redirect()->route('profile');
-            } else {
-                return redirect()->route('user.index.2');
-            }
+            // } else {
+                // return redirect()->route('profile');
+            // }
         }
 
         return redirect()->route('landing');

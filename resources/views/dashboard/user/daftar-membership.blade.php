@@ -32,7 +32,8 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body wizard-content">
-              <form action="#" class="tab-wizard wizard-circle" method="POST">
+              <form action="{{ route('user.dashboard.membership.save') }}" class="tab-wizard wizard-circle" method="POST">
+                  @csrf
                   <!-- Step 1 -->
                   <h6>Data Diri</h6>
                   <section>
