@@ -75,11 +75,11 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 });
 
 // Route::prefix('narasumber')->group(function(){
-    Route::group(['prefix' => 'narasumber', 'middleware' => ['role:user']], function()
-    {
+Route::group(['prefix' => 'narasumber', 'middleware' => ['role:user']], function()
+{
 
-    });
-    Route::group(['prefix' => 'mambership', 'middleware' => ['role:user']], function()
-    {
-    });
+});
+Route::group(['prefix' => 'mambership', 'middleware' => ['role:user']], function()
+{
+});
 
