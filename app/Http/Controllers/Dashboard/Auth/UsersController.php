@@ -109,7 +109,7 @@ class UsersController extends Controller
         $user = User::find($id);
         $data['password'] = Hash::make($data['password']);
         $user->update($data);
-        
+
         DB::table('model_has_roles')->where('model_id',$id)->delete();
         $user->assignRole($request->input('role'));
         return redirect()->route('user.index')->with('success','User Edited Successfully');
