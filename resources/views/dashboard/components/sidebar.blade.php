@@ -39,7 +39,7 @@
             </a>
         </li>
         <li>
-            <a href="">
+            <a href="{{route('mambership')}}">
               <i data-feather="server"></i>
               <span>Data Mambership</span>
             </a>

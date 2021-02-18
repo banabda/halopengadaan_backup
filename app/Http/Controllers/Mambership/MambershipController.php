@@ -53,9 +53,13 @@ class MambershipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function detail($id)
     {
-        //
+       $mambership = DB::table('mambership')->where('id',$id)->get();
+
+
+        // passing data pegawai yang didapat ke view edit.blade.php
+        return view('mambership.detail', compact('mambership'));
     }
 
     /**
@@ -66,7 +70,11 @@ class MambershipController extends Controller
      */
     public function edit($id)
     {
-        //
+        $mambership = DB::table('mambership')->where('id',$id)->get();
+
+
+        // passing data pegawai yang didapat ke view edit.blade.php
+        return view('mambership.edit',['mambership' => $mambership]);
     }
 
     /**
@@ -76,19 +84,28 @@ class MambershipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
-    }
+         DB::table('mambership')->where('id',$request->id)->update([
+        'id' => $request->id,
+        'nama_lengkap' => $request->nama_lengkap,
+        'email' => $request->email,
+        'no_wa' => $request->no_wa,
+        'alamat' => $request->alamat,
+        'nomor_hp' => $request->nomor_hp
 
+    ]);
+    return redirect()->route('mambership');
+    }
     /**
      * Remove the specified resource from storage.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $data = Mambership::where('id',$id)->delete('mambership');
+        return redirect()->back();
     }
 }

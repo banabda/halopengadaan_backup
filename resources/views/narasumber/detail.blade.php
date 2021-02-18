@@ -37,13 +37,13 @@
            <label for="exampleInputPassword1">Password</label>
        <br><input type="text" class="form-control"  name="password" value="{{ $narasumber->password }}" readonly=""> <br/></div>
        <div class="form-group">
-       <div class="form-group">
            <label for="exampleInputPassword1">Alamat</label>
        <br><input type="text" class="form-control"  name="alamat" value="{{ $narasumber->alamat }}" readonly=""> <br/></div>
+       <div class="form-group">
            <label for="exampleInputPassword1">Nomor Hp</label>
        <br><input type="text" class="form-control" required="required" name="nomor_hp" value="{{ $narasumber->nomor_hp }}" readonly><br/></div><br>
        <div class="modal-footer">
-       <a href="/narasumber" type="button" class="btn btn-primary" data-dismiss="modal">Kembali</a>
+       <a href="/admin" type="button" class="btn btn-primary" data-dismiss="modal">Kembali</a>
        <br>
        </div>
 

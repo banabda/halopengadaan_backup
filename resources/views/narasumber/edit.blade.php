@@ -22,12 +22,10 @@
 <form action="{{route('narasumber.update') }}" method="post">
   {{ csrf_field() }}
    <input type="hidden" name="id" value="{{ $narasumber->id }}"> <br/>
-       <!-- <div class="form-group">
+       {{-- <div class="form-group">
            <label for="exampleInputPassword1">Id</label>
        <br><input type="text" class="form-control" required="required" name="id" value="{{ $narasumber->id }}"><br/>
-       </div> -->
-
-
+       </div> --}}
     <div class="table-responsive" style="padding-top: 50px;">
        <div class="form-group">
            <label for="exampleInputPassword1">Nama</label>

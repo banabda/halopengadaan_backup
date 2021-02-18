@@ -102,7 +102,7 @@ class NarasumberController extends Controller
         'nomor_hp' => $request->nomor_hp
 
     ]);
-    return redirect()->route('narasumber.list');
+    return redirect()->route('narasumber');
     }
 
     /**
