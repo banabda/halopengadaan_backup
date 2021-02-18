@@ -11,7 +11,7 @@ class Metodepembayaran extends Model
     protected $table = 'metodepembayaran';
 
     protected $fillable =[
-       'id','transfer', 'uang_digital'
+       'id','nama_method', 'nama_provider', 'nama_rekening', 'nomor_rekening'
     ];
         /**
     * The attributes that should be hidden for arrays.

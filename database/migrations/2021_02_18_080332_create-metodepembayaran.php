@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMetodePembayaran extends Migration
+class CreateMetodepembayaran extends Migration
 {
     /**
      * Run the migrations.
@@ -15,8 +15,9 @@ class CreateMetodePembayaran extends Migration
     {
         Schema::create('metodepembayaran', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('transfer');
-            $table->string('uang_digital');
+            $table->string('nama_method');
+            $table->string('nama_provider');
+            $table->string('nama_rekening');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateMetodePembayaran extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mambership');
+        Schema::dropIfExists('metodepembayaran');
     }
 }
