@@ -14,19 +14,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('coba', function () {
-    return view('components.paket');
+Route::get('wp-admin', function () {
+    return view('wp-admin.login');
+});
+
+Route::get('lostpassword/wp-login', function () {
+    return view('wp-admin.lost-password');
 });
 
 Route::get('/', 'Landing\HomeController@index')->name('landing');
 
 Auth::routes();
 
-
 // Save Paket
 Route::post('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('landing.paket');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
     Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
@@ -53,7 +55,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 {
     Route::get('dashboard', 'DashboardUser\HomeController@index')->name('user.index');
-    Route::get('profile', 'DashboardUser\HomeController@profile')->name('user.profile');
 });
 
 // Route::prefix('narasumber')->group(function(){
