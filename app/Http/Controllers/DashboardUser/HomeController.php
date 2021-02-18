@@ -7,6 +7,7 @@ use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -69,10 +70,43 @@ class HomeController extends Controller
         } else {
             $createProfile = Profile::create($data);
         }
+
+        return redirect()->route('profile');
     }
 
     public function uploadPicture(Request $request)
     {
+
         $data = $request->all();
+        $this->validate($request, [
+            'foto' => 'required|mimes:png,jpg,jpeg'
+        ]);
+
+        $user = Auth::user()->id;
+        $file = $request->file('foto');
+        $path = 'images/foto_profile/' . $user ;
+        $filename = $file->getClientOriginalName();
+
+        $path = Storage::disk('public')->put(
+            $path,
+            $file
+        );
+
+        $data['foto'] = $path;
+        $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
+        // dd($data['foto']);
+        if (!is_null($profile)) {
+            Storage::disk('public')->delete($profile->foto);
+            $profile->update([
+                'foto' => $data['foto']
+            ]);
+        } else {
+            Profile::create([
+                'user_id' => Auth::user()->id,
+                'foto' => $data['foto']
+            ]);
+        }
+
+        return redirect()->route('profile');
     }
 }

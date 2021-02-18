@@ -15,15 +15,15 @@ class CreateProfile extends Migration
     {
         Schema::create('profile', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('user_id');
-            $table->string('nama_lengkap');
-            $table->string('email')->unique();
-            $table->string('no_hp');
-            $table->text('alamat_rumah');
-            $table->text('alamat_kerja');
-            $table->string('jenis_kerja');
-            $table->string('status');
-            $table->string('is_complete');
+            $table->integer('user_id')->nullable();
+            $table->string('nama_lengkap')->nullable();
+            $table->string('email')->unique()->nullable();
+            $table->string('no_hp')->nullable();
+            $table->text('alamat_rumah')->nullable();
+            $table->text('alamat_kerja')->nullable();
+            $table->string('jenis_kerja')->nullable();
+            $table->string('status')->nullable();
+            $table->string('is_complete')->nullable();
             $table->timestamps();
         });
     }
