@@ -31,9 +31,10 @@ class MambershipController extends Controller
     {
         $data= request()->all();
 
-        Mambership::create($data);
+        Mambership::create([$data]);
         // alihkan halaman ke halaman narasumber
         return back();
+
     }
 
     /**
@@ -91,8 +92,10 @@ class MambershipController extends Controller
         'nama_lengkap' => $request->nama_lengkap,
         'email' => $request->email,
         'no_wa' => $request->no_wa,
-        'alamat' => $request->alamat,
-        'nomor_hp' => $request->nomor_hp
+        'tempat_kerja' => $request->tempat_kerja,
+        'jenis' => $request->jenis,
+        'status' => $request->status,
+        'mambership' => $request->mambership,
 
     ]);
     return redirect()->route('mambership');

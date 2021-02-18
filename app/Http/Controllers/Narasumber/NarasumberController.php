@@ -33,7 +33,6 @@ class NarasumberController extends Controller
         // alihkan halaman ke halaman narasumber
         return back();
 
-
     }
     /**
      * Store a newly created resource in storage.
