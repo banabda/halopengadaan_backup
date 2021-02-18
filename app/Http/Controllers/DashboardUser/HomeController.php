@@ -120,4 +120,9 @@ class HomeController extends Controller
         $data = $request->all();
         dd($data);
     }
+
+    public function invoice()
+    {
+        return view('dashboard.user.invoice-user');
+    }
 }
