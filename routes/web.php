@@ -37,8 +37,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::get('delete/{id}','Narasumber\NarasumberController@delete');
     Route::get('edit/{id}','Narasumber\NarasumberController@edit');
     Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
+
     // crud halaman mambership
     Route::get('admin','Mambership\MambershipController@index')->name('mambership');
+    Route::post('buat','Mambership\MambershipController@create')->name('mambership.create');
+    // Route::get('buat/{id}','Mambership\MambershipController@detail');
+    // Route::get('buat/{id}','Mambership\MambershipController@delete');
+    // Route::get('buat/{id}','Mambership\MambershipController@edit');
+    // Route::post('buat','Mambership\MambershipController@update')->name('mambership.update');
 
     Route::get('dashboard', 'Dashboard\HomeController@index')->name('dashboard.index');
 
@@ -64,10 +70,5 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
     });
     Route::group(['prefix' => 'mambership', 'middleware' => ['role:user']], function()
     {
-        Route::post('create','mambership\mambershipController@create')->name('mambership.create');
-        Route::get('detail/{id}','mambership\mambershipController@detail');
-        Route::get('delete/{id}','mambership\mambershipController@delete');
-        Route::get('edit/{id}','mambership\mambershipController@edit');
-        Route::post('update','mambership\mambershipController@update')->name('mambership.update');
     });
 

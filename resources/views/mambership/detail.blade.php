@@ -49,7 +49,7 @@
            <label for="exampleInputPassword1">Mambership</label>
        <br><input type="text" class="form-control" required="required" name="mambership" value="{{ $mambership->mambership }}" readonly><br/></div><br>
        <div class="modal-footer">
-       <a href="/mambership" type="button" class="btn btn-primary" data-dismiss="modal">Kembali</a>
+       <a href="/admin" type="button" class="btn btn-primary" data-dismiss="modal">Kembali</a>
        <br>
        </div>
 

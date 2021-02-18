@@ -44,7 +44,7 @@
            <label for="exampleInputPassword1">Nomor Hp</label>
        <br><input type="text" class="form-control" required="required" name="nomor_hp" value="{{ $narasumber->nomor_hp }}"> <br/></div><br>
        <div class="modal-footer">
-       <a href="/narasumber" type="button" class="btn btn-danger" data-dismiss="modal">Close</a>
+       <a href="/admin" type="button" class="btn btn-danger" data-dismiss="modal">Close</a>
        <input type="submit" class="btn btn-primary" value="Simpan Data">
     </div>
 </form>

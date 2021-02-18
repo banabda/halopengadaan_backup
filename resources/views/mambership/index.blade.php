@@ -30,7 +30,7 @@
            <div class="box">
               <div class="box-header with-border">
                 <h5 class="box-title">List Data Mambership</h5>
-                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;">Tambah Data Narasumber</button>
+                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;">Tambah Data Mambership</button>
 
               </div>
               <!-- /.box-header -->
@@ -47,6 +47,7 @@
                             <th>Tempat kerja</th>
                             <th>Jenis</th>
                             <th>status</th>
+                            <th>Mambership</th>
                             <th>Aksi</th>
                           </tr>
                         </thead>
@@ -64,9 +65,9 @@
                             <td>{{$dt->mambership}}</td>
                         <td>
 
-                      <a href="{{ url('mambership/detail/'.$dt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
-                      <a href="{{ url('mambership/edit/'.$dt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                      <a href="{{ url('mambership/delete/'.$dt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                      <a href="{{ url('admin/detail/'.$dt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
+                      <a href="{{ url('admin/edit/'.$dt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="{{ url('admin/delete/'.$dt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
                       </td>
                     </tr>
                   @endforeach
@@ -124,7 +125,7 @@
           </div>
           <div class="form-group">
           <label for="exampleInputEmail1">Nomer Whatsapp</label>
-          <input name="no_wa" type="textarea" class="form-control" id="no_wa" aria-describedby="no_wa" placeholder="no_wa" value="{{ old('no_wa') }}">
+          <input name="no_wa" type="text" class="form-control" id="no_wa" aria-describedby="no_wa" placeholder="no_wa" value="{{ old('no_wa') }}">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Tempat kerja</label>
@@ -132,15 +133,27 @@
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Jenis</label>
-            <input name="jenis" type="text"  class="form-control" id="jenis" placeholder="jenis" value="{{ old('jenis') }}">
+            <select name="jenis" type="text"  class="form-control" id="jenis" placeholder="jenis" value="{{ old('jenis') }}">
+                <option value="pns">PNS</option>
+                <option value="bumn">BUMN</option>
+                <option value="blu">BLU</option>
+                <option value="blud">BLUD</option>
+                <option value="perusahaan">PERUSAHAAN</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Status</label>
-            <input name="status" type="text"  class="form-control" id="status" placeholder="status" value="{{ old('status') }}">
+            <select name="status" type="text"  class="form-control" id="status" placeholder="status" value="{{ old('status') }}">
+                <option value="">Penyedia</option>
+                <option value="">Pengguna</option>
+            </select>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Mambership</label>
-            <input name="mambership" type="text"  class="form-control" id="mambership" placeholder="mambership" value="{{ old('mambership') }}">
+            <select name="mambership" type="text"  class="form-control" id="mambership" placeholder="mambership" value="{{ old('mambership') }}">
+                <option value="">1 Bulan, Rp.250.000,-</option>
+                <option value="">3 Bulan, Rp.600.000,-</option>
+            </select>
           </div>
         </div>
         <div class="modal-footer">
