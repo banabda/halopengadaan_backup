@@ -17,11 +17,11 @@ class CreateMambership extends Migration
             $table->bigIncrements('id');
             $table->string('nama_lengkap')->nullable();
             $table->string('email')->unique();
-            $table->string('no_wa');
+            $table->integer('no_wa');
             $table->string('tempat_kerja');
-            $table->integer('jenis');
-            $table->integer('status');
-            $table->integer('mambership');
+            $table->string('jenis');
+            $table->string('status');
+            $table->string('mambership');
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateMambership extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('narasumber');
+        Schema::dropIfExists('mambership');
     }
 }

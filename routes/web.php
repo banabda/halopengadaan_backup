@@ -30,6 +30,13 @@ Route::post('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('land
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
     Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
+    Route::post('create','Narasumber\NarasumberController@create')->name('narasumber.create');
+    Route::get('detail/{id}','Narasumber\NarasumberController@detail');
+    Route::get('delete/{id}','Narasumber\NarasumberController@delete');
+    Route::get('edit/{id}','Narasumber\NarasumberController@edit');
+    Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
+    // crud halaman mambership
+    Route::get('admin','Mambership\MambershipController@index')->name('mambership');
 
     Route::get('dashboard', 'Dashboard\HomeController@index')->name('dashboard.index');
 
@@ -50,22 +57,16 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 });
 
 // Route::prefix('narasumber')->group(function(){
-Route::group(['prefix' => 'narasumber', 'middleware' => ['role:user']], function()
-{
-    // Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
-    Route::post('create','Narasumber\NarasumberController@create')->name('narasumber.create');
-    Route::get('detail/{id}','Narasumber\NarasumberController@detail');
-    Route::get('delete/{id}','Narasumber\NarasumberController@delete');
-    Route::get('edit/{id}','Narasumber\NarasumberController@edit');
-    Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
-});
-// Route::group(['prefix' => 'mambership', 'middleware' => ['role:user']], function()
-// {
-//     Route::get('','Mambership\MambershipController@index')->name('mambership');
-//     Route::post('create','Narasumber\NarasumberController@create')->name('narasumber.create');
-//     Route::get('detail/{id}','Narasumber\NarasumberController@detail');
-//     Route::get('delete/{id}','Narasumber\NarasumberController@delete');
-//     Route::get('edit/{id}','Narasumber\NarasumberController@edit');
-//     Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
-// });
+    Route::group(['prefix' => 'narasumber', 'middleware' => ['role:user']], function()
+    {
+
+    });
+    Route::group(['prefix' => 'mambership', 'middleware' => ['role:user']], function()
+    {
+        Route::post('create','mambership\mambershipController@create')->name('mambership.create');
+        Route::get('detail/{id}','mambership\mambershipController@detail');
+        Route::get('delete/{id}','mambership\mambershipController@delete');
+        Route::get('edit/{id}','mambership\mambershipController@edit');
+        Route::post('update','mambership\mambershipController@update')->name('mambership.update');
+    });
 
