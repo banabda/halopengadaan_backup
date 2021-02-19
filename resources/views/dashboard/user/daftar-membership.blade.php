@@ -41,26 +41,26 @@
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label for="nama_lengkap">Nama Lengkap :</label>
-                                  <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
+                                  <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap" value="{{ Auth::user()->name }}">
                               </div>
                           </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label for="email">Email :</label>
-                                  <input type="email" class="form-control" name="email" id="email"> </div>
+                                  <input type="email" class="form-control" name="email" id="email" value="{{ Auth::user()->profile->email }}"> </div>
                           </div>
                       </div>
                       <div class="row">
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label for="no_hp">No HP :</label>
-                                  <input type="text" class="form-control" name="no_hp" id="no_hp">
+                                  <input type="text" class="form-control" name="no_hp" id="no_hp" value="{{ Auth::user()->profile->no_hp }}">
                                 </div>
                           </div>
                           <div class="col-md-6">
                               <div class="form-group">
                                   <label for="alamat_rumah">Alamat Rumah :</label>
-                                  <textarea name="alamat_rumah" id="alamat_rumah" rows="2" class="form-control"></textarea>
+                                  <textarea name="alamat_rumah" id="alamat_rumah" rows="2" class="form-control">{{ Auth::user()->profile->alamat_rumah }}</textarea>
                           </div>
                       </div>
                   </section>
@@ -95,14 +95,19 @@
                       <div class="row">
                           <div class="col-md-6">
                               <div class="form-group">
-                                  <label for="int123">Pilih Metode :</label>
-                                  <input type="text" class="form-control" id="int123">
+                                  <label for="nama_method">Pilih Metode :</label>
+                                  <select class="custom-select form-control" id="nama_method" name="nama_method">
+                                    <option>Pilih Metode Pembayaran</option>
+                                    @foreach ($metode_pembayaran as $key => $value)
+                                        <option value="{{ $key }}">{{ $key }}</option>
+                                    @endforeach
+                                  </select>
                               </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
                                 <label for="int234">Pilih Providers :</label>
-                                <input type="text" class="form-control" id="int234" placeholder="" value="23124567854356">
+                                <input type="text" class="form-control" id="nama_" placeholder="" value="23124567854356">
                             </div>
                           </div>
                       </div>
@@ -120,6 +125,8 @@
 
 <script>
     $(document).ready(function () {
+
+        // Select Membership
         $('#membership').on('change', function () {
             var membership = $('#membership').val();
 
@@ -159,6 +166,26 @@
                 $('#card_kelebihan_paket').hide();
             }
         });
+
+        // Select Payment Method
+        $('#nama_method').on('change', function () {
+            var nama_metode = $('#nama_method').val();
+            // console.log(nama_metode);
+            if (nama_metode == "Transfer Bank") {
+                console.log("Transfer Bank");
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url ('user/getProviders') }}/" + nama_metode,
+                    dataType: "JSON",
+                    success: function (response) {
+                        // console.log(response);
+                    }
+                });
+            } else if (nama_metode == "Uang Digital") {
+                console.log("Uang Digital");
+            }
+        });
     });
 </script>
+
 @endsection

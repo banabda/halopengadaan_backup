@@ -20,6 +20,24 @@
               </div>
           </div>
       </div>
+      @if (is_null($user->profile))
+      <div class="px-30 my-15 no-print">
+        <div class="callout callout-danger" style="margin-bottom: 0!important;">
+          <h4><i class="fa fa-info"></i> Note:</h4>
+          Lengkapi bagian profil terlebih dahulu !
+        </div>
+      </div>
+      @elseif(is_null($user->profile->nama_lengkap) && is_null($user->profile->email) && is_null($user->profile->no_hp))
+      <div class="px-30 my-15 no-print">
+        <div class="callout callout-danger" style="margin-bottom: 0!important;">
+          <h4><i class="fa fa-info"></i> Note:</h4>
+          Lengkapi bagian profil terlebih dahulu !
+        </div>
+      </div>
+      @else
+
+      @endif
+
 
       <!-- Main content -->
       <section class="content">
@@ -178,42 +196,42 @@
                             <label for="inputName" class="col-sm-2 control-label pt-1">Nama Lengkap</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputName" name="nama_lengkap" value="{{ Auth::user()->name }}" placeholder="Nama Lengkap">
+                                <input type="text" class="form-control" id="inputName" name="nama_lengkap" value="{{ Auth::user()->name }}" placeholder="Nama Lengkap" required>
                             </div>
                             </div>
                             <div class="form-group row">
                             <label for="inputEmail" class="col-sm-2 control-label pt-1">Email</label>
 
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail" name="email" value="{{ Auth::user()->email }}" placeholder="Email Aktif">
+                                <input type="email" class="form-control" id="inputEmail" name="email" value="{{ Auth::user()->email }}" placeholder="Email Aktif" required>
                             </div>
                             </div>
                             <div class="form-group row">
                             <label for="inputPhone" class="col-sm-2 control-label pt-1">Nomor HP</label>
 
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputPhone" name="no_hp" value="{{ $user->profile->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
+                                <input type="text" class="form-control" id="inputPhone" name="no_hp" value="{{ $user->profile->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)" required>
                             </div>
                             </div>
                             <div class="form-group row">
                             <label for="inputExperience" class="col-sm-2 control-label pt-1">Alamat Rumah</label>
 
                             <div class="col-sm-10">
-                                <textarea class="form-control" id="inputExperience" name="alamat_rumah" placeholder="Alamat Lengkap">{{ $user->profile->alamat_rumah }}</textarea>
+                                <textarea class="form-control" id="inputExperience" name="alamat_rumah" placeholder="Alamat Lengkap" required>{{ $user->profile->alamat_rumah }}</textarea>
                             </div>
                             </div>
                             <div class="form-group row">
                             <label for="inputSkills" class="col-sm-2 control-label pt-1">Alamat Kerja</label>
 
                             <div class="col-sm-10">
-                                <textarea class="form-control" id="inputExperience" name="alamat_kerja" placeholder="Alamat Tempat Kerja / Bisnis">{{ $user->profile->alamat_kerja }}</textarea>
+                                <textarea class="form-control" id="inputExperience" name="alamat_kerja" placeholder="Alamat Tempat Kerja / Bisnis" required>{{ $user->profile->alamat_kerja }}</textarea>
                             </div>
                             </div>
                             <div class="form-group row">
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Jenis Kerja</label>
 
                                 <div class="col-sm-10">
-                                <select name="jenis_kerja" id="jenis_kerja" class="form-control">
+                                <select name="jenis_kerja" id="jenis_kerja" class="form-control" required>
                                     <option>Jenis Kerja</option>
                                     <option value="PNS" {{ ($user->profile->jenis_kerja == "PNS") ? 'selected' : '' }}>PNS</option>
                                     <option value="BUMN"  {{ ($user->profile->jenis_kerja == "BUMN") ? 'selected' : '' }}>BUMN</option>
@@ -228,7 +246,7 @@
                                 <label for="status" class="col-sm-2 control-label pt-2">Status</label>
 
                                 <div class="col-sm-10">
-                                <select name="status" id="status" class="form-control">
+                                <select name="status" id="status" class="form-control" required>
                                     <option>Pilih Status</option>
                                     <option value="Penyedia" {{ ($user->profile->status == "Penyedia") ? 'selected' : '' }}>Penyedia</option>
                                     <option value="Pengguna" {{ ($user->profile->status == "Pengguna") ? 'selected' : '' }}>Pengguna</option>

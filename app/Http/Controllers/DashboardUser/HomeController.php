@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\DashboardUser;
 
 use App\Http\Controllers\Controller;
+use App\Models\Metodepembayaran;
 use App\Models\Profile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -112,7 +113,22 @@ class HomeController extends Controller
 
     public function registerMembership()
     {
-        return view('dashboard.user.daftar-membership');
+        $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
+        $metode_pembayaran = Metodepembayaran::all()->groupBy('nama_method')->toArray();
+
+        $data = [
+            'metode_pembayaran' => $metode_pembayaran
+        ];
+
+        if (is_null($profile)) {
+            return redirect()->route('profile');
+        } else {
+            if (is_null($profile->nama_lengkap) && is_null($profile->email) && is_null($profile->no_hp)) {
+                return redirect()->route('profile');
+            } else {
+                return view('dashboard.user.daftar-membership', $data);
+            }
+        }
     }
 
     public function saveRegisterMembership(Request $request)
@@ -124,5 +140,12 @@ class HomeController extends Controller
     public function invoice()
     {
         return view('dashboard.user.invoice-user');
+    }
+
+    public function getProviders($value)
+    {
+        $payment_method = Metodepembayaran::where('nama_method', $value)->pluck('nama_provider', 'id');
+        return json_encode($payment_method);
+        
     }
 }
