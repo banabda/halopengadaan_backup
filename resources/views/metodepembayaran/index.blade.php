@@ -60,9 +60,9 @@
 
                         <td>
 
-                      <a href="{{ url('admin/detail/'.$mt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
-                      <a href="{{ url('admin/edit/'.$mt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                      <a href="{{ url('admin/delete/'.$mt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                      <a href="{{ url('admin/detailmethod/'.$mt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
+                      <a href="{{ url('admin/editmethod/'.$mt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="{{ url('admin/deletemethod/'.$mt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
                       </td>
                     </tr>
                   @endforeach
