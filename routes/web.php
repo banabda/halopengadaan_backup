@@ -44,8 +44,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
 
     // CRUD halaman mambership
-    Route::get('admin','Mambership\MambershipController@index')->name('mambership');
-    Route::post('buat','Mambership\MambershipController@create')->name('mambership.create');
+    Route::get('memberadmin','Mambership\MambershipController@index')->name('mambership');
+    Route::post('buat','Mambership\MambershipController@store')->name('mambership.store');
     // Route::get('buat/{id}','Mambership\MambershipController@detail');
     // Route::get('buat/{id}','Mambership\MambershipController@delete');
     // Route::get('buat/{id}','Mambership\MambershipController@edit');

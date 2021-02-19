@@ -41,9 +41,9 @@ class MetodepembayaranController extends Controller
     {
         // insert data ke table metode pembayaran
         DB::table('metodepembayaran')->insert([
-            'nama_method'      => $request->nama_method,
-            'nama_provider'    => $request->nama_provider,
-            'nama_rekening'    => $request->nama_rekening,
+            'nama_method'      => strtoupper($request->nama_method),
+            'nama_provider'    => strtoupper($request->nama_provider),
+            'nama_rekening'    => strtoupper($request->nama_rekening),
             'nomor_rekening'   => $request->nomor_rekening
         ]);
         // alihkan halaman ke halaman metodepembayaran
