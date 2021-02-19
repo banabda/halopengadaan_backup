@@ -19,7 +19,7 @@
 
 @foreach($mambership as $mambership)
 
-<form action="{{route('mambership.update') }}" method="post">
+<form action="{{route('mambership.updatemember') }}" method="post">
   {{ csrf_field() }}
    <input type="hidden" name="id" value="{{ $mambership->id }}"> <br/>
         {{-- <div class="form-group">

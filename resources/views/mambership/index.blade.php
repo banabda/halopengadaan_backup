@@ -30,7 +30,7 @@
            <div class="box">
               <div class="box-header with-border">
                 <h5 class="box-title">List Data Mambership</h5>
-                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;">Tambah Data Mambership</button>
+                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;"><i class="glyphicon glyphicon-plus"></i>Tambah Data Mambership</button>
 
               </div>
               <!-- /.box-header -->
@@ -125,7 +125,7 @@
           </div>
           <div class="form-group">
           <label for="exampleInputEmail1">Nomer Whatsapp</label>
-          <input name="no_wa" type="text" class="form-control" id="no_wa" aria-describedby="no_wa" placeholder="no_wa" value="{{ old('no_wa') }}">
+          <input name="no_wa" type="text" class="form-control" id="no_wa"   ="no_wa" placeholder="no_wa" value="{{ old('no_wa') }}">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Tempat kerja</label>
@@ -144,15 +144,15 @@
           <div class="form-group">
             <label for="exampleInputPassword1">Status</label>
             <select name="status" type="text"  class="form-control" id="status" placeholder="status" value="{{ old('status') }}">
-                <option value="">Penyedia</option>
-                <option value="">Pengguna</option>
+                <option value="penyedia">Penyedia</option>
+                <option value="pengguna">Pengguna</option>
             </select>
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Mambership</label>
             <select name="mambership" type="text"  class="form-control" id="mambership" placeholder="mambership" value="{{ old('mambership') }}">
-                <option value="">1 Bulan, Rp.250.000,-</option>
-                <option value="">3 Bulan, Rp.600.000,-</option>
+                <option value="1 Bulan, Rp.250.000,-">1 Bulan, Rp.250.000,-</option>
+                <option value="3 Bulan, Rp.600.000,">3 Bulan, Rp.600.000,-</option>
             </select>
           </div>
         </div>
