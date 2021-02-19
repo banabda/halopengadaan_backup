@@ -30,7 +30,7 @@
            <div class="box">
               <div class="box-header with-border">
                 <h5 class="box-title">List Metode Pembayaran</h5>
-                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;">Tambah Metode Pembayaran</button>
+                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;"><i class="glyphicon glyphicon-plus"></i>Tambah Metode Pembayaran</button>
 
               </div>
               <!-- /.box-header -->

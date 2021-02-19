@@ -30,7 +30,7 @@
            <div class="box">
               <div class="box-header with-border">
                 <h5 class="box-title">List Data Mambership</h5>
-                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;">Tambah Data Mambership</button>
+                <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#exampleModal1" style="float: right;"><i class="glyphicon glyphicon-plus"></i>Tambah Data Mambership</button>
 
               </div>
               <!-- /.box-header -->
