@@ -65,9 +65,9 @@
                             <td>{{$dt->mambership}}</td>
                         <td>
 
-                      <a href="{{ url('admin/detail/'.$dt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
-                      <a href="{{ url('admin/edit/'.$dt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                      <a href="{{ url('admin/delete/'.$dt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                      <a href="{{ url('admin/detailmamber/'.$dt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
+                      <a href="{{ url('admin/editmamber/'.$dt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="{{ url('admin/deletemamber/'.$dt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
                       </td>
                     </tr>
                   @endforeach
@@ -108,7 +108,7 @@
         @endif
 
       <div class="modal-body">
-        <form action="{{route('mambership.create') }}" method="POST">
+        <form action="{{route('mambership.store') }}" method="POST">
             @csrf
 
           <!-- <div class="form-group">

@@ -60,9 +60,9 @@
 
                         <td>
 
-                      <a href="{{ url('admin/detail/'.$mt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
-                      <a href="{{ url('admin/edit/'.$mt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                      <a href="{{ url('admin/delete/'.$mt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                      <a href="{{ url('admin/detailmethod/'.$mt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
+                      <a href="{{ url('admin/editmethod/'.$mt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
+                      <a href="{{ url('admin/deletemethod/'.$mt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
                       </td>
                     </tr>
                   @endforeach
@@ -112,19 +112,19 @@
           </div>  --}}
           <div class="form-group">
             <label for="exampleInputEmail1">Nama Metode</label>
-            <input name="nama_method" type="text" class="form-control" id="nama_method" aria-describedby="nama_method" placeholder="nama_method"  value="{{ old('nama_method') }}">
+            <input name="nama_method" type="text" class="form-control" id="nama_method" aria-describedby="nama_method" placeholder="nama method"  value="{{ old('nama_method') }}">
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Nama Bank</label>
-            <input name="nama_provider" type="text" class="form-control" id="nama_provider" aria-describedby="nama_provider" placeholder="nama_provider"  value="{{ old('nama_provider') }}">
+            <input name="nama_provider" type="text" class="form-control" id="nama_provider" aria-describedby="nama_provider" placeholder="nama provider"  value="{{ old('nama_provider') }}">
           </div>
           <div class="form-group">
           <label for="exampleInputEmail1">Nama Pemilik Rekening</label>
-          <input name="nama_rekening" type="text" class="form-control" id="nama_rekening" aria-describedby="nama_rekening" placeholder="nama_rekening" value="{{ old('nama_rekening') }}">
+          <input name="nama_rekening" type="text" class="form-control" id="nama_rekening" aria-describedby="nama_rekening" placeholder="nama rekening" value="{{ old('nama_rekening') }}">
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Nomor Rekening</label>
-            <input name="nomor_rekening" type="text"  class="form-control" id="nomor_rekening" placeholder="nomor_rekening" value="{{ old('nomor_rekening') }}">
+            <input name="nomor_rekening" type="text"  class="form-control" id="nomor_rekening" placeholder="nomor rekening" value="{{ old('nomor_rekening') }}">
           </div>
         </div>
         <div class="modal-footer">

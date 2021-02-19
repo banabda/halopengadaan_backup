@@ -29,11 +29,7 @@ class MambershipController extends Controller
      */
     public function create()
     {
-        $data= request()->all();
-
-        Mambership::create([$data]);
-        // alihkan halaman ke halaman narasumber
-        return back();
+        // return view('mambership.index');
 
     }
 
@@ -45,7 +41,18 @@ class MambershipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // insert data ke table mambership
+        DB::table('mambership')->insert([
+            'nama_lengkap'      => $request->nama_lengkap,
+            'email'             => $request->email,
+            'no_wa'             => $request->no_wa,
+            'tempat_kerja'      => $request->tempat_kerja,
+            'jenis'             => $request->jenis,
+            'status'            => $request->status,
+            'mambership'        => $request->mambership
+        ]);
+        // alihkan halaman ke halaman mambership
+        return redirect()->route('mambership');
     }
 
     /**
@@ -54,13 +61,13 @@ class MambershipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function detail($id)
+    public function detailmamber($id)
     {
-       $mambership = DB::table('mambership')->where('id',$id)->get();
+        $mambership = DB::table('mambership')->where('id',$id)->get();
 
 
-        // passing data pegawai yang didapat ke view edit.blade.php
-        return view('mambership.detail', compact('mambership'));
+        // passing data mambership yang didapat ke view edit.blade.php
+        return view('mambership.detailmamber',['mambership' => $mambership]);
     }
 
     /**
@@ -69,13 +76,13 @@ class MambershipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editmamber($id)
     {
         $mambership = DB::table('mambership')->where('id',$id)->get();
 
 
-        // passing data pegawai yang didapat ke view edit.blade.php
-        return view('mambership.edit',['mambership' => $mambership]);
+        // passing data mam$mambershipyang didapat ke view edit.blade.php
+        return view('mambership.editmamber',['mambership' => $mambership]);
     }
 
     /**
@@ -85,20 +92,19 @@ class MambershipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
+    public function updatemember(Request $request)
     {
-         DB::table('mambership')->where('id',$request->id)->update([
-        'id' => $request->id,
-        'nama_lengkap' => $request->nama_lengkap,
-        'email' => $request->email,
-        'no_wa' => $request->no_wa,
-        'tempat_kerja' => $request->tempat_kerja,
-        'jenis' => $request->jenis,
-        'status' => $request->status,
-        'mambership' => $request->mambership,
-
-    ]);
-    return redirect()->route('mambership');
+        DB::table('mambership')->where('id',$request->id)->update([
+            'nama_lengkap'      => $request->nama_lengkap,
+            'email'             => $request->email,
+            'no_wa'             => $request->no_wa,
+            'tempat_kerja'      => $request->tempat_kerja,
+            'jenis'             => $request->jenis,
+            'status'            => $request->status,
+            'mambership'        => $request->mambership
+        ]);
+        // alihkan halaman ke halaman mambership
+       return redirect()->route('mambership');
     }
     /**
      * Remove the specified resource from storage.
@@ -106,7 +112,7 @@ class MambershipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function delete($id)
+    public function deletemamber($id)
     {
         $data = Mambership::where('id',$id)->delete('mambership');
         return redirect()->back();

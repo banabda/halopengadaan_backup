@@ -41,9 +41,9 @@ class MetodepembayaranController extends Controller
     {
         // insert data ke table metode pembayaran
         DB::table('metodepembayaran')->insert([
-            'nama_method'      => $request->nama_method,
-            'nama_provider'    => $request->nama_provider,
-            'nama_rekening'    => $request->nama_rekening,
+            'nama_method'      => strtoupper($request->nama_method),
+            'nama_provider'    => strtoupper($request->nama_provider),
+            'nama_rekening'    => strtoupper($request->nama_rekening),
             'nomor_rekening'   => $request->nomor_rekening
         ]);
         // alihkan halaman ke halaman metodepembayaran
@@ -57,9 +57,13 @@ class MetodepembayaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function detailmethod($id)
     {
-        //
+        $metodepembayaran = DB::table('metodepembayaran')->where('id',$id)->get();
+
+
+        // passing data metodepembayaran yang didapat ke view edit.blade.php
+        return view('metodepembayaran.detailmethod',['metodepembayaran' => $metodepembayaran]);
     }
 
     /**
@@ -68,9 +72,13 @@ class MetodepembayaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function editmethod($id)
     {
-        //
+        $metodepembayaran = DB::table('metodepembayaran')->where('id',$id)->get();
+
+
+        // passing data metodepembayaranyang didapat ke view edit.blade.php
+        return view('metodepembayaran.editmethod',['metodepembayaran' => $metodepembayaran]);
     }
 
     /**
@@ -80,9 +88,16 @@ class MetodepembayaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function updatemethod(Request $request)
     {
-        //
+        DB::table('metodepembayaran')->where('id',$request->id)->update([
+            'nama_method'      => $request->nama_method,
+            'nama_provider'    => $request->nama_provider,
+            'nama_rekening'    => $request->nama_rekening,
+            'nomor_rekening'   => $request->nomor_rekening
+        ]);
+        // alihkan halaman ke halaman methodpembayaran
+       return redirect()->route('metodepembayaran');
     }
 
     /**
@@ -91,8 +106,9 @@ class MetodepembayaranController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function deletemethod($id)
     {
-        //
+        $data = Metodepembayaran::where('id',$id)->delete('metodepembayaran');
+        return redirect()->back();
     }
 }

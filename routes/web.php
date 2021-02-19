@@ -44,8 +44,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
 
     // CRUD halaman mambership
-    Route::get('admin','Mambership\MambershipController@index')->name('mambership');
-    Route::post('buat','Mambership\MambershipController@create')->name('mambership.create');
+    Route::get('memberadmin','Mambership\MambershipController@index')->name('mambership');
+    Route::post('buat','Mambership\MambershipController@store')->name('mambership.store');
     // Route::get('buat/{id}','Mambership\MambershipController@detail');
     // Route::get('buat/{id}','Mambership\MambershipController@delete');
     // Route::get('buat/{id}','Mambership\MambershipController@edit');
@@ -54,7 +54,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
      // crud halaman metode pembayaran
      Route::get('methodadmin','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
      Route::post('buatmethod','Metodepembayaran\MetodepembayaranController@store')->name('metodepembayaran.store');
-
+     Route::get('detailmethod/{id}','Metodepembayaran\MetodepembayaranController@detailmethod');
+     Route::get('deletemethod/{id}','Metodepembayaran\MetodepembayaranController@deletemethod');
+     Route::get('editmethod/{id}','Metodepembayaran\MetodepembayaranController@editmethod');
+     Route::post('updatemethod','Metodepembayaran\MetodepembayaranController@updatemethod')->name('metodepembayaran.updatemethod');
 
     Route::get('dashboard', 'Dashboard\HomeController@index')->name('dashboard.index');
 
