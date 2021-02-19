@@ -312,6 +312,7 @@
 	<script src="{{ asset('dashboard/assets/vendor_components/easypiechart/dist/jquery.easypiechart.js') }}"></script>
     <script src="{{ asset('dashboard/assets/vendor_components/jquery-steps-master/build/jquery.steps.js') }} "></script>
     <script src="{{ asset('dashboard/assets/vendor_components/jquery-validation-1.17.0/dist/jquery.validate.min.js') }} "></script>
+    <script src="{{ asset('dashboard/assets/vendor_components/sweetalert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('dashboard/main/js/pages/steps.js') }}"></script>
 
     <!-- Sunny Admin App -->
@@ -322,6 +323,6 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
 
     <!-- CDN Sweet Alert -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-</body>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> --}}
+  </body>
 </html>
