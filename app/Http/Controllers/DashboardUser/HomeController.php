@@ -144,6 +144,8 @@ class HomeController extends Controller
 
     public function getProviders($value)
     {
-        dd($value);
+        $payment_method = Metodepembayaran::where('nama_method', $value)->pluck('nama_provider', 'id');
+        return json_encode($payment_method);
+        
     }
 }

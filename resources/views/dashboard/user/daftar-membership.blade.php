@@ -170,7 +170,20 @@
         // Select Payment Method
         $('#nama_method').on('change', function () {
             var nama_metode = $('#nama_method').val();
-            console.log(nama_metode);
+            // console.log(nama_metode);
+            if (nama_metode == "Transfer Bank") {
+                console.log("Transfer Bank");
+                $.ajax({
+                    type: "GET",
+                    url: "{{ url ('user/getProviders') }}/" + nama_metode,
+                    dataType: "JSON",
+                    success: function (response) {
+                        // console.log(response);
+                    }
+                });
+            } else if (nama_metode == "Uang Digital") {
+                console.log("Uang Digital");
+            }
         });
     });
 </script>
