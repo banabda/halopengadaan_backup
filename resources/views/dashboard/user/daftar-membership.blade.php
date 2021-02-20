@@ -7,7 +7,7 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-                  <h3 class="page-title">Form Wizard</h3>
+                  <h3 class="page-title">Daftar Untuk Konsultasi</h3>
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
@@ -27,8 +27,8 @@
        <!-- Step wizard -->
         <div class="box box-default">
           <div class="box-header with-border">
-            <h4 class="box-title">Client Registration</h4>
-            <h6 class="box-subtitle">You can find the <a href="http://www.jquery-steps.com" target="_blank">offical website </a></h6>
+            <h4 class="box-title">Registrasi Konsultasi</h4>
+            {{-- <h6 class="box-subtitle">You can find the <a href="http://www.jquery-steps.com" target="_blank">offical website </a></h6> --}}
           </div>
           <!-- /.box-header -->
           <div class="box-body wizard-content">
@@ -106,8 +106,10 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                                <label for="int234">Pilih Providers :</label>
-                                <input type="text" class="form-control" id="nama_" placeholder="" value="23124567854356">
+                                <label for="nama_provider">Pilih Providers :</label>
+                                <select class="custom-select form-control" id="nama_provider" name="nama_provider">
+                                    <option>Pilih Providers</option>
+                                </select>
                             </div>
                           </div>
                       </div>
@@ -173,19 +175,32 @@
             // console.log(nama_metode);
             if (nama_metode == "Transfer Bank") {
                 console.log("Transfer Bank");
-                $.ajax({
-                    type: "GET",
-                    url: "{{ url ('user/getProviders') }}/" + nama_metode,
-                    dataType: "JSON",
-                    success: function (response) {
-                        // console.log(response);
-                    }
-                });
+                getProviders(nama_metode);
             } else if (nama_metode == "Uang Digital") {
                 console.log("Uang Digital");
+                getProviders(nama_metode);
+            } else {
+                $('#nama_provider').html();
             }
         });
+
+        
     });
+
+    function getProviders(nama_metode) {
+        $.ajax({
+            type: "GET",
+            url: "{{ url ('user/getProviders') }}/" + nama_metode,
+            dataType: "JSON",
+            success: function (response) {
+                $('#nama_provider').empty();
+                $.each(response, function (key, value) {
+                    $('#nama_provider').append('<option value="'+ value +'">'+ value +'</option>');
+                });
+                $('#nama_provider').selectpicker('refresh');
+            }
+        });
+     }
 </script>
 
 @endsection
