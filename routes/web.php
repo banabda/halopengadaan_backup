@@ -46,10 +46,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     // CRUD halaman mambership
     Route::get('memberadmin','Mambership\MambershipController@index')->name('mambership');
     Route::post('buat','Mambership\MambershipController@store')->name('mambership.store');
-    // Route::get('buat/{id}','Mambership\MambershipController@detail');
-    // Route::get('buat/{id}','Mambership\MambershipController@delete');
-    // Route::get('buat/{id}','Mambership\MambershipController@edit');
-    // Route::post('buat','Mambership\MambershipController@update')->name('mambership.update');
+    Route::get('detailmamber/{id}','Mambership\MambershipController@detailmamber');
+    Route::get('deletemamber/{id}','Mambership\MambershipController@deletemamber');
+    Route::get('editmamber/{id}','Mambership\MambershipController@editmamber');
+    Route::post('updatemamber','Mambership\MambershipController@updatemamber')->name('mambership.updatemamber');
 
      // crud halaman metode pembayaran
      Route::get('methodadmin','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');

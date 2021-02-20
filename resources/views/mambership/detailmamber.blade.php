@@ -41,15 +41,16 @@
        <br><input type="text" class="form-control"  name="tempat_kerja" value="{{ $mambership->tempat_kerja }}" readonly=""> <br/></div>
        <div class="form-group">
             <label for="exampleInputPassword1">Jenis</label>
-       <br><input type="text" class="form-control"  name="jenis" value="{{ $mambership->jenis }}" readonly=""> <br/></div>
+       <br><input type="text" class="form-control"  name="jenis" value="{{ $mambership->jenis }}" readonly=""><br/></div>
        <div class="form-group">
             <label for="exampleInputPassword1">Status</label>
-       <br><input type="text" class="form-control"  name="status" value="{{ $mambership->status }}" readonly=""> <br/></div>
+       <br><input type="text" class="form-control"  name="status" value="{{ $mambership->status }}" readonly=""><br/></div>
        <div class="form-group">
            <label for="exampleInputPassword1">Mambership</label>
-       <br><input type="text" class="form-control" required="required" name="mambership" value="{{ $mambership->mambership }}" readonly><br/></div><br>
+       <br><input type="text" class="form-control" required="required" name="mambership" value="{{ $mambership->mambership }}" readonly=""><br/></div>
+       <br>
        <div class="modal-footer">
-       <a href="/admin" type="button" class="btn btn-primary" data-dismiss="modal">Kembali</a>
+       <a href="/admin/memberadmin" type="button" class="btn btn-primary" data-dismiss="modal">Kembali</a>
        <br>
        </div>
 

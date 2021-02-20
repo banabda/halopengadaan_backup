@@ -92,7 +92,7 @@ class MambershipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updatemember(Request $request)
+    public function updatemamber(Request $request)
     {
         DB::table('mambership')->where('id',$request->id)->update([
             'nama_lengkap'      => $request->nama_lengkap,

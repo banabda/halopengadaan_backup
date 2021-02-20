@@ -19,7 +19,7 @@
 
 @foreach($mambership as $mambership)
 
-<form action="{{route('mambership.updatemember') }}" method="post">
+<form action="{{route('mambership.updatemamber') }}" method="post">
   {{ csrf_field() }}
    <input type="hidden" name="id" value="{{ $mambership->id }}"> <br/>
         {{-- <div class="form-group">
@@ -35,22 +35,40 @@
            <label for="exampleInputPassword1">Email</label>
        <br><input type="text" class="form-control" required="required" name="email" value="{{ $mambership->email }}"> <br/></div>
        <div class="form-group">
-           <label for="exampleInputPassword1">Nomer Whatsapp<</label>
+           <label for="exampleInputPassword1">Nomer Whatsapp</label>
        <br><input type="text" class="form-control" required="required" name="no_wa" value="{{ $mambership->no_wa }}"> <br/></div>
        <div class="form-group">
            <label for="exampleInputPassword1">Tempat kerja</label>
        <br><input type="text" class="form-control" required="required" name="tempat_kerja" value="{{ $mambership->tempat_kerja }}"> <br/></div>
        <div class="form-group">
             <label for="exampleInputPassword1">Jenis</label>
-            <br><input type="text" class="form-control" required="required" name="jenis" value="{{ $mambership->jenis }}"> <br/></div>
+            <br><select type="text" class="form-control" required="required" name="jenis" value="{{ $mambership->jenis }}">
+                    <option value="pns">PNS</option>
+                    <option value="bumn">BUMN</option>
+                    <option value="blu">BLU</option>
+                    <option value="blud">BLUD</option>
+                    <option value="perusahaan">PERUSAHAAN</option>
+                </select>
+            <br/>
+        </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Status</label>
-            <br><input type="text" class="form-control" required="required" name="status" value="{{ $mambership->status }}"> <br/></div>
+            <br><select type="text" class="form-control" required="required" name="status" value="{{ $mambership->status }}">
+                    <option value="penyedia">Penyedia</option>
+                    <option value="pengguna">Pengguna</option>
+                </select>
+            <br/>
+       </div>
        <div class="form-group">
            <label for="exampleInputPassword1">Mambership</label>
-       <br><input type="text" class="form-control" required="required" name="mambership" value="{{ $mambership->mambership }}"> <br/></div><br>
+       <br><select type="text" class="form-control" required="required" name="mambership" value="{{ $mambership->mambership }}">
+                    <option value="1 Bulan, Rp.250.000,-">1 Bulan, Rp.250.000,-</option>
+                    <option value="3 Bulan, Rp.600.000,">3 Bulan, Rp.600.000,-</option>
+            </select>
+       <br/>
+       </div><br>
        <div class="modal-footer">
-       <a href="/mambership" type="button" class="btn btn-danger" data-dismiss="modal">Close</a>
+       <a href="/admin/memberadmin" type="button" class="btn btn-danger" data-dismiss="modal">Close</a>
        <input type="submit" class="btn btn-primary" value="Simpan Data">
     </div>
 </form>
