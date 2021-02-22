@@ -19,8 +19,8 @@ class Invoice extends Migration
             $table->text('paket');
             $table->integer('kode_unik');
             $table->bigInteger('tagihan');
-            $table->string('nama_rekening');
-            $table->text('bukti_pembayaran');
+            $table->string('nama_rekening')->nullable();
+            $table->text('bukti_pembayaran')->nullable();
             $table->timestamps();
         });
     }

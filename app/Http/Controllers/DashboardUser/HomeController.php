@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\DashboardUser;
 
 use App\Http\Controllers\Controller;
+use App\Models\Invoice;
 use App\Models\Metodepembayaran;
 use App\Models\Profile;
 use App\Models\User;
@@ -115,9 +116,11 @@ class HomeController extends Controller
     {
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
         $metode_pembayaran = Metodepembayaran::all()->groupBy('nama_method')->toArray();
-
+        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
+        // dd($invoice);
         $data = [
-            'metode_pembayaran' => $metode_pembayaran
+            'metode_pembayaran' => $metode_pembayaran,
+            'invoice' => $invoice
         ];
 
         if (is_null($profile)) {
@@ -147,14 +150,14 @@ class HomeController extends Controller
         $data = [
             'user_id' => Auth::user()->id,
             'paket' => $request->paket,
-            'metode_pembayara' => $request->nama_method,
+            'metode_pembayaran' => $request->nama_method,
             'nama_bank' => $request->nama_provider,
             'kode_unik' => $kode_unik,
             'tagihan' => $tagihan + $kode_unik,
             'status' => 'Menunggu Pembayaran'
         ];
 
-        $invoice = 
+        $invoice = Invoice::create($data);
 
         dd($data);
     }
