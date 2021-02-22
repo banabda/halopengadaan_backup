@@ -117,7 +117,7 @@ class HomeController extends Controller
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
         $metode_pembayaran = Metodepembayaran::all()->groupBy('nama_method')->toArray();
         $invoice = Invoice::where('user_id', Auth::user()->id)->first();
-        
+
         $data = [
             'metode_pembayaran' => $metode_pembayaran,
             'invoice' => $invoice
@@ -136,6 +136,8 @@ class HomeController extends Controller
 
     public function saveRegisterMembership(Request $request)
     {
+        $metode_pembayaran = Metodepembayaran::where('nama_provider', $request->nama_provider)->first();
+
         $kode_unik = rand(0,100);
         $tagihan = '';
 
@@ -152,6 +154,7 @@ class HomeController extends Controller
             'paket' => $request->paket,
             'metode_pembayaran' => $request->nama_method,
             'nama_bank' => $request->nama_provider,
+            'nomor_rekening' => $metode_pembayaran->nomor_rekening,
             'kode_unik' => $kode_unik,
             'tagihan' => $tagihan + $kode_unik,
             'status' => 'Menunggu Pembayaran'
@@ -159,11 +162,13 @@ class HomeController extends Controller
 
         $invoice = Invoice::create($data);
 
-        dd($data);
+        return redirect()->route('user.dashboard.membership');
     }
 
     public function invoice()
     {
+        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
+        
         return view('dashboard.user.invoice-user');
     }
 

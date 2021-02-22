@@ -27,6 +27,7 @@ class Invoice extends Model
         'paket',
         'metode_pembayaran',
         'nama_bank',
+        'nomor_rekening',
         'kode_unik',
         'tagihan',
         'nama_rekening',
