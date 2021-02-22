@@ -22,6 +22,7 @@
       <!-- Main content -->
       <section class="content">
         <div class="col-lg-12 col-12">
+            @if ($invoice->status == "Menunggu Pembayaran")
                 <!-- /.box-header -->
                 <div class="alert bg-white shadow-lg border-0 rounded-lg mt-3" role="alert">
                     <div class="row text-center">
@@ -77,6 +78,16 @@
                         }
                     }, 1000);
                 </script>
+            @elseif($invoice->status == "Telah Terbayar")
+                <div class="alert alert-info shadow-lg border-0 rounded-lg mt-3" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="alert-heading mt-3">Bukti Pembayaran Anda Berhasil Kami Terima!</h3>
+                    <span>Dalam waktu 2 hari kerja admin kami akan mengkonfirmasi bukti pembayaran yang Anda kirimkan</span>
+                </div>
+            @endif
+
         </div>
       </section>
       <!-- /.content -->
@@ -107,7 +118,6 @@
                 @csrf
                 <div class="row">
                     <input type="hidden" name="id" value="{{ $invoice->id }}">
-                    <input type="hidden" name="id_product" value="{{ $invoice->id_product }}">
                     <div class="col-lg-12">
                         <div class="form-group">
                             <strong>Nama Pemilik Rekening<span style="color: red">*</span></strong>

@@ -167,8 +167,28 @@ class HomeController extends Controller
 
     public function saveBuktiPembayaran(Request $request)
     {
-        $data = $request->all();
-        dd($data);
+        // $data = $request->all();
+        $user = Auth::user()->id;
+        $file = $request->file('bukti_pembayaran');
+        $path = 'images/konfirmasi_pembayaran/' . $user;
+        $filename = $file->getClientOriginalName();
+
+        $path = Storage::disk('public')->put(
+            $path,
+            $file
+        );
+
+        $data = [
+            'nama_rekening' => $request->nama_rekening,
+            'bukti_pembayaran' => $path,
+            'status' => 'Telah Terbayar'
+        ];
+
+        $invoice = Invoice::where('id', $request->id)->first();
+        $invoice->update($data);
+
+        return redirect()->route('user.dashboard.membership');
+
     }
 
     public function getProviders($value)
