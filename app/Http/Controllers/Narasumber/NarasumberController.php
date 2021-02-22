@@ -50,7 +50,7 @@ class NarasumberController extends Controller
 
         ]);
         // alihkan halaman ke halaman narasumber
-        return redirect()->route('narasumber');
+        return redirect()->route('narasumber')->with('success', 'Task Created Successfully!');
     }
 
     /**
