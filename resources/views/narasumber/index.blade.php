@@ -61,9 +61,9 @@
                             <td>{{$dt->nomor_hp}}</td>
                         <td>
 
-                      <a href="{{ url('admin/detail/'.$dt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
+                      <a href="{{ url('admin/detail/'.$dt ->id) }}" class="btn btn-info btn-sm" ><i class="fa fa-info-circle"></i> Detail</a>
                       <a href="{{ url('admin/edit/'.$dt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
-                      <a href="{{ url('admin/delete/'.$dt->id) }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                      <a href="{{ url('admin/delete/'.$dt->id) }}" class="btn btn-danger btn-sm"  onclick="return confirm('Anda yakin mau menghapus data ini?')"><i class="fa fa-trash"></i> Delete</a>
                       </td>
                     </tr>
                   @endforeach
@@ -92,19 +92,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {{-- menampilkan error validasi --}}
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-        </div>
-        @endif
 
       <div class="modal-body">
-        <form action="{{route('narasumber.create') }}" method="POST">
+        <form action="{{route('narasumber.store') }}" method="POST">
           {{csrf_field()}}
 
           <!-- <div class="form-group">

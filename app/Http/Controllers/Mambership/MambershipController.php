@@ -43,13 +43,13 @@ class MambershipController extends Controller
     {
         // insert data ke table mambership
         DB::table('mambership')->insert([
-            'nama_lengkap'      => $request->nama_lengkap,
+            'nama_lengkap'      => ucwords($request->nama_lengkap),
             'email'             => $request->email,
             'no_wa'             => $request->no_wa,
-            'tempat_kerja'      => $request->tempat_kerja,
-            'jenis'             => $request->jenis,
-            'status'            => $request->status,
-            'mambership'        => $request->mambership
+            'tempat_kerja'      => ucwords($request->tempat_kerja),
+            'jenis'             => strtoupper($request->jenis),
+            'status'            => ucwords($request->status),
+            'mambership'        => ucwords($request->mambership)
         ]);
         // alihkan halaman ke halaman mambership
         return redirect()->route('mambership');
@@ -92,7 +92,7 @@ class MambershipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function updatemember(Request $request)
+    public function updatemamber(Request $request)
     {
         DB::table('mambership')->where('id',$request->id)->update([
             'nama_lengkap'      => $request->nama_lengkap,
