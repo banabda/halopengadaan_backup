@@ -133,7 +133,29 @@ class HomeController extends Controller
 
     public function saveRegisterMembership(Request $request)
     {
-        $data = $request->all();
+        $kode_unik = rand(0,100);
+        $tagihan = '';
+
+        if ($request->paket == "1") {
+            $tagihan = intval('250000');
+        } elseif ($request->paket == "2") {
+            $tagihan = intval('600000');
+        } elseif ($request->paket == "3") {
+            $tagihan = intval('1500000');
+        }
+
+        $data = [
+            'user_id' => Auth::user()->id,
+            'paket' => $request->paket,
+            'metode_pembayara' => $request->nama_method,
+            'nama_bank' => $request->nama_provider,
+            'kode_unik' => $kode_unik,
+            'tagihan' => $tagihan + $kode_unik,
+            'status' => 'Menunggu Pembayaran'
+        ];
+
+        $invoice = 
+
         dd($data);
     }
 
@@ -146,6 +168,6 @@ class HomeController extends Controller
     {
         $payment_method = Metodepembayaran::where('nama_method', $value)->pluck('nama_provider', 'id');
         return json_encode($payment_method);
-        
+
     }
 }
