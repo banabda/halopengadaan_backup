@@ -165,11 +165,10 @@ class HomeController extends Controller
         return redirect()->route('user.dashboard.membership');
     }
 
-    public function invoice()
+    public function saveBuktiPembayaran(Request $request)
     {
-        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
-        
-        return view('dashboard.user.invoice-user');
+        $data = $request->all();
+        dd($data);
     }
 
     public function getProviders($value)

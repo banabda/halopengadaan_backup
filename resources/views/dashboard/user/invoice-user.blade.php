@@ -5,13 +5,13 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-                  <h3 class="page-title">Basic Box</h3>
+                  <h3 class="page-title">Konfirmasi Pembayaran</h3>
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                              <li class="breadcrumb-item" aria-current="page">Box Cards</li>
-                              <li class="breadcrumb-item active" aria-current="page">Basic Box</li>
+                              <li class="breadcrumb-item" aria-current="page">Daftar Konsultasi</li>
+                              <li class="breadcrumb-item active" aria-current="page">Konfirmasi Pembayaran</li>
                           </ol>
                       </nav>
                   </div>
@@ -43,7 +43,7 @@
 
                         <hr>
 
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#pembayaran-{{ $invoice->id }}">Konfirmasi Pembayaran</button>
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#pembayaran">Konfirmasi Pembayaran</button>
                         </div>
                     </div>
                 </div>
@@ -82,4 +82,79 @@
       <!-- /.content -->
     </div>
 </div>
+<div class="modal fade shadow shadow-lg" id="pembayaran" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi Upload Bukti Pembayaran</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <h6 class="mb-4">Silahkan transfer sejumlah Rp. {{ number_format($invoice->tagihan,0,"",".") }} ke rekening berikut :</h6>
+            <div class="row">
+                <div class="col-lg-12 text-center border border-info rounded shadow p-3 mb-4">
+                <h5><img src="{{asset('images/bank/'.$invoice->nama_bank .'.png')}}" alt="logo BRI" width="150" height="auto" class="mr-2 mb-3">
+                    <br>No. Rek.
+                    <strong id="rekening">{{ $invoice->nomor_rekening }}</strong>
+                </h5>
+                <h5>Atas Nama: <br/><strong>Lembaga Pengembangan dan Konsultasi Nasional</strong></h5>
+                </div>
+            </div>
+            <br/>
+            <form action="{{ route('user.dashboard.saveBuktiPembayaran') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="row">
+                    <input type="hidden" name="id" value="{{ $invoice->id }}">
+                    <input type="hidden" name="id_product" value="{{ $invoice->id_product }}">
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <strong>Nama Pemilik Rekening<span style="color: red">*</span></strong>
+                            <input type="text" id="name" name="nama_rekening" class="form-control input-lg" value="{{ old('name') }}" required>
+                            <small>Nama Pemilik Rekening Pada Saat Transfer Sesuai Buku Tabungan</small>
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group">
+                            <strong>Upload Bukti<span style="color: red">*</span></strong>
+                            <input id="brosurFile" type="file" name="bukti_pembayaran" class="form-control" required>
+                            <small>Max 2 Mb</small>
+                            @if($errors->has('brosur'))
+                                <div class="text-danger">
+                                    {{ $errors->first('brosur')}}
+                                </div>
+                            @endif
+                        </div>
+                        <img id="brosur_placeholder" width="20%" height="auto" />
+                    </div>
+                </div>
+
+        </div>
+        <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+        </form>
+        </div>
+    </div>
+    </div>
+</div>
 <!-- /.content-wrapper -->
+<script>
+    function copy_rekening() {
+      var $temp = $("<input>");
+      $("body").append($temp);
+      $temp.val($('#rekening').text()).select();
+      document.execCommand("copy");
+      $temp.remove();
+      $('#salin_rekening')
+        .attr('data-toggle', 'tooltip')
+        .attr('data-placement', 'top')
+        .attr('title', 'Nomor rekening disalin')
+        .tooltip('show')
+        .removeAttr('data-toggle')
+        .removeAttr('data-placement')
+        .removeAttr('title')
+        .removeAttr('data-orignial-title');
+    }
+</script>

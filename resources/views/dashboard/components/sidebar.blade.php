@@ -127,12 +127,12 @@
             </a>
           </li>
 
-          <li>
+          {{-- <li>
               <a href="{{ route('user.dashboard.invoice') }}">
                 <i data-feather="server"></i>
                 <span>Invoice</span>
               </a>
-          </li>
+          </li> --}}
 
           <li>
             <a href="{{ route('logout') }}"
