@@ -37,7 +37,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 {
     // crud narasumber
     Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
-    Route::post('create','Narasumber\NarasumberController@create')->name('narasumber.create');
+    Route::post('store','Narasumber\NarasumberController@store')->name('narasumber.store');
     Route::get('detail/{id}','Narasumber\NarasumberController@detail');
     Route::get('delete/{id}','Narasumber\NarasumberController@delete');
     Route::get('edit/{id}','Narasumber\NarasumberController@edit');

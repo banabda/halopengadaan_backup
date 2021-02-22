@@ -42,28 +42,28 @@
        <br><input type="text" class="form-control" required="required" name="tempat_kerja" value="{{ $mambership->tempat_kerja }}"> <br/></div>
        <div class="form-group">
             <label for="exampleInputPassword1">Jenis</label>
-            <br><select type="text" class="form-control" required="required" name="jenis" value="{{ $mambership->jenis }}">
-                    <option value="pns">PNS</option>
-                    <option value="bumn">BUMN</option>
-                    <option value="blu">BLU</option>
-                    <option value="blud">BLUD</option>
-                    <option value="perusahaan">PERUSAHAAN</option>
+            <br><select type="text" class="form-control" required="required" name="jenis">
+                    <option value="PNS" @if ($mambership->jenis == "PNS") {{ 'selected' }} @endif>PNS</option>
+                    <option value="BUMN" @if ($mambership->jenis == "BUMN") {{ 'selected' }} @endif>BUMN</option>
+                    <option value="BLU" @if ($mambership->jenis == "BLU") {{ 'selected' }} @endif>BLU</option>
+                    <option value="BLUD" @if ($mambership->jenis == "BLUD") {{ 'selected' }} @endif>BLUD</option>
+                    <option value="PERUSAHAAN" @if ($mambership->jenis == "PERUSAHAAN") {{ 'selected' }} @endif>PERUSAHAAN</option>
                 </select>
             <br/>
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Status</label>
-            <br><select type="text" class="form-control" required="required" name="status" value="{{ $mambership->status }}">
-                    <option value="penyedia">Penyedia</option>
-                    <option value="pengguna">Pengguna</option>
+            <br><select type="text" class="form-control" required="required" name="status">
+                    <option value="Penyedia"  @if ($mambership->status == "Penyedia") {{ 'selected' }} @endif>Penyedia</option>
+                    <option value="Pengguna"  @if ($mambership->status == "Pengguna") {{ 'selected' }} @endif>Pengguna</option>
                 </select>
             <br/>
        </div>
        <div class="form-group">
            <label for="exampleInputPassword1">Mambership</label>
-       <br><select type="text" class="form-control" required="required" name="mambership" value="{{ $mambership->mambership }}">
-                    <option value="1 Bulan, Rp.250.000,-">1 Bulan, Rp.250.000,-</option>
-                    <option value="3 Bulan, Rp.600.000,">3 Bulan, Rp.600.000,-</option>
+       <br><select type="text" class="form-control" required="required" name="mambership">
+                    <option value="1 Bulan, Rp.250.000,-" @if ($mambership->mambership == "1 Bulan, Rp.250.000,-") {{ 'selected' }} @endif>1 Bulan, Rp.250.000,-</option>
+                    <option value="3 Bulan, Rp.600.000,-"  @if ($mambership->mambership == "3 Bulan, Rp.600.000,-") {{ 'selected' }} @endif>3 Bulan, Rp.600.000,-</option>
             </select>
        <br/>
        </div><br>

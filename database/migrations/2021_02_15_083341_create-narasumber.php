@@ -19,7 +19,7 @@ class CreateNarasumber extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('alamat')->nullable();
-            $table->integer('nomor_hp');
+            $table->string('nomor_hp');
             $table->timestamps();
         });
     }

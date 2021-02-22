@@ -92,19 +92,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {{-- menampilkan error validasi --}}
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-        </div>
-        @endif
 
       <div class="modal-body">
-        <form action="{{route('narasumber.create') }}" method="POST">
+        <form action="{{route('narasumber.store') }}" method="POST">
           {{csrf_field()}}
 
           <!-- <div class="form-group">

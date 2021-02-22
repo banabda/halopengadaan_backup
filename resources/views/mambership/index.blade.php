@@ -96,16 +96,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {{-- menampilkan error validasi --}}
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-        </div>
-        @endif
 
       <div class="modal-body">
         <form action="{{route('mambership.store') }}" method="POST">

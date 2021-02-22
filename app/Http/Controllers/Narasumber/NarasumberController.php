@@ -27,11 +27,7 @@ class NarasumberController extends Controller
      */
     public function create()
     {
-        $data= request()->all();
-
-        Narasumber::create($data);
-        // alihkan halaman ke halaman narasumber
-        return back();
+        // return view('narasumber.index');
 
     }
     /**
@@ -43,14 +39,18 @@ class NarasumberController extends Controller
 
     public function store(Request $request)
     {
-        // $this->validate($request,[
-        //     'nama'      => 'required',
-        //     'email'     => 'required|unique',
-        //     'password'  => 'required',
-        //     'alamat'    => 'required',
-        //     'nomor_hp'  => 'required',
 
-        // ]);
+         // insert data ke table metode pembayaran
+         DB::table('narasumber')->insert([
+            'nama'      => ucwords($request->nama),
+            'email'     => $request->email,
+            'password'  => $request->password,
+            'alamat'    => ucwords($request->alamat),
+            'nomor_hp'  => $request->nomor_hp
+
+        ]);
+        // alihkan halaman ke halaman narasumber
+        return redirect()->route('narasumber');
     }
 
     /**
@@ -93,12 +93,11 @@ class NarasumberController extends Controller
     public function update(Request $request)
     {
          DB::table('narasumber')->where('id',$request->id)->update([
-        'id' => $request->id,
-        'nama' => $request->nama,
-        'email' => $request->email,
-        'password' => $request->password,
-        'alamat' => $request->alamat,
-        'nomor_hp' => $request->nomor_hp
+            'nama'      => $request->nama,
+            'email'     => $request->email,
+            'password'  => $request->password,
+            'alamat'    => $request->alamat,
+            'nomor_hp'  => $request->nomor_hp
 
     ]);
     return redirect()->route('narasumber');
