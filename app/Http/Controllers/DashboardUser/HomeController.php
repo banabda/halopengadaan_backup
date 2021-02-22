@@ -117,7 +117,7 @@ class HomeController extends Controller
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
         $metode_pembayaran = Metodepembayaran::all()->groupBy('nama_method')->toArray();
         $invoice = Invoice::where('user_id', Auth::user()->id)->first();
-        // dd($invoice);
+        
         $data = [
             'metode_pembayaran' => $metode_pembayaran,
             'invoice' => $invoice
