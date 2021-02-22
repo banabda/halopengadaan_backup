@@ -87,4 +87,5 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
     Route::get('getProviders/{nama_method}', 'DashboardUser\HomeController@getProviders')->name('user.dashboard.membership.getProviders');
     // Dashboard User Invoice
     Route::get('invoice', 'DashboardUser\HomeController@invoice')->name('user.dashboard.invoice');
+    Route::get('invoiceprofil', 'DashboardUser\HomeController@invoiceprofil')->name('dashboard.user.invoiceprofil');
 });

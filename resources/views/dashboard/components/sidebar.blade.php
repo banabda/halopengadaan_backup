@@ -128,7 +128,7 @@
           </li>
 
           <li>
-              <a href="{{ route('user.dashboard.invoice') }}">
+              <a href="{{ route('dashboard.user.invoiceprofil') }}">
                 <i data-feather="server"></i>
                 <span>Invoice</span>
               </a>

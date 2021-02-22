@@ -3,14 +3,15 @@
 namespace App\Http\Controllers\DashboardUser;
 
 use App\Http\Controllers\Controller;
-use App\Models\Invoice;
 use App\Models\Metodepembayaran;
 use App\Models\Profile;
 use App\Models\User;
+use App\Models\Invoice;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\Facades\DataTables;
 
 class HomeController extends Controller
 {
@@ -116,11 +117,9 @@ class HomeController extends Controller
     {
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
         $metode_pembayaran = Metodepembayaran::all()->groupBy('nama_method')->toArray();
-        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
-        
+
         $data = [
-            'metode_pembayaran' => $metode_pembayaran,
-            'invoice' => $invoice
+            'metode_pembayaran' => $metode_pembayaran
         ];
 
         if (is_null($profile)) {
@@ -136,29 +135,7 @@ class HomeController extends Controller
 
     public function saveRegisterMembership(Request $request)
     {
-        $kode_unik = rand(0,100);
-        $tagihan = '';
-
-        if ($request->paket == "1") {
-            $tagihan = intval('250000');
-        } elseif ($request->paket == "2") {
-            $tagihan = intval('600000');
-        } elseif ($request->paket == "3") {
-            $tagihan = intval('1500000');
-        }
-
-        $data = [
-            'user_id' => Auth::user()->id,
-            'paket' => $request->paket,
-            'metode_pembayaran' => $request->nama_method,
-            'nama_bank' => $request->nama_provider,
-            'kode_unik' => $kode_unik,
-            'tagihan' => $tagihan + $kode_unik,
-            'status' => 'Menunggu Pembayaran'
-        ];
-
-        $invoice = Invoice::create($data);
-
+        $data = $request->all();
         dd($data);
     }
 
@@ -173,4 +150,19 @@ class HomeController extends Controller
         return json_encode($payment_method);
 
     }
+
+    public function invoiceprofil()
+    {
+      $data = Invoice::all();
+      if(request()->ajax())
+      {
+          return DataTables::of($data)
+            ->rawColumns(['action'])
+            ->addIndexColumn()
+            ->make(true);
+
+      }
+      return view('dashboard.user.invoiceprofil');
+    }
+
 }
