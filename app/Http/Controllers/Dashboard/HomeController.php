@@ -46,11 +46,13 @@ class HomeController extends Controller
             })
             ->addColumn('action', function($action){
                 if ($action->status == "Telah Terbayar") {
-                    $btn = '<a class="btn btn-md btn-info invoice-confirm" id="'. $action->id .'" href="javascript:void(0)">
-                            Proses </a>';
+                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $action->id .'" disabled>Telah Terkonfirmasi</button>';
+                    // $btn = '<a class="btn btn-md btn-info invoice-confirm" id="'. $action->id .'" href="javascript:void(0)">
+                    //         Proses </a>';
                 } elseif ($action->status == "Terkonfirmasi") {
-                    $btn = '<a class="btn btn-md btn-info invoice-confirm" id="'. $action->id .'" href="javascript:void(0)">
-                    Telah Terkonfirmasi </a>';
+                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" style="pointer-events: none; cursor: default;" disabled>Telah Terkonfirmasi</button>';
+                    // $btn = '<a class="btn btn-md btn-info invoice-confirm" id="'. $action->id .'" href="javascript:void(0) style="pointer-events: none; cursor: default;">
+                    // Telah Terkonfirmasi </a>';
                 }
                 return $btn;
             })
