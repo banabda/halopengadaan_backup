@@ -78,19 +78,6 @@
                   <p class="lead mt-4" style="text-align: center">Sekarang Anda Dapat Melakukan Konsultasi Langsung Dengan Para Pakar Dengan Menggunakan Menu <b>Konsultasi Sekarang</b> Pada Samping Kiri</p>
                 </div>
               </div>
-                {{-- <div class="alert alert-primary" role="alert">
-                    <h4 class="alert-heading"><i class="fas fa-bullhorn"> Selamat!</i></h4>
-                    <p style="font-size: 15pt">Kini <b>Iklan pelatihan/kegiatan/workshop/webinar</b> Anda telah tampil di {{env('APP_NAME')}}</p>
-                    @if ($invoice->product->brosur == Null)
-                        <hr>
-                        <p style="font-size: 14pt">Kami menyediakan <b>Desain Brosur Gratis</b> untuk iklan pelatihan anda</p>
-                        <a target="_blank" href="https://api.whatsapp.com/send/?phone=6285691166309&text=Hallo%20Admin%20Info-Pelatihan.%0aSaya%20ingin%20mengajukan%20permohononan%20desain%20brosur%20gratis%20yang%20berjudul%20*{{ $invoice->product->name }}*&app_absent=0"><button type="button" class="btn btn-dark">Klik Untuk Mendapatkan Desain Brosur</button></a>
-                    @endif
-                    <hr>
-                    <p style="font-size: 14pt">Kami menyediakan <b>Desain Brosur Gratis</b> untuk iklan pelatihan anda</p>
-                    <a target="_blank" href="https://api.whatsapp.com/send/?phone=6285691166309&text=Hallo%20Admin%20Info-Pelatihan.%0aSaya%20ingin%20mengajukan%20permohononan%20desain%20brosur%20gratis%20yang%20berjudul%20*{{ $invoice->product->name }}*&app_absent=0"><button type="button" class="btn btn-dark">Klik Untuk Mendapatkan Desain Brosur</button></a>
-
-                </div> --}}
             @endif
 
         </div>
