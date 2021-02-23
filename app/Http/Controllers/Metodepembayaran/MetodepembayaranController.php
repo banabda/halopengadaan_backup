@@ -39,6 +39,12 @@ class MetodepembayaranController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama_method'      => 'required',
+            'nama_provider'    => 'required',
+            'nama_rekening'    => 'required',
+            'nomor_rekening'   => 'required',
+            ]);
         // insert data ke table metode pembayaran
         DB::table('metodepembayaran')->insert([
             'nama_method'      => strtoupper($request->nama_method),

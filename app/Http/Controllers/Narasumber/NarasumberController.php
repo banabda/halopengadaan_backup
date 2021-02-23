@@ -39,7 +39,14 @@ class NarasumberController extends Controller
 
     public function store(Request $request)
     {
-
+         //validasi data
+         $request->validate([
+         'nama'     => 'required',
+         'email'    => 'required|email|unique:narasumber',
+         'password' => 'required|min:5',
+         'alamat'   => 'required',
+         'nomor_hp' => 'required'
+         ]);
          // insert data ke table metode pembayaran
          DB::table('narasumber')->insert([
             'nama'      => ucwords($request->nama),

@@ -104,22 +104,37 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Nama</label>
             <input name="nama" type="text" class="form-control" id="nama" aria-describedby="nama" placeholder="nama"  value="{{ old('nama') }}">
+            @if ($errors->has('nama'))
+                <span class="text-danger">{{ $errors->first('nama') }}</span>
+            @endif
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
             <input name="email" type="text" class="form-control" id="email" aria-describedby="email" placeholder="email"  value="{{ old('email') }}">
+            @if ($errors->has('email'))
+                <span class="text-danger">{{ $errors->first('email') }}</span>
+            @endif
           </div>
           <div class="form-group">
           <label for="exampleInputEmail1">Password</label>
           <input name="password" type="textarea" class="form-control" id="password" aria-describedby="password" placeholder="password" value="{{ old('password') }}">
+          @if ($errors->has('password'))
+                <span class="text-danger">{{ $errors->first('password') }}</span>
+            @endif
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Alamat</label>
             <input name="alamat" type="text"  class="form-control" id="alamat" placeholder="alamat" value="{{ old('alamat') }}">
+            @if ($errors->has('alamat'))
+                <span class="text-danger">{{ $errors->first('alamat') }}</span>
+            @endif
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Nomor Hp</label>
             <input name="nomor_hp" type="text"  class="form-control" id="nomor_hp" placeholder="nomor_hp" value="{{ old('nomor_hp') }}">
+            @if ($errors->has('nomor_hp'))
+                <span class="text-danger">{{ $errors->first('nomor_hp') }}</span>
+            @endif
           </div>
         </div>
         <div class="modal-footer">
