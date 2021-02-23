@@ -112,17 +112,17 @@
 </script>
 <script>
     $(document).on('click', '.invoice-confirm', function(){
-        var id_role = $(this).attr("id");
-        // console.log(id_role);
+        var id_invoice = $(this).attr("id");
+        console.log(id_invoice);
+        event.preventDefault();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        event.preventDefault();
         $.ajax({
-            type:'DELETE',
-            url: "{{url('admin/user')}}/" + id_role,
+            type:'POST',
+            url: "{{url('admin/proses/invoice/')}}/" + id_invoice,
             success:function(data)
             {
                 if(data.status == "ok"){

@@ -45,8 +45,13 @@ class HomeController extends Controller
                 return Carbon::parse($tanggal->updated_at)->format('d F Y');
             })
             ->addColumn('action', function($action){
-                $btn = '<a class="btn btn-md btn-info invoice-confirm" id="'. $action->id .'" href="javascript:void(0)">
-                        Proses </a>';
+                if ($action->status == "Telah Terbayar") {
+                    $btn = '<a class="btn btn-md btn-info invoice-confirm" id="'. $action->id .'" href="javascript:void(0)">
+                            Proses </a>';
+                } elseif ($action->status == "Terkonfirmasi") {
+                    $btn = '<a class="btn btn-md btn-info invoice-confirm" id="'. $action->id .'" href="javascript:void(0)">
+                    Telah Terkonfirmasi </a>';
+                }
                 return $btn;
             })
             ->rawColumns(['nama_lengkap', 'email', 'paket_detail', 'total_tagihan', 'tanggal', 'action'])
@@ -55,5 +60,19 @@ class HomeController extends Controller
         }
 
         return view('dashboard.admin.data-invoice');
+    }
+
+    public function prosesInvoice($id)
+    {
+        $data = Invoice::where('id', $id)->first();
+
+        $data->update([
+            'status' => 'Terkonfirmasi'
+        ]);
+
+        return response()->json([
+            'status' => "ok"
+        ]);
+
     }
 }

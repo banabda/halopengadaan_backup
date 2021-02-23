@@ -72,6 +72,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 
     // Data Pembayaran Invoice
     Route::get('invoice', 'Dashboard\HomeController@invoice')->name('admin.dashboard.invoice');
+    Route::post('proses/invoice/{id}', 'Dashboard\HomeController@prosesInvoice')->name('admin.dashboard.invoice.proses');
 });
 
 Route::group(['middleware' => ['auth']], function ()
