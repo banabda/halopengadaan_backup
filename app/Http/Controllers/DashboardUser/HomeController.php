@@ -141,7 +141,7 @@ class HomeController extends Controller
             }
         }
     }
-
+    }
     public function saveRegisterMembership(Request $request)
     {
         $data = $request->all();
@@ -198,12 +198,11 @@ class HomeController extends Controller
         $invoice->update($data);
 
         return redirect()->route('user.dashboard.membership');
-
+    }
     public function invoiceprofil()
     {
       $data = Invoice::all();
-      if(request()->ajax())
-      {
+      if(request()->ajax()){
           return DataTables::of($data)
             ->rawColumns(['action'])
             ->addIndexColumn()
@@ -214,4 +213,7 @@ class HomeController extends Controller
     }
 
 }
+
+
+
 
