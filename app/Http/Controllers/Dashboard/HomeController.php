@@ -78,8 +78,7 @@ class HomeController extends Controller
         } elseif($data->paket == "3") {
             $expired_at = Carbon::now()->addHours(1)->toDateTimeString();
         }
-
-        // dd($expired_at);
+        
         $data->update([
             'status' => 'Terkonfirmasi'
         ]);
