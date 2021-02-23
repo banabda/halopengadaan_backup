@@ -74,8 +74,8 @@
             @elseif($invoice->status == "Terkonfirmasi")
              <div class="jumbotron jumbotron-fluid bg-success">
                 <div class="container">
-                  <h1 class="display-4" style="text-align: center">Yeay! Pembayaran Terkonfirmasi</h1>
-                  <p class="lead" style="text-align: center">Sekarang Anda Dapat Melakukan Konsultasi Langsung Dengan Para Pakar Dengan Menggunakan Menu <b>Konsultasi Sekarang</b> Pada Samping Kiri</p>
+                  <h1 class="display-4" style="text-align: center">Yeay! Pembayaran Terkonfirmasi!</h1>
+                  <p class="lead mt-4" style="text-align: center">Sekarang Anda Dapat Melakukan Konsultasi Langsung Dengan Para Pakar Dengan Menggunakan Menu <b>Konsultasi Sekarang</b> Pada Samping Kiri</p>
                 </div>
               </div>
                 {{-- <div class="alert alert-primary" role="alert">
