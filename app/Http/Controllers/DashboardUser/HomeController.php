@@ -199,7 +199,7 @@ class HomeController extends Controller
 
         return redirect()->route('user.dashboard.membership');
 
-ofil()
+    public function invoiceprofil()
     {
       $data = Invoice::all();
       if(request()->ajax())
@@ -214,3 +214,4 @@ ofil()
     }
 
 }
+
