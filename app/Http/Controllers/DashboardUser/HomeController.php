@@ -117,35 +117,28 @@ class HomeController extends Controller
     {
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
         $metode_pembayaran = Metodepembayaran::all()->groupBy('nama_method')->toArray();
-
-        $data = [
-            'metode_pembayaran' => $metode_pembayaran
-        ];
-
-        if (is_null($profile)) {
-
         $invoice = Invoice::where('user_id', Auth::user()->id)->first();
 
-
         $data = [
-            'metode_pembayaran' => $metode_pembayaran
+            'metode_pembayaran' => $metode_pembayaran,
+            'invoice' => $invoice
         ];
 
         if (is_null($profile)) {
             return redirect()->route('profile');
         } else {
+
             if (is_null($profile->nama_lengkap) && is_null($profile->email) && is_null($profile->no_hp)) {
                 return redirect()->route('profile');
             } else {
                 return view('dashboard.user.daftar-membership', $data);
             }
+
         }
     }
 
     public function saveRegisterMembership(Request $request)
     {
-        $data = $request->all();
-        dd($data);
         $metode_pembayaran = Metodepembayaran::where('nama_provider', $request->nama_provider)->first();
 
         $kode_unik = rand(0,100);
@@ -198,6 +191,15 @@ class HomeController extends Controller
         $invoice->update($data);
 
         return redirect()->route('user.dashboard.membership');
+
+    }
+
+    public function getProviders($value)
+    {
+        $payment_method = Metodepembayaran::where('nama_method', $value)->pluck('nama_provider', 'id');
+        return json_encode($payment_method);
+
+    }
 
     public function invoiceprofil()
     {
