@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
+use App\Models\UserhasPaket;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -72,7 +74,11 @@ class HomeController extends Controller
             'status' => 'Terkonfirmasi'
         ]);
 
-        // $userPaket = 
+        $userPaket = UserhasPaket::create([
+            'user_id' => Auth::user()->id,
+            'paket' => $data->paket,
+            'expired_at' => 
+        ]);
 
         return response()->json([
             'status' => "ok"
