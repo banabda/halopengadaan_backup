@@ -39,9 +39,14 @@
                       <thead>
                           <tr>
                               <th>No</th>
-                              <th>Name</th>
+                              <th>Nama Lengkap</th>
                               <th>Email</th>
-                              {{-- <th>Role</th> --}}
+                              <th>Nama Paket</th>
+                              <th>Metode Pembayaran</th>
+                              <th>Nama Provider</th>
+                              <th>Total Tagihan</th>
+                              <th>Nama Pemilik Rekening</th>
+                              <th>Tanggal</th>
                               <th>Action</th>
                           </tr>
                       </thead>
@@ -51,9 +56,14 @@
                       <tfoot>
                           <tr>
                               <th>No</th>
-                              <th>Name</th>
+                              <th>Nama Lengkap</th>
                               <th>Email</th>
-                              {{-- <th>Role</th> --}}
+                              <th>Nama Paket</th>
+                              <th>Metode Pembayaran</th>
+                              <th>Nama Provider</th>
+                              <th>Total Tagihan</th>
+                              <th>Nama Pemilik Rekening</th>
+                              <th>Tanggal</th>
                               <th>Action</th>
                           </tr>
                       </tfoot>

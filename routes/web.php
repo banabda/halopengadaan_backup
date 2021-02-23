@@ -69,6 +69,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 
     // Permission
     Route::resource('permission', 'Dashboard\Auth\PermissionController');
+
+    // Data Pembayaran Invoice
+    Route::get('invoice', 'Dashboard\HomeController@invoice')->name('admin.dashboard.invoice');
 });
 
 Route::group(['middleware' => ['auth']], function ()
