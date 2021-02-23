@@ -59,7 +59,7 @@ class HomeController extends Controller
                 return $btn;
             })
             ->addColumn('foto', function($foto){
-                return "<a target='_blank' href='". Storage::url($foto->bukti_pembayaran) ."'><img src=". Storage::url($foto->bukti_pembayaran). " height='150' width='auto' data-action='zoom' alt='IMG'></a>";
+                return "<a target='_blank' href='". Storage::url($foto->bukti_pembayaran) ."'><img src=". Storage::url($foto->bukti_pembayaran). " height='150px' width='auto' alt='". $foto->bukti_pembayaran ."'></a>";
             })
             ->rawColumns(['nama_lengkap', 'email', 'paket_detail', 'total_tagihan', 'tanggal', 'action', 'foto'])
             ->addIndexColumn()
