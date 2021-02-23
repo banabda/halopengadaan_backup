@@ -16,4 +16,9 @@ class UserhasPaket extends Model
         'expired_at',
         'status'
     ];
+
+    public function invoice()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id','id');
+    }
 }
