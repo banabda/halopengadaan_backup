@@ -123,6 +123,15 @@ class HomeController extends Controller
         ];
 
         if (is_null($profile)) {
+
+        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
+
+
+        $data = [
+            'metode_pembayaran' => $metode_pembayaran
+        ];
+
+        if (is_null($profile)) {
             return redirect()->route('profile');
         } else {
             if (is_null($profile->nama_lengkap) && is_null($profile->email) && is_null($profile->no_hp)) {
@@ -137,21 +146,60 @@ class HomeController extends Controller
     {
         $data = $request->all();
         dd($data);
+        $metode_pembayaran = Metodepembayaran::where('nama_provider', $request->nama_provider)->first();
+
+        $kode_unik = rand(0,100);
+        $tagihan = '';
+
+        if ($request->paket == "1") {
+            $tagihan = intval('250000');
+        } elseif ($request->paket == "2") {
+            $tagihan = intval('600000');
+        } elseif ($request->paket == "3") {
+            $tagihan = intval('1500000');
+        }
+
+        $data = [
+            'user_id' => Auth::user()->id,
+            'paket' => $request->paket,
+            'metode_pembayaran' => $request->nama_method,
+            'nama_bank' => $request->nama_provider,
+            'nomor_rekening' => $metode_pembayaran->nomor_rekening,
+            'kode_unik' => $kode_unik,
+            'tagihan' => $tagihan + $kode_unik,
+            'status' => 'Menunggu Pembayaran'
+        ];
+
+        $invoice = Invoice::create($data);
+
+        return redirect()->route('user.dashboard.membership');
     }
 
-    public function invoice()
+    public function saveBuktiPembayaran(Request $request)
     {
-        return view('dashboard.user.invoice-user');
-    }
+        // $data = $request->all();
+        $user = Auth::user()->id;
+        $file = $request->file('bukti_pembayaran');
+        $path = 'images/konfirmasi_pembayaran/' . $user;
+        $filename = $file->getClientOriginalName();
 
-    public function getProviders($value)
-    {
-        $payment_method = Metodepembayaran::where('nama_method', $value)->pluck('nama_provider', 'id');
-        return json_encode($payment_method);
+        $path = Storage::disk('public')->put(
+            $path,
+            $file
+        );
 
-    }
+        $data = [
+            'nama_rekening' => $request->nama_rekening,
+            'bukti_pembayaran' => $path,
+            'status' => 'Telah Terbayar'
+        ];
 
-    public function invoiceprofil()
+        $invoice = Invoice::where('id', $request->id)->first();
+        $invoice->update($data);
+
+        return redirect()->route('user.dashboard.membership');
+
+ofil()
     {
       $data = Invoice::all();
       if(request()->ajax())

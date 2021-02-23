@@ -27,98 +27,98 @@
 
             <div class="col-lg-12 col-12">
                     <div class="box">
-                    <div class="box-header with-border">
-                        <h4 class="box-title">Daftar Konsultasi</h4>
-                    </div>
-                    <!-- /.box-header -->
-                    <form class="form" id="createUser" action="{{ route('user.dashboard.membership.save') }}" method="POST">
-                        @csrf
-                        <div class="box-body">
-                            <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Data Diri</h4>
-                            <hr class="my-15">
-                            <div class="row">
-                                <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Nama Lengkap</label>
-                                    <input type="text" class="form-control" name="nama_lengkap" value="{{ Auth::user()->profile->nama_lengkap }}" placeholder="Nama Lengkap">
-                                </div>
-                                </div>
-                                <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="email" value="{{ Auth::user()->profile->email }}" placeholder="E-mail">
-                                </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                <div class="form-group">
-                                    <label >No HP</label>
-                                    <input type="text" id="password" name="no_hp" class="form-control" value="{{ Auth::user()->profile->no_hp }}" placeholder="Password">
-                                    <p id="message"></p>
-                                </div>
-                                </div>
-                                <div class="col-md-6">
-                                <div class="form-group">
-                                    <label for="alamat_rumah">Alamat Rumah </label>
-                                    <textarea name="alamat_rumah" id="alamat_rumah" class="form-control" placeholder="Alamat Lengkap Rumah">{{ Auth::user()->profile->alamat_rumah }}</textarea>
-                                </div>
-                                </div>
-                            </div>
-
-                            <h4 class="box-title text-info mt-2"><i class="ti-package mr-15"></i> Pemilihan Paket</h4>
-                            <hr class="my-15">
-                            <div class="form-group">
-                                <select class="custom-select form-control" id="membership" name="paket">
-                                    <option>Pilih Membership</option>
-                                    <option value="1">1 Bulan, (Rp. 250,000,-)</option>
-                                    <option value="2">3 Bulan, (Rp. 600,000,-)</option>
-                                    <option value="3">1 Jam, (Rp. 1.500.00,-)</option>
-                                </select>
-                            </div>
-                            <div class="box" style="display: none" id="card_kelebihan_paket">
-                                <div class="box-body">
-                                <h3>Kelebihan</h3>
-                                <ul id="kelebihan_paket">
-
-                                </ul>
-                                </div>
-                            </div>
-
-                            <h4 class="box-title text-info mt-2"><i class="ti-money mr-15"></i> Pemilihan Pembayaran</h4>
-                            <hr class="my-15">
-                            <div class="row">
-                                <div class="col-md-6 col-12">
+                        <div class="box-header with-border">
+                            <h4 class="box-title">Daftar Konsultasi</h4>
+                        </div>
+                        <!-- /.box-header -->
+                        <form class="form" id="createUser" action="{{ route('user.dashboard.membership.save') }}" method="POST">
+                            @csrf
+                            <div class="box-body">
+                                <h4 class="box-title text-info"><i class="ti-user mr-15"></i> Data Diri</h4>
+                                <hr class="my-15">
+                                <div class="row">
+                                    <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="nama_method">Pilih Metode :</label>
-                                        <select class="custom-select form-control" id="nama_method" name="nama_method">
-                                        <option>Pilih Metode Pembayaran</option>
-                                        @foreach ($metode_pembayaran as $key => $value)
-                                            <option value="{{ $key }}">{{ $key }}</option>
-                                        @endforeach
-                                        </select>
+                                        <label>Nama Lengkap</label>
+                                        <input type="text" class="form-control" name="nama_lengkap" value="{{ Auth::user()->profile->nama_lengkap }}" placeholder="Nama Lengkap">
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" name="email" value="{{ Auth::user()->profile->email }}" placeholder="E-mail">
+                                    </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 col-12">
+                                <div class="row">
+                                    <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="nama_provider">Pilih Providers :</label>
-                                        <select class="custom-select form-control" id="nama_provider" name="nama_provider">
-                                            <option>Pilih Providers</option>
-                                        </select>
+                                        <label >No HP</label>
+                                        <input type="text" id="password" name="no_hp" class="form-control" value="{{ Auth::user()->profile->no_hp }}" placeholder="Password">
+                                        <p id="message"></p>
+                                    </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="alamat_rumah">Alamat Rumah </label>
+                                        <textarea name="alamat_rumah" id="alamat_rumah" class="form-control" placeholder="Alamat Lengkap Rumah">{{ Auth::user()->profile->alamat_rumah }}</textarea>
+                                    </div>
+                                    </div>
+                                </div>
+
+                                <h4 class="box-title text-info mt-2"><i class="ti-package mr-15"></i> Pemilihan Paket</h4>
+                                <hr class="my-15">
+                                <div class="form-group">
+                                    <select class="custom-select form-control" id="membership" name="paket">
+                                        <option>Pilih Membership</option>
+                                        <option value="1">1 Bulan, (Rp. 250,000,-)</option>
+                                        <option value="2">3 Bulan, (Rp. 600,000,-)</option>
+                                        <option value="3">1 Jam, (Rp. 1.500.00,-)</option>
+                                    </select>
+                                </div>
+                                <div class="box" style="display: none" id="card_kelebihan_paket">
+                                    <div class="box-body">
+                                    <h3>Kelebihan</h3>
+                                    <ul id="kelebihan_paket">
+
+                                    </ul>
+                                    </div>
+                                </div>
+
+                                <h4 class="box-title text-info mt-2"><i class="ti-money mr-15"></i> Pemilihan Pembayaran</h4>
+                                <hr class="my-15">
+                                <div class="row">
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="nama_method">Pilih Metode :</label>
+                                            <select class="custom-select form-control" id="nama_method" name="nama_method">
+                                            <option>Pilih Metode Pembayaran</option>
+                                            @foreach ($metode_pembayaran as $key => $value)
+                                                <option value="{{ $key }}">{{ $key }}</option>
+                                            @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-12">
+                                        <div class="form-group">
+                                            <label for="nama_provider">Pilih Providers :</label>
+                                            <select class="custom-select form-control" id="nama_provider" name="nama_provider">
+                                                <option>Pilih Providers</option>
+                                            </select>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- /.box-body -->
-                        <div class="box-footer text-right">
-                            <a href="{{ route('user.index') }}"><button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
-                                <i class="ti-trash"></i> Cancel
-                            </button></a>
-                            <button type="submit" class="btn btn-rounded btn-primary btn-outline">
-                                <i class="ti-save-alt"></i> Save
-                            </button>
-                        </div>
-                    </form>
+                            <!-- /.box-body -->
+                            <div class="box-footer text-right">
+                                <a href="{{ route('user.index') }}"><button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
+                                    <i class="ti-trash"></i> Cancel
+                                </button></a>
+                                <button type="submit" class="btn btn-rounded btn-primary btn-outline">
+                                    <i class="ti-save-alt"></i> Save
+                                </button>
+                            </div>
+                        </form>
                     </div>
             </div>
         </section>
