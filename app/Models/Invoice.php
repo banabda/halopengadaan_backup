@@ -35,7 +35,6 @@ class Invoice extends Model
         'status',
         'expired_at',
         'is_seen'
-
     ];
 
     public function user()
