@@ -322,10 +322,6 @@
     <!-- CDN DataTables -->
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
 
-    <!-- Zoom JS -->
-    <script src="{{ asset('zoom/zoom.js') }}"></script>
-    <script src="{{ asset('zoom/zoom.min.js') }}"></script>
-
     <!-- CDN Sweet Alert -->
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> --}}
   </body>
