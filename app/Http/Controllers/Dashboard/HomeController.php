@@ -47,11 +47,6 @@ class HomeController extends Controller
             })
             ->addColumn('action', function($action){
                 if ($action->status == "Telah Terbayar") {
-                    // $btn = '<div class="btn-group btn-group-sm ml-2" role="group" aria-label="Small button group">';
-                    // $btn .= '<a target="_blank" href="'. Storage::url($action->bukti_pembayaran) .'" class="btn btn-dark" title="Lihat"><i class="fa fa-eye"></i></a>';
-                    // $btn .= '<a style="color:white" type="button" class="btn btn-info invoice-confirm" id="'. $action->id .'" >Konfirmasi</a>';
-                    // $btn .='</div>';
-
                     $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $action->id .'">Konfirmasi</button>';
                 } elseif ($action->status == "Terkonfirmasi") {
                     $btn = '<button class="btn btn-xs btn-info invoice-confirm" style="cursor: not-allowed;" disabled>Telah Terkonfirmasi</button>';

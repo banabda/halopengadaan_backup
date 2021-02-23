@@ -102,7 +102,7 @@
                 {data: 'total_tagihan', name: 'total_tagihan'},
                 {data: 'nama_rekening', name: 'nama_rekening'},
                 {data: 'tanggal', name:'tanggal'},
-                {data: 'foto', name: 'foto'},   
+                {data: 'foto', name: 'foto'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
               ]
           });
@@ -128,6 +128,7 @@
             url: "{{url('admin/proses/invoice/')}}/" + id_invoice,
             success:function(data)
             {
+                
                 if(data.status == "ok"){
                     table.draw(false);
                 }
