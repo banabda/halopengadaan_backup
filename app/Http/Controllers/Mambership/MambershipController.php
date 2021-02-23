@@ -41,6 +41,16 @@ class MambershipController extends Controller
      */
     public function store(Request $request)
     {
+        //validasi data
+        $request->validate([
+            'nama_lengkap'     => 'required',
+            'email'            => 'required|email|unique:mambership',
+            'no_wa'            => 'required',
+            'tempat_kerja'     => 'required',
+            'jenis'            => 'required',
+            'status'           => 'required',
+            'mambership'       => 'required',
+            ]);
         // insert data ke table mambership
         DB::table('mambership')->insert([
             'nama_lengkap'      => ucwords($request->nama_lengkap),

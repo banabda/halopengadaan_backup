@@ -91,16 +91,6 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      {{-- menampilkan error validasi --}}
-        @if (count($errors) > 0)
-        <div class="alert alert-danger">
-          <ul>
-              @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-              @endforeach
-          </ul>
-        </div>
-        @endif
 
       <div class="modal-body">
         <form action="{{route('metodepembayaran.store') }}" method="POST">
@@ -113,18 +103,30 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Nama Metode</label>
             <input name="nama_method" type="text" class="form-control" id="nama_method" aria-describedby="nama_method" placeholder="nama method"  value="{{ old('nama_method') }}">
+            @if ($errors->has('nama_method'))
+                <span class="text-danger">{{ $errors->first('nama_method') }}</span>
+            @endif
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Nama Bank</label>
             <input name="nama_provider" type="text" class="form-control" id="nama_provider" aria-describedby="nama_provider" placeholder="nama provider"  value="{{ old('nama_provider') }}">
+            @if ($errors->has('nama_provider'))
+                <span class="text-danger">{{ $errors->first('nama_provider') }}</span>
+            @endif
           </div>
           <div class="form-group">
           <label for="exampleInputEmail1">Nama Pemilik Rekening</label>
           <input name="nama_rekening" type="text" class="form-control" id="nama_rekening" aria-describedby="nama_rekening" placeholder="nama rekening" value="{{ old('nama_rekening') }}">
+          @if ($errors->has('nama_rekening'))
+                <span class="text-danger">{{ $errors->first('nama_rekening') }}</span>
+          @endif
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Nomor Rekening</label>
             <input name="nomor_rekening" type="text"  class="form-control" id="nomor_rekening" placeholder="nomor rekening" value="{{ old('nomor_rekening') }}">
+          @if ($errors->has('nomor_rekening'))
+            <span class="text-danger">{{ $errors->first('nomor_rekening') }}</span>
+          @endif
           </div>
         </div>
         <div class="modal-footer">

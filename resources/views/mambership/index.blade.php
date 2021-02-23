@@ -108,18 +108,30 @@
           <div class="form-group">
             <label for="exampleInputEmail1">Nama lengkap</label>
             <input name="nama_lengkap" type="text" class="form-control" id="nama_lengkap" aria-describedby="nama_lengkap" placeholder="nama_lengkap"  value="{{ old('nama_lengkap') }}">
+            @if ($errors->has('nama_lengkap'))
+                <span class="text-danger">{{ $errors->first('nama_lengkap') }}</span>
+             @endif
           </div>
           <div class="form-group">
             <label for="exampleInputEmail1">Email</label>
             <input name="email" type="text" class="form-control" id="email" aria-describedby="email" placeholder="email"  value="{{ old('email') }}">
+            @if ($errors->has('email'))
+                <span class="text-danger">{{ $errors->first('email') }}</span>
+            @endif
           </div>
           <div class="form-group">
           <label for="exampleInputEmail1">Nomer Whatsapp</label>
           <input name="no_wa" type="text" class="form-control" id="no_wa"   ="no_wa" placeholder="no_wa" value="{{ old('no_wa') }}">
+          @if ($errors->has('no_wa'))
+            <span class="text-danger">{{ $errors->first('no_wa') }}</span>
+          @endif
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Tempat kerja</label>
             <input name="tempat_kerja" type="text"  class="form-control" id="tempat_kerja" placeholder="tempat_kerja" value="{{ old('tempat_kerja') }}">
+            @if ($errors->has('tempat_kerja'))
+                <span class="text-danger">{{ $errors->first('tempat_kerja') }}</span>
+            @endif
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Jenis</label>
@@ -130,6 +142,9 @@
                 <option value="blud">BLUD</option>
                 <option value="perusahaan">PERUSAHAAN</option>
             </select>
+            @if ($errors->has('jenis'))
+                <span class="text-danger">{{ $errors->first('jenis') }}</span>
+            @endif
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Status</label>
@@ -137,6 +152,9 @@
                 <option value="penyedia">Penyedia</option>
                 <option value="pengguna">Pengguna</option>
             </select>
+            @if ($errors->has('status'))
+                <span class="text-danger">{{ $errors->first('status') }}</span>
+            @endif
           </div>
           <div class="form-group">
             <label for="exampleInputPassword1">Mambership</label>
@@ -144,6 +162,9 @@
                 <option value="1 Bulan, Rp.250.000,-">1 Bulan, Rp.250.000,-</option>
                 <option value="3 Bulan, Rp.600.000,">3 Bulan, Rp.600.000,-</option>
             </select>
+            @if ($errors->has('mambership'))
+                <span class="text-danger">{{ $errors->first('mambership') }}</span>
+            @endif
           </div>
         </div>
         <div class="modal-footer">
