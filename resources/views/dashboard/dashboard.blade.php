@@ -323,9 +323,9 @@
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
 
     <!-- Zoom JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js" integrity="sha512-m5kAjE5cCBN5pwlVFi4ABsZgnLuKPEx0fOnzaH5v64Zi3wKnhesNUYq4yKmHQyTa3gmkR6YeSKW1S+siMvgWtQ==" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.js" integrity="sha512-LjDU5V5K+EixYXzTBmWnQPPLZXTUNJOfwB0UPnFqbPeoUl2/N/AKPJAYVuNNmMv9RZeGZXRwu4PDI37GCRuOTQ==" crossorigin="anonymous"></script>
-    
+    <script src="{{ asset('zoom/zoom.js') }}"></script>
+    <script src="{{ asset('zoom/zoom.min.js') }}"></script>
+
     <!-- CDN Sweet Alert -->
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script> --}}
   </body>

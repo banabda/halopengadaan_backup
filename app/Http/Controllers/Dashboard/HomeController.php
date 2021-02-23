@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class HomeController extends Controller
@@ -46,17 +47,21 @@ class HomeController extends Controller
             })
             ->addColumn('action', function($action){
                 if ($action->status == "Telah Terbayar") {
-                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $action->id .'" disabled>Telah Terkonfirmasi</button>';
-                    // $btn = '<a class="btn btn-md btn-info invoice-confirm" id="'. $action->id .'" href="javascript:void(0)">
-                    //         Proses </a>';
+                    // $btn = '<div class="btn-group btn-group-sm ml-2" role="group" aria-label="Small button group">';
+                    // $btn .= '<a target="_blank" href="'. Storage::url($action->bukti_pembayaran) .'" class="btn btn-dark" title="Lihat"><i class="fa fa-eye"></i></a>';
+                    // $btn .= '<a style="color:white" type="button" class="btn btn-info invoice-confirm" id="'. $action->id .'" >Konfirmasi</a>';
+                    // $btn .='</div>';
+
+                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $action->id .'">Konfirmasi</button>';
                 } elseif ($action->status == "Terkonfirmasi") {
-                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" style="pointer-events: none; cursor: default;" disabled>Telah Terkonfirmasi</button>';
-                    // $btn = '<a class="btn btn-md btn-info invoice-confirm" id="'. $action->id .'" href="javascript:void(0) style="pointer-events: none; cursor: default;">
-                    // Telah Terkonfirmasi </a>';
+                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" style="cursor: not-allowed;" disabled>Telah Terkonfirmasi</button>';
                 }
                 return $btn;
             })
-            ->rawColumns(['nama_lengkap', 'email', 'paket_detail', 'total_tagihan', 'tanggal', 'action'])
+            ->addColumn('foto', function($foto){
+                return "<a target='_blank' href='". Storage::url($foto->bukti_pembayaran) ."'><img src=". Storage::url($foto->bukti_pembayaran). " height='150' width='auto' data-action='zoom' alt='IMG'></a>";
+            })
+            ->rawColumns(['nama_lengkap', 'email', 'paket_detail', 'total_tagihan', 'tanggal', 'action', 'foto'])
             ->addIndexColumn()
             ->make(true);
         }

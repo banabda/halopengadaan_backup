@@ -169,7 +169,7 @@ class HomeController extends Controller
     public function saveBuktiPembayaran(Request $request)
     {
         $data = $request->all();
-
+        
         $user = Auth::user()->id;
         $file = $request->file('bukti_pembayaran');
         $path = 'images/konfirmasi_pembayaran/' . $user . '/' . $data['id'];
