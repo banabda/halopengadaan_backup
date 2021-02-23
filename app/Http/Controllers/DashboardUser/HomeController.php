@@ -127,13 +127,11 @@ class HomeController extends Controller
         if (is_null($profile)) {
             return redirect()->route('profile');
         } else {
-
             if (is_null($profile->nama_lengkap) && is_null($profile->email) && is_null($profile->no_hp)) {
                 return redirect()->route('profile');
             } else {
                 return view('dashboard.user.daftar-membership', $data);
             }
-
         }
     }
 
@@ -170,10 +168,11 @@ class HomeController extends Controller
 
     public function saveBuktiPembayaran(Request $request)
     {
-        // $data = $request->all();
+        $data = $request->all();
+
         $user = Auth::user()->id;
         $file = $request->file('bukti_pembayaran');
-        $path = 'images/konfirmasi_pembayaran/' . $user;
+        $path = 'images/konfirmasi_pembayaran/' . $user . '/' . $data['id'];
         $filename = $file->getClientOriginalName();
 
         $path = Storage::disk('public')->put(
@@ -204,10 +203,9 @@ class HomeController extends Controller
     public function invoiceprofil()
     {
       $data = Invoice::all();
-      if(request()->ajax())
-      {
+      if(request()->ajax()){
           return DataTables::of($data)
-            ->rawColumns(['action'])
+            ->rawColumns()
             ->addIndexColumn()
             ->make(true);
 
@@ -216,4 +214,7 @@ class HomeController extends Controller
     }
 
 }
+
+
+
 

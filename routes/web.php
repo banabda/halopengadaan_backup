@@ -85,9 +85,8 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
     Route::get('membership', 'DashboardUser\HomeController@registerMembership')->name('user.dashboard.membership');
     Route::post('save/membership', 'DashboardUser\HomeController@saveRegisterMembership')->name('user.dashboard.membership.save');
     Route::get('getProviders/{nama_method}', 'DashboardUser\HomeController@getProviders')->name('user.dashboard.membership.getProviders');
+    Route::post('save/buktipembayaran', 'DashboardUser\HomeController@saveBuktiPembayaran')->name('user.dashboard.saveBuktiPembayaran');
 
     // Dashboard User Invoice
-    Route::get('invoice', 'DashboardUser\HomeController@invoice')->name('user.dashboard.invoice');
-    Route::get('invoiceprofil', 'DashboardUser\HomeController@invoiceprofil')->name('dashboard.user.invoiceprofil');
-    Route::post('save/buktipembayaran', 'DashboardUser\HomeController@saveBuktiPembayaran')->name('user.dashboard.saveBuktiPembayaran');
+    Route::get('invoice', 'DashboardUser\HomeController@invoiceprofil')->name('user.dashboard.invoice');
 });

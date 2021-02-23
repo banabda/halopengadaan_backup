@@ -107,6 +107,7 @@
       <!-- /.content -->
     </div>
 </div>
+<!-- MODAL -->
 <div class="modal fade shadow shadow-lg" id="pembayaran" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -117,7 +118,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <h6 class="mb-4">Silahkan transfer sejumlah Rp. {{ number_format($invoice->tagihan,0,"",".") }} ke rekening berikut :</h6>
+            <h6 class="mb-4">Silahkan transfer sejumlah <b> Rp. {{ number_format($invoice->tagihan,0,"",".") }} </b> ke rekening berikut :</h6>
             <div class="row">
                 <div class="col-lg-12 text-center border border-info rounded shadow p-3 mb-4">
                 <h5><img src="{{asset('images/bank/'.$invoice->nama_bank .'.png')}}" alt="logo BRI" width="150" height="auto" class="mr-2 mb-3">
