@@ -2,22 +2,7 @@
 <div class="content-wrapper">
     <div class="container-full">
       <!-- Content Header (Page header) -->
-      <div class="content-header">
-          <div class="d-flex align-items-center">
-              <div class="mr-auto">
-                  <h3 class="page-title">Konfirmasi Pembayaran</h3>
-                  <div class="d-inline-block align-items-center">
-                      <nav>
-                          <ol class="breadcrumb">
-                              <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                              <li class="breadcrumb-item" aria-current="page">Daftar Konsultasi</li>
-                              <li class="breadcrumb-item active" aria-current="page">Konfirmasi Pembayaran</li>
-                          </ol>
-                      </nav>
-                  </div>
-              </div>
-          </div>
-      </div>
+      @include('dashboard.user.content-header')
 
       <!-- Main content -->
       <section class="content">
@@ -86,20 +71,13 @@
                     <h3 class="alert-heading mt-3">Bukti Pembayaran Anda Berhasil Kami Terima!</h3>
                     <span>Dalam waktu 2 hari kerja admin kami akan mengkonfirmasi bukti pembayaran yang Anda kirimkan</span>
                 </div>
-            @elseif($invoice == "Terkonfirmasi")
-                <div class="alert alert-primary" role="alert">
-                    <h4 class="alert-heading"><i class="fas fa-bullhorn"> Selamat!</i></h4>
-                    <p style="font-size: 15pt">Kini <b>Iklan pelatihan/kegiatan/workshop/webinar</b> Anda telah tampil di {{env('APP_NAME')}}</p>
-                    {{-- @if ($invoice->product->brosur == Null)
-                        <hr>
-                        <p style="font-size: 14pt">Kami menyediakan <b>Desain Brosur Gratis</b> untuk iklan pelatihan anda</p>
-                        <a target="_blank" href="https://api.whatsapp.com/send/?phone=6285691166309&text=Hallo%20Admin%20Info-Pelatihan.%0aSaya%20ingin%20mengajukan%20permohononan%20desain%20brosur%20gratis%20yang%20berjudul%20*{{ $invoice->product->name }}*&app_absent=0"><button type="button" class="btn btn-dark">Klik Untuk Mendapatkan Desain Brosur</button></a>
-                    @endif --}}
-                    <hr>
-                    {{-- <p style="font-size: 14pt">Kami menyediakan <b>Desain Brosur Gratis</b> untuk iklan pelatihan anda</p>
-                    <a target="_blank" href="https://api.whatsapp.com/send/?phone=6285691166309&text=Hallo%20Admin%20Info-Pelatihan.%0aSaya%20ingin%20mengajukan%20permohononan%20desain%20brosur%20gratis%20yang%20berjudul%20*{{ $invoice->product->name }}*&app_absent=0"><button type="button" class="btn btn-dark">Klik Untuk Mendapatkan Desain Brosur</button></a> --}}
-                    {{-- <p class="mb-0"></p> --}}
+            @elseif($invoice->status == "Terkonfirmasi")
+             <div class="jumbotron jumbotron-fluid bg-success">
+                <div class="container">
+                  <h1 class="display-4" style="text-align: center">Yeay! Pembayaran Terkonfirmasi!</h1>
+                  <p class="lead mt-4" style="text-align: center">Sekarang Anda Dapat Melakukan Konsultasi Langsung Dengan Para Pakar Dengan Menggunakan Menu <b>Konsultasi Sekarang</b> Pada Samping Kiri</p>
                 </div>
+              </div>
             @endif
 
         </div>
@@ -107,6 +85,7 @@
       <!-- /.content -->
     </div>
 </div>
+<!-- MODAL -->
 <div class="modal fade shadow shadow-lg" id="pembayaran" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
     <div class="modal-content">
@@ -117,7 +96,7 @@
             </button>
         </div>
         <div class="modal-body">
-            <h6 class="mb-4">Silahkan transfer sejumlah Rp. {{ number_format($invoice->tagihan,0,"",".") }} ke rekening berikut :</h6>
+            <h6 class="mb-4">Silahkan transfer sejumlah <b> Rp. {{ number_format($invoice->tagihan,0,"",".") }} </b> ke rekening berikut :</h6>
             <div class="row">
                 <div class="col-lg-12 text-center border border-info rounded shadow p-3 mb-4">
                 <h5><img src="{{asset('images/bank/'.$invoice->nama_bank .'.png')}}" alt="logo BRI" width="150" height="auto" class="mr-2 mb-3">

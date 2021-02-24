@@ -35,6 +35,10 @@ class Invoice extends Model
         'status',
         'expired_at',
         'is_seen'
-
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
 }

@@ -39,9 +39,9 @@
             </a>
         </li>
         <li>
-            <a href="{{route('mambership')}}">
-              <i data-feather="server"></i>
-              <span>Data Mambership</span>
+            <a href="{{route('admin.dashboard.invoice')}}">
+              <i data-feather="book-open"></i>
+              <span>Data Invoice</span>
             </a>
         </li>
         <li>
@@ -113,7 +113,7 @@
         </li>
 
         @elserole('user')
-        <li>
+          <li>
             <a href="{{ route('user.dashboard.membership') }}">
               <i data-feather="pie-chart"></i>
               <span>Daftar Konsultasi</span>
@@ -121,14 +121,14 @@
           </li>
 
           <li>
-            <a href="#">
+            <a href="{{ route('user.dashboard.konsultasi') }}">
               <i data-feather="message-circle"></i>
               <span>Konsultasi Sekarang</span>
             </a>
           </li>
 
           <li>
-              <a href="{{ route('dashboard.user.invoiceprofil') }}">
+              <a href="{{ route('user.dashboard.invoice') }}">
                 <i data-feather="server"></i>
                 <span>Invoice</span>
               </a>
@@ -142,6 +142,25 @@
               <span>Log Out</span>
             </a>
           </li>
+        @elserole('narasumber')
+        @php
+            $profile = App\Models\Profile::where('user_id', Auth::user()->id)->first();
+        @endphp
+        @if (is_null($profile))
+            <li>
+                <a href="{{ route('profile') }}">
+                    <i data-feather="pie-chart"></i>
+                    <span>Jawab Konsultasi</span>
+                </a>
+            </li>
+        @else
+            <li>
+                <a target="_blank" href="https://e-lpkn.id">
+                    <i data-feather="pie-chart"></i>
+                    <span>Jawab Konsultasi</span>
+                </a>
+            </li>
+        @endif
         @endrole
       </ul>
     </section>

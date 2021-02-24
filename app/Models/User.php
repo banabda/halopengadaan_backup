@@ -46,4 +46,14 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\Profile', 'user_id', 'id');
     }
+
+    public function invoice()
+    {
+        return $this->hasMany('App\Models\Invoice', 'user_id', 'id');
+    }
+
+    public function userHasPaket()
+    {
+        return $this->hasOne('App\Models\UerhasPaket', 'user_id', 'id');
+    }
 }

@@ -86,7 +86,7 @@
           table = $('#tableInvoiceprofil').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{ route('dashboard.user.invoiceprofil') }}",
+              ajax: "{{ route('user.dashboard.invoice') }}",
               columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
                 {data: 'user_id', name: 'user_id'},

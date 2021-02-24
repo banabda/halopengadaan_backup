@@ -18,7 +18,7 @@ class UserHasPaket extends Migration
             $table->integer('user_id');
             $table->text('paket');
             $table->dateTime('expired_at')->nullable();
-            $table->integer('status');
+            $table->string('status');
             $table->timestamps();
         });
     }
