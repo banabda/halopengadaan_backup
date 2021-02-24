@@ -35,7 +35,7 @@
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
-                    <table id="tableUser" class="table table-bordered table-striped">
+                    <table id="tableInvoiceprofil" class="table table-bordered table-striped">
                       <thead>
                           <tr>
                               <th>No</th>
@@ -78,11 +78,12 @@
 
     </div>
 </div>
+
 <!-- /.content-wrapper -->
 <script>
     var table;
       $(function() {
-          table = $('#tableUser').DataTable({
+          table = $('#tableInvoiceprofil').DataTable({
               processing: true,
               serverSide: true,
               ajax: "{{ route('user.dashboard.invoice') }}",
@@ -104,6 +105,7 @@
         } ).draw();
       });
 </script>
+
 <script>
     $(document).on('click', '.delete-confirm', function(){
         var id_role = $(this).attr("id");
