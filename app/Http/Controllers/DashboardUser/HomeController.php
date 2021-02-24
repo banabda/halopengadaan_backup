@@ -7,6 +7,7 @@ use App\Models\Metodepembayaran;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\Invoice;
+use App\Models\UserhasPaket;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -216,18 +217,23 @@ class HomeController extends Controller
 
     public function konsultasi()
     {
-        $client = new Client();
-        $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
-            'headers' => [
-                'authorization' => 'Bearer '. env('API_TOKEN')
-                ]
-        ])->getBody()->getContents();
+        $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
+        if (is_null($userhaspaket)) {
+            return redirect()->route('user.dashboard.membership');
+        } else {
+            $client = new Client();
+            $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
+                'headers' => [
+                    'authorization' => 'Bearer '. env('API_TOKEN')
+                    ]
+            ])->getBody()->getContents();
 
-        $data = [
-            'phone' => json_decode($send)->phone
-        ];
-        // dd(json_decode($send));
-        return view('dashboard.user.konsultasi', $data);
+            $data = [
+                'phone' => json_decode($send)->phone
+            ];
+
+            return view('dashboard.user.konsultasi', $data);
+        }
     }
 }
 

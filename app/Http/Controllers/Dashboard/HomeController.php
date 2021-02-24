@@ -79,13 +79,13 @@ class HomeController extends Controller
             $expired_at = Carbon::now()->addHours(1)->toDateTimeString();
         }
 
-        
+
         $data->update([
             'status' => 'Terkonfirmasi'
         ]);
-
+        // dd($data->user_id);
         $userPaket = UserhasPaket::create([
-            'user_id' => Auth::user()->id,
+            'user_id' => $data->user_id,
             'paket' => $data->paket,
             'expired_at' => $expired_at,
             'status' => 'Aktif'
