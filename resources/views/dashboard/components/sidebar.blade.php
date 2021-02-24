@@ -121,7 +121,7 @@
           </li>
 
           <li>
-            <a href="#">
+            <a href="{{ route('user.dashboard.konsultasi') }}">
               <i data-feather="message-circle"></i>
               <span>Konsultasi Sekarang</span>
             </a>

@@ -93,4 +93,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 
     // Dashboard User Invoice
     Route::get('invoice', 'DashboardUser\HomeController@invoiceprofil')->name('user.dashboard.invoice');
+
+    // Konsultasi Sekarang
+    Route::get('konsultasi', 'DashboardUser\HomeController@konsultasi')->name('user.dashboard.konsultasi');
 });
