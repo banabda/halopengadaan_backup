@@ -39,9 +39,9 @@
             </a>
         </li>
         <li>
-            <a href="{{route('mambership')}}">
-              <i data-feather="server"></i>
-              <span>Data Mambership</span>
+            <a href="{{route('admin.dashboard.invoice')}}">
+              <i data-feather="book-open"></i>
+              <span>Data Invoice</span>
             </a>
         </li>
         <li>
