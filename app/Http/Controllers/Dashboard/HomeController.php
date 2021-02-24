@@ -69,7 +69,7 @@ class HomeController extends Controller
     public function prosesInvoice($id)
     {
         $data = Invoice::where('id', $id)->first();
-        
+
         $expired_at =  '';
         if ($data->paket == "1") {
             $expired_at = Carbon::now()->addDays(30)->toDateTimeString();
@@ -95,5 +95,19 @@ class HomeController extends Controller
             'status' => "ok"
         ]);
 
+    }
+
+    public function waProsesInvoice()
+    {
+        $message = '
+            Halo Bapak / Ibu {Nama}
+
+            Bukti Pembayaran Anda Telah Terverifikasi Oleh Kami, Dan Menyatakan Bahwa Bukti Pembayaran Anda Valid!
+            Sekarang Akun Anda Telah Aktif dan Dapat Digunakan
+
+            Have a nice day :)
+
+            Admin Halo Pengadaan
+        ';
     }
 }

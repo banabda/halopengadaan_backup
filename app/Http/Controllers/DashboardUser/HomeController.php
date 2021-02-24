@@ -140,6 +140,7 @@ class HomeController extends Controller
     public function saveRegisterMembership(Request $request)
     {
         $metode_pembayaran = Metodepembayaran::where('nama_provider', $request->nama_provider)->first();
+        $profile = Profile::where('user_id', Auth::user()->id)->first();
 
         $kode_unik = rand(0,100);
         $tagihan = '';
@@ -163,8 +164,17 @@ class HomeController extends Controller
             'status' => 'Menunggu Pembayaran'
         ];
 
-        $invoice = Invoice::create($data);
+        $dataWa = [
+            'phone' => $profile->no_hp,
+            'nama_lengkap' => $profile->nama_lengkap,
+            'email' => $profile->email,
+            'tagihan' => $data['tagihan'],
+            'nomor_rekening' => $data['nomor_rekening'],
+            'nama_bank' => $data['nama_bank']
+        ];
 
+        $this->waSaveRegisterMembership($dataWa);
+        $invoice = Invoice::create($data);
         return redirect()->route('user.dashboard.membership');
     }
 
@@ -234,7 +244,61 @@ class HomeController extends Controller
 
             return view('dashboard.user.konsultasi', $data);
         }
+
     }
+
+    public function waSaveRegisterMembership($dataWa)
+    {
+        // dd($dataWa);
+        $message = '
+            Halo Bapak / Ibu '. $dataWa['nama_lengkap'] .'
+
+Terima Kasih Telah Mendaftar Di Halo Pengadaan
+Silahkan Melakukan Pembayaran Melalui Nomor Rekening Berikut :
+
+*No Rek* : '. $dataWa['nomor_rekening'] .' ('. $dataWa['nama_bank'] .')
+*Atas Nama* : Lembaga Pengembangan dan Konsultasi Nasional
+*Berjumlah* : Rp. '. number_format($dataWa['tagihan'],0, ',', '.') .'
+
+Jika sudah melakukan pembayaran, dimohon upload bukti transfer beserta nama rekening ke
+Website Resmi Halo Pengadaan
+        ';
+
+        if(substr($dataWa['phone'],0,1) == '0'){
+            $phone = substr_replace($dataWa['phone'],"",0,1);
+        } else {
+            $phone = $dataWa['phone'];
+        }
+        // dd($phone);
+
+        $data = [
+            'body' => $message,
+            'phone' => '62'. $phone
+        ];
+
+        // dd($data);
+
+        $client = new Client();
+        $data = $client->request('POST', 'https://api.chat-api.com/instance152953/sendMessage?token=t1b8ecaydchc89fz', [
+            'form_params' => $data
+        ])->getBody()->getContents();
+
+    }
+
+    public function waSaveBuktiPembayaran()
+    {
+        $message = '
+            Halo Bapak/Ibu {Nama}
+
+            Bukti Pembayaran Anda Telah Kami Terima, Mohon Menunggu Untuk Di Konfirmasi Oleh Admin Agar Akun Anda Teraktifasi
+
+            Terima Kasih
+
+            Admin Halo Pengadaan
+        ';
+    }
+
+
 }
 
 
