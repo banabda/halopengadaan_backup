@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
+use PDF;
 
 class HomeController extends Controller
 {
@@ -212,6 +213,13 @@ class HomeController extends Controller
       return view('dashboard.user.invoiceprofil');
     }
 
+    public function laporan()
+    {
+        $invoice = Invoice::all();
+
+        $pdf = PDF::loadview('dashboard.user.cetak',['cetak'=>$invoice]);
+        return $pdf->download('dashboard.user.pdf');
+    }
 }
 
 
