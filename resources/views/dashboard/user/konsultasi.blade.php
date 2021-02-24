@@ -31,19 +31,21 @@
 
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3 text-center border border-info rounded shadow p-3 mb-4">
-                        <h5><img src="{{asset('images/bank/BANK MANDIRI.png')}}" alt="BANK MANDIRI" width="150" height="auto" class="mr-2 mb-3"><br>No. Rek.
-                            <strong id="rekening">29072001</strong>
-                            <button class="btn btn-primary btn-xs ml-2" id="salin_rekening" onclick="copy_rekening()" role="button">Salin Rekening</button></h5>
-                        <h5>Atas Nama: <br/><strong>Lembaga Pengembangan dan Konsultasi Nasional</strong></h5>
+                        <center><img src="{{asset('images/whatsapp/samping.png')}}" alt="BANK MANDIRI" width="50%" height="200px" class="mr-2"></center>
+                        <a target="_blank" class="mt-2" href="https://wa.me/{{ $phone }}" style="color: #007bff!important"><h5><strong>https://wa.me/{{ $phone }}</strong></h5></a>
                         </div>
                     </div>
 
-                    <h1 class="mb-1 mt-3 text-warning font-weight-bold" id="waktu"></h1>
-                    <p class="mt-4">Bila tidak ada pembayaran, paket akan dibatalkan secara otomatis</p>
+                    {{-- <h1 class="mb-1 mt-3 text-warning font-weight-bold" id="waktu"></h1> --}}
+                    {{-- <p class="mt-4">Bila tidak ada pembayaran, paket akan dibatalkan secara otomatis</p> --}}
 
                     <hr>
 
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#pembayaran">Konfirmasi Pembayaran</button>
+                    <a target="_blank" href="https://wa.me/{{ $phone }}">
+                        <button class="btn btn-primary" data-toggle="modal" data-target="#pembayaran">
+                            Konsultasi Sekarang
+                        </button>
+                    </a>
                     </div>
                 </div>
             </div>

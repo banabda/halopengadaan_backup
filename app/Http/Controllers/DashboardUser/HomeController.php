@@ -7,6 +7,7 @@ use App\Models\Metodepembayaran;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\Invoice;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -215,7 +216,18 @@ class HomeController extends Controller
 
     public function konsultasi()
     {
-        return view('dashboard.user.konsultasi');
+        $client = new Client();
+        $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
+            'headers' => [
+                'authorization' => 'Bearer '. env('API_TOKEN')
+                ]
+        ])->getBody()->getContents();
+
+        $data = [
+            'phone' => json_decode($send)->phone
+        ];
+        // dd(json_decode($send));
+        return view('dashboard.user.konsultasi', $data);
     }
 }
 
