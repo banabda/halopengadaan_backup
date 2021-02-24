@@ -69,7 +69,7 @@ class HomeController extends Controller
     public function prosesInvoice($id)
     {
         $data = Invoice::where('id', $id)->first();
-        // dd($data);
+        
         $expired_at =  '';
         if ($data->paket == "1") {
             $expired_at = Carbon::now()->addDays(30)->toDateTimeString();
@@ -83,7 +83,7 @@ class HomeController extends Controller
         $data->update([
             'status' => 'Terkonfirmasi'
         ]);
-        // dd($data->user_id);
+
         $userPaket = UserhasPaket::create([
             'user_id' => $data->user_id,
             'paket' => $data->paket,

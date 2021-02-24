@@ -113,7 +113,7 @@
         </li>
 
         @elserole('user')
-        <li>
+          <li>
             <a href="{{ route('user.dashboard.membership') }}">
               <i data-feather="pie-chart"></i>
               <span>Daftar Konsultasi</span>
@@ -142,6 +142,25 @@
               <span>Log Out</span>
             </a>
           </li>
+        @elserole('narasumber')
+        @php
+            $profile = App\Models\Profile::where('user_id', Auth::user()->id)->first();
+        @endphp
+        @if (is_null($profile))
+            <li>
+                <a href="{{ route('profile') }}">
+                    <i data-feather="pie-chart"></i>
+                    <span>Jawab Konsultasi</span>
+                </a>
+            </li>
+        @else
+            <li>
+                <a target="_blank" href="https://e-lpkn.id">
+                    <i data-feather="pie-chart"></i>
+                    <span>Jawab Konsultasi</span>
+                </a>
+            </li>
+        @endif
         @endrole
       </ul>
     </section>
