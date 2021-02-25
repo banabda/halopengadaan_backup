@@ -294,8 +294,6 @@ Website Resmi Halo Pengadaan
             'phone' => '62'. $phone
         ];
 
-        // dd($data);
-
         $client = new Client();
         $data = $client->request('POST', 'https://api.chat-api.com/instance152953/sendMessage?token=t1b8ecaydchc89fz', [
             'form_params' => $data
