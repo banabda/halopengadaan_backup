@@ -2,6 +2,39 @@
 
 @section('content')
 @include('components.navbar')
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        @if (session('status'))
+            <div class="alert alert-success" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
+        <div class="col-md-8 form-style">
+            <div class="login-form">
+                <form method="POST" action="{{ route('password.email') }}">
+                    @csrf
+                    <h4 class="modal-title">Reset Password</h4>
+                    <div class="form-group">
+                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
+                        @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-block btn-lg" value="Reset Password">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
+
+
+{{-- @extends('layouts.app')
+
+@section('content')
+@include('components.navbar')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -45,4 +78,4 @@
         </div>
     </div>
 </div>
-@endsection
+@endsection --}}
