@@ -173,13 +173,15 @@
             $('#nama_method').on('change', function () {
                 var nama_metode = $('#nama_method').val();
                 // console.log(nama_metode);
-                if (nama_metode == "Transfer Bank") {
-                    console.log("Transfer Bank");
+                if (nama_metode == nama_metode) {
+                    console.log("Berhasil");
                     getProviders(nama_metode);
-                } else if (nama_metode == "Uang Digital") {
-                    console.log("Uang Digital");
-                    getProviders(nama_metode);
-                } else {
+                }
+                // else if (nama_metode == "UANG DIGITAL") {
+                //     // console.log("Uang Digital");
+                //     getProviders(nama_metode);
+                // }
+                else {
                     $('#nama_provider').html();
                 }
             });
