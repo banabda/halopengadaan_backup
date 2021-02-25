@@ -44,7 +44,8 @@ class MetodepembayaranController extends Controller
             'nama_provider'    => 'required',
             'nama_rekening'    => 'required',
             'nomor_rekening'   => 'required',
-            ]);
+        ]);
+        
         // insert data ke table metode pembayaran
         DB::table('metodepembayaran')->insert([
             'nama_method'      => ucwords($request->nama_method),
@@ -52,6 +53,7 @@ class MetodepembayaranController extends Controller
             'nama_rekening'    => strtoupper($request->nama_rekening),
             'nomor_rekening'   => $request->nomor_rekening
         ]);
+
         // alihkan halaman ke halaman metodepembayaran
         return redirect()->route('metodepembayaran');
 
