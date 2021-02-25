@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
-use PDF;
+use Barryvdh\DomPDF\PDF;
 
 class HomeController extends Controller
 {
@@ -182,6 +182,7 @@ class HomeController extends Controller
     public function saveBuktiPembayaran(Request $request)
     {
         $data = $request->all();
+        $profile = Profile::where('user_id', Auth::user()->id)->first();
 
         $user = Auth::user()->id;
         $file = $request->file('bukti_pembayaran');
@@ -201,6 +202,15 @@ class HomeController extends Controller
 
         $invoice = Invoice::where('id', $request->id)->first();
         $invoice->update($data);
+
+        $dataWa = [
+            'phone' => $profile->no_hp,
+            'nama_lengkap' => $profile->nama_lengkap,
+            'email' => $profile->email,
+            'tagihan' => $invoice->tagihan,
+        ];
+
+        $this->waSaveBuktiPembayaran($dataWa);
 
         return redirect()->route('user.dashboard.membership');
 
@@ -278,7 +288,6 @@ Website Resmi Halo Pengadaan
         } else {
             $phone = $dataWa['phone'];
         }
-        // dd($phone);
 
         $data = [
             'body' => $message,
@@ -294,17 +303,35 @@ Website Resmi Halo Pengadaan
 
     }
 
-    public function waSaveBuktiPembayaran()
+    public function waSaveBuktiPembayaran($dataWa)
     {
+
         $message = '
-            Halo Bapak/Ibu {Nama}
+            Halo Bapak/Ibu '. $dataWa['nama_lengkap'] .'
 
-            Bukti Pembayaran Anda Telah Kami Terima, Mohon Menunggu Untuk Di Konfirmasi Oleh Admin Agar Akun Anda Teraktifasi
+Bukti Pembayaran Anda Telah Kami Terima Sebesar *Rp. '. number_format($dataWa['tagihan'],0, ',', '.') .'*,
 
-            Terima Kasih
+Mohon Menunggu Untuk Di Konfirmasi Oleh Admin Agar Akun Anda Teraktifasi.
 
-            Admin Halo Pengadaan
+Terima Kasih
         ';
+
+        if(substr($dataWa['phone'],0,1) == '0'){
+            $phone = substr_replace($dataWa['phone'],"",0,1);
+        } else {
+            $phone = $dataWa['phone'];
+        }
+
+        $data = [
+            'body' => $message,
+            'phone' => '62'. $phone
+        ];
+
+        $client = new Client();
+        $data = $client->request('POST', 'https://api.chat-api.com/instance152953/sendMessage?token=t1b8ecaydchc89fz', [
+            'form_params' => $data
+        ])->getBody()->getContents();
+
     }
 
 
