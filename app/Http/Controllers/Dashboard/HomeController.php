@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
+use App\Models\Profile;
 use App\Models\UserhasPaket;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -69,7 +71,10 @@ class HomeController extends Controller
     public function prosesInvoice($id)
     {
         $data = Invoice::where('id', $id)->first();
-        
+        $profile = Profile::where('user_id', $data->user_id)->first();
+        $userHasPaket = UserhasPaket::where('user_id', $data->user_id)->first();
+        // dd($profile);
+        // dd($data);
         $expired_at =  '';
         if ($data->paket == "1") {
             $expired_at = Carbon::now()->addDays(30)->toDateTimeString();
@@ -79,10 +84,22 @@ class HomeController extends Controller
             $expired_at = Carbon::now()->addHours(1)->toDateTimeString();
         }
 
-
         $data->update([
             'status' => 'Terkonfirmasi'
         ]);
+
+        if (is_null($userHasPaket)) {
+            $userPaket = UserhasPaket::create([
+                'user_id' => $data->user_id,
+                'paket' => $data->paket,
+                'expired_at' => $expired_at,
+                'status' => 'Aktif'
+            ]);
+        } else {
+            $userHasPaket->update([
+                'expired_at' => $expired_at
+            ]);
+        }
 
         $userPaket = UserhasPaket::create([
             'user_id' => $data->user_id,
@@ -91,9 +108,47 @@ class HomeController extends Controller
             'status' => 'Aktif'
         ]);
 
+        $dataWa = [
+            'phone' => $profile->no_hp,
+            'nama_lengkap' => $profile->nama_lengkap,
+            'email' => $profile->email
+        ];
+
+        $this->waProsesInvoice($dataWa);
+
         return response()->json([
             'status' => "ok"
         ]);
+
+    }
+
+    public function waProsesInvoice($dataWa)
+    {
+        $message = '
+            Halo Bapak / Ibu '. $dataWa['nama_lengkap'] . '
+
+Bukti Pembayaran Anda Telah Terverifikasi Oleh Kami, Dan Menyatakan Bahwa Bukti Pembayaran Anda Valid!
+
+Sekarang Akun Anda Telah Aktif dan Dapat Digunakan Untuk Berkonsultasi Dengan Para Pakar Pengadaan
+
+Have a nice day :)
+        ';
+
+        if(substr($dataWa['phone'],0,1) == '0'){
+            $phone = substr_replace($dataWa['phone'],"",0,1);
+        } else {
+            $phone = $dataWa['phone'];
+        }
+
+        $data = [
+            'body' => $message,
+            'phone' => '62'. $phone
+        ];
+
+        $client = new Client();
+        $data = $client->request('POST', 'https://api.chat-api.com/instance152953/sendMessage?token=t1b8ecaydchc89fz', [
+            'form_params' => $data
+        ])->getBody()->getContents();
 
     }
 }

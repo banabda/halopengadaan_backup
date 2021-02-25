@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
-use PDF;
+use Barryvdh\DomPDF\PDF;
 
 class HomeController extends Controller
 {
@@ -148,6 +148,7 @@ class HomeController extends Controller
         $data = $request->all();
         dd($data);
         $metode_pembayaran = Metodepembayaran::where('nama_provider', $request->nama_provider)->first();
+        $profile = Profile::where('user_id', Auth::user()->id)->first();
 
         $kode_unik = rand(0,100);
         $tagihan = '';
@@ -171,14 +172,29 @@ class HomeController extends Controller
             'status' => 'Menunggu Pembayaran'
         ];
 
-        $invoice = Invoice::create($data);
+        $dataWa = [
+            'phone' => $profile->no_hp,
+            'nama_lengkap' => $profile->nama_lengkap,
+            'email' => $profile->email,
+            'tagihan' => $data['tagihan'],
+            'nomor_rekening' => $data['nomor_rekening'],
+            'nama_bank' => $data['nama_bank']
+        ];
 
+        $this->waSaveRegisterMembership($dataWa);
+        $invoice = Invoice::create($data);
         return redirect()->route('user.dashboard.membership');
     }
 
     public function saveBuktiPembayaran(Request $request)
     {
+<<<<<<< HEAD
         // $data = $request->all();
+=======
+        $data = $request->all();
+        $profile = Profile::where('user_id', Auth::user()->id)->first();
+
+>>>>>>> 317ef5895b0517478e23262c140fca1a77fc7f6f
         $user = Auth::user()->id;
         $file = $request->file('bukti_pembayaran');
         $path = 'images/konfirmasi_pembayaran/' . $user;
@@ -197,6 +213,15 @@ class HomeController extends Controller
 
         $invoice = Invoice::where('id', $request->id)->first();
         $invoice->update($data);
+
+        $dataWa = [
+            'phone' => $profile->no_hp,
+            'nama_lengkap' => $profile->nama_lengkap,
+            'email' => $profile->email,
+            'tagihan' => $invoice->tagihan,
+        ];
+
+        $this->waSaveBuktiPembayaran($dataWa);
 
         return redirect()->route('user.dashboard.membership');
     }
@@ -218,6 +243,7 @@ class HomeController extends Controller
       return view('dashboard.user.invoiceprofil');
     }
 
+<<<<<<< HEAD
     public function laporan()
     {
         $invoice = Invoice::all();
@@ -234,6 +260,106 @@ class HomeController extends Controller
     // ]);
     // return $pdf->download('dashboard.user.cetak');
     // return $pdf->stream();
+=======
+    public function konsultasi()
+    {
+        $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
+        if (is_null($userhaspaket)) {
+            return redirect()->route('user.dashboard.membership');
+        } else {
+            $client = new Client();
+            $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
+                'headers' => [
+                    'authorization' => 'Bearer '. env('API_TOKEN')
+                    ]
+            ])->getBody()->getContents();
+
+            $data = [
+                'phone' => json_decode($send)->phone
+            ];
+
+            return view('dashboard.user.konsultasi', $data);
+        }
+
+    }
+
+    public function laporan()
+    {
+        $invoice = Invoice::all();
+
+        $pdf = PDF::loadview('dashboard.user.cetak',['cetak'=>$invoice]);
+        return $pdf->download('dashboard.user.pdf');
+    }
+
+    public function waSaveRegisterMembership($dataWa)
+    {
+        // dd($dataWa);
+        $message = '
+            Halo Bapak / Ibu '. $dataWa['nama_lengkap'] .'
+
+Terima Kasih Telah Mendaftar Di Halo Pengadaan
+Silahkan Melakukan Pembayaran Melalui Nomor Rekening Berikut :
+
+*No Rek* : '. $dataWa['nomor_rekening'] .' ('. $dataWa['nama_bank'] .')
+*Atas Nama* : Lembaga Pengembangan dan Konsultasi Nasional
+*Berjumlah* : Rp. '. number_format($dataWa['tagihan'],0, ',', '.') .'
+
+Jika sudah melakukan pembayaran, dimohon upload bukti transfer beserta nama rekening ke
+Website Resmi Halo Pengadaan
+        ';
+
+        if(substr($dataWa['phone'],0,1) == '0'){
+            $phone = substr_replace($dataWa['phone'],"",0,1);
+        } else {
+            $phone = $dataWa['phone'];
+        }
+
+        $data = [
+            'body' => $message,
+            'phone' => '62'. $phone
+        ];
+
+        $client = new Client();
+        $data = $client->request('POST', 'https://api.chat-api.com/instance152953/sendMessage?token=t1b8ecaydchc89fz', [
+            'form_params' => $data
+        ])->getBody()->getContents();
+
+    }
+
+    public function waSaveBuktiPembayaran($dataWa)
+    {
+
+        $message = '
+            Halo Bapak/Ibu '. $dataWa['nama_lengkap'] .'
+
+Bukti Pembayaran Anda Telah Kami Terima Sebesar *Rp. '. number_format($dataWa['tagihan'],0, ',', '.') .'*,
+
+Mohon Menunggu Untuk Di Konfirmasi Oleh Admin Agar Akun Anda Teraktifasi.
+
+Terima Kasih
+        ';
+
+        if(substr($dataWa['phone'],0,1) == '0'){
+            $phone = substr_replace($dataWa['phone'],"",0,1);
+        } else {
+            $phone = $dataWa['phone'];
+        }
+
+        $data = [
+            'body' => $message,
+            'phone' => '62'. $phone
+        ];
+
+        $client = new Client();
+        $data = $client->request('POST', 'https://api.chat-api.com/instance152953/sendMessage?token=t1b8ecaydchc89fz', [
+            'form_params' => $data
+        ])->getBody()->getContents();
+
+    }
+
+
+
+>>>>>>> 317ef5895b0517478e23262c140fca1a77fc7f6f
 }
 
 

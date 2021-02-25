@@ -43,7 +43,8 @@ class CheckExpiredUser extends Command
 
         foreach ($userHasPaket as $key => $value) {
             $expired_at = $value->expired_at;
-            if ($expired_at >= Carbon::now()) {
+            
+            if ($expired_at <= Carbon::now()) {
                 $update = UserhasPaket::find($value->id);
                 $update->status = 'Tidak Aktif';
                 $update->save();
