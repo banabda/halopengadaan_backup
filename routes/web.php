@@ -52,7 +52,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::post('updatemamber','Mambership\MambershipController@updatemamber')->name('mambership.updatemamber');
 
      // crud halaman metode pembayaran
-     Route::get('methodadmin','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
+     Route::get('metode-pembayaran','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
      Route::post('buatmethod','Metodepembayaran\MetodepembayaranController@store')->name('metodepembayaran.store');
      Route::get('detailmethod/{id}','Metodepembayaran\MetodepembayaranController@detailmethod');
      Route::get('deletemethod/{id}','Metodepembayaran\MetodepembayaranController@deletemethod');
