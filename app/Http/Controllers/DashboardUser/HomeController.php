@@ -7,8 +7,6 @@ use App\Models\Metodepembayaran;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\Invoice;
-use App\Models\UserhasPaket;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -120,11 +118,18 @@ class HomeController extends Controller
     {
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
         $metode_pembayaran = Metodepembayaran::all()->groupBy('nama_method')->toArray();
-        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
 
         $data = [
-            'metode_pembayaran' => $metode_pembayaran,
-            'invoice' => $invoice
+            'metode_pembayaran' => $metode_pembayaran
+        ];
+
+        if (is_null($profile)) {
+
+        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
+
+
+        $data = [
+            'metode_pembayaran' => $metode_pembayaran
         ];
 
         if (is_null($profile)) {
@@ -137,9 +142,11 @@ class HomeController extends Controller
             }
         }
     }
-
+    }
     public function saveRegisterMembership(Request $request)
     {
+        $data = $request->all();
+        dd($data);
         $metode_pembayaran = Metodepembayaran::where('nama_provider', $request->nama_provider)->first();
 
         $kode_unik = rand(0,100);
@@ -171,11 +178,10 @@ class HomeController extends Controller
 
     public function saveBuktiPembayaran(Request $request)
     {
-        $data = $request->all();
-
+        // $data = $request->all();
         $user = Auth::user()->id;
         $file = $request->file('bukti_pembayaran');
-        $path = 'images/konfirmasi_pembayaran/' . $user . '/' . $data['id'];
+        $path = 'images/konfirmasi_pembayaran/' . $user;
         $filename = $file->getClientOriginalName();
 
         $path = Storage::disk('public')->put(
@@ -193,22 +199,18 @@ class HomeController extends Controller
         $invoice->update($data);
 
         return redirect()->route('user.dashboard.membership');
-
     }
-
-    public function getProviders($value)
-    {
-        $payment_method = Metodepembayaran::where('nama_method', $value)->pluck('nama_provider', 'id');
-        return json_encode($payment_method);
-
-    }
-
     public function invoiceprofil()
     {
       $data = Invoice::all();
       if(request()->ajax()){
           return DataTables::of($data)
-            ->rawColumns()
+          ->addColumn('action', function($row){
+            $btn = '<a class="btn btn-md btn-info mr-2" href="'. route("dashboard.user.cetak", $row->id) .'">
+            <i class="fa fa-print"></i>cetak</a>';
+            return $btn;
+        })
+            ->rawColumns(['action'])
             ->addIndexColumn()
             ->make(true);
 
@@ -216,35 +218,22 @@ class HomeController extends Controller
       return view('dashboard.user.invoiceprofil');
     }
 
-<<<<<<< HEAD
     public function laporan()
     {
         $invoice = Invoice::all();
 
         $pdf = PDF::loadview('dashboard.user.cetak',['cetak'=>$invoice]);
         return $pdf->download('dashboard.user.pdf');
-=======
-    public function konsultasi()
-    {
-        $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
-        if (is_null($userhaspaket)) {
-            return redirect()->route('user.dashboard.membership');
-        } else {
-            $client = new Client();
-            $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
-                'headers' => [
-                    'authorization' => 'Bearer '. env('API_TOKEN')
-                    ]
-            ])->getBody()->getContents();
-
-            $data = [
-                'phone' => json_decode($send)->phone
-            ];
-
-            return view('dashboard.user.konsultasi', $data);
-        }
->>>>>>> 042d9becbae7f2c0bb80b8a8150d0e8a5298455a
+        // return $pdf;
     }
+
+
+    // $data_laporan = DB::table('invoice')->get();
+    // $pdf = PDF::loadview('dashboard.user.cetak',[
+    //     'data_laporan'=>$data_laporan
+    // ]);
+    // return $pdf->download('dashboard.user.cetak');
+    // return $pdf->stream();
 }
 
 
