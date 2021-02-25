@@ -8,7 +8,6 @@ use App\Models\Profile;
 use App\Models\User;
 use App\Models\Invoice;
 use App\Models\UserhasPaket;
-use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -16,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 use Yajra\DataTables\Facades\DataTables;
 use Barryvdh\DomPDF\PDF;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
 
 class HomeController extends Controller
 {
@@ -121,11 +121,18 @@ class HomeController extends Controller
     {
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
         $metode_pembayaran = Metodepembayaran::all()->groupBy('nama_method')->toArray();
-        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
 
         $data = [
-            'metode_pembayaran' => $metode_pembayaran,
-            'invoice' => $invoice
+            'metode_pembayaran' => $metode_pembayaran
+        ];
+
+        if (is_null($profile)) {
+
+        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
+
+
+        $data = [
+            'metode_pembayaran' => $metode_pembayaran
         ];
 
         if (is_null($profile)) {
@@ -138,9 +145,10 @@ class HomeController extends Controller
             }
         }
     }
-
+    }
     public function saveRegisterMembership(Request $request)
     {
+        $data = $request->all();
         $metode_pembayaran = Metodepembayaran::where('nama_provider', $request->nama_provider)->first();
         $profile = Profile::where('user_id', Auth::user()->id)->first();
 
@@ -187,7 +195,7 @@ class HomeController extends Controller
 
         $user = Auth::user()->id;
         $file = $request->file('bukti_pembayaran');
-        $path = 'images/konfirmasi_pembayaran/' . $user . '/' . $data['id'];
+        $path = 'images/konfirmasi_pembayaran/' . $user;
         $filename = $file->getClientOriginalName();
 
         $path = Storage::disk('public')->put(
@@ -214,16 +222,7 @@ class HomeController extends Controller
         $this->waSaveBuktiPembayaran($dataWa);
 
         return redirect()->route('user.dashboard.membership');
-
     }
-
-    public function getProviders($value)
-    {
-        $payment_method = Metodepembayaran::where('nama_method', $value)->pluck('nama_provider', 'id');
-        return json_encode($payment_method);
-
-    }
-
     public function invoiceprofil()
     {
       $data = Invoice::with('user')->where('user_id', Auth::user()->id)->get();

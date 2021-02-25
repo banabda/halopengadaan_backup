@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../images/favicon.ico">
 
-    <title>Sunny Admin - Dashboard  Invoice </title>
+    <title>Hallo Pengadaan- Dashboard  Invoice </title>
 
 	<!-- Vendors Style-->
 	<link rel="stylesheet" href="css/vendors_css.css">
