@@ -4,13 +4,13 @@
 @include('components.navbar')
 <div class="container mt-5">
     <div class="row justify-content-center">
-        @if (session('status'))
-            <div class="alert alert-success" role="alert">
-                {{ session('status') }}
-            </div>
-        @endif
         <div class="col-md-8 form-style">
             <div class="login-form">
+                @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                @endif
                 <form method="POST" action="{{ route('password.email') }}">
                     @csrf
                     <h4 class="modal-title">Reset Password</h4>
