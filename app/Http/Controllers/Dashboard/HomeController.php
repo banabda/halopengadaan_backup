@@ -72,6 +72,7 @@ class HomeController extends Controller
     {
         $data = Invoice::where('id', $id)->first();
         $profile = Profile::where('user_id', $data->user_id)->first();
+        $userHasPaket = UserhasPaket::where('user_id', $data->user_id)->first();
         // dd($profile);
         // dd($data);
         $expired_at =  '';
@@ -86,6 +87,19 @@ class HomeController extends Controller
         $data->update([
             'status' => 'Terkonfirmasi'
         ]);
+
+        if (is_null($userHasPaket)) {
+            $userPaket = UserhasPaket::create([
+                'user_id' => $data->user_id,
+                'paket' => $data->paket,
+                'expired_at' => $expired_at,
+                'status' => 'Aktif'
+            ]);
+        } else {
+            $userHasPaket->update([
+                'expired_at' => $expired_at
+            ]);
+        }
 
         $userPaket = UserhasPaket::create([
             'user_id' => $data->user_id,
