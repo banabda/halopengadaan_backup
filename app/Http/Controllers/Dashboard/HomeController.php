@@ -73,8 +73,7 @@ class HomeController extends Controller
         $data = Invoice::where('id', $id)->first();
         $profile = Profile::where('user_id', $data->user_id)->first();
         $userHasPaket = UserhasPaket::where('user_id', $data->user_id)->first();
-        // dd($profile);
-        // dd($data);
+
         $expired_at =  '';
         if ($data->paket == "1") {
             $expired_at = Carbon::now()->addDays(30)->toDateTimeString();

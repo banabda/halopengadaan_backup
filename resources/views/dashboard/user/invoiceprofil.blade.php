@@ -39,12 +39,9 @@
                       <thead>
                           <tr>
                               <th>No</th>
-                              <th>User Id</th>
                               <th>Paket</th>
-                              <th>Kode Unik</th>
-                              <th>Tagihan</th>
-                              <th>Nama Rekening</th>
-                              <th>Bukti Pembayaran</th>
+                              <th>Total Pembayaran</th>
+                              <th>Tanggal</th>
                               <th>Action</th>
                           </tr>
                       </thead>
@@ -54,12 +51,9 @@
                       <tfoot>
                           <tr>
                               <th>No</th>
-                              <th>User Id</th>
                               <th>Paket</th>
-                              <th>Kode Unik</th>
-                              <th>Tagihan</th>
-                              <th>Nama Rekening</th>
-                              <th>Bukti Pembayaran</th>
+                              <th>Total Pembayaran</th>
+                              <th>Tanggal</th>
                               <th>Action</th>
                           </tr>
                       </tfoot>
@@ -89,12 +83,9 @@
               ajax: "{{ route('user.dashboard.invoice') }}",
               columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
-                {data: 'user_id', name: 'user_id'},
-                {data: 'paket', name: 'paket'},
-                {data: 'kode_unik', name: 'kode_unik'},
-                {data: 'tagihan', name: 'tagihan'},
-                {data: 'nama_rekening', name: 'nama_rekening'},
-                {data: 'bukti_pembayaran', name: 'bukti_pembayaran'},
+                {data: 'paket_detail', name: 'paket_detail'},
+                {data: 'total_tagihan', name: 'total_tagihan'},
+                {data: 'tanggal', name: 'tanggal'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
               ]
           });
@@ -107,7 +98,7 @@
 </script>
 
 <script>
-    $(document).on('click', '.delete-confirm', function(){
+    $(document).on('click', '.invoice-download', function(){
         var id_role = $(this).attr("id");
         // console.log(id_role);
         $.ajaxSetup({
