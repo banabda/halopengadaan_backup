@@ -221,7 +221,6 @@ class HomeController extends Controller
     {
         $payment_method = Metodepembayaran::where('nama_method', $value)->pluck('nama_provider', 'id');
         return json_encode($payment_method);
-
     }
 
     public function invoiceprofil()
