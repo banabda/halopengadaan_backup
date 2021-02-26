@@ -130,21 +130,17 @@ class HomeController extends Controller
             }
         )->get();
 
-        if (!request()->ajax()) {
+        if (request()->ajax()) {
             return DataTables()->of($data)
             ->addColumn('action', function($row){
-                $btn = '<a class="btn btn-md btn-info mr-2" href="'. route("user.edit", $row->id) .'">
-                <i class="fa fa-edit"></i> Edit </a>';
-                $btn .= '<a class="btn btn-md btn-info delete-confirm" id="'. $row->id .'" href="javascript:void(0)">
-                <i class="fa fa-trash"></i> Hapus </a>';
-
+                $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $row->id .'">Aktifasi</button>';
                 return $btn;
             })
             ->rawColumns(['action'])
             ->addIndexColumn()
             ->make(true);
         }
-        // dd($data);
+        return view('dashboard.admin.data-narasumber');
     }
 
     public function waProsesInvoice($dataWa)

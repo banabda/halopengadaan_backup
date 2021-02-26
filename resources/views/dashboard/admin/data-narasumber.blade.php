@@ -35,7 +35,7 @@
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
-                    <table id="tableUser" class="table table-bordered table-striped">
+                    <table id="tableNarasumber" class="table table-bordered table-striped">
                       <thead>
                           <tr>
                               <th>No</th>
@@ -76,10 +76,10 @@
 <script>
     var table;
       $(function() {
-          table = $('#tableUser').DataTable({
+          table = $('#tableNarasumber').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{ route('user.index') }}",
+              ajax: "{{ route('admin.dashboard.narasumber') }}",
               columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
                 {data: 'name', name: 'name'},
@@ -88,7 +88,7 @@
                 {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
               ]
           });
-          
+
           table.on( 'order.dt search.dt', function () {
             table.column(0, {order:'applied', search:'applied'}).nodes().each( function (cell, i) {
                 cell.innerHTML = i+1;

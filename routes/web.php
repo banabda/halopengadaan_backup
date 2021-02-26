@@ -79,7 +79,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::post('proses/invoice/{id}', 'Dashboard\HomeController@prosesInvoice')->name('admin.dashboard.invoice.proses');
 
     // Data Narasumber
-    Route::get('narasumber', 'Dashboard\HomeController@dataNarasumber')->name('admin.dashboard.invoice');
+    Route::get('narasumber', 'Dashboard\HomeController@dataNarasumber')->name('admin.dashboard.narasumber');
 });
 
 Route::group(['middleware' => ['auth']], function ()
