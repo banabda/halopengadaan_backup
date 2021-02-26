@@ -97,42 +97,28 @@
       });
 </script>
 <script>
-    $(document).on('click', '.delete-confirm', function(){
-        var id_role = $(this).attr("id");
-        // console.log(id_role);
+    $(document).on('click', '.user-confirm', function(){
+        var id_user = $(this).attr("id");
+        console.log(id_user);
+        event.preventDefault();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        event.preventDefault();
-        Swal.fire({
-            title: "Apakah Anda Yakin Ingin Menghapus Ini?",
-            // type: "info",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: "Delete",
-            confirmButtonColor: "#ff0055",
-            cancelButtonColor: "#999999",
-            reverseButtons: true,
-            focusConfirm: false,
-            focusCancel: true
-        }).then((result) => {
-            if (result.isConfirmed) {
-                $.ajax({
-                    type:'DELETE',
-                    url: "{{url('admin/user')}}/" + id_role,
-                    success:function(data)
-                    {
-                        if(data.status == "ok"){
-                            table.draw(false);
-                        }
-                    },
-                    error: function(data){
-                    }
-                });
+        $.ajax({
+            type:'POST',
+            url: "{{url('admin/narasumber/verify')}}/" + id_user,
+            success:function(data)
+            {
+                if(data.status == "ok"){
+                    table.draw(false);
+                }
+            },
+            error: function(data){
+
             }
-        })
+        });
     });
 </script>
 @endsection

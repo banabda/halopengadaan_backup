@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 
     // Data Narasumber
     Route::get('narasumber', 'Dashboard\HomeController@dataNarasumber')->name('admin.dashboard.narasumber');
+    Route::post('narasumber/verify/{id}', 'Dashboard\HomeController@verifyUserNarasumber')->name('admin.dashboard.narasumber.verify');
 });
 
 Route::group(['middleware' => ['auth']], function ()

@@ -133,7 +133,12 @@ class HomeController extends Controller
         if (request()->ajax()) {
             return DataTables()->of($data)
             ->addColumn('action', function($row){
-                $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $row->id .'">Aktifasi</button>';
+                if ($row->status == "Belum Teraktifikasi") {
+                    $btn = '<button class="btn btn-xs btn-info user-confirm" id="'. $row->id .'">Aktifasi</button>';
+                } else {
+                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" style="cursor: not-allowed;" disabled>Telah Aktif</button>';
+                }
+
                 return $btn;
             })
             ->rawColumns(['action'])
@@ -141,6 +146,18 @@ class HomeController extends Controller
             ->make(true);
         }
         return view('dashboard.admin.data-narasumber');
+    }
+
+    public function verifyUserNarasumber($id)
+    {
+        $data = User::where('id', $id)->first();
+        $data->update([
+            'status' => 'Teraktifasi'
+        ]);
+        $data->save();
+        return response()->json([
+            'status' => 'ok'
+        ]);
     }
 
     public function waProsesInvoice($dataWa)
