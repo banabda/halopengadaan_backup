@@ -26,13 +26,6 @@
         </li>
 
         <li>
-          <a href="#">
-            <i data-feather="message-circle"></i>
-            <span>Data Pendaftar</span>
-          </a>
-        </li>
-
-        <li>
             <a href="{{route('narasumber')}}">
               <i data-feather="server"></i>
               <span>Data Narasumber</span>
@@ -41,7 +34,7 @@
         <li>
             <a href="{{route('admin.dashboard.invoice')}}">
               <i data-feather="book-open"></i>
-              <span>Data Invoice</span>
+              <span>Data Pendaftar</span>
             </a>
         </li>
         <li>
