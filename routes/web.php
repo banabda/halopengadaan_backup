@@ -28,6 +28,7 @@ Route::get('coba', function () {
 
 Route::get('/', 'Landing\HomeController@index')->name('landing');
 
+// Register Narasumber
 Route::get('narasumber/register', 'DashboardNarasumber\NarasumberController@register')->name('narasumber.register');
 Route::post('narasumber/register/save', 'DashboardNarasumber\NarasumberController@saveRegister')->name('narasumber.register.save');
 
@@ -76,6 +77,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     // Data Pembayaran Invoice
     Route::get('invoice', 'Dashboard\HomeController@invoice')->name('admin.dashboard.invoice');
     Route::post('proses/invoice/{id}', 'Dashboard\HomeController@prosesInvoice')->name('admin.dashboard.invoice.proses');
+
+    // Data Narasumber
+    Route::get('narasumber', 'Dashboard\HomeController@dataNarasumber')->name('admin.dashboard.invoice');
 });
 
 Route::group(['middleware' => ['auth']], function ()

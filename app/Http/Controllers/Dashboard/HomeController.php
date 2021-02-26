@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use App\Models\Profile;
+use App\Models\User;
 use App\Models\UserhasPaket;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
@@ -119,6 +120,31 @@ class HomeController extends Controller
             'status' => "ok"
         ]);
 
+    }
+
+    public function dataNarasumber()
+    {
+        $data = User::whereHas(
+            'roles', function($role){
+                $role->where('name', 'narasumber');
+            }
+        )->get();
+
+        if (!request()->ajax()) {
+            return DataTables()->of($data)
+            ->addColumn('action', function($row){
+                $btn = '<a class="btn btn-md btn-info mr-2" href="'. route("user.edit", $row->id) .'">
+                <i class="fa fa-edit"></i> Edit </a>';
+                $btn .= '<a class="btn btn-md btn-info delete-confirm" id="'. $row->id .'" href="javascript:void(0)">
+                <i class="fa fa-trash"></i> Hapus </a>';
+
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->addIndexColumn()
+            ->make(true);
+        }
+        // dd($data);
     }
 
     public function waProsesInvoice($dataWa)
