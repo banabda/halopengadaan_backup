@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class NarasumberController extends Controller
 {
@@ -18,11 +19,13 @@ class NarasumberController extends Controller
     {
         $data = $request->all();
 
-        $this->validate($request,[
-            'name' => 'required|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed'
-        ]);
+        // $this->validate($request,[
+        //     'name' => 'required|max:255',
+        //     'email' => 'required|string|email|max:255|unique:users',
+        //     'password' => 'required|string|min:8|confirmed'
+        // ]);
+        $this->validator($request->all())->validate();
+
 
         $user = User::create([
             'name' => $data['name'],
@@ -39,5 +42,14 @@ class NarasumberController extends Controller
             'route' => route('login')
         ]);
 
+    }
+
+    protected function validator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
     }
 }
