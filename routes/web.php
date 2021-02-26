@@ -28,6 +28,9 @@ Route::get('coba', function () {
 
 Route::get('/', 'Landing\HomeController@index')->name('landing');
 
+Route::get('narasumber/register', 'DashboardNarasumber\NarasumberController@register')->name('narasumber.register');
+Route::post('narasumber/register/save', 'DashboardNarasumber\NarasumberController@saveRegister')->name('narasumber.register.save');
+
 Auth::routes();
 
 // Save Paket

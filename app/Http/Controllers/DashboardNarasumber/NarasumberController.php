@@ -27,11 +27,12 @@ class NarasumberController extends Controller
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password'])
+            'password' => Hash::make($data['password']),
+            'status' => 'Belum Teraktifikasi'
         ]);
 
         $user->assignRole('narasumber');
-        
+
         return response()->json([
             'status' => 'ok',
             'messages' => 'Pendaftaran Berhasil! Menunggu Konfirmasi Admin',
