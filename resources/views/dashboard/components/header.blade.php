@@ -98,9 +98,15 @@
 			</a>
 			<ul class="dropdown-menu animated flipInX">
 			  <li class="user-body">
-				 <a class="dropdown-item" href="{{ route('profile') }}"><i class="ti-user text-muted mr-2"></i> Profile</a>
-				 <a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My Wallet</a>
-				 <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a>
+                 @role('narasumber')
+                    <a class="dropdown-item" href="{{ route('profile') }}"><i class="ti-user text-muted mr-2"></i> Profile</a>
+                 @elserole('user')
+                    <a class="dropdown-item" href="{{ route('profile') }}"><i class="ti-user text-muted mr-2"></i> Profile</a>
+                 @else
+                 
+                 @endrole
+				 {{-- <a class="dropdown-item" href="#"><i class="ti-wallet text-muted mr-2"></i> My Wallet</a>
+				 <a class="dropdown-item" href="#"><i class="ti-settings text-muted mr-2"></i> Settings</a> --}}
 				 <div class="dropdown-divider"></div>
 				 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                  document.getElementById('logout-form').submit();"><i class="ti-lock text-muted mr-2"></i> Logout</a>
