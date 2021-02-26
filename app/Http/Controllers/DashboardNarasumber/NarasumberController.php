@@ -31,7 +31,7 @@ class NarasumberController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'status' => 'Belum Teraktifikasi'
+            'status' => 'Belum Teraktifasi'
         ]);
 
         $user->assignRole('narasumber');

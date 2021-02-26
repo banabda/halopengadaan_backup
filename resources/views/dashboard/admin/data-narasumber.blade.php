@@ -30,6 +30,16 @@
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
+                    <div class="row">
+                        <div class="form-group col-md-4">
+                            <label for="status">Status User</label>
+                            <select id="status" name="status" class="form-control">
+                                <option selected value="-1">ALL</option>
+                                <option value="Belum Teraktifasi">Belum Teraktifasi</option>
+                                <option value="Teraktifasi">Teraktifasi</option>
+                            </select>
+                        </div>
+                    </div>
                     <table id="tableNarasumber" class="table table-bordered table-striped">
                       <thead>
                           <tr>
@@ -74,9 +84,14 @@
           table = $('#tableNarasumber').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{ route('admin.dashboard.narasumber') }}",
+              ajax: {
+                  url: "{{ route('admin.dashboard.narasumber') }}",
+                  data : function(narasumber){
+                     narasumber.status = $('#status').val();
+                  }
+              },
               columns: [
-                {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
+                {data: 'id', name: 'id', className : "text-center"},
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
                 {data: 'status', name: 'status'},
@@ -88,7 +103,11 @@
             table.column(0, {order:'applied', search:'applied'}).nodes().each( function (cell, i) {
                 cell.innerHTML = i+1;
             } );
-        } ).draw();
+          }).draw();
+
+          $('#status').on('change', function(){
+			table.draw(false);
+		});
       });
 </script>
 <script>

@@ -122,16 +122,25 @@ class HomeController extends Controller
 
     }
 
-    public function dataNarasumber()
+    public function dataNarasumber(Request $request)
     {
         $data = User::whereHas(
             'roles', function($role){
                 $role->where('name', 'narasumber');
             }
-        )->get();
+        );
 
-        if (request()->ajax()) {
+        if ($request->ajax()) {
             return DataTables()->of($data)
+            ->addIndexColumn()
+            ->filter(function ($query) use ($request) {
+                if (!empty($request->get('status'))) {
+                    $status = $request->get('status');
+                    if ($status != -1) {
+                        $query->where('status', $status);
+                    }
+                }
+            })
             ->addColumn('action', function($row){
                 if ($row->status == "Belum Teraktifikasi") {
                     $btn = '<button class="btn btn-xs btn-info user-confirm" id="'. $row->id .'">Aktifasi</button>';
