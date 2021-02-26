@@ -39,7 +39,7 @@
         </li>
         <li>
             <a href="{{route('metodepembayaran')}}">
-              <i data-feather="server"></i>
+              <i data-feather="dollar-sign"></i>
               <span>Metode Pembayaran</span>
             </a>
         </li>
@@ -61,7 +61,7 @@
 
 		<li class="header nav-small-cap">EXTRA</li>
 
-        <li class="treeview">
+        {{-- <li class="treeview">
           <a href="#">
             <i data-feather="layers"></i>
 			<span>Multilevel</span>
@@ -94,7 +94,7 @@
             </li>
             <li><a href="#">Level One</a></li>
           </ul>
-        </li>
+        </li> --}}
 
 		<li>
           <a href="{{ route('logout') }}"
