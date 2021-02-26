@@ -141,6 +141,10 @@ class HomeController extends Controller
                     }
                 }
             })
+            ->addColumn('nomor', function(){
+                $no = 1;
+                return $no++;
+            })
             ->addColumn('action', function($row){
                 if ($row->status == "Belum Teraktifikasi") {
                     $btn = '<button class="btn btn-xs btn-info user-confirm" id="'. $row->id .'">Aktifasi</button>';
@@ -150,7 +154,7 @@ class HomeController extends Controller
 
                 return $btn;
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'nomor'])
             ->addIndexColumn()
             ->make(true);
         }

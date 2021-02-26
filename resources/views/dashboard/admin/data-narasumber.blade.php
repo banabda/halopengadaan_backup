@@ -91,7 +91,7 @@
                   }
               },
               columns: [
-                {data: 'id', name: 'id', className : "text-center"},
+                {data: 'nomor', name: 'nomor', className : "text-center"},
                 {data: 'name', name: 'name'},
                 {data: 'email', name: 'email'},
                 {data: 'status', name: 'status'},
