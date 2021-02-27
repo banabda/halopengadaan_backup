@@ -18,17 +18,17 @@
             <ul class="navbar-nav ml-auto font-weight-bold">
                 <!-- Authentication Links -->
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#">{{ __('Tentang Kami') }}</a>
+                        <a class="nav-link" href="#section-one">{{ __('Tentang Kami') }}</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#">{{ __('Artikel') }}</a>
+                        <a class="nav-link" href="https://ilmu.lpkn.id/">{{ __('Artikel') }}</a>
                     </li>
                     <li class="nav-item mx-2">
 
                         <a class="nav-link" href="#">{{ __('Regulasi') }}</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#">{{ __('Profil Praktisi Pengadaan') }}</a>
+                        <a class="nav-link" href="#section-three">{{ __('Profil Praktisi Pengadaan') }}</a>
                     </li>
                     <li class="nav-item mx-2 dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMembership" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -67,8 +67,8 @@
                             {{ __('Layanan') }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownLayanan">
-                            <a class="dropdown-item" href="#">{{ __('Pelatihan Pengadaan') }}</a>
-                            <a class="dropdown-item" href="#">{{ __('Buku Pengadaan') }}</a>
+                            <a class="dropdown-item" href="https://lpkn.id/">{{ __('Pelatihan Pengadaan') }}</a>
+                            <a class="dropdown-item" href="https://kelassmart.com/">{{ __('Buku Pengadaan') }}</a>
                         </div>
                     </li>
             </ul>

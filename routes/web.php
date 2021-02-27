@@ -14,21 +14,55 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('wp-admin', function () {
+    return view('wp-admin.login');
+});
+
+Route::get('lostpassword/wp-login', function () {
+    return view('wp-admin.lost-password');
+});
+
 Route::get('coba', function () {
-    return view('components.paket');
+    return view('dashboard.user.daftar-membership');
 });
 
 Route::get('/', 'Landing\HomeController@index')->name('landing');
 
+// Register Narasumber
+Route::get('narasumber/register', 'DashboardNarasumber\NarasumberController@register')->name('narasumber.register');
+Route::post('narasumber/register/save', 'DashboardNarasumber\NarasumberController@saveRegister')->name('narasumber.register.save');
+
 Auth::routes();
 
-
 // Save Paket
-Route::get('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('landing.paket');
+Route::post('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('landing.paket');
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
+    // crud narasumber
+    Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
+    Route::post('store','Narasumber\NarasumberController@store')->name('narasumber.store');
+    Route::get('detail/{id}','Narasumber\NarasumberController@detail');
+    Route::get('delete/{id}','Narasumber\NarasumberController@delete');
+    Route::get('edit/{id}','Narasumber\NarasumberController@edit');
+    Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
+
+    // CRUD halaman mambership
+    Route::get('memberadmin','Mambership\MambershipController@index')->name('mambership');
+    Route::post('buat','Mambership\MambershipController@store')->name('mambership.store');
+    Route::get('detailmamber/{id}','Mambership\MambershipController@detailmamber');
+    Route::get('deletemamber/{id}','Mambership\MambershipController@deletemamber');
+    Route::get('editmamber/{id}','Mambership\MambershipController@editmamber');
+    Route::post('updatemamber','Mambership\MambershipController@updatemamber')->name('mambership.updatemamber');
+
+     // crud halaman metode pembayaran
+     Route::get('metode-pembayaran','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
+     Route::post('buatmethod','Metodepembayaran\MetodepembayaranController@store')->name('metodepembayaran.store');
+     Route::get('detailmethod/{id}','Metodepembayaran\MetodepembayaranController@detailmethod');
+     Route::get('deletemethod/{id}','Metodepembayaran\MetodepembayaranController@deletemethod');
+     Route::get('editmethod/{id}','Metodepembayaran\MetodepembayaranController@editmethod');
+     Route::post('updatemethod','Metodepembayaran\MetodepembayaranController@updatemethod')->name('metodepembayaran.updatemethod');
+
     Route::get('dashboard', 'Dashboard\HomeController@index')->name('dashboard.index');
 
     // Users
@@ -39,4 +73,36 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 
     // Permission
     Route::resource('permission', 'Dashboard\Auth\PermissionController');
+
+    // Data Pembayaran Invoice
+    Route::get('invoice', 'Dashboard\HomeController@invoice')->name('admin.dashboard.invoice');
+    Route::post('proses/invoice/{id}', 'Dashboard\HomeController@prosesInvoice')->name('admin.dashboard.invoice.proses');
+
+    // Data Narasumber
+    Route::get('narasumber', 'Dashboard\HomeController@dataNarasumber')->name('admin.dashboard.narasumber');
+    Route::post('narasumber/verify/{id}', 'Dashboard\HomeController@verifyUserNarasumber')->name('admin.dashboard.narasumber.verify');
+});
+
+Route::group(['middleware' => ['auth']], function ()
+{
+    // Update Profile
+    Route::get('profile', 'DashboardUser\HomeController@profile')->name('profile');
+    Route::post('profile/save', 'DashboardUser\HomeController@saveProfile')->name('profile.save');
+    Route::post('profile/upload/save', 'DashboardUser\HomeController@uploadPicture')->name('profile.upload.save');
+});
+
+Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
+{
+    // Dashboard User Membership
+    Route::get('membership', 'DashboardUser\HomeController@registerMembership')->name('user.dashboard.membership');
+    Route::post('save/membership', 'DashboardUser\HomeController@saveRegisterMembership')->name('user.dashboard.membership.save');
+    Route::get('getProviders/{nama_method}', 'DashboardUser\HomeController@getProviders')->name('user.dashboard.membership.getProviders');
+    Route::post('save/buktipembayaran', 'DashboardUser\HomeController@saveBuktiPembayaran')->name('user.dashboard.saveBuktiPembayaran');
+
+    // Dashboard User Invoice
+    Route::get('invoice', 'DashboardUser\HomeController@invoiceprofil')->name('user.dashboard.invoice');
+    Route::get('invoiceprofil/laporan', 'DashboardUser\HomeController@laporan')->name('user.dashboard.cetak');
+
+    // Konsultasi Sekarang
+    Route::get('konsultasi', 'DashboardUser\HomeController@konsultasi')->name('user.dashboard.konsultasi');
 });

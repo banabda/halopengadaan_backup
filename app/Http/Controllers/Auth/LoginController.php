@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -41,10 +42,19 @@ class LoginController extends Controller
 
     public function authenticated(Request $request, $user)
     {
-        if ($user->hasRole('super admin')) {
-            return redirect()->route('dashboard.index');
-        }
+        // dd($user->status);
+        if ($user->status == "Teraktifasi") {
+            if ($user->hasRole('super admin')) {
+                return redirect()->route('dashboard.index');
+            } elseif ($user->hasRole('user') ) {
+                return redirect()->route('profile');
+            } elseif ($user->hasRole('narasumber')) {
+                return redirect()->route('profile');
+            }
 
-        return redirect()->route('landing');
+            return redirect()->route('landing');
+        } else {
+            return Auth::logout();
+        }
     }
 }

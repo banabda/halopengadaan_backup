@@ -38,7 +38,7 @@
                         @include('components.membership-card', ['title'=>'Gold', 'harga'=>'600.000,- / 3 Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga', 'Lebih murah'], 'id' => 2])
                     </div>
                     <div class="col-md-4 col-jenis six-btn-3">
-                        @include('components.membership-card', ['title'=>'Platinum', 'harga'=>'1.500.000,- / 3 Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga', 'Konsultasi via Zoom'], 'id' => 3])
+                        @include('components.membership-card', ['title'=>'Platinum', 'harga'=>'1.500.000,- / 1 Jam', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga', 'Konsultasi via Zoom'], 'id' => 3])
                     </div>
                 </div>
             </div>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="section-one" style="background-image: url('{{ asset('images/background-sec1.png') }}');">
+<div class="section-one" id="section-one" style="background-image: url('{{ asset('images/background-sec1.png') }}'); background-size: 1200px">
     @include('components.navbar')
     <div class="container section-one-content">
         <div class="row justify-content-center">
@@ -22,7 +22,12 @@
                 </div> --}}
 
                 <h1 class="font-weight-bold section-content-header">Halo Pengadaan</h1>
-                <p class="section-content-paragraph text-justify">Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna. </p>
+                <p class="section-content-paragraph text-justify">
+                    Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna.
+                    <br>
+                    Sistem ini melibatkan Banyak Pakar dengan berbagai Keahlian khusus, serta memiliki Quality Assurance,
+                    dimana semua jawaban terhadap pertanyaan akan dibedah dengan secara seksama berdasarkan peraturan perundang undangan.
+                </p>
 
             </div>
             <div class="col-md-6">

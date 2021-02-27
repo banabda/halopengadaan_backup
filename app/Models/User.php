@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'status'
     ];
 
     /**
@@ -41,4 +42,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function profile()
+    {
+        return $this->hasOne('App\Models\Profile', 'user_id', 'id');
+    }
+
+    public function invoice()
+    {
+        return $this->hasMany('App\Models\Invoice', 'user_id', 'id');
+    }
+
+    public function userHasPaket()
+    {
+        return $this->hasOne('App\Models\UerhasPaket', 'user_id', 'id');
+    }
 }
