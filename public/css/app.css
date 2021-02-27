@@ -10195,8 +10195,20 @@ h3 {
   border: none;
   height: 300px;
   width: 300px;
-  background-image: linear-gradient(to bottom, #F3F9A7, #CAC531);
+  background-image: linear-gradient(to bottom, #F3F9A7, #F5D000);
   color: #000;
+}
+.section-five-content .linear-bg .imagemember {
+  width: 180px;
+}
+.section-five-content .linear-bg .imagemember4 {
+  width: 100px;
+}
+.section-five-content .linear-bg #jl4 {
+  fill: #fff;
+}
+.section-five-content .linear-bg #jl5 {
+  fill: #fff;
 }
 .section-five-content .linear-bg.big {
   width: 700px;

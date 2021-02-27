@@ -209,8 +209,20 @@
       border: none;
       height: 300px;
       width: 300px;
-      background-image: linear-gradient(to bottom, #F3F9A7 ,#CAC531);
+      background-image: linear-gradient(to bottom, #F3F9A7 ,#F5D000);
       color: #000;
+      .imagemember{
+        width: 180px;
+      }
+      .imagemember4{
+        width: 100px;
+      }
+      #jl4{
+        fill: #fff;
+      }
+      #jl5{
+        fill: #fff;
+      }
     }
     .linear-bg.big{
       width: 700px;
