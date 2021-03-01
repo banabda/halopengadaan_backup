@@ -88,10 +88,12 @@
 }
 
 .navbar{
-    background-color: #F5D000;
-    .nav-link{
-      color: #000 !important;
-    }
+  background-color: #f5d00000;
+  transition: background 0.7s  ease-in;
+  transition-delay: 0.4s;
+  .nav-link{
+    color: #000 !important;
+  }
 }
 
 .section-content-header{
@@ -266,9 +268,8 @@
 
 .section-three{
     background-repeat: no-repeat;
-
     background-size: 52%;
-    background-position-y: -75px;
+    background-position-y: -70px;
     background-position-x: -200px;
     height: 700px;
 
@@ -336,7 +337,7 @@
 
 .section-one{
     background-repeat: no-repeat;
-    background-size: 85%;
+    background-size: 90%;
     background-position-y: -650px;
     background-position-x: -200px;
     height: 700px;
