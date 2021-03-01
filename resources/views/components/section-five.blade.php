@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center mb-3">
+                <div class="row justify-content-center mb-3" style="margin-top: 45px;">
                     <div class="col-md-4 col-jenis text-center five-btn-4">
                         <div class="row linear-bg mx-auto py-4 px-3">
                             <div class="w-100"></div>
@@ -78,7 +78,7 @@
                                     <path d="M85.2002 0.799805C38.5002 0.799805 0.400146 38.8001 0.400146 85.6001C0.400146 132.3 38.4002 170.4 85.2002 170.4C132 170.4 170 132.4 170 85.6001C170 38.8001 131.9 0.799805 85.2002 0.799805ZM85.2002 159.7C44.3002 159.7 11.0002 126.4 11.0002 85.5C11.0002 44.6 44.3002 11.2998 85.2002 11.2998C126.1 11.2998 159.4 44.6 159.4 85.5C159.4 126.5 126.1 159.7 85.2002 159.7Z" id="jl4"/>
                                     <path d="M90.5002 32.6001H79.9001V87.7998L113.2 121.1L120.7 113.6L90.5002 83.3999V32.6001Z" id="jl4"/>
                                     </svg>
-                                    
+
                             </div>
                             <div class="w-100"></div>
                             <div class="col text-center align-self-center">
@@ -102,13 +102,13 @@
                                     <path d="M69.4001 37C51.3001 37 36.8 51.5001 36.8 69.6001C36.8 87.7001 51.3001 102.2 69.4001 102.2C87.5001 102.2 102 87.7001 102 69.6001V66H73.0001V37H69.4001ZM94.3 73.2002C92.1 86.9002 79.5001 96.7 65.7001 94.5C52.0001 92.3 42.2001 79.6999 44.4001 65.8999C45.8001 54.6999 54.9001 46.0001 65.7001 44.6001V73.2002H94.3Z" id="jl5"/>
                                     <path d="M105.5 55.1001C105.5 43.2001 95.7002 33.3999 83.8002 33.3999H80.2002V58.7002H105.5V55.1001ZM87.4002 51.5V41C92.5002 42.4 96.4002 46.4 97.9002 51.5H87.4002Z" id="jl5"/>
                                     </svg>
-                                    
+
                                 {{-- <svg></svg> --}}
                                 {{-- <img class="imagemember" id="jl5" src="{{ asset('images/landing icon/jl5.svg')}}" alt="" height="180vh"> --}}
                             </div>
                             <div class="col text-left align-self-center">
                                 <h4 class="font-weight-bold">Fasilitas membership</h4>
-                                <p>• Layanan Konsultasi Online 
+                                <p>• Layanan Konsultasi Online
                                     <br>• Voucer Pelatihan senilai Rp. 250.000,-
                                     <br>• Akses Khusus Berbagai Video Pembelajaran terkait Pengadaan
                                 </p>
@@ -121,7 +121,7 @@
                             <img src="{{ asset('images/membership.png')}}" alt="" width="25%">
                             <div class="ml-4">
                                 <h4 class="font-weight-bold">Fasilitas membership</h4>
-                                <p>• Layanan Konsultasi Online 
+                                <p>• Layanan Konsultasi Online
                                     <br>• Voucer Pelatihan senilai Rp. 250.000,-
                                     <br>• Akses Khusus Berbagai Video Pembelajaran terkait Pengadaan</p>
                             </div>
