@@ -41,7 +41,7 @@
            <label for="exampleInputPassword1">Nomor Rekening</label>
        <br><input type="text" class="form-control" required="required" name="nomor_rekening" value="{{ $metodepembayaran->nomor_rekening }}"> <br/></div><br>
        <div class="modal-footer">
-       <a href="/admin/methodadmin" type="button" class="btn btn-danger" data-dismiss="modal">Close</a>
+       <a href="/admin/metode-pembayaran" type="button" class="btn btn-danger" data-dismiss="modal">Close</a>
        <input type="submit" class="btn btn-primary" value="Simpan Data">
     </div>
 </form>
