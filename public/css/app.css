@@ -10236,10 +10236,10 @@ h3 {
   width: 100px;
 }
 .section-five-content .linear-bg #jl4 {
-  fill: #4E90A4;
+  fill: #a2a57f;
 }
 .section-five-content .linear-bg #jl5 {
-  fill: #4E90A4;
+  fill: #a2a57f;
 }
 .section-five-content .linear-bg.big {
   width: 700px;
@@ -10254,8 +10254,9 @@ h3 {
 
 .section-three {
   background-repeat: no-repeat;
-  background-size: 40%;
-  background-position-y: -10vh;
+  background-size: 52%;
+  background-position-y: -75px;
+  background-position-x: -200px;
   height: 700px;
 }
 .section-three-content {

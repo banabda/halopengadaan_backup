@@ -53,33 +53,33 @@
                 </h1>
                 <div class="row justify-content-center mb-3">
                     <div class="col-md-3 col-xs-6 divkelebihan four-btn-1">
-                        <img class="mx-auto kelebihanimg" src="{{ asset('images/ahli.png')}}" style="display: block"  width="60%" alt="ahli">
+                        <img class="mx-auto kelebihanimg" src="{{ asset('images/landing icon/sec-4/icon1.png')}}" style="display: block"  width="60%" alt="ahli">
                         <p class="text-center section-content-paragraph">Ditangani oleh para ahli dan berpengalaman</p>
                     </div>
                     <div class="col-md-3 col-xs-6 divkelebihan four-btn-2">
-                        <img src="{{ asset('images/sumber.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
+                        <img src="{{ asset('images/landing icon/sec-4/icon2.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Sumber jawaban dikelola oleh tim</p>
                     </div>
                     <div class="col-md-3 col-xs-6 divkelebihan four-btn-3">
-                        <img src="{{ asset('images/online.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
+                        <img src="{{ asset('images/landing icon/sec-4/icon3.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Online (pertanyaan via Whatsapp)</p>
                     </div>
                     <div class="col-md-3 col-xs-6 divkelebihan four-btn-4">
-                        <img src="{{ asset('images/waktu.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
+                        <img src="{{ asset('images/landing icon/sec-4/icon4.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Hemat waktu</p>
                     </div>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-3 col-xs-6 divkelebihan four-btn-5">
-                        <img src="{{ asset('images/biaya.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
+                        <img src="{{ asset('images/landing icon/sec-4/icon5.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Hemat biaya</p>
                     </div>
                     <div class="col-md-3 col-xs-6 divkelebihan four-btn-6">
-                        <img src="{{ asset('images/respon.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
+                        <img src="{{ asset('images/landing icon/sec-4/icon6.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Respon yang cepat</p>
                     </div>
                     <div class="col-md-3 col-xs-6 divkelebihan four-btn-7">
-                        <img src="{{ asset('images/identitas.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
+                        <img src="{{ asset('images/landing icon/sec-4/icon7.png')}}"  style="display: block"  width="60%" class="mx-auto kelebihanimg" alt="ahli">
                         <p class="text-center section-content-paragraph">Identitas terjaga</p>
                     </div>
                 </div>
