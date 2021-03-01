@@ -55,39 +55,39 @@
                 </div>
                 <div class="row mb-md-3 justify-content-center">
                     <div class="col-md-3 text-center div-lienar-bg">
-                        <button class="linear-bg two-btn-1" disabled>
+                        <button class="linear-bg font-weight-bold two-btn-1" disabled>
                             Pemerintah Pusat
                         </button>
                     </div>
                     <div class="col-md-3 text-center div-lienar-bg">
-                        <button class="linear-bg two-btn-2" disabled>
+                        <button class="linear-bg font-weight-bold two-btn-2" disabled>
                             Pemerintah Daerah
                         </button>
                     </div>
                     <div class="col-md-3 text-center div-lienar-bg">
-                        <button class="linear-bg two-btn-3" disabled>
+                        <button class="linear-bg font-weight-bold two-btn-3" disabled>
                             BUMN
                         </button>
                     </div>
                     <div class="col-md-3 text-center div-lienar-bg">
-                        <button class="linear-bg two-btn-4" disabled>
+                        <button class="linear-bg font-weight-bold two-btn-4" disabled>
                             BUMD
                         </button>
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center mt-5">
                     <div class="col-md-3 text-center div-lienar-bg">
-                        <button class="linear-bg two-btn-5" disabled>
+                        <button class="linear-bg font-weight-bold two-btn-5" disabled>
                             BLU
                         </button>
                     </div>
                     <div class="col-md-3 text-center div-lienar-bg">
-                        <button class="linear-bg two-btn-6" disabled>
+                        <button class="linear-bg font-weight-bold two-btn-6" disabled>
                             BLUD
                         </button>
                     </div>
                     <div class="col-md-3 text-center div-lienar-bg">
-                        <button class="linear-bg two-btn-7" disabled>
+                        <button class="linear-bg font-weight-bold two-btn-7" disabled>
                             Penyedia
                         </button>
                     </div>

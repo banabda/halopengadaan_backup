@@ -234,6 +234,7 @@
   &-content{
     padding-top: 5vh;
     .linear-bg{
+      filter: drop-shadow(0 0 0.75rem gold);
       border-radius: 5vw;
       border: none;
       height: 300px;
@@ -263,6 +264,10 @@
   height: 700px;
   &-content{
     padding-top: 10vh;
+    .kelebihanimg{
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 0.75rem grey);
+    }
   }
 }
 
@@ -324,6 +329,7 @@
     &-content{
         padding-top: 200px;
         .linear-bg{
+          filter: drop-shadow(0 0 0.5rem #4E90A4);
             border-radius: 25px;
             border: none;
             height: 75px;
