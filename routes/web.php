@@ -101,7 +101,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 
     // Dashboard User Invoice
     Route::get('invoice', 'DashboardUser\HomeController@invoiceprofil')->name('user.dashboard.invoice');
-    Route::get('invoiceprofil/laporan', 'DashboardUser\HomeController@laporan')->name('user.dashboard.cetak');
+    Route::get('invoiceprofil/laporan/{id}', 'DashboardUser\HomeController@laporan')->name('user.dashboard.cetak');
 
     // Konsultasi Sekarang
     Route::get('konsultasi', 'DashboardUser\HomeController@konsultasi')->name('user.dashboard.konsultasi');

@@ -287,12 +287,18 @@ class HomeController extends Controller
 
     }
 
-    public function laporan()
+    public function laporan($id)
     {
-        $invoice = Invoice::all();
+        $invoice = Invoice::where('id',$id)->get();
+        $pdf = PDF::loadview('dashboard.user.cetak',['invoice'=>$invoice]);
+        return $pdf->stream();
+        // $invoice = Invoice::all();
 
-        $pdf = PDF::loadview('dashboard.user.cetak',['cetak'=>$invoice]);
-        return $pdf->download('dashboard.user.pdf');
+        // $pdf = PDF::loadview('dashboard.user.cetak',['cetak'=>$invoice]);
+        // return $pdf->download('dashboard.user.pdf');
+        // return $pdf->stream();
+
+
     }
 
     public function waSaveRegisterMembership($dataWa)
