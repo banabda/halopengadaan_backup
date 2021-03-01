@@ -53,7 +53,7 @@
     </div>
 </div>
 <div class="radialImg1">
-    <img src="{{ asset('images/back-sect-3.png') }}" alt="">
+    <img src="{{ asset('images/back-sect-4.png') }}" alt="">
 
 </div>
 <div class="radialImg2">

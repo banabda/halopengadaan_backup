@@ -245,10 +245,10 @@
         width: 100px;
       }
       #jl4{
-        fill: #fff;
+        fill: #4E90A4;
       }
       #jl5{
-        fill: #fff;
+        fill: #4E90A4;
       }
     }
     .linear-bg.big{
@@ -327,7 +327,7 @@
             border: none;
             height: 75px;
             width: 200px;
-            background-image: linear-gradient(to right, #F3F9A7 ,#CAC531);
+            background-image: linear-gradient(to right, #F3F9A7 ,#F5D000);
             color: #000;
         }
     }
@@ -491,8 +491,8 @@
 									   left bottom,
 									   left top,
 									   color-stop(0.44, rgb(122,153,217)),
-									   color-stop(0.72, rgb(73,125,189)),
-									   color-stop(0.86, rgb(28,58,148)));
+									   color-stop(0.72, #3EC8AC),
+									   color-stop(0.86, #4E90A4));
 }
 
 /* Handle on hover */
