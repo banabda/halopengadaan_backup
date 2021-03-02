@@ -1,3 +1,27 @@
+<style>
+    .radialImg1{
+        opacity: 0;
+        transition: opacity 0.5s  ease-in;
+    }
+    .radialImg2{
+        opacity: 0;
+        transition: opacity 0.5s  ease-in;
+    }
+    .h-sect1{
+        opacity: 0;
+        position: relative;
+        left: -50px;
+        transition: left 0.3s, opacity 0.3s;
+    }
+    .p-sect1{
+        opacity: 0;
+        position: relative;
+        left: -50px;
+        transition: left 0.3s, opacity 0.3s;
+        transition-delay: 0.5s;
+    }
+</style>
+
 @extends('layouts.app')
 
 @section('content')
@@ -21,8 +45,8 @@
                     </div>
                 </div> --}}
 
-                <h1 class="font-weight-bold section-content-header">Halo Pengadaan</h1>
-                <p class="section-content-paragraph text-justify">
+                <h1 class="font-weight-bold section-content-header h-sect1">Halo Pengadaan</h1>
+                <p class="section-content-paragraph text-justify p-sect1">
                     Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna.
                     <br>
                     Sistem ini melibatkan Banyak Pakar dengan berbagai Keahlian khusus, serta memiliki Quality Assurance,
@@ -71,14 +95,22 @@
 </script>
 <script>
     let opacity = [0,0,0,0,0];
+    
+    window.addEventListener("load", () => {
+        document.querySelector(".h-sect1").style.opacity = 1;
+        document.querySelector(".p-sect1").style.opacity = 1;
+        document.querySelector(".h-sect1").style.left = 0;
+        document.querySelector(".p-sect1").style.left = 0;
+    })
+
 
     window.addEventListener("scroll", () => {
+    $(".h-sect1").show().delay(5000).fadeOut();
     const currentScroll = window.pageYOffset;
     console.log(currentScroll, opacity)
 
     if (currentScroll < 550) {
         document.querySelector(".navbar").style.backgroundColor = "#f5d00000";
-        
     }
 
     if (currentScroll >= 550) {
@@ -117,6 +149,7 @@
             document.querySelector(".four-btn-5").style.opacity = 1;
             document.querySelector(".four-btn-6").style.opacity = 1;
             document.querySelector(".four-btn-7").style.opacity = 1;
+            document.querySelector(".radialImg1").style.opacity = 1;
         }
         document.querySelector(".navbar").style.backgroundColor = "#4E90A4";
     }
@@ -141,6 +174,7 @@
             document.querySelector(".six-btn-1").style.opacity = 1;
             document.querySelector(".six-btn-2").style.opacity = 1;
             document.querySelector(".six-btn-3").style.opacity = 1;
+            document.querySelector(".radialImg2").style.opacity = 1;
         }
         document.querySelector(".navbar").style.backgroundColor = "#3EC8AC";
     }
