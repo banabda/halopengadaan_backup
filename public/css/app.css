@@ -10406,6 +10406,30 @@ h3 {
 }
 
 @media (max-width: 575.98px) {
+  .two-tittle, .two-btn-1, .two-btn-2, .two-btn-3, .two-btn-4, .two-btn-5, .two-btn-6, .two-btn-7,
+.three-img, .three-p-1, .three-p-2, .sect3imgtag, .radialImg1, .radialImg2, .four-tittle, .four-btn-1,
+.four-btn-2, .four-btn-3, .four-btn-4, .four-btn-5, .four-btn-6, .four-btn-7, .five-tittle, .five-btn-1,
+.five-btn-2, .five-btn-3, .five-btn-4, .five-btn-5, .six-tittle, .six-btn-1,
+.six-btn-2, .six-btn-3 {
+    opacity: 1 !important;
+  }
+
+  .radialImg1 {
+    width: 100vw;
+    top: 1900px !important;
+  }
+  .radialImg1 img {
+    right: -400px !important;
+  }
+
+  .radialImg2 {
+    width: 100vw;
+    top: 5250px !important;
+  }
+  .radialImg2 img {
+    left: -850px !important;
+  }
+
   .head {
     font-size: 0.7rem;
     letter-spacing: 0;
@@ -10436,7 +10460,7 @@ h3 {
 
   .sect3img {
     width: 100vw;
-    top: 1700px;
+    top: 1550px;
   }
   .sect3img .sect3imgtag {
     height: 800px;
@@ -10444,8 +10468,8 @@ h3 {
        object-fit: contain;
     position: relative;
     opacity: 0;
-    top: -50px !important;
-    left: -250px !important;
+    top: -30px !important;
+    left: -150px !important;
     transition: none;
   }
 
@@ -10459,7 +10483,7 @@ h3 {
   }
 
   .section-two {
-    height: 1000px;
+    height: 900px;
   }
   .section-two-content {
     padding-top: 15vh;
@@ -10470,11 +10494,9 @@ h3 {
   }
 
   .section-three {
-    background-position-y: -20px;
-    background-size: 150%;
+    height: 800px;
   }
   .section-three-content {
-    height: 100vh;
     padding-top: 0;
   }
   .section-three-content .divprapgraph {
@@ -10489,6 +10511,9 @@ h3 {
     height: 30vh;
   }
 
+  .section-four {
+    height: 800px;
+  }
   .section-four-content {
     padding-top: 0;
   }
@@ -10500,6 +10525,9 @@ h3 {
     width: 45vw;
   }
 
+  .section-five {
+    height: 2000px;
+  }
   .section-five-content .linear-bg {
     margin-bottom: 5vh;
   }
@@ -10509,6 +10537,10 @@ h3 {
   .section-five-content .linear-bg.big {
     height: 50vh;
     width: 300px;
+  }
+
+  .section-six {
+    height: 1850px;
   }
 }
 ::-webkit-scrollbar {

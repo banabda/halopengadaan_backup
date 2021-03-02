@@ -429,6 +429,27 @@
 
 }
 @include media-breakpoint-down(xs) {
+  .two-tittle, .two-btn-1, .two-btn-2, .two-btn-3, .two-btn-4, .two-btn-5, .two-btn-6, .two-btn-7,
+  .three-img, .three-p-1, .three-p-2, .sect3imgtag, .radialImg1, .radialImg2, .four-tittle, .four-btn-1,
+  .four-btn-2, .four-btn-3, .four-btn-4, .four-btn-5, .four-btn-6, .four-btn-7, .five-tittle, .five-btn-1,
+  .five-btn-2, .five-btn-3, .five-btn-4, .five-btn-5, .six-tittle, .six-btn-1,
+  .six-btn-2, .six-btn-3{
+    opacity: 1 !important;
+  }
+  .radialImg1{
+    width: 100vw;
+    top: 1900px !important;
+    img{
+      right: -400px !important;
+    }
+  }
+  .radialImg2{
+    width: 100vw;
+    top: 5250px !important;
+    img{
+      left: -850px !important;
+    }
+  }
   .head {
     font-size: 0.7rem;
     letter-spacing: 0;
@@ -454,14 +475,14 @@
   }
   .sect3img{
     width: 100vw;
-    top: 1700px;
+    top: 1550px;
     .sect3imgtag {
       height: 800px;
       object-fit: contain;
       position: relative;
       opacity: 0;
-      top: -50px !important;
-      left: -250px !important;
+      top: -30px !important;
+      left: -150px !important;
       transition: none;
     }
   }
@@ -478,7 +499,7 @@
     }
   }
   .section-two{
-    height: 1000px;
+    height: 900px;
     &-content{
       padding-top: 15vh;
       .linear-bg{
@@ -488,10 +509,8 @@
     }
   }
   .section-three{
-    background-position-y: -20px;
-    background-size: 150%;
+    height: 800px;
     &-content{
-      height: 100vh;
       padding-top: 0;
       .divprapgraph{
         font-weight: bold;
@@ -507,6 +526,7 @@
     }
   }
   .section-four{
+    height: 800px;
     &-content{
       padding-top: 0;
       .kelebihanimg{
@@ -519,9 +539,9 @@
     }
   }
   .section-five{
+    height: 2000px;
     &-content{
       .linear-bg{
-        // height: 40vh;
         // width: 300px;
         margin-bottom: 5vh;
       }
@@ -533,6 +553,9 @@
         width: 300px;
       }
     }
+  }
+  .section-six{
+    height: 1850px;
   }
 }
 

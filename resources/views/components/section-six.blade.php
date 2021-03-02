@@ -34,7 +34,7 @@
                     <div class="col-md-4 col-jenis six-btn-1">
                         @include('components.membership-card', ['title'=>'Silver', 'harga'=>'250.000,- / Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga'], 'id' => 1])
                     </div>
-                    <div class="col-md-4 col-jenis six-btn-2">
+                    <div class="col-md-4 col-jenis six-btn-2 my-3 my-md-0">
                         @include('components.membership-card', ['title'=>'Gold', 'harga'=>'600.000,- / 3 Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga', 'Lebih murah'], 'id' => 2])
                     </div>
                     <div class="col-md-4 col-jenis six-btn-3">
