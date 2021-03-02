@@ -101,13 +101,6 @@ class HomeController extends Controller
             ]);
         }
 
-        $userPaket = UserhasPaket::create([
-            'user_id' => $data->user_id,
-            'paket' => $data->paket,
-            'expired_at' => $expired_at,
-            'status' => 'Aktif'
-        ]);
-
         $dataWa = [
             'phone' => $profile->no_hp,
             'nama_lengkap' => $profile->nama_lengkap,

@@ -116,20 +116,26 @@
 <script>
     $(document).on('click', '.invoice-confirm', function(){
         var id_invoice = $(this).attr("id");
-        console.log(id_invoice);
+        // console.log(id_invoice);
         event.preventDefault();
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        Swal.fire({
+            text : "Mohon menunggu..."
+        });
+
+        swal.showLoading();
         $.ajax({
             type:'POST',
             url: "{{url('admin/proses/invoice/')}}/" + id_invoice,
             success:function(data)
             {
-                
+
                 if(data.status == "ok"){
+                    swal.close();
                     table.draw(false);
                 }
             },

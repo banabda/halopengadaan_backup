@@ -4,19 +4,25 @@
         transition: opacity 1s;
     }
     .six-btn-1{
+        position: relative;
         opacity: 0;
-        transition: opacity 0.7s  ease-in;
+        left: -50px;
+        transition: opacity 0.7s ease-in, left 0.5s ease;
         transition-delay: 0.2s;
     }
     .six-btn-2{
+        position: relative;
         opacity: 0;
-        transition: opacity 0.7s  ease-in;
+        left: -50px;
+        transition: opacity 0.7s ease-in, left 0.5s ease;
         transition-delay: 0.4s;
-
+        
     }
     .six-btn-3{
+        position: relative;
         opacity: 0;
-        transition: opacity 0.7s  ease-in;
+        left: -50px;
+        transition: opacity 0.7s ease-in, left 0.5s ease;
         transition-delay: 0.6s;
 
     }
@@ -34,7 +40,7 @@
                     <div class="col-md-4 col-jenis six-btn-1">
                         @include('components.membership-card', ['title'=>'Silver', 'harga'=>'250.000,- / Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga'], 'id' => 1])
                     </div>
-                    <div class="col-md-4 col-jenis six-btn-2">
+                    <div class="col-md-4 col-jenis six-btn-2 my-3 my-md-0">
                         @include('components.membership-card', ['title'=>'Gold', 'harga'=>'600.000,- / 3 Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga', 'Lebih murah'], 'id' => 2])
                     </div>
                     <div class="col-md-4 col-jenis six-btn-3">
