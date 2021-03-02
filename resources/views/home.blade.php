@@ -11,14 +11,14 @@
         opacity: 0;
         position: relative;
         left: -50px;
-        transition: left 0.3s, opacity 0.3s;
+        transition: left 0.3s ease-in, opacity 0.3s ease-in;
     }
     .p-sect1{
         opacity: 0;
         position: relative;
         left: -50px;
-        transition: left 0.3s, opacity 0.3s;
-        transition-delay: 0.5s;
+        transition: left 0.3s ease-in, opacity 0.3s ease-in;
+        transition-delay: 0.1s;
     }
 </style>
 
