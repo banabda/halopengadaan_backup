@@ -149,6 +149,22 @@
   }
 }
 
+.sect1img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: fit-content;
+  width: 1200px;
+  img {
+    height: 1400px;
+    object-fit: contain;
+    position: relative;
+    top: -800px;
+    left: -250px;
+  }
+}
+
 .items {
   padding: 0 20px;
   letter-spacing: 2px;
@@ -342,10 +358,6 @@
 
 
 .section-one{
-    background-repeat: no-repeat;
-    background-size: 90%;
-    background-position-y: -650px;
-    background-position-x: -200px;
     height: 700px;
     &-content{
         padding-top: 100px;

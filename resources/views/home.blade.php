@@ -12,20 +12,24 @@
         position: relative;
         left: -50px;
         transition: left 0.3s ease-in, opacity 0.3s ease-in;
+        transition-delay: 0.1s;
     }
     .p-sect1{
         opacity: 0;
         position: relative;
         left: -50px;
         transition: left 0.3s ease-in, opacity 0.3s ease-in;
-        transition-delay: 0.1s;
+        transition-delay: 0.2s;
     }
 </style>
 
 @extends('layouts.app')
 
 @section('content')
+<div class="sect1img">
+    <img src="{{ asset('images/back-sect-1.png') }}" alt="">
 
+</div>
 <div class="section-one" id="section-one">
     @include('components.navbar')
     <div class="container section-one-content">
@@ -76,10 +80,7 @@
         </div>
     </div>
 </div>
-<div class="sect1img">
-    <img src="{{ asset('images/back-sect-1.png') }}" alt="">
 
-</div>
 <div class="radialImg1">
     <img src="{{ asset('images/back-sect-4.png') }}" alt="">
 
@@ -99,8 +100,7 @@
 </script>
 <script>
     let opacity = [0,0,0,0,0];
-    
-    window.addEventListener("load", () => {
+    window.addEventListener('load', () => {
         document.querySelector(".h-sect1").style.opacity = 1;
         document.querySelector(".p-sect1").style.opacity = 1;
         document.querySelector(".h-sect1").style.left = 0;
@@ -109,9 +109,8 @@
 
 
     window.addEventListener("scroll", () => {
-    $(".h-sect1").show().delay(5000).fadeOut();
     const currentScroll = window.pageYOffset;
-    console.log(currentScroll, opacity)
+    // console.log(currentScroll, opacity)
 
     if (currentScroll < 550) {
         document.querySelector(".navbar").style.backgroundColor = "#f5d00000";
