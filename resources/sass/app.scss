@@ -454,14 +454,14 @@
   }
   .sect3img{
     width: 100vw;
-    top: 1600px;
+    top: 1700px;
     .sect3imgtag {
-      height: 750px;
+      height: 800px;
       object-fit: contain;
       position: relative;
       opacity: 0;
-      top: -250px !important;
-      left: -150px !important;
+      top: -50px !important;
+      left: -250px !important;
       transition: none;
     }
   }
@@ -485,6 +485,7 @@
         height: 5vh;
         margin-bottom: 50px;
       }
+      transition: none;
     }
   }
   .section-three{
