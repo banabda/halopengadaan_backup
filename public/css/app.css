@@ -10420,24 +10420,53 @@ h3 {
     font-size: 2rem;
   }
 
-  .section-one {
-    background-size: 175%;
+  .sect1img {
+    width: 100vw;
   }
-  .section-one-content p {
-    margin-top: 2vh;
-  }
-  .section-one-content-image {
-    margin-top: 30vh;
-    width: 50vw;
-    height: 30vh;
+  .sect1img .sect1imgtag {
+    height: 750px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    position: relative;
+    opacity: 0;
+    top: -250px !important;
+    left: -150px !important;
+    transition: none;
   }
 
+  .sect3img {
+    width: 100vw;
+    top: 1600px;
+  }
+  .sect3img .sect3imgtag {
+    height: 750px;
+    -o-object-fit: contain;
+       object-fit: contain;
+    position: relative;
+    opacity: 0;
+    top: -250px !important;
+    left: -150px !important;
+    transition: none;
+  }
+
+  .section-one-content p {
+    margin-top: 10px;
+  }
+  .section-one-content-image {
+    margin-top: 75px;
+    width: 300px;
+    height: 300px;
+  }
+
+  .section-two {
+    height: 1000px;
+  }
   .section-two-content {
     padding-top: 15vh;
   }
   .section-two-content .linear-bg {
     height: 5vh;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
   }
 
   .section-three {

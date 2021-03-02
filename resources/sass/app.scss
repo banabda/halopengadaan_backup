@@ -440,25 +440,50 @@
   .section-content-header{
     font-size: 2rem;
   }
+  .sect1img{
+    width: 100vw;
+    .sect1imgtag {
+      height: 750px;
+      object-fit: contain;
+      position: relative;
+      opacity: 0;
+      top: -250px !important;
+      left: -150px !important;
+      transition: none;
+    }
+  }
+  .sect3img{
+    width: 100vw;
+    top: 1600px;
+    .sect3imgtag {
+      height: 750px;
+      object-fit: contain;
+      position: relative;
+      opacity: 0;
+      top: -250px !important;
+      left: -150px !important;
+      transition: none;
+    }
+  }
   .section-one{
-    background-size: 175%;
     &-content{
       p{
-        margin-top: 2vh;
+        margin-top: 10px;
       }
       &-image{
-        margin-top: 30vh;
-        width: 50vw;
-        height: 30vh;
+        margin-top: 75px;
+        width: 300px;
+        height: 300px;
       }
     }
   }
   .section-two{
+    height: 1000px;
     &-content{
       padding-top: 15vh;
       .linear-bg{
         height: 5vh;
-        margin-bottom: 10px ;
+        margin-bottom: 50px;
       }
     }
   }
