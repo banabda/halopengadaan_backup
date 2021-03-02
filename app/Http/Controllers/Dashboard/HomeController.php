@@ -54,7 +54,7 @@ class HomeController extends Controller
                 if ($action->status == "Telah Terbayar") {
                     $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $action->id .'">Konfirmasi</button>';
                 } elseif ($action->status == "Terkonfirmasi") {
-                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" style="cursor: not-allowed;" disabled>Telah Terkonfirmasi</button>';
+                    $btn = '<button class="btn btn-xs btn-info" style="cursor: not-allowed;" disabled>Telah Terkonfirmasi</button>';
                 }
                 return $btn;
             })
