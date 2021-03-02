@@ -121,13 +121,13 @@ class HomeController extends Controller
     {
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
         $metode_pembayaran = Metodepembayaran::all()->groupBy('nama_method')->toArray();
-        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
+        $invoice = Invoice::where('user_id', Auth::user()->id)->latest()->first();
         $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
-
-        // dd($userhaspaket);
+        // dd($invoice);
         $data = [
             'metode_pembayaran' => $metode_pembayaran,
-            'invoice' => $invoice
+            'invoice' => $invoice,
+            'userhasPaket' => $userhaspaket
         ];
 
         if (is_null($profile)) {
@@ -272,7 +272,10 @@ class HomeController extends Controller
         $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
         if (is_null($userhaspaket)) {
             return redirect()->route('user.dashboard.membership');
-        } else {
+        } elseif ($userhaspaket->expired_at <= Carbon::now()) {
+            return redirect()->route('user.dashboard.membership');
+        }
+        else {
             $client = new Client();
             $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
                 'headers' => [
