@@ -292,11 +292,13 @@ class HomeController extends Controller
         $invoice = Invoice::where('id',$id)->get();
         $pdf = PDF::loadview('dashboard.user.cetak',['invoice'=>$invoice]);
         return $pdf->stream();
+        // $tgl=Carbon::parse($inv->tgl_rek_cetak)->formatLocalized('%d %B %Y');
         // $invoice = Invoice::all();
-
         // $pdf = PDF::loadview('dashboard.user.cetak',['cetak'=>$invoice]);
         // return $pdf->download('dashboard.user.pdf');
         // return $pdf->stream();
+
+
 
 
     }
