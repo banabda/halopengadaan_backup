@@ -17,7 +17,7 @@
 
     }
 </style>
-<div class="section-three" id="section-three" style="background-image: url('{{ asset('images/back-sect-2.png') }}');">
+<div class="section-three" id="section-three">
     <div class="container section-three-content">
         <div class="row justify-content-center">
             <div class="col-md-5 divimage">

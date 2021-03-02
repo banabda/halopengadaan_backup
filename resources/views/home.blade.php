@@ -1,8 +1,48 @@
+<style>
+    .radialImg1{
+        opacity: 0;
+        transition: opacity 0.5s  ease-in;
+    }
+    .radialImg2{
+        opacity: 0;
+        transition: opacity 0.5s  ease-in;
+    }
+    .h-sect1{
+        opacity: 0;
+        position: relative;
+        left: -50px;
+        transition: left 0.3s ease-in, opacity 0.3s ease-in;
+        transition-delay: 0.1s;
+    }
+    .p-sect1{
+        opacity: 0;
+        position: relative;
+        left: -50px;
+        transition: left 0.3s ease-in, opacity 0.3s ease-in;
+        transition-delay: 0.2s;
+    }
+</style>
+
 @extends('layouts.app')
 
 @section('content')
+<div class="radialImg1">
+    <img src="{{ asset('images/back-sect-4.png') }}" alt="">
 
-<div class="section-one" id="section-one" style="background-image: url('{{ asset('images/back-sect-1.png') }}');">
+</div>
+<div class="radialImg2">
+    <img src="{{ asset('images/back-sect-3.png') }}" alt="">
+
+</div>
+<div class="sect1img">
+    <img class="sect1imgtag" src="{{ asset('images/back-sect-1.png') }}" alt="">
+
+</div>
+<div class="sect3img">
+    <img class="sect3imgtag" src="{{ asset('images/back-sect-2.png') }}" alt="">
+
+</div>
+<div class="section-one" id="section-one">
     @include('components.navbar')
     <div class="container section-one-content">
         <div class="row justify-content-center">
@@ -21,8 +61,8 @@
                     </div>
                 </div> --}}
 
-                <h1 class="font-weight-bold section-content-header">Halo Pengadaan</h1>
-                <p class="section-content-paragraph text-justify">
+                <h1 class="font-weight-bold section-content-header h-sect1">Halo Pengadaan</h1>
+                <p class="section-content-paragraph text-justify p-sect1">
                     Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna.
                     <br>
                     Sistem ini melibatkan Banyak Pakar dengan berbagai Keahlian khusus, serta memiliki Quality Assurance,
@@ -52,14 +92,7 @@
         </div>
     </div>
 </div>
-<div class="radialImg1">
-    <img src="{{ asset('images/back-sect-4.png') }}" alt="">
 
-</div>
-<div class="radialImg2">
-    <img src="{{ asset('images/back-sect-3.png') }}" alt="">
-
-</div>
 @include('components.section-two')
 @include('components.section-three')
 @include('components.section-four')
@@ -71,6 +104,16 @@
 </script>
 <script>
     let opacity = [0,0,0,0,0];
+    window.addEventListener('load', () => {
+        document.querySelector(".h-sect1").style.opacity = 1;
+        document.querySelector(".p-sect1").style.opacity = 1;
+        document.querySelector(".h-sect1").style.left = 0;
+        document.querySelector(".p-sect1").style.left = 0;
+        document.querySelector(".sect1imgtag").style.top = '-800px';
+        document.querySelector(".sect1imgtag").style.left = '-250px';
+        document.querySelector(".sect1imgtag").style.opacity = 1;
+    })
+
 
     window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
@@ -78,7 +121,6 @@
 
     if (currentScroll < 550) {
         document.querySelector(".navbar").style.backgroundColor = "#f5d00000";
-        
     }
 
     if (currentScroll >= 550) {
@@ -102,6 +144,8 @@
         document.querySelector(".three-img").style.opacity = 1;
         document.querySelector(".three-p-2").style.opacity = 1;
         document.querySelector(".three-p-1").style.opacity = 1;
+        document.querySelector(".sect3imgtag").style.opacity = 1;
+        document.querySelector(".sect3imgtag").style.left = '-400px';
         }
         document.querySelector(".navbar").style.backgroundColor = "#f5d000";
     }
@@ -117,6 +161,7 @@
             document.querySelector(".four-btn-5").style.opacity = 1;
             document.querySelector(".four-btn-6").style.opacity = 1;
             document.querySelector(".four-btn-7").style.opacity = 1;
+            document.querySelector(".radialImg1").style.opacity = 1;
         }
         document.querySelector(".navbar").style.backgroundColor = "#4E90A4";
     }
@@ -141,6 +186,10 @@
             document.querySelector(".six-btn-1").style.opacity = 1;
             document.querySelector(".six-btn-2").style.opacity = 1;
             document.querySelector(".six-btn-3").style.opacity = 1;
+            document.querySelector(".six-btn-1").style.left = 0;
+            document.querySelector(".six-btn-2").style.left = 0;
+            document.querySelector(".six-btn-3").style.left = 0;
+            document.querySelector(".radialImg2").style.opacity = 1;
         }
         document.querySelector(".navbar").style.backgroundColor = "#3EC8AC";
     }

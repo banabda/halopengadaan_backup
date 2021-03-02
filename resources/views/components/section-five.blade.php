@@ -69,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center mb-3" style="margin-top: 45px;">
+                <div class="row justify-content-center mb-md-3">
                     <div class="col-md-4 col-jenis text-center five-btn-4">
                         <div class="row linear-bg mx-auto py-4 px-3">
                             <div class="w-100"></div>

@@ -75,7 +75,7 @@
                         </button>
                     </div>
                 </div>
-                <div class="row justify-content-center mt-5">
+                <div class="row justify-content-center mt-md-5">
                     <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg font-weight-bold two-btn-5" disabled>
                             BLU
