@@ -26,7 +26,7 @@
 
 @section('content')
 
-<div class="section-one" id="section-one" style="background-image: url('{{ asset('images/back-sect-1.png') }}');">
+<div class="section-one" id="section-one">
     @include('components.navbar')
     <div class="container section-one-content">
         <div class="row justify-content-center">
@@ -75,6 +75,10 @@
             </div>
         </div>
     </div>
+</div>
+<div class="sect1img">
+    <img src="{{ asset('images/back-sect-1.png') }}" alt="">
+
 </div>
 <div class="radialImg1">
     <img src="{{ asset('images/back-sect-4.png') }}" alt="">
