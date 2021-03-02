@@ -10154,13 +10154,14 @@ h3 {
   height: fit-content;
   width: 1200px;
 }
-.sect1img img {
+.sect1img .sect1imgtag {
   height: 1400px;
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
-  top: -800px;
-  left: -250px;
+  top: -1600px;
+  left: -1000px;
+  transition: left 1s ease-in, top 1s ease-in;
 }
 
 .items {

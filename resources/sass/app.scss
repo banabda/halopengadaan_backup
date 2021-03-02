@@ -156,12 +156,13 @@
   overflow: hidden;
   height: fit-content;
   width: 1200px;
-  img {
+  .sect1imgtag {
     height: 1400px;
     object-fit: contain;
     position: relative;
-    top: -800px;
-    left: -250px;
+    top: -1600px;
+    left: -1000px;
+    transition: left 1s ease-in, top 1s ease-in;
   }
 }
 

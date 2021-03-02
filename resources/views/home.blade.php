@@ -27,7 +27,7 @@
 
 @section('content')
 <div class="sect1img">
-    <img src="{{ asset('images/back-sect-1.png') }}" alt="">
+    <img class="sect1imgtag" src="{{ asset('images/back-sect-1.png') }}" alt="">
 
 </div>
 <div class="section-one" id="section-one">
@@ -105,6 +105,8 @@
         document.querySelector(".p-sect1").style.opacity = 1;
         document.querySelector(".h-sect1").style.left = 0;
         document.querySelector(".p-sect1").style.left = 0;
+        document.querySelector(".sect1imgtag").style.top = '-800px';
+        document.querySelector(".sect1imgtag").style.left = '-250px';
     })
 
 
