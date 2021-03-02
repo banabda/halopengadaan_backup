@@ -186,6 +186,9 @@
             document.querySelector(".six-btn-1").style.opacity = 1;
             document.querySelector(".six-btn-2").style.opacity = 1;
             document.querySelector(".six-btn-3").style.opacity = 1;
+            document.querySelector(".six-btn-1").style.left = 0;
+            document.querySelector(".six-btn-2").style.left = 0;
+            document.querySelector(".six-btn-3").style.left = 0;
             document.querySelector(".radialImg2").style.opacity = 1;
         }
         document.querySelector(".navbar").style.backgroundColor = "#3EC8AC";
