@@ -10159,9 +10159,31 @@ h3 {
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
+  opacity: 0;
   top: -1600px;
   left: -1000px;
-  transition: left 1s ease-in, top 1s ease-in;
+  transition: left 1s ease, top 1s ease, opacity 1.5s ease-in;
+}
+
+.sect3img {
+  position: absolute;
+  top: 1200;
+  left: 0;
+  overflow: hidden;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: 1200px;
+}
+.sect3img .sect3imgtag {
+  height: 1000px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  top: 0;
+  opacity: 0;
+  left: -1000px;
+  transition: left 1s ease, opacity 1s ease;
 }
 
 .items {

@@ -26,8 +26,20 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="radialImg1">
+    <img src="{{ asset('images/back-sect-4.png') }}" alt="">
+
+</div>
+<div class="radialImg2">
+    <img src="{{ asset('images/back-sect-3.png') }}" alt="">
+
+</div>
 <div class="sect1img">
     <img class="sect1imgtag" src="{{ asset('images/back-sect-1.png') }}" alt="">
+
+</div>
+<div class="sect3img">
+    <img class="sect3imgtag" src="{{ asset('images/back-sect-2.png') }}" alt="">
 
 </div>
 <div class="section-one" id="section-one">
@@ -81,14 +93,6 @@
     </div>
 </div>
 
-<div class="radialImg1">
-    <img src="{{ asset('images/back-sect-4.png') }}" alt="">
-
-</div>
-<div class="radialImg2">
-    <img src="{{ asset('images/back-sect-3.png') }}" alt="">
-
-</div>
 @include('components.section-two')
 @include('components.section-three')
 @include('components.section-four')
@@ -107,6 +111,7 @@
         document.querySelector(".p-sect1").style.left = 0;
         document.querySelector(".sect1imgtag").style.top = '-800px';
         document.querySelector(".sect1imgtag").style.left = '-250px';
+        document.querySelector(".sect1imgtag").style.opacity = 1;
     })
 
 
@@ -139,6 +144,8 @@
         document.querySelector(".three-img").style.opacity = 1;
         document.querySelector(".three-p-2").style.opacity = 1;
         document.querySelector(".three-p-1").style.opacity = 1;
+        document.querySelector(".sect3imgtag").style.opacity = 1;
+        document.querySelector(".sect3imgtag").style.left = '-400px';
         }
         document.querySelector(".navbar").style.backgroundColor = "#f5d000";
     }
