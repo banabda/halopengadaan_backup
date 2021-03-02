@@ -1,10 +1,11 @@
 @extends('dashboard.dashboard')
 @section('content')
+{{-- @php
+    dd(($userhasPaket->expired_at <= Carbon\Carbon::now()  && $invoice->status == "Terkonfirmasi"));
+@endphp --}}
 @if (is_null($invoice) )
 
-    @php
-        dd('masuk invoice kosong');
-    @endphp
+
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <div class="container-full">
@@ -207,13 +208,8 @@
             });
         }
     </script>
-
-@elseif(!is_null($userhasPaket))
-    @if (is_null($invoice->nama_rekening) && is_null($invoice->bukti_pembayaran))
-        @include('dashboard.user.invoice-user')
-    @elseif(!is_null($invoice->nama_rekening) && !is_null($invoice->bukti_pembayaran))
-        @include('dashboard.user.invoice-user')
-    @elseif ($userhasPaket->expired_at <= Carbon\Carbon::now())
+@elseif(!is_null($userhasPaket) && !is_null($invoice))
+    @if ($userhasPaket->expired_at <= Carbon\Carbon::now()  && $invoice->status == "Terkonfirmasi"))
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="container-full">
@@ -416,12 +412,10 @@
                 });
             }
         </script>
-    {{-- @else
-        @include('dashboard.user.invoice-user') --}}
+    @else
+        @include('dashboard.user.invoice-user')
     @endif
-@elseif(is_null($invoice->nama_rekening) && is_null($invoice->bukti_pembayaran))
-    @include('dashboard.user.invoice-user')
-@elseif(!is_null($invoice->nama_rekening) && !is_null($invoice->bukti_pembayaran))
+@else
     @include('dashboard.user.invoice-user')
 @endif
 @endsection
