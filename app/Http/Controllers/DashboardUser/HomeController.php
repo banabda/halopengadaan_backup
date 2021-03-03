@@ -13,9 +13,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 use Yajra\DataTables\Facades\DataTables;
 use PDF;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Carbon\Carbon;
+
 
 class HomeController extends Controller
 {
@@ -295,17 +299,30 @@ class HomeController extends Controller
     public function laporan($id)
     {
         $invoice = Invoice::where('id',$id)->get();
-        $pdf = PDF::loadview('dashboard.user.cetak',['invoice'=>$invoice]);
-        return $pdf->stream();
+        $nama = Invoice::join('users', 'users.id', 'invoice.user_id')
+                ->select('users.name')->where('invoice.id', $id)->first();
+        $nama_orang = $nama->name;
+
+        $options = new Options();
+        $options->set('isRemoteEnabled', true);
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml(
+
+            view::make('dashboard.user.cetak', compact('invoice', 'nama_orang'))
+        );
+
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        return $dompdf->stream('Invoice Halo Pengadaan',array('Attachment'=>0));
+
+        // $pdf = PDF::loadview('dashboard.user.cetak',['invoice'=>$invoice, 'nama_orang' => $nama_orang]);
+        // return $pdf->stream();
         // $tgl=Carbon::parse($inv->tgl_rek_cetak)->formatLocalized('%d %B %Y');
         // $invoice = Invoice::all();
         // $pdf = PDF::loadview('dashboard.user.cetak',['cetak'=>$invoice]);
         // return $pdf->download('dashboard.user.pdf');
         // return $pdf->stream();
-
-
-
-
     }
 
     public function waSaveRegisterMembership($dataWa)

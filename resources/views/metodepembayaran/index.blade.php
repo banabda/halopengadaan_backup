@@ -58,7 +58,7 @@
                             <td>{{$mt->nama_rekening}}</td>
                             <td>{{$mt->nomor_rekening}}</td>
 
-                        <td>
+                     <td>
 
                       <a href="{{ url('admin/detailmethod/'.$mt ->id) }}" class="btn btn-info btn-sm"><i class="fa fa-info-circle"></i> Detail</a>
                       <a href="{{ url('admin/editmethod/'.$mt ->id)}}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i> Edit</a>
