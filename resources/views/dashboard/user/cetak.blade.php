@@ -66,7 +66,7 @@
 
         <p>Pembayaran dapat dilakukan ke:</p>
         <ol>
-            <li><p style="font-size: 12px;">Bank Rakyat Indonesia <br> No. Rek : 213501000250301 <br> Atas Nama : Lembaga Pengembangan dan Konsultasi Nasional</p></li>
+            <li><p style="font-size: 12px;">Bank Rakyat Indonesia (BRI) <br> No. Rek : 213501000250301 <br> Atas Nama : Lembaga Pengembangan dan Konsultasi Nasional</p></li>
             <li>
                 <p style="font-size: 12px;">Bank Mandiri <br> No. Rek : 0060010942294 <br> Atas Nama : Lembaga Pengembangan dan Konsultasi Nasional</p>
             </li>
@@ -79,11 +79,12 @@
         <div class="col-xs-4"></div>
         <div class="col-xs-4"></div>
         <div class="col-xs-3" style="padding-top: 10px;">
+            <br><br><br><br>
             <center>
                 Jakarta,<?php echo date("d F Y", strtotime($n->updated_at)); ?>
-                <br><br><br><br>
+                {{-- <br><br><br><br>
                 <br><b><u>Yenny Yulianty</u></b>
-                <br>Keuangan LPKN
+                <br>Keuangan LPKN --}}
             </center>
         </div>
   </div>

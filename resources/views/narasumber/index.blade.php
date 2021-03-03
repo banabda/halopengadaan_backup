@@ -43,7 +43,7 @@
                             <th>No</th>
                             <th>Nama</th>
                             <th>Email</th>
-                            <th>Password</th>
+                            {{-- <th>Password</th> --}}
                             <th>Alamat</th>
                             <th>Nomor Hp</th>
                             <th>Aksi</th>
@@ -56,7 +56,7 @@
                             <td>{{$no++}}</td>
                             <td>{{$dt->nama}}</td>
                             <td>{{$dt->email}}</td>
-                            <td>{{$dt->password}}</td>
+                            {{-- <td>{{$dt->password}}</td> --}}
                             <td>{{$dt->alamat}}</td>
                             <td>{{$dt->nomor_hp}}</td>
                         <td>
@@ -115,13 +115,13 @@
                 <span class="text-danger">{{ $errors->first('email') }}</span>
             @endif
           </div>
-          <div class="form-group">
+          {{-- <div class="form-group">
           <label for="exampleInputEmail1">Password</label>
           <input name="password" type="textarea" class="form-control" id="password" aria-describedby="password" placeholder="password" value="{{ old('password') }}">
           @if ($errors->has('password'))
                 <span class="text-danger">{{ $errors->first('password') }}</span>
             @endif
-          </div>
+          </div> --}}
           <div class="form-group">
             <label for="exampleInputPassword1">Alamat</label>
             <input name="alamat" type="text"  class="form-control" id="alamat" placeholder="alamat" value="{{ old('alamat') }}">
