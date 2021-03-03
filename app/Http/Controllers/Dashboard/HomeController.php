@@ -139,10 +139,10 @@ class HomeController extends Controller
                 return $no++;
             })
             ->addColumn('action', function($row){
-                if ($row->status == "Belum Teraktifikasi") {
+                if ($row->status == "Belum Teraktifasi") {
                     $btn = '<button class="btn btn-xs btn-info user-confirm" id="'. $row->id .'">Aktifasi</button>';
                 } else {
-                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" style="cursor: not-allowed;" disabled>Telah Aktif</button>';
+                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $row->id .' style="cursor: not-allowed;" disabled>Telah Aktif</button>';
                 }
 
                 return $btn;
