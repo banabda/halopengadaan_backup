@@ -298,17 +298,23 @@ class HomeController extends Controller
 
     public function laporan($id)
     {
-        $invoice = Invoice::where('id',$id)->get();
-        $nama = Invoice::join('users', 'users.id', 'invoice.user_id')
-                ->select('users.name')->where('invoice.id', $id)->first();
-        $nama_orang = $nama->name;
+        $invoice = Invoice::with('user', 'user.profile')->where('id', $id)->first();
+        // dd($invoice);
+        $data = [
+            'invoice' => $invoice
+        ];
+
+        // $invoice = Invoice::where('id',$id)->get();
+        // $nama = Invoice::join('users', 'users.id', 'invoice.user_id')
+        //         ->select('users.name')->where('invoice.id', $id)->first();
+        // $nama_orang = $nama->name;
 
         $options = new Options();
         $options->set('isRemoteEnabled', true);
         $dompdf = new Dompdf($options);
         $dompdf->loadHtml(
 
-            view::make('dashboard.user.cetak', compact('invoice', 'nama_orang'))
+            view::make('dashboard.user.cetak', $data)
         );
 
         $dompdf->setPaper('A4', 'portrait');

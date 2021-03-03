@@ -21,7 +21,7 @@
     </center>
 
     <center><h4 style="float: right;"> INVOICE </h4></center><br>
-    <h5><b>Atas Nama : {{$nama_orang}}</b></h5>
+    <h5><b>Atas Nama : {{ $invoice->user->profile->nama_lengkap }}</b></h5>
     <br><br>
 
     <table class="table table-bordered table-striped">
@@ -35,44 +35,52 @@
           </tr>
         </thead>
         <tbody>
-            @php $i=1 @endphp
-			@foreach($invoice as $n)
 			<tr>
 				{{-- <td>{{ $i++ }}</td> --}}
 				<td>
-                    @if($n->paket == 1)
+                    @if($invoice->paket == 1)
                         Silver
-                    @elseif($n->paket == 2)
+                    @elseif($invoice->paket == 2)
                         Gold
                     @else
                         Platinum
                     @endif
                 </td>
-				<td>Rp. {{ number_format($n->tagihan,2,",",".") }}</td>
-				<td><?php echo date("d F Y", strtotime($n->created_at)); ?></td>
-                <td>{{$n->status}}</td>
-                <td>Rp. {{ number_format($n->tagihan,2,",",".") }}</td>
+				<td>Rp. {{ number_format($invoice->tagihan,2,",",".") }}</td>
+				<td>
+                    {{ Carbon\Carbon::parse($invoice->expired_at)->translatedFormat('d F Y ') }}
+                </td>
+                <td>
+                    @if ($invoice->status == "Menunggu Pembayaran")
+                        Menunggu Pembayaran
+                    @elseif($invoice->status == "Telah Terbayar")
+                        Menunggu Konfirmasi
+                    @else
+                        Lunas
+                    @endif
+                    {{-- {{$invoice->status}} --}}
+                </td>
+                <td>Rp. {{ number_format($invoice->tagihan,2,",",".") }}</td>
 
 			</tr>
-			@endforeach
         </tbody>
       </table>
 
-      {{-- <p>Menggunakan metode pembayaran:</p>
+      <p>Menggunakan Metode Pembayaran:</p>
         <ol>
-            <li>Bank Transfer : {{$n->nama_bank}}</li>
-            <li>Nomor rekening : {{$n->nomor_rekening}}</li>
-        </ol> --}}
-
+            <li>Bank Transfer : {{ $invoice->nama_bank }}</li>
+            <li>Nomor Rekening : {{ $invoice->nomor_rekening }}</li>
+        </ol>
+{{--
         <p>Pembayaran dapat dilakukan ke:</p>
         <ol>
             <li><p style="font-size: 12px;">Bank Rakyat Indonesia (BRI) <br> No. Rek : 213501000250301 <br> Atas Nama : Lembaga Pengembangan dan Konsultasi Nasional</p></li>
             <li>
                 <p style="font-size: 12px;">Bank Mandiri <br> No. Rek : 0060010942294 <br> Atas Nama : Lembaga Pengembangan dan Konsultasi Nasional</p>
             </li>
-        </ol>
+        </ol> --}}
 
-        {{-- <p style="text-align: right"><?php echo date("d F Y", strtotime($n->updated_at)); ?></p>
+        {{-- <p style="text-align: right"></p>
         <br><br><br><br><br><br>
         <p style="text-align: right"><b>{{$nama_orang}}</b></p> --}}
 
@@ -81,7 +89,7 @@
         <div class="col-xs-3" style="padding-top: 10px;">
             <br><br><br><br>
             <center>
-                Jakarta,<?php echo date("d F Y", strtotime($n->updated_at)); ?>
+                Jakarta, {{ Carbon\Carbon::parse($invoice->expired_at)->translatedFormat('d F Y ') }}
                 {{-- <br><br><br><br>
                 <br><b><u>Yenny Yulianty</u></b>
                 <br>Keuangan LPKN --}}
