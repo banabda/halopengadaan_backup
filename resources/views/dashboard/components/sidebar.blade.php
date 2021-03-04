@@ -26,7 +26,7 @@
         </li>
 
         <li>
-            <a href="{{route('narasumber')}}">
+            <a href="{{route('admin.dashboard.narasumber')}}">
               <i data-feather="server"></i>
               <span>Data Narasumber</span>
             </a>

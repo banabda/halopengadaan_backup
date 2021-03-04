@@ -13,9 +13,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\View;
 use Yajra\DataTables\Facades\DataTables;
 use PDF;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 use Carbon\Carbon;
+
 
 class HomeController extends Controller
 {
@@ -121,13 +125,13 @@ class HomeController extends Controller
     {
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
         $metode_pembayaran = Metodepembayaran::all()->groupBy('nama_method')->toArray();
-        $invoice = Invoice::where('user_id', Auth::user()->id)->first();
+        $invoice = Invoice::where('user_id', Auth::user()->id)->latest()->first();
         $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
-
-        // dd($userhaspaket);
+        // dd($invoice);
         $data = [
             'metode_pembayaran' => $metode_pembayaran,
-            'invoice' => $invoice
+            'invoice' => $invoice,
+            'userhasPaket' => $userhaspaket
         ];
 
         if (is_null($profile)) {
@@ -272,7 +276,10 @@ class HomeController extends Controller
         $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
         if (is_null($userhaspaket)) {
             return redirect()->route('user.dashboard.membership');
-        } else {
+        } elseif ($userhaspaket->expired_at <= Carbon::now()) {
+            return redirect()->route('user.dashboard.membership');
+        }
+        else {
             $client = new Client();
             $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
                 'headers' => [
@@ -291,16 +298,37 @@ class HomeController extends Controller
 
     public function laporan($id)
     {
-        $invoice = Invoice::where('id',$id)->get();
-        $pdf = PDF::loadview('dashboard.user.cetak',['invoice'=>$invoice]);
-        return $pdf->stream();
-        // $invoice = Invoice::all();
+        $invoice = Invoice::with('user', 'user.profile')->where('id', $id)->first();
+        // dd($invoice);
+        $data = [
+            'invoice' => $invoice
+        ];
 
+        // $invoice = Invoice::where('id',$id)->get();
+        // $nama = Invoice::join('users', 'users.id', 'invoice.user_id')
+        //         ->select('users.name')->where('invoice.id', $id)->first();
+        // $nama_orang = $nama->name;
+
+        $options = new Options();
+        $options->set('isRemoteEnabled', true);
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml(
+
+            view::make('dashboard.user.cetak', $data)
+        );
+
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+
+        return $dompdf->stream('Invoice Halo Pengadaan');
+
+        // $pdf = PDF::loadview('dashboard.user.cetak',['invoice'=>$invoice, 'nama_orang' => $nama_orang]);
+        // return $pdf->stream();
+        // $tgl=Carbon::parse($inv->tgl_rek_cetak)->formatLocalized('%d %B %Y');
+        // $invoice = Invoice::all();
         // $pdf = PDF::loadview('dashboard.user.cetak',['cetak'=>$invoice]);
         // return $pdf->download('dashboard.user.pdf');
         // return $pdf->stream();
-
-
     }
 
     public function waSaveRegisterMembership($dataWa)

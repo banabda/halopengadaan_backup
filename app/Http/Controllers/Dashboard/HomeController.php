@@ -54,7 +54,7 @@ class HomeController extends Controller
                 if ($action->status == "Telah Terbayar") {
                     $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $action->id .'">Konfirmasi</button>';
                 } elseif ($action->status == "Terkonfirmasi") {
-                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" style="cursor: not-allowed;" disabled>Telah Terkonfirmasi</button>';
+                    $btn = '<button class="btn btn-xs btn-info" style="cursor: not-allowed;" disabled>Telah Terkonfirmasi</button>';
                 }
                 return $btn;
             })
@@ -101,13 +101,6 @@ class HomeController extends Controller
             ]);
         }
 
-        // $userPaket = UserhasPaket::create([
-        //     'user_id' => $data->user_id,
-        //     'paket' => $data->paket,
-        //     'expired_at' => $expired_at,
-        //     'status' => 'Aktif'
-        // ]);
-
         $dataWa = [
             'phone' => $profile->no_hp,
             'nama_lengkap' => $profile->nama_lengkap,
@@ -146,10 +139,10 @@ class HomeController extends Controller
                 return $no++;
             })
             ->addColumn('action', function($row){
-                if ($row->status == "Belum Teraktifikasi") {
+                if ($row->status == "Belum Teraktifasi") {
                     $btn = '<button class="btn btn-xs btn-info user-confirm" id="'. $row->id .'">Aktifasi</button>';
                 } else {
-                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" style="cursor: not-allowed;" disabled>Telah Aktif</button>';
+                    $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $row->id .' style="cursor: not-allowed;" disabled>Telah Aktif</button>';
                 }
 
                 return $btn;

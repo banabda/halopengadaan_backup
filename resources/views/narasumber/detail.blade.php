@@ -33,9 +33,9 @@
        <div class="form-group">
            <label for="exampleInputPassword1">Email</label>
        <br><input type="text" class="form-control"  name="email" value="{{ $narasumber->email }}" readonly=""> <br/></div>
-       <div class="form-group">
+       {{-- <div class="form-group">
            <label for="exampleInputPassword1">Password</label>
-       <br><input type="text" class="form-control"  name="password" value="{{ $narasumber->password }}" readonly=""> <br/></div>
+       <br><input type="text" class="form-control"  name="password" value="{{ $narasumber->password }}" readonly=""> <br/></div> --}}
        <div class="form-group">
            <label for="exampleInputPassword1">Alamat</label>
        <br><input type="text" class="form-control"  name="alamat" value="{{ $narasumber->alamat }}" readonly=""> <br/></div>
