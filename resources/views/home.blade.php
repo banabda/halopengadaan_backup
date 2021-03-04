@@ -117,7 +117,7 @@
 
     window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
-    console.log(currentScroll, opacity)
+    // console.log(currentScroll, opacity)
 
     if (currentScroll < 550) {
         document.querySelector(".navbar").style.backgroundColor = "#f5d00000";
