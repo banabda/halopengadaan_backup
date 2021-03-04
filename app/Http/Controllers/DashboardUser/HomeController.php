@@ -320,7 +320,7 @@ class HomeController extends Controller
         $dompdf->setPaper('A4', 'portrait');
         $dompdf->render();
 
-        return $dompdf->stream('Invoice Halo Pengadaan',array('Attachment'=>0));
+        return $dompdf->stream('Invoice Halo Pengadaan');
 
         // $pdf = PDF::loadview('dashboard.user.cetak',['invoice'=>$invoice, 'nama_orang' => $nama_orang]);
         // return $pdf->stream();
