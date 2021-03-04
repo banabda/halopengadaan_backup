@@ -31,11 +31,12 @@ class HomeController extends Controller
 
     public function profile()
     {
-        $user = User::with('profile')->where('id', Auth::user()->id)->first();
-
+        $user = User::with('profile', 'userHasPaket')->where('id', Auth::user()->id)->first();
+        // dd($user);
         $data = [
             'user' => $user
         ];
+
         return view('dashboard.user.profile', $data);
     }
 

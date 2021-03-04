@@ -55,6 +55,6 @@ class User extends Authenticatable
 
     public function userHasPaket()
     {
-        return $this->hasOne('App\Models\UerhasPaket', 'user_id', 'id');
+        return $this->hasOne('App\Models\UserhasPaket', 'user_id', 'id');
     }
 }

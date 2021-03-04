@@ -315,7 +315,7 @@
     {{-- <script src="{{ asset('dashboard/assets/vendor_components/sweetalert/sweetalert.min.js') }}"></script> --}}
     <script src="{{ asset('dashboard/main/js/pages/steps.js') }}"></script>
 
-    <!-- Sunny Admin App -->
+    <!-- Sunny Admin App -->e
 	<script src="{{ asset('dashboard/main/js/template.js') }}"></script>
 	<script src="{{ asset('dashboard/main/js/pages/dashboard.js') }}"></script>
 

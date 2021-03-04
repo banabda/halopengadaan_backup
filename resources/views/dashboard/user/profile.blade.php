@@ -50,9 +50,9 @@
                     <div class="box-body text-center pb-50">
                       <a href="#">
                         @if (is_null($user->profile))
-                            <img class="avatar avatar-xxl avatar-bordered" src="Lalala" alt="">
+                            <img class="avatar avatar-xxl avatar-bordered" src="https://avatars.dicebear.com/4.5/api/initials/{{ Auth::user()->name }}.svg" alt="">
                         @elseif(is_null($user->profile->foto))
-                            <img class="avatar avatar-xxl avatar-bordered" src="Lalala" alt="">
+                            <img class="avatar avatar-xxl avatar-bordered" src="https://avatars.dicebear.com/4.5/api/initials/{{ Auth::user()->name }}.svg" alt="">
                         @else
                             <img class="avatar avatar-xxl avatar-bordered" src="{{ Storage::url($user->profile->foto) }}" alt="">
                         @endif
@@ -63,8 +63,24 @@
 
                     <ul class="box-body flexbox flex-justified text-center" data-overlay="4">
                       <li>
-                        <span class="opacity-60">Status Account</span><br>
-                        <span class="font-size-20">Active</span>
+                        <span class="opacity-60">Status Akun</span><br>
+                        @if (is_null($user->profile))
+                            <span class="font-size-20">Belum Aktif</span>
+                        @elseif(!is_null($user->profile))
+                            <span class="font-size-20">Profile Update</span>
+                        @elseif(is_null($user->userHasPaket))
+                            <span class="font-size-20">Belum Ada Paket</span>
+                        @elseif(!is_null($user->userHasPaket))
+                            @if ($user->userHasPaket->paket == "1")
+                                <span class="font-size-20">Paket Silver</span>
+                            @elseif($user->userHasPaket->paket == "2")
+                                <span class="font-size-20">Paket Gold</span>
+                            @else
+                                <span class="font-size-20">Paket Platinum</span>
+                            @endif
+                            {{-- <span class="font-size-20">Active</span> --}}
+                        @endif
+                        {{-- <span class="font-size-20">Active</span> --}}
                       </li>
                     </ul>
                   </div>
