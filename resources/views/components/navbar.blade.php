@@ -30,7 +30,7 @@
                     <li class="nav-item mx-2">
                         <a class="nav-link" role="button" id="section-three-nav">{{ __('Profil Praktisi Pengadaan') }}</a>
                     </li>
-                    <li class="nav-item mx-2 dropdown">
+                    {{-- <li class="nav-item mx-2 dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMembership" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ __('Membership') }}
                         </a>
@@ -43,7 +43,7 @@
                                     <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 @endif
                             @else
-                                <a id="dropdown-item" class="nav-link dropdown-item" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a id="dropdown-item" href="{{ route('profile') }}" >
                                     {{ Auth::user()->name }}
                                 </a>
 
@@ -59,6 +59,23 @@
                                     </form>
                                 </div>
 
+                            @endguest
+                        </div>
+                    </li> --}}
+                    <li class="nav-item mx-2 dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownLayanan" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ __('Membership') }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownLayanan">
+                            @guest
+                                @if (Route::has('login'))
+                                    <a class="dropdown-item" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                @endif
+                                @if (Route::has('register'))
+                                    <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                @endif
+                            @else
+                                <a class="dropdown-item" href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
                             @endguest
                         </div>
                     </li>
@@ -82,7 +99,7 @@
             $('html, body').animate({
                 scrollTop: $("#section-one").offset().top
             }, 1000);
-            
+
         }
         else {
             window.location.href='/';
@@ -94,7 +111,7 @@
             $('html, body').animate({
                 scrollTop: $("#section-three").offset().top
             }, 1000);
-            
+
         }else {
             $(location).attr('href','/#section-three')
         }
