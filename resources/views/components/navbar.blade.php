@@ -18,7 +18,7 @@
             <ul class="navbar-nav ml-auto font-weight-bold">
                 <!-- Authentication Links -->
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#section-one">{{ __('Tentang Kami') }}</a>
+                        <a class="nav-link" role="button" id="section-one-nav">{{ __('Tentang Kami') }}</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="https://ilmu.lpkn.id/">{{ __('Artikel') }}</a>
@@ -28,7 +28,7 @@
                         <a class="nav-link" href="#">{{ __('Regulasi') }}</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="#section-three">{{ __('Profil Praktisi Pengadaan') }}</a>
+                        <a class="nav-link" role="button" id="section-three-nav">{{ __('Profil Praktisi Pengadaan') }}</a>
                     </li>
                     <li class="nav-item mx-2 dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMembership" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -75,3 +75,28 @@
         </div>
     </div>
 </nav>
+<script>
+    $("#section-one-nav").click(function() {
+        // console.log(window.location.pathname)
+        if (window.location.pathname == '/') {
+            $('html, body').animate({
+                scrollTop: $("#section-one").offset().top
+            }, 1000);
+            
+        }
+        else {
+            window.location.href='/';
+        }
+    });
+    $("#section-three-nav").click(function() {
+        // console.log(window.location.pathname)
+        if (window.location.pathname == '/') {
+            $('html, body').animate({
+                scrollTop: $("#section-three").offset().top
+            }, 1000);
+            
+        }else {
+            $(location).attr('href','/#section-three')
+        }
+    });
+</script>
