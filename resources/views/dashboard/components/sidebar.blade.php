@@ -44,7 +44,7 @@
             </a>
         </li>
         <li>
-            <a href="{{route('metodepembayaran')}}">
+            <a href="{{route('artikel.index')}}">
               <i data-feather="printer"></i>
               <span>Artikel</span>
             </a>
