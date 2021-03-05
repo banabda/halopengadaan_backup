@@ -1,0 +1,30 @@
+.section-five{
+    height: 900px;
+    &-content{
+      padding-top: 5vh;
+      .linear-bg{
+        filter: drop-shadow(0 0 0.75rem gold);
+        border-radius: 5vw;
+        border: none;
+        height: 300px;
+        width: 300px;
+        background-image: linear-gradient(to bottom, #F3F9A7 ,#F5D000);
+        color: #000;
+        .imagemember{
+          width: 180px;
+        }
+        .imagemember4{
+          width: 100px;
+        }
+        #jl4{
+          fill: #a2a57f;
+        }
+        #jl5{
+          fill: #a2a57f;
+        }
+      }
+      .linear-bg.big{
+        width: 700px;
+      }
+    }
+  }

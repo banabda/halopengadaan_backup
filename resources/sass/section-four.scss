@@ -1,0 +1,10 @@
+.section-four{
+    height: 700px;
+    &-content{
+      padding-top: 10vh;
+      .kelebihanimg{
+        margin-bottom: 10px;
+        filter: drop-shadow(0 0 0.75rem grey);
+      }
+    }
+  }

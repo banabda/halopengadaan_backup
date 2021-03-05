@@ -1,0 +1,15 @@
+.section-two{
+    height: 700px;
+    &-content{
+        padding-top: 200px;
+        .linear-bg{
+          filter: drop-shadow(0 0 0.5rem #4E90A4);
+            border-radius: 25px;
+            border: none;
+            height: 75px;
+            width: 200px;
+            background-image: linear-gradient(to right, #F3F9A7 ,#F5D000);
+            color: #000;
+        }
+    }
+}
