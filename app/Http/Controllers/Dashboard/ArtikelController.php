@@ -52,7 +52,14 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $artikel = Artikel::create($data);
+        
+        return response()->json([
+            'status' => 'ok',
+            'message' => 'Artikel Berhasil Dibuat'
+        ]);
+        // dd($data);
     }
 
     /**

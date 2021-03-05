@@ -29,7 +29,8 @@
 
            <div class="box">
               <div class="box-header with-border">
-                <a href="{{ route('artikel.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5">New Artikel</button></a>
+                  <button type="button" class="btn btn-outline btn-primary mb-5" data-toggle="modal"
+                    data-target="#exampleModal">New Artikel</button>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -72,6 +73,45 @@
     </div>
 </div>
 <!-- /.content-wrapper -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create Artikel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="judul_artikel" class="col-form-label">Judul:</label>
+              <input type="text" class="form-control" name="judul" id="judul_artikel">
+            </div>
+            <div class="form-group">
+              <label for="deskripsi_artikel" class="col-form-label">Deskripsi:</label>
+              <textarea class="form-control" name="desc" id="deskripsi_artikel"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="link_artikel" class="col-form-label">Link Terkait:</label>
+                <input type="url" class="form-control" name="link" id="link_artikel">
+            </div>
+            <div class="form-group">
+                <label for="foto_artikel" class="col-form-label">Foto Thumbnail:</label>
+                <input type="file" class="form-control" name="foto" id="foto_artikel">
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Send message</button>
+        </div>
+      </div>
+    </div>
+</div>
+
 <script>
     var table;
       $(function() {
