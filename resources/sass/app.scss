@@ -7,12 +7,12 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-@import './section-one.scss';
-@import './section-two.scss';
-@import './section-three.scss';
-@import './section-four.scss';
-@import './section-five.scss';
-@import './section-six.scss';
+@import './landing/section-one.scss';
+@import './landing/section-two.scss';
+@import './landing/section-three.scss';
+@import './landing/section-four.scss';
+@import './landing/section-five.scss';
+@import './landing/section-six.scss';
 
 .form-style{
     .form-control {
