@@ -109,7 +109,7 @@
             // type: "info",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: "Delete",
+            confirmButtonText: "Hapus",
             confirmButtonColor: "#ff0055",
             cancelButtonColor: "#999999",
             reverseButtons: true,
