@@ -34,13 +34,19 @@
         <li>
             <a href="{{route('admin.dashboard.invoice')}}">
               <i data-feather="book-open"></i>
-              <span>Data Pendaftar</span>
+              <span>Data Pembayaran</span>
             </a>
         </li>
         <li>
             <a href="{{route('metodepembayaran')}}">
               <i data-feather="dollar-sign"></i>
               <span>Metode Pembayaran</span>
+            </a>
+        </li>
+        <li>
+            <a href="{{route('metodepembayaran')}}">
+              <i data-feather="printer"></i>
+              <span>Artikel</span>
             </a>
         </li>
         <li class="header nav-small-cap">Keamanan</li>
