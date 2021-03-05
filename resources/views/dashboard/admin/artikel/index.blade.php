@@ -8,13 +8,13 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-                  <h3 class="page-title">Data Pembayaran</h3>
+                  <h3 class="page-title">Data Artikel</h3>
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
                               <li class="breadcrumb-item" aria-current="page">Auth</li>
-                              <li class="breadcrumb-item active" aria-current="page">Data Pembayaran</li>
+                              <li class="breadcrumb-item active" aria-current="page">Data Artikel</li>
                           </ol>
                       </nav>
                   </div>
@@ -28,22 +28,19 @@
           <div class="col-12">
 
            <div class="box">
+              <div class="box-header with-border">
+                <a href="{{ route('artikel.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5">New Artikel</button></a>
+              </div>
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
-                    <table id="dataInvoice" class="table table-bordered table-striped">
+                    <table id="tableArtikel" class="table table-bordered table-striped">
                       <thead>
                           <tr>
                               <th>No</th>
-                              <th>Nama Lengkap</th>
-                              <th>Email</th>
-                              <th>Nama Paket</th>
-                              <th>Metode Pembayaran</th>
-                              <th>Nama Provider</th>
-                              <th>Total Tagihan</th>
-                              <th>Nama Pemilik Rekening</th>
-                              <th>Tanggal</th>
-                              <th>Bukti Pembayaran</th>
+                              <th>Judul</th>
+                              <th>Link Artikel</th>
+                              <th>Foto</th>
                               <th>Action</th>
                           </tr>
                       </thead>
@@ -53,15 +50,9 @@
                       <tfoot>
                           <tr>
                               <th>No</th>
-                              <th>Nama Lengkap</th>
-                              <th>Email</th>
-                              <th>Nama Paket</th>
-                              <th>Metode Pembayaran</th>
-                              <th>Nama Provider</th>
-                              <th>Total Tagihan</th>
-                              <th>Nama Pemilik Rekening</th>
-                              <th>Tanggal</th>
-                              <th>Bukti Pembayaran</th>
+                              <th>Judul</th>
+                              <th>Link Artikel</th>
+                              <th>Foto</th>
                               <th>Action</th>
                           </tr>
                       </tfoot>
@@ -84,20 +75,14 @@
 <script>
     var table;
       $(function() {
-          table = $('#dataInvoice').DataTable({
+          table = $('#tableArtikel').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{ route('admin.dashboard.invoice') }}",
+              ajax: "{{ route('artikel.index') }}",
               columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
-                {data: 'nama_lengkap', name: 'nama_lengkap'},
-                {data: 'email', name: 'email'},
-                {data: 'paket_detail', name: 'paket_detail'},
-                {data: 'metode_pembayaran', name: 'metode_pembayaran'},
-                {data: 'nama_bank', name: 'nama_bank'},
-                {data: 'total_tagihan', name: 'total_tagihan'},
-                {data: 'nama_rekening', name: 'nama_rekening'},
-                {data: 'tanggal', name:'tanggal'},
+                {data: 'judul', name: 'judul'},
+                {data: 'link', name: 'link'},
                 {data: 'foto', name: 'foto'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
               ]
@@ -110,34 +95,42 @@
       });
 </script>
 <script>
-    $(document).on('click', '.invoice-confirm', function(){
-        var id_invoice = $(this).attr("id");
-        // console.log(id_invoice);
-        event.preventDefault();
+    $(document).on('click', '.delete-confirm', function(){
+        var id_role = $(this).attr("id");
+        // console.log(id_role);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
+        event.preventDefault();
         Swal.fire({
-            text : "Mohon menunggu..."
-        });
-
-        swal.showLoading();
-        $.ajax({
-            type:'POST',
-            url: "{{url('admin/proses/invoice/')}}/" + id_invoice,
-            success:function(data)
-            {
-
-                if(data.status == "ok"){
-                    swal.close();
-                    table.draw(false);
-                }
-            },
-            error: function(data){
+            title: "Apakah Anda Yakin Ingin Menghapus Ini?",
+            // type: "info",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: "V@",
+            confirmButtonColor: "#ff0055",
+            cancelButtonColor: "#999999",
+            reverseButtons: true,
+            focusConfirm: false,
+            focusCancel: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type:'DELETE',
+                    url: "{{url('admin/user')}}/" + id_role,
+                    success:function(data)
+                    {
+                        if(data.status == "ok"){
+                            table.draw(false);
+                        }
+                    },
+                    error: function(data){
+                    }
+                });
             }
-        });
+        })
     });
 </script>
 @endsection

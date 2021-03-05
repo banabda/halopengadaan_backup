@@ -74,6 +74,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     // Permission
     Route::resource('permission', 'Dashboard\Auth\PermissionController');
 
+    // Artikel
+    Route::resource('artikel', 'Dashboard\ArtikelController');
+    
     // Data Pembayaran Invoice
     Route::get('invoice', 'Dashboard\HomeController@invoice')->name('admin.dashboard.invoice');
     Route::post('proses/invoice/{id}', 'Dashboard\HomeController@prosesInvoice')->name('admin.dashboard.invoice.proses');
