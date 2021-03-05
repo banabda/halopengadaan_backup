@@ -86,6 +86,7 @@
         <form id="createArtikel" action="{{ route('artikel.store') }}" method="POST" enctype="multipart/form-data">
             <div class="modal-body">
                 @csrf
+                <input type="hidden" name="id" id="id_artikel">
                 <div class="form-group">
                     <label for="judul_artikel" class="col-form-label">Judul:</label>
                     <input type="text" class="form-control" name="judul" id="judul_artikel">
@@ -135,7 +136,7 @@
       });
 </script>
 <script>
-    $(document).on('click', '.delete-confirm', function(){
+    $(document).on('click', '   .delete-confirm', function(){
         var id_role = $(this).attr("id");
         // console.log(id_role);
         $.ajaxSetup({
@@ -212,10 +213,13 @@
             success:function(data)
             {
                 $('#exampleModal').modal('show');
+                $('#id_artikel').val(data.id);
                 $('#judul_artikel').val(data.judul);
                 $('#deskripsi_artikel').val(data.desc);
                 $('#link_artikel').val(data.link);
                 console.log(data);
+
+
             },
             error: function(data){
             }
