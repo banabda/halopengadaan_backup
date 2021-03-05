@@ -22,7 +22,7 @@
         <div class="row justify-content-center">
             <div class="col-md-5 divimage">
                 <div class="section-three-content-image mt-5 three-img">
-                    <div class="overlay">
+                    {{-- <div class="overlay">
                         <div class="items"></div>
                         <div class="items head">
                             <p>Lembaga Konsultasi dan Pengembangan Nasional</p>
@@ -36,7 +36,7 @@
                             <i class="fa fa-shopping-cart"></i>
                             <span>ADD TO CART</span>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
             <div class="col-md-7 divprapgraph">
