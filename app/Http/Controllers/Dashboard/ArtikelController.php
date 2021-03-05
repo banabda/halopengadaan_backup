@@ -26,7 +26,7 @@ class ArtikelController extends Controller
                 return "<a target='_blank' href='". Storage::url($foto->foto) ."'><img src=". Storage::url($foto->foto). " height='150px' width='auto' alt='". $foto->foto ."'></a>";
             })
             ->addColumn('action', function($row){
-                $btn = '<a class="btn btn-xs btn-info mr-2" href="'. route("user.edit", $row->id) .'">
+                $btn = '<a class="btn btn-xs btn-info mr-2 edit-artikel" id="'. $row->id .'">
                 <i class="fa fa-edit"></i> Edit </a>';
                 $btn .= '<a class="btn btn-xs btn-info delete-confirm" id="'. $row->id .'" href="javascript:void(0)">
                 <i class="fa fa-trash"></i> Hapus </a>';
@@ -96,7 +96,8 @@ class ArtikelController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Artikel::find($id)->first();
+        return $data;
     }
 
     /**

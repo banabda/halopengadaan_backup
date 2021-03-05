@@ -87,12 +87,12 @@
             <div class="modal-body">
                 @csrf
                 <div class="form-group">
-                <label for="judul_artikel" class="col-form-label">Judul:</label>
-                <input type="text" class="form-control" name="judul" id="judul_artikel">
+                    <label for="judul_artikel" class="col-form-label">Judul:</label>
+                    <input type="text" class="form-control" name="judul" id="judul_artikel">
                 </div>
                 <div class="form-group">
-                <label for="deskripsi_artikel" class="col-form-label">Deskripsi:</label>
-                <textarea class="form-control" name="desc" id="deskripsi_artikel"></textarea>
+                    <label for="deskripsi_artikel" class="col-form-label">Deskripsi:</label>
+                    <textarea class="form-control" name="desc" id="deskripsi_artikel"></textarea>
                 </div>
                 <div class="form-group">
                     <label for="link_artikel" class="col-form-label">Link Terkait:</label>
@@ -102,7 +102,6 @@
                     <label for="foto_artikel" class="col-form-label">Foto Thumbnail:</label>
                     <input type="file" class="form-control" name="foto" id="foto_artikel">
                 </div>
-
 
             </div>
             <div class="modal-footer">
@@ -199,6 +198,26 @@
 
             error: (data) => {
 
+            }
+        });
+    });
+
+    $(document).on('click', '.edit-artikel', function(e){
+        var id_artikel = $(this).attr("id");
+        console.log("Masuk Edit");
+        e.preventDefault();
+        $.ajax({
+            type:'GET',
+            url: "{{url('admin/artikel')}}/" + id_artikel + '/edit',
+            success:function(data)
+            {
+                $('#exampleModal').modal('show');
+                $('#judul_artikel').val(data.judul);
+                $('#deskripsi_artikel').val(data.desc);
+                $('#link_artikel').val(data.link);
+                console.log(data);
+            },
+            error: function(data){
             }
         });
     });
