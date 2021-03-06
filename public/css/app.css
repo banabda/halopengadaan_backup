@@ -10252,9 +10252,7 @@ h3 {
 }
 
 .navbar {
-  background-color: #f5d00000;
-  transition: background 0.3s ease-in;
-  transition-delay: 0.4s;
+  background-color: #F3F9A7;
 }
 .navbar .nav-link {
   color: #000 !important;

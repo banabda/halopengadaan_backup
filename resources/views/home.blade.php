@@ -26,14 +26,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="radialImg1">
+{{-- <div class="radialImg1">
     <img src="{{ asset('images/back-sect-4.png') }}" alt="">
 
-</div>
-<div class="radialImg2">
+</div> --}}
+{{-- <div class="radialImg2">
     <img src="{{ asset('images/back-sect-3.png') }}" alt="">
 
-</div>
+</div> --}}
 <div class="sect1img">
     <img class="sect1imgtag" src="{{ asset('images/back-sect-1.png') }}" alt="">
 
@@ -117,11 +117,6 @@
 
     window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
-    // console.log(currentScroll, opacity)
-
-    if (currentScroll < 550) {
-        document.querySelector(".navbar").style.backgroundColor = "#f5d00000";
-    }
 
     if (currentScroll >= 550) {
         if (opacity[0] == 0) {
@@ -135,7 +130,6 @@
             document.querySelector(".two-btn-6").style.opacity = 1;
             document.querySelector(".two-btn-7").style.opacity = 1;
         }
-        document.querySelector(".navbar").style.backgroundColor = "#f5d000";
     }
 
     if (currentScroll >= 1200) {
@@ -147,7 +141,6 @@
         document.querySelector(".sect3imgtag").style.opacity = 1;
         document.querySelector(".sect3imgtag").style.left = '-400px';
         }
-        document.querySelector(".navbar").style.backgroundColor = "#f5d000";
     }
 
     if (currentScroll >= 1900) {
@@ -163,7 +156,6 @@
             document.querySelector(".four-btn-7").style.opacity = 1;
             document.querySelector(".radialImg1").style.opacity = 1;
         }
-        document.querySelector(".navbar").style.backgroundColor = "#4E90A4";
     }
 
     if (currentScroll >= 2400) {
@@ -176,7 +168,6 @@
             document.querySelector(".five-btn-4").style.opacity = 1;
             document.querySelector(".five-btn-5").style.opacity = 1;
         }
-        document.querySelector(".navbar").style.backgroundColor = "#f5d000";
     }
 
     if (currentScroll >= 3200) {
@@ -191,7 +182,6 @@
             document.querySelector(".six-btn-3").style.left = 0;
             document.querySelector(".radialImg2").style.opacity = 1;
         }
-        document.querySelector(".navbar").style.backgroundColor = "#3EC8AC";
     }
     });
 </script>
