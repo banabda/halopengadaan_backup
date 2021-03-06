@@ -10118,6 +10118,9 @@ h3 {
   margin-bottom: 10px;
   filter: drop-shadow(0 0 0.75rem grey);
 }
+.section-four-content p {
+  font-size: 1.1rem;
+}
 
 .section-five {
   height: 900px;
