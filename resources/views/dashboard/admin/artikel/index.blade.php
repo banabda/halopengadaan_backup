@@ -83,35 +83,36 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <form>
-            <div class="form-group">
-              <label for="judul_artikel" class="col-form-label">Judul:</label>
-              <input type="text" class="form-control" name="judul" id="judul_artikel">
-            </div>
-            <div class="form-group">
-              <label for="deskripsi_artikel" class="col-form-label">Deskripsi:</label>
-              <textarea class="form-control" name="desc" id="deskripsi_artikel"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="link_artikel" class="col-form-label">Link Terkait:</label>
-                <input type="url" class="form-control" name="link" id="link_artikel">
-            </div>
-            <div class="form-group">
-                <label for="foto_artikel" class="col-form-label">Foto Thumbnail:</label>
-                <input type="file" class="form-control" name="foto" id="foto_artikel">
-            </div>
+        <form id="createArtikel" action="{{ route('artikel.store') }}" method="POST" enctype="multipart/form-data">
+            <div class="modal-body">
+                @csrf
+                <input type="hidden" name="id" id="id_artikel">
+                <div class="form-group">
+                    <label for="judul_artikel" class="col-form-label">Judul:</label>
+                    <input type="text" class="form-control" name="judul" id="judul_artikel">
+                </div>
+                <div class="form-group">
+                    <label for="deskripsi_artikel" class="col-form-label">Deskripsi:</label>
+                    <textarea class="form-control" name="desc" id="deskripsi_artikel"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="link_artikel" class="col-form-label">Link Terkait:</label>
+                    <input type="url" class="form-control" name="link" id="link_artikel">
+                </div>
+                <div class="form-group">
+                    <label for="foto_artikel" class="col-form-label">Foto Thumbnail:</label>
+                    <input type="file" class="form-control" name="foto" id="foto_artikel">
+                </div>
 
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Send message</button>
-        </div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary">Simpan!</button>
+            </div>
+        </form>
       </div>
     </div>
 </div>
-
 <script>
     var table;
       $(function() {
@@ -122,8 +123,8 @@
               columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
                 {data: 'judul', name: 'judul'},
-                {data: 'link', name: 'link'},
-                {data: 'foto', name: 'foto'},
+                {data: 'link_url', name: 'link_url'},
+                {data: 'foto_artikel', name: 'foto_artikel'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
               ]
           });
@@ -135,7 +136,7 @@
       });
 </script>
 <script>
-    $(document).on('click', '.delete-confirm', function(){
+    $(document).on('click', '   .delete-confirm', function(){
         var id_role = $(this).attr("id");
         // console.log(id_role);
         $.ajaxSetup({
@@ -171,6 +172,58 @@
                 });
             }
         })
+    });
+
+    $('#createArtikel').on('submit', function(event){
+
+        event.preventDefault();
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: $(this).attr("action"),
+            method:"POST",
+            data:new FormData(this),
+            dataType:'JSON',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: (data) => {
+                if(data.status == "ok"){
+                    $('#exampleModal').modal('toggle')
+                    table.draw(false);
+                }
+            },
+
+            error: (data) => {
+
+            }
+        });
+    });
+
+    $(document).on('click', '.edit-artikel', function(e){
+        var id_artikel = $(this).attr("id");
+        console.log("Masuk Edit");
+        e.preventDefault();
+        $.ajax({
+            type:'GET',
+            url: "{{url('admin/artikel')}}/" + id_artikel + '/edit',
+            success:function(data)
+            {
+                $('#exampleModal').modal('show');
+                $('#id_artikel').val(data.id);
+                $('#judul_artikel').val(data.judul);
+                $('#deskripsi_artikel').val(data.desc);
+                $('#link_artikel').val(data.link);
+                console.log(data);
+
+
+            },
+            error: function(data){
+            }
+        });
     });
 </script>
 @endsection

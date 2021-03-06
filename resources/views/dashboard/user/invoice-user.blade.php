@@ -58,8 +58,8 @@
 
                         // If the count down is finished, write some text
                         if (distance < 0) {
-                        clearInterval(x{{ $invoice->id }});
-                        document.getElementById("waktu-{{ $invoice->id }}").innerHTML = "EXPIRED";
+                            clearInterval(x{{ $invoice->id }});
+                            document.getElementById("waktu-{{ $invoice->id }}").innerHTML = "EXPIRED";
                         }
                     }, 1000);
                 </script>
