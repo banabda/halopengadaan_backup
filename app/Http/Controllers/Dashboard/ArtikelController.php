@@ -60,7 +60,6 @@ class ArtikelController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-
         $path = 'images/artikel';
         $file = $request->file('foto');
         $path = Storage::disk('public')->put(
@@ -71,10 +70,7 @@ class ArtikelController extends Controller
         $data['foto'] = $path;
         $artikel = Artikel::create($data);
 
-        return response()->json([
-            'status' => 'ok',
-            'message' => 'Artikel Berhasil Dibuat'
-        ]);
+        return redirect()->route('artikel.index');
     }
 
     /**

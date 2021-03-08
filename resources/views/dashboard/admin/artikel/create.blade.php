@@ -1,5 +1,16 @@
 @extends('dashboard.dashboard')
 @section('content')
+<!-- Tiny MCE -->
+<script src="{{ asset('tinymce/js/tinymce.min.js') }}"></script>
+
+<script>
+    tinymce.init({
+        selector: 'textarea.editor',  // change this value according to your HTML
+        plugins: 'lists,table,textcolor',
+        toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent ',
+        theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+    });
+</script>
  <!-- Content Wrapper. Contains page content -->
  <div class="content-wrapper">
     <div class="container-full">
@@ -30,50 +41,30 @@
                     <h4 class="box-title">Buat Artikel Baru</h4>
                   </div>
                   <!-- /.box-header -->
-                  <form class="form" id="createUser" action="{{ route('user.store') }}">
+                  <form class="form" id="createArtikel" action="{{ route('artikel.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
                       <div class="box-body">
                           <hr class="my-15">
-                          <div class="row">
-                            <div class="col-md-6">
-
-                              <div class="form-group">
-                                <label>Nama Lengkap</label>
-                                <input type="text" class="form-control" name="name" placeholder="Nama Lengkap">
-                              </div>
+                            <div class="form-group">
+                                <label>Judul Artikel</label>
+                                <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul Artikel">
                             </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label>Email</label>
-                                <input type="email" class="form-control" name="email" placeholder="E-mail">
-                              </div>
+                            <div class="form-group">
+                                <label>Konten Artikel</label>
+                                <textarea name="desc" class="form-control editor" placeholder="Textarea text"></textarea>
                             </div>
-                          </div>
-                          <div class="row">
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label >Password</label>
-                                <input type="password" id="password" name="password" class="form-control" placeholder="Password">
-                                <p id="message"></p>
-                              </div>
+                            <div class="form-group">
+                                <label>Foto Artikel</label>
+                                <input type="file" class="form-control" name="foto" placeholder="Judul Artikel">
                             </div>
-                            <div class="col-md-6">
-                              <div class="form-group">
-                                <label for="role">Pilih Role :</label>
-                                <select class="custom-select form-control" id="role" name="role">
-                                    <option value="">Pilih Role</option>
-                                </select>
-                                {{-- <input type="password" id="confirm_password" class="form-control" placeholder="Konfirmasi Password"> --}}
-                              </div>
-                            </div>
-                          </div>
                       </div>
                       <!-- /.box-body -->
                       <div class="box-footer text-right">
-                          <a href="{{ route('user.index') }}"><button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
+                          <a href="{{ route('artikel.index') }}"><button type="button" class="btn btn-rounded btn-warning btn-outline mr-1">
                             <i class="ti-trash"></i> Cancel
                           </button></a>
                           <button type="submit" class="btn btn-rounded btn-primary btn-outline">
-                            <i class="ti-save-alt"></i> Save
+                            <i class="ti-save-alt"></i> Publish
                           </button>
                       </div>
                   </form>
@@ -83,41 +74,34 @@
     </div>
 </div>
 
-<script>
-    // $('#password, #confirm_password').on('keyup', function () {
-    //     if ($('#password').val() == $('#confirm_password').val()) {
-    //         $('#message').html('Password Cocok').css('color', 'green');
-    //     } else
-    //         $('#message').html('Password Tidak Sama').css('color', 'red');
-    // });
+{{-- <script>
+    $('#createArtikel').on('submit', function(event){
+        event.preventDefault();
+        var value = tinyMCE.get('desc');
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: $(this).attr("action"),
+            method:"POST",
+            data:{
+                desc : value,
+                judul : $('#judul').val()
+            },
+            dataType:'JSON',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: (data) => {
+                window.location.href = '{{ route("user.index") }}';
+            },
 
-    $('#createUser').on('submit', function(event){
+            error: (data) => {
 
-    // check if the input is valid using a 'valid' property
-    // if ($('#password').val() !== $('#confirm_password').val()) return false;
-
-    event.preventDefault();
-    $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
+            }
+        });
     });
-    $.ajax({
-        url: $(this).attr("action"),
-        method:"POST",
-        data:new FormData(this),
-        dataType:'JSON',
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: (data) => {
-            window.location.href = '{{ route("user.index") }}';
-        },
-
-        error: (data) => {
-
-        }
-    });
-    });
-</script>
+</script> --}}
 @endsection
