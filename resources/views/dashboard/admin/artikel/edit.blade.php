@@ -41,17 +41,18 @@
                     <h4 class="box-title">Buat Artikel Baru</h4>
                   </div>
                   <!-- /.box-header -->
-                  <form class="form" id="createArtikel" action="{{ route('artikel.store') }}" method="POST" enctype="multipart/form-data">
+                  <form class="form" id="createArtikel" action="{{ route('artikel.update', $data->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PATCH')
                       <div class="box-body">
                           <hr class="my-15">
                             <div class="form-group">
                                 <label>Judul Artikel</label>
-                                <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul Artikel">
+                                <input type="text" class="form-control" id="judul" name="judul" value="{{ $data->judul }}" placeholder="Judul Artikel">
                             </div>
                             <div class="form-group">
                                 <label>Konten Artikel</label>
-                                <textarea name="desc" class="form-control editor" placeholder="Textarea text"></textarea>
+                                <textarea name="desc" class="form-control editor" placeholder="Textarea text">{{ $data->desc }}</textarea>
                             </div>
                             <div class="form-group">
                                 <label>Foto Artikel</label>

@@ -26,7 +26,7 @@ class ArtikelController extends Controller
                 return "<a target='_blank' href='". Storage::url($foto->foto) ."'><img src=". Storage::url($foto->foto). " height='150px' width='auto' alt='". $foto->foto ."'></a>";
             })
             ->addColumn('action', function($row){
-                $btn = '<a class="btn btn-xs btn-info mr-2 edit-artikel" id="'. $row->id .'">
+                $btn = '<a class="btn btn-xs btn-info mr-2 edit-artikel" href="'. route('artikel.edit', $row->id) .'" id="'. $row->id .'">
                 <i class="fa fa-edit"></i> Edit </a>';
                 $btn .= '<a class="btn btn-xs btn-info delete-confirm" id="'. $row->id .'" href="javascript:void(0)">
                 <i class="fa fa-trash"></i> Hapus </a>';
@@ -93,7 +93,7 @@ class ArtikelController extends Controller
     public function edit($id)
     {
         $data = Artikel::find($id)->first();
-        return $data;
+        return view('dashboard.admin.artikel.edit', compact('data'));
     }
 
     /**
@@ -105,7 +105,26 @@ class ArtikelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $artikel = Artikel::find($id);
+        $data = $request->all();
+
+        // Delete Foto Artikel
+        // dd(Storage::delete('app/public/'. $artikel->foto));
+        unlink(storage_path('app/public/'.$artikel->foto));
+
+        // Re - Upload Foto Artikel
+        $path = 'images/artikel';
+        $file = $request->file('foto');
+        $path = Storage::disk('public')->put(
+            $path,
+            $file
+        );
+
+        $data['foto'] = $path;
+        $artikel->update($data);
+
+        return view('dashboard.admin.artikel.index');
+        dd($data, $artikel);
     }
 
     /**

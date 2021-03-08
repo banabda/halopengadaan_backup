@@ -172,57 +172,5 @@
             }
         })
     });
-
-    $('#createArtikel').on('submit', function(event){
-
-        event.preventDefault();
-        $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: $(this).attr("action"),
-            method:"POST",
-            data:new FormData(this),
-            dataType:'JSON',
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: (data) => {
-                if(data.status == "ok"){
-                    $('#exampleModal').modal('toggle')
-                    table.draw(false);
-                }
-            },
-
-            error: (data) => {
-
-            }
-        });
-    });
-
-    $(document).on('click', '.edit-artikel', function(e){
-        var id_artikel = $(this).attr("id");
-        console.log("Masuk Edit");
-        e.preventDefault();
-        $.ajax({
-            type:'GET',
-            url: "{{url('admin/artikel')}}/" + id_artikel + '/edit',
-            success:function(data)
-            {
-                $('#exampleModal').modal('show');
-                $('#id_artikel').val(data.id);
-                $('#judul_artikel').val(data.judul);
-                $('#deskripsi_artikel').val(data.desc);
-                $('#link_artikel').val(data.link);
-
-            },
-            error: function(data){
-            }
-        });
-    });
-
-
 </script>
 @endsection
