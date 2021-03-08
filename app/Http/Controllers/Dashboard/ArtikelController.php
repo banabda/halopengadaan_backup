@@ -109,22 +109,23 @@ class ArtikelController extends Controller
         $data = $request->all();
 
         // Delete Foto Artikel
-        // dd(Storage::delete('app/public/'. $artikel->foto));
-        unlink(storage_path('app/public/'.$artikel->foto));
+        if (is_null($data['foto'])) {
+            unlink(storage_path('app/public/'.$artikel->foto));
 
-        // Re - Upload Foto Artikel
-        $path = 'images/artikel';
-        $file = $request->file('foto');
-        $path = Storage::disk('public')->put(
-            $path,
-            $file
-        );
+            // Re - Upload Foto Artikel
+            $path = 'images/artikel';
+            $file = $request->file('foto');
+            $path = Storage::disk('public')->put(
+                $path,
+                $file
+            );
 
-        $data['foto'] = $path;
+            $data['foto'] = $path;
+        }
+
         $artikel->update($data);
 
-        return view('dashboard.admin.artikel.index');
-        dd($data, $artikel);
+        return redirect()->route('artikel.index');
     }
 
     /**
@@ -135,6 +136,12 @@ class ArtikelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Artikel::find($id);
+        $data->delete();
+        unlink(storage_path('app/public/'.$artikel->foto));
+
+        return response()->json([
+            'status' => 'ok'
+        ]);
     }
 }
