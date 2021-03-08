@@ -29,8 +29,7 @@
 
            <div class="box">
               <div class="box-header with-border">
-                  <button type="button" class="btn btn-outline btn-primary mb-5" data-toggle="modal"
-                    data-target="#exampleModal">New Artikel</button>
+                  <a href="{{ route('artikel.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5" >New Artikel</button></a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -217,13 +216,13 @@
                 $('#judul_artikel').val(data.judul);
                 $('#deskripsi_artikel').val(data.desc);
                 $('#link_artikel').val(data.link);
-                console.log(data);
-
 
             },
             error: function(data){
             }
         });
     });
+
+
 </script>
 @endsection

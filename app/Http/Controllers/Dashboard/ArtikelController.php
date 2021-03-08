@@ -48,7 +48,7 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.artikel.create');
     }
 
     /**
