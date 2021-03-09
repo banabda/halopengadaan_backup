@@ -1,47 +1,31 @@
-.section-one{
-    height: 700px;
-    &-content{
-        padding-top: 100px;
-        &-image{
-            width: 350px;
-            height: 350px;
-
-            position: absolute;
-            top:0; right: 0; left: 0; bottom: 0;
-            margin: 10px auto;
-
-            background: url("https://i.pinimg.com/564x/6f/5a/b1/6f5ab1b470beeeeaf285bb451c63ac8f.jpg");
-            background-color: black;
-            background-size: cover;
-            cursor: pointer;
-
-            -webkit-box-shadow: 0 0 5px #000;
-                    box-shadow: 0 0 5px #000;
+.section-one {
+    height: 650px;
+    &-content {
+        color: white;
+        .left {
+            padding-top: 150px;
         }
-
-        &-image:hover .overlay {
-          opacity: 1;
-          & .head {
-            transform: translateY(0px);
-          }
-
-          & hr {
-            width: 75px;
-            transition-delay: 0.4s;
-          }
-
-          & .price {
-            transform: translateY(0px);
-            transition-delay: 0.3s;
-            opacity: 1;
-          }
-
-          & .cart {
-            transform: translateY(0px);
-            transition-delay: 0.6s;
-            opacity: 1;
-          }
+        .right {
+            padding-top: 100px;
+            padding-left: 100px;
+            position: relative;
+            img {
+                position: absolute;
+                height: 400px;
+                width: 400px;
+                bottom: -25px;
+                right: 35px;
+                z-index: -2;
+            }
+            .divimage {
+                width: 400px;
+                height: 400px;
+                background-size: 40%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position-x: -650px;
+                z-index: 1;
+            }
         }
-
     }
 }

@@ -46,14 +46,12 @@
 </style>
 <div class="section-two">
     <div class="container section-two-content">
-        <div class="row">
+        <div class="row two-tittle">
             <div class="col-md-12">
-                <div class="row mb-5 two-tittle">
-                    <div class="col-md-12">
-                        <h1 class="text-center section-content-header">Untuk Siapa Layanan Ini?</h1>
-                    </div>
-                </div>
-                <div class="row mb-md-3 justify-content-center">
+                <h1 class="text-center section-content-header">Untuk Siapa Layanan Ini?</h1>
+            </div>
+            
+                {{-- <div class="row mb-md-3 justify-content-center">
                     <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg font-weight-bold two-btn-1" disabled>
                             Pemerintah Pusat
@@ -91,8 +89,21 @@
                             Penyedia
                         </button>
                     </div>
-                </div>
+                </div> --}}
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="layananlist">
+                    <li>Pemerintah Pusat</li>
+                    <li>Pemerintah Daerah</li>
+                    <li>BUMN</li>
+                    <li>BUMD</li>
+                    <li>BLU</li>
+                    <li>BLUD</li>
+                    <li>Penyedia</li>
+                </ul>
             </div>
+            <div class="col-md-8"></div>
         </div>
     </div>
     
