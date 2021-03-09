@@ -37,6 +37,9 @@ Auth::routes();
 // Save Paket
 Route::post('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('landing.paket');
 
+// Show Artikel
+Route::get('artikel/{slug}', 'Dashboard\ArtikelController@readArtikel')->name('landing.artikel.show');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
     // crud narasumber
@@ -76,7 +79,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 
     // Artikel
     Route::resource('artikel', 'Dashboard\ArtikelController');
-    
+
     // Data Pembayaran Invoice
     Route::get('invoice', 'Dashboard\HomeController@invoice')->name('admin.dashboard.invoice');
     Route::post('proses/invoice/{id}', 'Dashboard\HomeController@prosesInvoice')->name('admin.dashboard.invoice.proses');

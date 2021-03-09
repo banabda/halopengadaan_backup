@@ -144,4 +144,15 @@ class ArtikelController extends Controller
             'status' => 'ok'
         ]);
     }
+
+    public function readArtikel($slug)
+    {
+        $artikel = Artikel::where('')->first();
+
+        $data = [
+            'artikel' => $artikel
+        ];
+
+        return view('components.show-artikel');
+    }
 }
