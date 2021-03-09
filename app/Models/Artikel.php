@@ -13,7 +13,7 @@ class Artikel extends Model
     protected $fillable = [
         'judul',
         'desc',
-        'link',
+        'slug',
         'foto'
     ];
 }

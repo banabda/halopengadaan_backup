@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Artikel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
 {
@@ -59,7 +60,13 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        $data = [
+            'judul' => $request->judul,
+            'desc' => $request->desc,
+            'foto' => $request->foto,
+            'slug' => Str::slug($request->judul)
+        ];
+
         $path = 'images/artikel';
         $file = $request->file('foto');
         $path = Storage::disk('public')->put(
@@ -106,10 +113,22 @@ class ArtikelController extends Controller
     public function update(Request $request, $id)
     {
         $artikel = Artikel::find($id);
-        $data = $request->all();
+
+        if (is_null($request->foto)) {
+            $foto = $artikel->foto;
+        } else {
+            $foto = $request->foto;
+        }
+
+        $data = [
+            'judul' => $request->judul,
+            'desc' => $request->desc,
+            'foto' => $foto,
+            'slug' => Str::slug($request->judul)
+        ];
 
         // Delete Foto Artikel
-        if (isset($data['foto']) == true) {
+        if (!is_null($request->foto)) {
             unlink(storage_path('app/public/'.$artikel->foto));
 
             // Re - Upload Foto Artikel
@@ -147,7 +166,7 @@ class ArtikelController extends Controller
 
     public function readArtikel($slug)
     {
-        $artikel = Artikel::where('')->first();
+        $artikel = Artikel::where('slug', $slug)->first();
 
         $data = [
             'artikel' => $artikel
