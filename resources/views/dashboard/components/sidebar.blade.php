@@ -43,12 +43,7 @@
               <span>Metode Pembayaran</span>
             </a>
         </li>
-        <li>
-            <a href="{{route('artikel.index')}}">
-              <i data-feather="printer"></i>
-              <span>Artikel</span>
-            </a>
-        </li>
+
         <li class="header nav-small-cap">Keamanan</li>
         <li class="treeview">
             <a href="#">
@@ -65,51 +60,30 @@
             </ul>
         </li>
 
-		<li class="header nav-small-cap">EXTRA</li>
+		<li class="header nav-small-cap">Tambahan</li>
 
-        {{-- <li class="treeview">
-          <a href="#">
-            <i data-feather="layers"></i>
-			<span>Multilevel</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="#">Level One</a></li>
-            <li class="treeview">
-              <a href="#">Level One
-                <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="#">Level Two</a></li>
-                <li class="treeview">
-                  <a href="#">Level Two
-                    <span class="pull-right-container">
-					  <i class="fa fa-angle-right pull-right"></i>
-					</span>
-                  </a>
-                  <ul class="treeview-menu">
-                    <li><a href="#">Level Three</a></li>
-                    <li><a href="#">Level Three</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li><a href="#">Level One</a></li>
-          </ul>
-        </li> --}}
+        <li>
+            <a href="{{route('artikel.index')}}">
+              <i data-feather="printer"></i>
+              <span>Artikel</span>
+            </a>
+        </li>
 
-		<li>
+        <li>
+            <a href="{{route('artikel.index')}}">
+              <i data-feather="download-cloud"></i>
+              <span>Regulasi</span>
+            </a>
+        </li>
+
+		{{-- <li>
           <a href="{{ route('logout') }}"
           onclick="event.preventDefault();
                         document.getElementById('logout-form').submit();">
             <i data-feather="alert-triangle"></i>
 			<span>Log Out</span>
           </a>
-        </li>
+        </li> --}}
 
         @elserole('user')
           <li>
