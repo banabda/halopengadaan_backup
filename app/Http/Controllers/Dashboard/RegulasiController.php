@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Regulasi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Yajra\DataTables\Facades\DataTables;
 
 class RegulasiController extends Controller
@@ -20,7 +21,7 @@ class RegulasiController extends Controller
         if (request()->ajax()) {
             return DataTables()->of($data)
             ->addColumn('action', function($row){
-                $btn = '<a class="btn btn-xs btn-info mr-2 edit-artikel" href="'. route('artikel.edit', $row->id) .'" id="'. $row->id .'">
+                $btn = '<a class="btn btn-xs btn-info mr-2 edit-regulasi" href="'. route('regulasi.edit', $row->id) .'" id="'. $row->id .'">
                 <i class="fa fa-edit"></i> Edit </a>';
                 $btn .= '<a class="btn btn-xs btn-info delete-confirm" id="'. $row->id .'" href="javascript:void(0)">
                 <i class="fa fa-trash"></i> Hapus </a>';
@@ -52,6 +53,18 @@ class RegulasiController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->all();
+
+        // Upload Dokumen
+        $path = 'dokumen/regulasi';
+        $dokumenName = $data['dokumen']->getClientOriginalName();
+        $request->dokumen->move(public_path($path), $dokumenName);
+        $path = $path . '/' . $dokumenName;
+
+        $data['dokumen'] = $path;
+
+        $regulasi = Regulasi::create($data);
+
         return redirect()->route('regulasi.index');
     }
 
@@ -74,7 +87,13 @@ class RegulasiController extends Controller
      */
     public function edit($id)
     {
-        return view('dashboard.admin.regulasi.edit');
+        $regulasi = Regulasi::find($id)->first();
+
+        $data =[
+            'regulasi' => $regulasi
+        ];
+
+        return view('dashboard.admin.regulasi.edit', $data);
     }
 
     /**
@@ -86,6 +105,22 @@ class RegulasiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $regulasi = Regulasi::find($id);
+
+        $data = $request->all();
+        // dd(isset($data['dokumen']));
+        if (isset($data['dokumen'])) {
+            File::delete($regulasi->dokumen);
+            $path = 'dokumen/regulasi';
+            $dokumenName = $data['dokumen']->getClientOriginalName();
+            $request->dokumen->move(public_path($path), $dokumenName);
+            $path = $path . '/' . $dokumenName;
+
+            $data['dokumen'] = $path;
+        }
+
+        $regulasi->update($data);
+
         return redirect()->route('regulasi.index');
     }
 
@@ -97,6 +132,10 @@ class RegulasiController extends Controller
      */
     public function destroy($id)
     {
+        $regulasi = Regulasi::find($id);
+        $regulasi->delete();
+        File::delete($regulasi->dokumen);
+
         return response()->json([
             'status' => 'ok'
         ]);
