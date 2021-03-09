@@ -8,13 +8,13 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-                  <h3 class="page-title">Data Invoice</h3>
+                  <h3 class="page-title">Data Kwitansi</h3>
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
                               <li class="breadcrumb-item" aria-current="page">Auth</li>
-                              <li class="breadcrumb-item active" aria-current="page">Data Invoice</li>
+                              <li class="breadcrumb-item active" aria-current="page">Data Kwitansi</li>
                           </ol>
                       </nav>
                   </div>
@@ -31,7 +31,7 @@
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
-                    <table id="tableInvoiceprofil" class="table table-bordered table-striped">
+                    <table id="tableKwitansi" class="table table-bordered table-striped">
                       <thead>
                           <tr>
                               <th>No</th>
@@ -73,10 +73,10 @@
 <script>
     var table;
       $(function() {
-          table = $('#tableInvoiceprofil').DataTable({
+          table = $('#tableKwitansi').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{ route('user.dashboard.invoice') }}",
+              ajax: "{{ route('user.dashboard.kwitansi') }}",
               columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
                 {data: 'paket_detail', name: 'paket_detail'},

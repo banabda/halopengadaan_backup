@@ -134,6 +134,13 @@
           </li>
 
           <li>
+            <a href="{{ route('user.dashboard.kwitansi') }}">
+              <i data-feather="archive"></i>
+              <span>Kwitansi</span>
+            </a>
+          </li>
+
+          <li>
             <a href="{{ route('logout') }}"
             onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
