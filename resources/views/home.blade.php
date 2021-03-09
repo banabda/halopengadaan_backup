@@ -49,13 +49,16 @@
             <div class="row justify-content-center">
                 <div class="col-md-6 left">
     
-                    <h1 class="font-weight-bold section-content-header h-sect1">Halo Pengadaan</h1>
-                    <p class="section-content-paragraph text-justify p-sect1">
-                        Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna.
-                        <br>
-                        Sistem ini melibatkan Banyak Pakar dengan berbagai Keahlian khusus, serta memiliki Quality Assurance,
-                        dimana semua jawaban terhadap pertanyaan akan dibedah dengan secara seksama berdasarkan peraturan perundang undangan.
-                    </p>
+                    <h1 class="font-weight-bold section-content-header h-sect1 mb-3">Halo Pengadaan</h1>
+                    <div class="p-sect1">
+                        <p class="section-content-paragraph text-justify ">
+                            Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna.
+                        </p>
+                        <p class="section-content-paragraph text-justify">
+                            Sistem ini melibatkan Banyak Pakar dengan berbagai Keahlian khusus, serta memiliki Quality Assurance,
+                            dimana semua jawaban terhadap pertanyaan akan dibedah dengan secara seksama berdasarkan peraturan perundang undangan.
+                        </p>
+                    </div>
     
                 </div>
                 <div class="col-md-6 right">
