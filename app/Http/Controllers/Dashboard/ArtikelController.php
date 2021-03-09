@@ -109,7 +109,7 @@ class ArtikelController extends Controller
         $data = $request->all();
 
         // Delete Foto Artikel
-        if (is_null($data['foto'])) {
+        if (isset($data['foto']) == true) {
             unlink(storage_path('app/public/'.$artikel->foto));
 
             // Re - Upload Foto Artikel
@@ -138,7 +138,7 @@ class ArtikelController extends Controller
     {
         $data = Artikel::find($id);
         $data->delete();
-        unlink(storage_path('app/public/'.$artikel->foto));
+        unlink(storage_path('app/public/'.$data->foto));
 
         return response()->json([
             'status' => 'ok'

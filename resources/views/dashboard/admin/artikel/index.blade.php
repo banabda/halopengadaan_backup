@@ -136,8 +136,8 @@
 </script>
 <script>
     $(document).on('click', '   .delete-confirm', function(){
-        var id_role = $(this).attr("id");
-        // console.log(id_role);
+        var id_artikel = $(this).attr("id");
+        // console.log(id_artikel);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -159,7 +159,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type:'DELETE',
-                    url: "{{url('admin/user')}}/" + id_role,
+                    url: "{{url('admin/artikel')}}/" + id_artikel,
                     success:function(data)
                     {
                         if(data.status == "ok"){
