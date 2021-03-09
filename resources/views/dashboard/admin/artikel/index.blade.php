@@ -29,8 +29,7 @@
 
            <div class="box">
               <div class="box-header with-border">
-                  <button type="button" class="btn btn-outline btn-primary mb-5" data-toggle="modal"
-                    data-target="#exampleModal">New Artikel</button>
+                  <a href="{{ route('artikel.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5" >New Artikel</button></a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -137,8 +136,8 @@
 </script>
 <script>
     $(document).on('click', '   .delete-confirm', function(){
-        var id_role = $(this).attr("id");
-        // console.log(id_role);
+        var id_artikel = $(this).attr("id");
+        // console.log(id_artikel);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -160,7 +159,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type:'DELETE',
-                    url: "{{url('admin/user')}}/" + id_role,
+                    url: "{{url('admin/artikel')}}/" + id_artikel,
                     success:function(data)
                     {
                         if(data.status == "ok"){
@@ -172,58 +171,6 @@
                 });
             }
         })
-    });
-
-    $('#createArtikel').on('submit', function(event){
-
-        event.preventDefault();
-        $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: $(this).attr("action"),
-            method:"POST",
-            data:new FormData(this),
-            dataType:'JSON',
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: (data) => {
-                if(data.status == "ok"){
-                    $('#exampleModal').modal('toggle')
-                    table.draw(false);
-                }
-            },
-
-            error: (data) => {
-
-            }
-        });
-    });
-
-    $(document).on('click', '.edit-artikel', function(e){
-        var id_artikel = $(this).attr("id");
-        console.log("Masuk Edit");
-        e.preventDefault();
-        $.ajax({
-            type:'GET',
-            url: "{{url('admin/artikel')}}/" + id_artikel + '/edit',
-            success:function(data)
-            {
-                $('#exampleModal').modal('show');
-                $('#id_artikel').val(data.id);
-                $('#judul_artikel').val(data.judul);
-                $('#deskripsi_artikel').val(data.desc);
-                $('#link_artikel').val(data.link);
-                console.log(data);
-
-
-            },
-            error: function(data){
-            }
-        });
     });
 </script>
 @endsection
