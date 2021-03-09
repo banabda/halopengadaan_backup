@@ -52,6 +52,18 @@ class RegulasiController extends Controller
      */
     public function store(Request $request)
     {
+        $data = $request->all();
+
+        // Upload Dokumen
+        $path = 'dokumen/regulasi';
+        $dokumenName = $data['dokumen']->getClientOriginalName();
+        $request->dokumen->move(public_path($path), $dokumenName);
+        $path = $path . '/' . $dokumenName;
+
+        $data['dokumen'] = $path;
+
+        $regulasi = Regulasi::create($data);
+
         return redirect()->route('regulasi.index');
     }
 
