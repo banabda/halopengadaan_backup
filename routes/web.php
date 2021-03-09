@@ -50,21 +50,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::get('edit/{id}','Narasumber\NarasumberController@edit');
     Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
 
-    // CRUD halaman mambership
-    Route::get('memberadmin','Mambership\MambershipController@index')->name('mambership');
-    Route::post('buat','Mambership\MambershipController@store')->name('mambership.store');
-    Route::get('detailmamber/{id}','Mambership\MambershipController@detailmamber');
-    Route::get('deletemamber/{id}','Mambership\MambershipController@deletemamber');
-    Route::get('editmamber/{id}','Mambership\MambershipController@editmamber');
-    Route::post('updatemamber','Mambership\MambershipController@updatemamber')->name('mambership.updatemamber');
-
-     // crud halaman metode pembayaran
-     Route::get('metode-pembayaran','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
-     Route::post('buatmethod','Metodepembayaran\MetodepembayaranController@store')->name('metodepembayaran.store');
-     Route::get('detailmethod/{id}','Metodepembayaran\MetodepembayaranController@detailmethod');
-     Route::get('deletemethod/{id}','Metodepembayaran\MetodepembayaranController@deletemethod');
-     Route::get('editmethod/{id}','Metodepembayaran\MetodepembayaranController@editmethod');
-     Route::post('updatemethod','Metodepembayaran\MetodepembayaranController@updatemethod')->name('metodepembayaran.updatemethod');
+    // crud halaman metode pembayaran
+    Route::get('metode-pembayaran','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
+    Route::post('buatmethod','Metodepembayaran\MetodepembayaranController@store')->name('metodepembayaran.store');
+    Route::get('detailmethod/{id}','Metodepembayaran\MetodepembayaranController@detailmethod');
+    Route::get('deletemethod/{id}','Metodepembayaran\MetodepembayaranController@deletemethod');
+    Route::get('editmethod/{id}','Metodepembayaran\MetodepembayaranController@editmethod');
+    Route::post('updatemethod','Metodepembayaran\MetodepembayaranController@updatemethod')->name('metodepembayaran.updatemethod');
 
     Route::get('dashboard', 'Dashboard\HomeController@index')->name('dashboard.index');
 
@@ -80,6 +72,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     // Artikel
     Route::resource('artikel', 'Dashboard\ArtikelController');
 
+    // Regulasi
+    Route::resource('regulasi', 'Dashboard\RegulasiController');
+
     // Data Pembayaran Invoice
     Route::get('invoice', 'Dashboard\HomeController@invoice')->name('admin.dashboard.invoice');
     Route::post('proses/invoice/{id}', 'Dashboard\HomeController@prosesInvoice')->name('admin.dashboard.invoice.proses');
@@ -87,6 +82,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     // Data Narasumber
     Route::get('narasumber', 'Dashboard\HomeController@dataNarasumber')->name('admin.dashboard.narasumber');
     Route::post('narasumber/verify/{id}', 'Dashboard\HomeController@verifyUserNarasumber')->name('admin.dashboard.narasumber.verify');
+
 });
 
 Route::group(['middleware' => ['auth']], function ()

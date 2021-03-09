@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Regulasi;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class RegulasiController extends Controller
 {
@@ -14,7 +16,22 @@ class RegulasiController extends Controller
      */
     public function index()
     {
-        //
+        $data = Regulasi::all();
+        if (request()->ajax()) {
+            return DataTables()->of($data)
+            ->addColumn('action', function($row){
+                $btn = '<a class="btn btn-xs btn-info mr-2 edit-artikel" href="'. route('artikel.edit', $row->id) .'" id="'. $row->id .'">
+                <i class="fa fa-edit"></i> Edit </a>';
+                $btn .= '<a class="btn btn-xs btn-info delete-confirm" id="'. $row->id .'" href="javascript:void(0)">
+                <i class="fa fa-trash"></i> Hapus </a>';
+
+                return $btn;
+            })
+            ->rawColumns(['action'])
+            ->addIndexColumn()
+            ->make(true);
+        }
+        return view('dashboard.admin.regulasi.index');
     }
 
     /**
@@ -24,7 +41,7 @@ class RegulasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('dashboard.admin.regulasi.create');
     }
 
     /**
@@ -35,7 +52,7 @@ class RegulasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return redirect()->route('regulasi.index');
     }
 
     /**
@@ -46,7 +63,7 @@ class RegulasiController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -57,7 +74,7 @@ class RegulasiController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('dashboard.admin.regulasi.edit');
     }
 
     /**
@@ -69,7 +86,7 @@ class RegulasiController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return redirect()->route('regulasi.index');
     }
 
     /**
@@ -80,6 +97,8 @@ class RegulasiController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json([
+            'status' => 'ok'
+        ]);
     }
 }
