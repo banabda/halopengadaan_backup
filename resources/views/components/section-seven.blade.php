@@ -1,4 +1,4 @@
-<div class="section-seven">
+<div class="section-seven" id="section-seven">
     <div class="container section-seven-content">
         <h1 class="section-content-header seven-title">
             Artikel
