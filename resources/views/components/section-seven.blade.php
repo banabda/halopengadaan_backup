@@ -1,11 +1,11 @@
-<div class="section-seven">
+<div class="section-seven" id="section-seven">
     <div class="container section-seven-content">
         <h1 class="section-content-header seven-title">
             Artikel
         </h1>
         <div class="sort-berita d-flex">
             <div class="mr-3 underline">Terbaru</div>
-            <div>Terpopuler</div>
+            <div class="">Terpopuler</div>
         </div>
         <div class="row">
             @for ($i = 1; $i < 9; $i++)
