@@ -10377,7 +10377,7 @@ h3 {
 
 .sect4img {
   position: absolute;
-  top: 2350;
+  top: 2550;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -10390,16 +10390,26 @@ h3 {
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
-  top: 200;
   left: -425;
 }
-.sect4img .sect4imgtag2 {
+
+.sect4img2 {
+  position: absolute;
+  top: 2350;
+  right: 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  z-index: -3;
+}
+.sect4img2 .sect4imgtag2 {
   height: 600px;
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
   top: 0;
-  right: -775;
+  right: -300;
 }
 
 .items {
