@@ -10334,12 +10334,14 @@ h3 {
   height: fit-content;
 }
 .sect2img .sect2imgtag {
+  opacity: 0;
   height: 475px;
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
   top: 0;
-  right: 0;
+  right: -600px;
+  transition: right 1s ease, top 1s ease, opacity 1.5s ease-in;
 }
 
 .sect3img {

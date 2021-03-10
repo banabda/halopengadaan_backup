@@ -6,41 +6,41 @@
     .two-btn-1{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 0.2s;
+        transition-delay: 0.1s;
     }
     .two-btn-2{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 0.4s;
+        transition-delay: 0.2s;
 
     }
     .two-btn-3{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 0.6s;
+        transition-delay: 0.3s;
 
     }
     .two-btn-4{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 0.8s;
+        transition-delay: 0.4s;
 
     }
     .two-btn-5{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 1s;
+        transition-delay: 0.5s;
 
     }
     .two-btn-6{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 1.2s;
+        transition-delay: 0.6s;
     }
     .two-btn-7{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 1.4s;
+        transition-delay: 0.7s;
 
     }
 </style>
@@ -94,13 +94,13 @@
         <div class="row">
             <div class="col-md-4">
                 <ul class="layananlist">
-                    <li>Pemerintah Pusat</li>
-                    <li>Pemerintah Daerah</li>
-                    <li>BUMN</li>
-                    <li>BUMD</li>
-                    <li>BLU</li>
-                    <li>BLUD</li>
-                    <li>Penyedia</li>
+                    <li class="two-btn-1">Pemerintah Pusat</li>
+                    <li class="two-btn-2">Pemerintah Daerah</li>
+                    <li class="two-btn-3">BUMN</li>
+                    <li class="two-btn-4">BUMD</li>
+                    <li class="two-btn-5">BLU</li>
+                    <li class="two-btn-6">BLUD</li>
+                    <li class="two-btn-7">Penyedia</li>
                 </ul>
             </div>
             <div class="col-md-8"></div>

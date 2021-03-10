@@ -112,8 +112,8 @@
             document.querySelector(".two-btn-5").style.opacity = 1;
             document.querySelector(".two-btn-6").style.opacity = 1;
             document.querySelector(".two-btn-7").style.opacity = 1;
-            // document.querySelector(".sect2imgtag").style.opacity = 1;
-            // document.querySelector(".sect2imgtag").style.left = '-400px';
+            document.querySelector(".sect2imgtag").style.opacity = 1;
+            document.querySelector(".sect2imgtag").style.right = 0;
         }
     }
 
