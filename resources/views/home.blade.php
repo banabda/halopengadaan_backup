@@ -87,6 +87,7 @@
 @include('components.section-four')
 @include('components.section-five')
 @include('components.section-six')
+@include('components.section-seven')
 @endsection
 <script>
 
