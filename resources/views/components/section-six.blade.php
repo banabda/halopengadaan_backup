@@ -16,7 +16,7 @@
         left: -50px;
         transition: opacity 0.7s ease-in, left 0.5s ease;
         transition-delay: 0.4s;
-        
+
     }
     .six-btn-3{
         position: relative;
@@ -38,7 +38,7 @@
                 </div>
                 <div class="row justify-content-center mb-md-4">
                     <div class="col-md-4 col-jenis six-btn-1">
-                        @include('components.membership-card', ['title'=>'konsultasi persesi / 30 menit', 'harga'=>'50.000,- / Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga'], 'id' => 1])
+                        @include('components.membership-card', ['title'=>'30 Menit / Sesi', 'harga'=>'50.000,- / Sesi', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga'], 'id' => 1])
                     </div>
                     <div class="col-md-4 col-jenis six-btn-2 my-3 my-md-0">
                         @include('components.membership-card', ['title'=>'Bulanan', 'harga'=>'250.000,- / 3 Bulan', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga', 'Lebih murah'], 'id' => 2])
