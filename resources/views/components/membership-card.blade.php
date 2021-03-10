@@ -1,6 +1,6 @@
 <style>
     .btn-daftar{
-        background: linear-gradient(to bottom, #3EC8AC, #4E90A4);
+        background: linear-gradient(to left, #ca4b7c, #6e376e);
         color: white;
         border: none;
     }

@@ -10096,7 +10096,7 @@ h3 {
 }
 
 .section-four {
-  height: 900px;
+  height: 800px;
 }
 .section-four-content {
   padding-top: 10vh;
@@ -10116,25 +10116,37 @@ h3 {
   padding-top: 5vh;
 }
 .section-five-content .linear-bg {
-  filter: drop-shadow(0 0 0.75rem gold);
-  border-radius: 5vw;
-  border: none;
-  height: 300px;
+  height: 350px;
+  padding: 10px;
   width: 300px;
-  background-image: linear-gradient(to bottom, #F3F9A7, #F5D000);
+  border: 4px solid transparent;
+  border-radius: 50px !important;
+  background: linear-gradient(to right, white, white), linear-gradient(to left, #ca4b7c, #6e376e);
+  background-clip: padding-box, border-box;
+  background-origin: padding-box, border-box;
   color: #000;
+  transition: box-shadow 0.2s ease-in;
 }
-.section-five-content .linear-bg .imagemember {
-  width: 180px;
+.section-five-content .linear-bg img {
+  max-height: 140px;
 }
-.section-five-content .linear-bg .imagemember4 {
-  width: 100px;
+.section-five-content .linear-bg h4 {
+  font-weight: bold;
 }
-.section-five-content .linear-bg #jl4 {
-  fill: #a2a57f;
+.section-five-content .linear-bg.big {
+  border-radius: 50px !important;
+  width: 600px;
 }
-.section-five-content .linear-bg #jl5 {
-  fill: #a2a57f;
+.section-five-content .linear-bg.big img {
+  max-height: 200px;
+}
+.section-five-content .linear-bg.big h3 {
+  font-weight: bold;
+  text-align: left;
+  padding-left: 30px;
+}
+.section-five-content .linear-bg:hover {
+  box-shadow: 5px 5px 20px 5px rgba(128, 128, 128, 0.486);
 }
 .section-five-content .linear-bg.big {
   width: 700px;
@@ -10152,7 +10164,7 @@ h3 {
   width: 300px;
   border: 8px solid transparent;
   border-radius: 50px !important;
-  background: linear-gradient(to right, white, white), linear-gradient(to bottom, #3EC8AC, #4E90A4);
+  background: linear-gradient(to right, white, white), linear-gradient(to left, #ca4b7c, #6e376e);
   background-clip: padding-box, border-box;
   background-origin: padding-box, border-box;
   color: #000;
