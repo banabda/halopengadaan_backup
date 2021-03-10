@@ -25,6 +25,7 @@ class Invoice extends Model
     protected $fillable = [
         'user_id',
         'paket',
+        'date_zoom',
         'metode_pembayaran',
         'nama_bank',
         'nomor_rekening',
