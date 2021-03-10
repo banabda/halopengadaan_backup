@@ -82,7 +82,10 @@ class HomeController extends Controller
             $expired_at = Carbon::now()->addDays(60)->toDateTimeString();
         } elseif($data->paket == "3") {
             $date_zoom = $data->date_zoom;
-            $expired_at = Carbon::now()->addHours(1)->toDateTimeString();
+
+            $dayExpired_at = intval(Carbon::parse($date_zoom)->format('d')) - Carbon::now()->format('d');
+
+            $expired_at = Carbon::now()->addDays($dayExpired_at)->toDateTimeString();
         }
 
         $data->update([
