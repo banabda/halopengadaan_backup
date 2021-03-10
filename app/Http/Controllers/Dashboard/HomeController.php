@@ -81,6 +81,7 @@ class HomeController extends Controller
         } elseif ($data->paket == "2") {
             $expired_at = Carbon::now()->addDays(60)->toDateTimeString();
         } elseif($data->paket == "3") {
+            $date_zoom = $data->date_zoom;
             $expired_at = Carbon::now()->addHours(1)->toDateTimeString();
         }
 
@@ -93,6 +94,7 @@ class HomeController extends Controller
                 'user_id' => $data->user_id,
                 'paket' => $data->paket,
                 'expired_at' => $expired_at,
+                'date_zoom' => $date_zoom,
                 'status' => 'Aktif'
             ]);
         } else {
