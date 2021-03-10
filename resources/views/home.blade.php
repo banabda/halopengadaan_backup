@@ -46,6 +46,10 @@
     <img class="sect3imgtag" src="{{ asset('images/section3/image.png') }}" alt="">
 
 </div>
+<div class="sect4img">
+    <img class="sect4imgtag1" src="{{ asset('images/section4/image1.png') }}" alt="">
+    <img class="sect4imgtag2" src="{{ asset('images/section4/image2.png') }}" alt="">
+</div>
 <div class="section-one" id="section-one">
     @include('components.navbar')
     <div class="mt-5" style="height: inherit;">
@@ -112,8 +116,8 @@
             document.querySelector(".two-btn-5").style.opacity = 1;
             document.querySelector(".two-btn-6").style.opacity = 1;
             document.querySelector(".two-btn-7").style.opacity = 1;
-            // document.querySelector(".sect2imgtag").style.opacity = 1;
-            // document.querySelector(".sect2imgtag").style.left = '-400px';
+            document.querySelector(".sect2imgtag").style.opacity = 1;
+            document.querySelector(".sect2imgtag").style.right = 0;
         }
     }
 
