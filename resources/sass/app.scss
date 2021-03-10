@@ -206,6 +206,28 @@
         left: -650px;
     }
 }
+.sect4img {
+    position: absolute;
+    top: 2350;
+    height: fit-content;
+    overflow: hidden;
+    z-index: -3;
+    width: 100%;
+    .sect4imgtag1 {
+        height: 400px;
+        object-fit: contain;
+        position: relative;
+        top: 200;
+        left: -425;
+    }
+    .sect4imgtag2 {
+        height: 600px;
+        object-fit: contain;
+        position: relative;
+        top: 0;
+        right: -775;
+    }
+}
 
 .items {
     padding: 0 20px;

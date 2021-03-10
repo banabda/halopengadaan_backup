@@ -10096,7 +10096,7 @@ h3 {
 }
 
 .section-four {
-  height: 700px;
+  height: 900px;
 }
 .section-four-content {
   padding-top: 10vh;
@@ -10361,6 +10361,33 @@ h3 {
   position: relative;
   top: 0;
   left: -650px;
+}
+
+.sect4img {
+  position: absolute;
+  top: 2350;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  z-index: -3;
+  width: 100%;
+}
+.sect4img .sect4imgtag1 {
+  height: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  top: 200;
+  left: -425;
+}
+.sect4img .sect4imgtag2 {
+  height: 600px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  top: 0;
+  right: -775;
 }
 
 .items {
