@@ -10069,43 +10069,30 @@ h3 {
   background-position-x: -200px;
   height: 700px;
 }
-.section-three-content {
+.section-three-content .left {
   padding-top: 100px;
+  padding-left: 100px;
+  position: relative;
 }
-.section-three-content-image {
-  width: 250px;
-  height: 250px;
+.section-three-content .left img {
   position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  margin: 10px auto;
-  background: url("https://i.pinimg.com/564x/6f/5a/b1/6f5ab1b470beeeeaf285bb451c63ac8f.jpg");
-  background-color: black;
+  height: 300px;
+  width: 300px;
+  bottom: -15px;
+  right: 50px;
+  z-index: -1;
+}
+.section-three-content .left .divimage {
+  width: 300px;
+  height: 300px;
+  background-size: 40%;
+  background-repeat: no-repeat;
   background-size: cover;
-  cursor: pointer;
-  box-shadow: 0 0 5px #000;
+  background-position-x: -550px;
+  z-index: 1;
 }
-.section-three-content-image:hover .overlay {
-  opacity: 1;
-}
-.section-three-content-image:hover .overlay .head {
-  transform: translateY(0px);
-}
-.section-three-content-image:hover .overlay hr {
-  width: 75px;
-  transition-delay: 0.4s;
-}
-.section-three-content-image:hover .overlay .price {
-  transform: translateY(0px);
-  transition-delay: 0.3s;
-  opacity: 1;
-}
-.section-three-content-image:hover .overlay .cart {
-  transform: translateY(0px);
-  transition-delay: 0.6s;
-  opacity: 1;
+.section-three-content .divprapgraph {
+  padding-top: 120px;
 }
 
 .section-four {
@@ -10353,6 +10340,25 @@ h3 {
   position: relative;
   top: 0;
   right: 0;
+}
+
+.sect3img {
+  position: absolute;
+  top: 1400;
+  left: 0;
+  overflow: hidden;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  z-index: -3;
+}
+.sect3img .sect3imgtag {
+  height: 1200px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  top: 0;
+  left: -650px;
 }
 
 .items {
