@@ -10110,7 +10110,7 @@ h3 {
 }
 
 .section-five {
-  height: 900px;
+  height: 1000px;
 }
 .section-five-content {
   padding-top: 5vh;
@@ -10153,7 +10153,7 @@ h3 {
 }
 
 .section-six {
-  height: 750px;
+  height: 900px;
 }
 .section-six-content {
   padding-top: 5vh;
@@ -10173,6 +10173,46 @@ h3 {
 }
 .section-six-content .linear-bg:hover {
   box-shadow: 5px 5px 20px 6px gray;
+}
+
+.section-seven {
+  height: 900px;
+}
+.section-seven-content .imgdiv {
+  height: 200px;
+  width: inherit;
+  background-image: linear-gradient(to right, #6e376e, #fe7087);
+}
+.section-seven-content .sort-berita {
+  font-size: 1.8rem;
+  padding: 30px;
+  position: relative;
+}
+.section-seven-content .sort-berita .underline {
+  position: relative;
+  padding-bottom: 8px;
+}
+.section-seven-content .sort-berita .underline::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, #6e376e, #fe7088);
+  height: 6px;
+  border-radius: 10px 10px 10px 10px;
+}
+.section-seven-content .tag {
+  background-image: linear-gradient(to right, #6e376e83, #fe708875);
+  color: white;
+  border-radius: 10px;
+  padding: 0 8px;
+}
+.section-seven-content .title {
+  font-weight: bold;
+}
+.section-seven-content .text {
+  text-align: justify;
 }
 
 .form-style .form-control {
@@ -10377,7 +10417,7 @@ h3 {
 
 .sect4img {
   position: absolute;
-  top: 2350;
+  top: 2550;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -10390,16 +10430,26 @@ h3 {
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
-  top: 200;
   left: -425;
 }
-.sect4img .sect4imgtag2 {
+
+.sect4img2 {
+  position: absolute;
+  top: 2350;
+  right: 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  z-index: -3;
+}
+.sect4img2 .sect4imgtag2 {
   height: 600px;
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
   top: 0;
-  right: -775;
+  right: -300;
 }
 
 .items {

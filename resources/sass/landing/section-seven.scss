@@ -1,0 +1,41 @@
+.section-seven {
+    height: 900px;
+    &-content {
+        .imgdiv {
+            height: 200px;
+            width: inherit;
+            background-image: linear-gradient(to right, #6e376e, #fe7087);
+        }
+        .sort-berita {
+            font-size: 1.8rem;
+            padding: 30px;
+            position: relative;
+            .underline {
+                position: relative;
+                padding-bottom: 8px;
+            }
+            .underline::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(to right, #6e376e, #fe7088);
+                height: 6px;
+                border-radius: 10px 10px 10px 10px;
+            }
+        }
+        .tag {
+            background-image: linear-gradient(to right, #6e376e83, #fe708875);
+            color: white;
+            border-radius: 10px;
+            padding: 0 8px;
+        }
+        .title {
+            font-weight: bold;
+        }
+        .text {
+            text-align: justify;
+        }
+    }
+}

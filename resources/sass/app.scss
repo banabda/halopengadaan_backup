@@ -13,6 +13,7 @@
 @import "./landing/section-four.scss";
 @import "./landing/section-five.scss";
 @import "./landing/section-six.scss";
+@import "./landing/section-seven.scss";
 
 .form-style {
     .form-control {
@@ -208,7 +209,7 @@
 }
 .sect4img {
     position: absolute;
-    top: 2350;
+    top: 2550;
     height: fit-content;
     overflow: hidden;
     z-index: -3;
@@ -217,15 +218,22 @@
         height: 400px;
         object-fit: contain;
         position: relative;
-        top: 200;
         left: -425;
     }
+}
+.sect4img2 {
+    position: absolute;
+    top: 2350;
+    right: 0;
+    height: fit-content;
+    overflow: hidden;
+    z-index: -3;
     .sect4imgtag2 {
         height: 600px;
         object-fit: contain;
         position: relative;
         top: 0;
-        right: -775;
+        right: -300;
     }
 }
 
