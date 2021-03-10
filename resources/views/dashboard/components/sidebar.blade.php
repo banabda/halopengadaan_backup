@@ -70,7 +70,7 @@
         </li>
 
         <li>
-            <a href="{{route('artikel.index')}}">
+            <a href="{{route('regulasi.index')}}">
               <i data-feather="download-cloud"></i>
               <span>Regulasi</span>
             </a>

@@ -81,7 +81,7 @@
               columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
                 {data: 'nama_regulasi', name: 'nama_regulasi'},
-                {data: 'dokumen', name: 'dokumen'},
+                {data: 'link', name: 'link'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
               ]
           });

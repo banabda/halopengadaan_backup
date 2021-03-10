@@ -17,9 +17,13 @@ class RegulasiController extends Controller
      */
     public function index()
     {
+        // admin.dashboard.regulasi.dokumen
         $data = Regulasi::all();
         if (request()->ajax()) {
             return DataTables()->of($data)
+            ->addColumn('link', function($link){
+                return '<a target="_blank" href="'. route('admin.dashboard.regulasi.dokumen', $link->id) .'">Lihat Dokumen</a>';
+            })
             ->addColumn('action', function($row){
                 $btn = '<a class="btn btn-xs btn-info mr-2 edit-regulasi" href="'. route('regulasi.edit', $row->id) .'" id="'. $row->id .'">
                 <i class="fa fa-edit"></i> Edit </a>';
@@ -28,7 +32,7 @@ class RegulasiController extends Controller
 
                 return $btn;
             })
-            ->rawColumns(['action'])
+            ->rawColumns(['action', 'link'])
             ->addIndexColumn()
             ->make(true);
         }
@@ -139,5 +143,14 @@ class RegulasiController extends Controller
         return response()->json([
             'status' => 'ok'
         ]);
+    }
+
+    public function seeDokumen($id)
+    {
+        $data = Regulasi::find($id);
+
+        $path = public_path($data->dokumen);
+
+        return response()->file($path);
     }
 }
