@@ -5,7 +5,6 @@
         </h1>
         <div class="sort-berita d-flex">
             <div class="mr-3 underline">Terbaru</div>
-            <div>Terpopuler</div>
         </div>
         <div class="row">
             @for ($i = 1; $i < 9; $i++)

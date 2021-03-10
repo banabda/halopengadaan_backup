@@ -85,9 +85,11 @@ class HomeController extends Controller
 
             $dayExpired_at = intval(Carbon::parse($date_zoom)->format('d')) - Carbon::now()->format('d');
 
-            $expired_at = Carbon::now()->addDays($dayExpired_at)->toDateTimeString();
-        }
+            $hourExpired_at = intval(Carbon::parse($date_zoom)->format('H'));
 
+            $expired_at = Carbon::now()->addDays($dayExpired_at)->addHours($hourExpired_at)->toDateTimeString();
+        }
+        
         $data->update([
             'status' => 'Terkonfirmasi'
         ]);
