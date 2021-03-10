@@ -52,6 +52,10 @@
 <div class="sect4img2">
     <img class="sect4imgtag2" src="{{ asset('images/section4/image2.png') }}" alt="">
 </div>
+<div class="sect5img">
+    <img class="sect5imgtag" src="{{ asset('images/section5/image.png') }}" alt="">
+
+</div>
 <div class="section-one" id="section-one">
     @include('components.navbar')
     <div class="mt-5" style="height: inherit;">

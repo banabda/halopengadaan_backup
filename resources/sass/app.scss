@@ -236,6 +236,21 @@
         right: -300;
     }
 }
+.sect5img {
+    position: absolute;
+    top: 3025;
+    left: 0;
+    height: fit-content;
+    overflow: hidden;
+    z-index: -3;
+    .sect5imgtag {
+        height: 1550px;
+        object-fit: contain;
+        position: relative;
+        top: 0;
+        left: -200px;
+    }
+}
 
 .items {
     padding: 0 20px;
