@@ -1,7 +1,7 @@
 <nav class="fixed-top navbar navbar-expand-md navbar-light shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ asset('images/lpkn-logo.png') }}" style="height: 30px;" alt="logo">
+            <img src="{{ asset('images/landing icon/logohalo.svg') }}" style="height: 30px;" alt="logo">
             {{-- asd --}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -21,7 +21,7 @@
                         <a class="nav-link" role="button" id="section-one-nav">{{ __('Tentang Kami') }}</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" href="https://ilmu.lpkn.id/">{{ __('Artikel') }}</a>
+                        <a class="nav-link" id="section-two-nav" role="button">{{ __('Artikel') }}</a>
                     </li>
                     <li class="nav-item mx-2">
 
@@ -114,6 +114,17 @@
 
         }else {
             $(location).attr('href','/#section-three')
+        }
+    });
+    $("#section-two-nav").click(function() {
+        // console.log(window.location.pathname)
+        if (window.location.pathname == '/') {
+            $('html, body').animate({
+                scrollTop: $("#section-seven").offset().top
+            }, 1000);
+
+        }else {
+            $(location).attr('href','/#section-seven')
         }
     });
 </script>

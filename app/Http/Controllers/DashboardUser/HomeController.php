@@ -7,6 +7,7 @@ use App\Models\Metodepembayaran;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\Invoice;
+use App\Models\Message;
 use App\Models\UserhasPaket;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -155,9 +156,9 @@ class HomeController extends Controller
         $tagihan = '';
 
         if ($request->paket == "1") {
-            $tagihan = intval('250000');
+            $tagihan = intval('50000');
         } elseif ($request->paket == "2") {
-            $tagihan = intval('600000');
+            $tagihan = intval('250000');
         } elseif ($request->paket == "3") {
             $tagihan = intval('1500000');
         }
@@ -172,6 +173,8 @@ class HomeController extends Controller
             'tagihan' => $tagihan + $kode_unik,
             'status' => 'Menunggu Pembayaran'
         ];
+
+
 
         $dataWa = [
             'phone' => $profile->no_hp,
@@ -232,11 +235,15 @@ class HomeController extends Controller
 
     public function invoiceprofil()
     {
+        // Terkonfirmasi
         $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
         if (is_null($profile)) {
             return redirect()->route('profile');
         } else {
-            $data = Invoice::with('user')->where('user_id', Auth::user()->id)->get();
+            $data = Invoice::with('user')->where([
+                ['user_id', Auth::user()->id],
+                ['status', 'Menunggu Pembayaran']
+            ])->orWhere('status', 'Telah Terbayar')->get();
 
             if(request()->ajax()){
                 return DataTables::of($data)
@@ -269,27 +276,69 @@ class HomeController extends Controller
         }
 
         return view('dashboard.user.invoiceprofil');
+    }
 
+    public function kwitansiProfil()
+    {
+        $profile = Profile::with('user')->where('user_id', Auth::user()->id)->first();
+        if (is_null($profile)) {
+            return redirect()->route('profile');
+        } else {
+            $data = Invoice::with('user')->where([
+                ['user_id', Auth::user()->id],
+                ['status', 'Terkonfirmasi']
+            ])->get();
+
+            if(request()->ajax()){
+                return DataTables::of($data)
+                  ->addColumn('total_tagihan', function($tagihan){
+                      return 'Rp. '.number_format($tagihan->tagihan,0, ',', '.');
+                  })
+                  ->addColumn('tanggal', function($tanggal){
+                      return Carbon::parse($tanggal->updated_at)->format('d F Y');
+                  })
+                  ->addColumn('paket_detail', function($paket){
+                      if ($paket->paket == "1") {
+                          return 'Silver';
+                      }
+                      elseif ($paket->paket == "2") {
+                          return 'Gold';
+                      }
+                      else {
+                          return 'Platinum';
+                      }
+                  })
+                  ->addColumn('action', function($action){
+                      $btn = '<a class="btn btn-md btn-info mr-2" href="'. route("user.dashboard.cetak", $action->id) .'">
+                            <i class="fa fa-print mr-2"></i>cetak</a>';
+                  return $btn;
+                  })
+                  ->rawColumns(['total_tagihan', 'tanggal', 'paket_detail', 'action'])
+                  ->addIndexColumn()
+                  ->make(true);
+            }
+
+            return view('dashboard.user.kwitansi');
+        }
     }
 
     public function konsultasi()
     {
         $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
+        $invoice = Invoice::where('user_id', Auth::user()->id)->latest()->first();
+        $message = Message::where('invoice_id', $invoice->id)->first();
+        // dd($message);
         if (is_null($userhaspaket)) {
             return redirect()->route('user.dashboard.membership');
         } elseif ($userhaspaket->expired_at <= Carbon::now()) {
             return redirect()->route('user.dashboard.membership');
         }
         else {
-            $client = new Client();
-            $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
-                'headers' => [
-                    'authorization' => 'Bearer '. env('API_TOKEN')
-                    ]
-            ])->getBody()->getContents();
 
             $data = [
-                'phone' => json_decode($send)->phone
+                'userHasPaket' => $userhaspaket,
+                'invoice' => $invoice,
+                'message' => $message
             ];
 
             return view('dashboard.user.konsultasi', $data);
@@ -297,10 +346,24 @@ class HomeController extends Controller
 
     }
 
+    public function konsultasiZoom(Request $request)
+    {
+        $data = [
+            'invoice_id' => $request->invoice_id,
+            'user_id' => $request->user_id,
+            'judul' => $request->judul,
+            'message' => $request->message,
+            'status' => 'Pesan Terkirim'
+        ];
+        
+        $message = Message::create($data);
+        return redirect()->route('user.dashboard.konsultasi');
+    }
+
     public function laporan($id)
     {
         $invoice = Invoice::with('user', 'user.profile')->where('id', $id)->first();
-        // dd($invoice);
+
         $data = [
             'invoice' => $invoice
         ];

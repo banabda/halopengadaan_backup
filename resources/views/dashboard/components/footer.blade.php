@@ -11,5 +11,5 @@
     </div> --}}
       &copy;
       <script>document.write(new Date().getFullYear());</script>
-      <a href="#">LPKN Training Center</a>. All Rights Reserved.
+      <a href="https://lpkn.id/">LPKN Training Center</a>. All Rights Reserved.
 </footer>

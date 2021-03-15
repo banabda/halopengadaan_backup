@@ -26,67 +26,60 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="radialImg1">
+{{-- <div class="radialImg1">
     <img src="{{ asset('images/back-sect-4.png') }}" alt="">
 
-</div>
-<div class="radialImg2">
+</div> --}}
+{{-- <div class="radialImg2">
     <img src="{{ asset('images/back-sect-3.png') }}" alt="">
 
-</div>
+</div> --}}
 <div class="sect1img">
-    <img class="sect1imgtag" src="{{ asset('images/back-sect-1.png') }}" alt="">
+    <img class="sect1imgtag" src="{{ asset('images/section1/background.png') }}" alt="">
+
+</div>
+<div class="sect2img">
+    <img class="sect2imgtag" src="{{ asset('images/section2/image.png') }}" alt="">
 
 </div>
 <div class="sect3img">
-    <img class="sect3imgtag" src="{{ asset('images/back-sect-2.png') }}" alt="">
+    <img class="sect3imgtag" src="{{ asset('images/section3/image.png') }}" alt="">
+
+</div>
+<div class="sect4img">
+    <img class="sect4imgtag1" src="{{ asset('images/section4/image1.png') }}" alt="">
+</div>
+<div class="sect4img2">
+    <img class="sect4imgtag2" src="{{ asset('images/section4/image2.png') }}" alt="">
+</div>
+<div class="sect5img">
+    <img class="sect5imgtag" src="{{ asset('images/section5/image.png') }}" alt="">
 
 </div>
 <div class="section-one" id="section-one">
     @include('components.navbar')
-    <div class="container section-one-content">
-        <div class="row justify-content-center">
-            <div class="col-md-6">
-                {{-- <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{ __('You are logged in!') }}
+    <div class="mt-5" style="height: inherit;">
+        <div class="container section-one-content">
+            <div class="row justify-content-center">
+                <div class="col-md-6 left">
+    
+                    <h1 class="font-weight-bold section-content-header h-sect1 mb-3">Halo Pengadaan</h1>
+                    <div class="p-sect1">
+                        <p class="section-content-paragraph text-justify ">
+                            Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna.
+                        </p>
+                        <p class="section-content-paragraph text-justify">
+                            Sistem ini melibatkan Banyak Pakar dengan berbagai Keahlian khusus, serta memiliki Quality Assurance,
+                            dimana semua jawaban terhadap pertanyaan akan dibedah dengan secara seksama berdasarkan peraturan perundang undangan.
+                        </p>
                     </div>
-                </div> --}}
-
-                <h1 class="font-weight-bold section-content-header h-sect1">Halo Pengadaan</h1>
-                <p class="section-content-paragraph text-justify p-sect1">
-                    Menghubungkan Para Pakar Pengadaan dengan pelaku pengadaan Baik dari Penyedia maupun Pengguna.
-                    <br>
-                    Sistem ini melibatkan Banyak Pakar dengan berbagai Keahlian khusus, serta memiliki Quality Assurance,
-                    dimana semua jawaban terhadap pertanyaan akan dibedah dengan secara seksama berdasarkan peraturan perundang undangan.
-                </p>
-
-            </div>
-            <div class="col-md-6">
-                <div class="section-one-content-image">
-                    <div class="overlay">
-                        <div class="items"></div>
-                        <div class="items head">
-                            <p>Lembaga Konsultasi dan Pengembangan Nasional</p>
-                            <hr>
-                        </div>
-                        <div class="items price">
-                            <p class="old">$699</p>
-                            <p class="new">$345</p>
-                        </div>
-                        <div class="items cart">
-                            <i class="fa fa-shopping-cart"></i>
-                            <span>ADD TO CART</span>
-                        </div>
-                    </div>
+    
+                </div>
+                <div class="col-md-6 right">
+                    <div class="divimage" style="background-image: url({{ asset('images/header.jpg') }})">
+                    <img src="{{ asset('images/section1/background-img.png') }}" alt="">
+                        
+                   </div>
                 </div>
             </div>
         </div>
@@ -98,6 +91,7 @@
 @include('components.section-four')
 @include('components.section-five')
 @include('components.section-six')
+@include('components.section-seven')
 @endsection
 <script>
 
@@ -109,19 +103,14 @@
         document.querySelector(".p-sect1").style.opacity = 1;
         document.querySelector(".h-sect1").style.left = 0;
         document.querySelector(".p-sect1").style.left = 0;
-        document.querySelector(".sect1imgtag").style.top = '-800px';
-        document.querySelector(".sect1imgtag").style.left = '-250px';
+        document.querySelector(".sect1imgtag").style.top = '-175px';
+        document.querySelector(".sect1imgtag").style.left = '-275px';
         document.querySelector(".sect1imgtag").style.opacity = 1;
     })
 
 
     window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
-    // console.log(currentScroll, opacity)
-
-    if (currentScroll < 550) {
-        document.querySelector(".navbar").style.backgroundColor = "#f5d00000";
-    }
 
     if (currentScroll >= 550) {
         if (opacity[0] == 0) {
@@ -134,8 +123,9 @@
             document.querySelector(".two-btn-5").style.opacity = 1;
             document.querySelector(".two-btn-6").style.opacity = 1;
             document.querySelector(".two-btn-7").style.opacity = 1;
+            document.querySelector(".sect2imgtag").style.opacity = 1;
+            document.querySelector(".sect2imgtag").style.right = 0;
         }
-        document.querySelector(".navbar").style.backgroundColor = "#f5d000";
     }
 
     if (currentScroll >= 1200) {
@@ -144,10 +134,7 @@
         document.querySelector(".three-img").style.opacity = 1;
         document.querySelector(".three-p-2").style.opacity = 1;
         document.querySelector(".three-p-1").style.opacity = 1;
-        document.querySelector(".sect3imgtag").style.opacity = 1;
-        document.querySelector(".sect3imgtag").style.left = '-400px';
         }
-        document.querySelector(".navbar").style.backgroundColor = "#f5d000";
     }
 
     if (currentScroll >= 1900) {
@@ -163,7 +150,6 @@
             document.querySelector(".four-btn-7").style.opacity = 1;
             document.querySelector(".radialImg1").style.opacity = 1;
         }
-        document.querySelector(".navbar").style.backgroundColor = "#4E90A4";
     }
 
     if (currentScroll >= 2400) {
@@ -176,7 +162,6 @@
             document.querySelector(".five-btn-4").style.opacity = 1;
             document.querySelector(".five-btn-5").style.opacity = 1;
         }
-        document.querySelector(".navbar").style.backgroundColor = "#f5d000";
     }
 
     if (currentScroll >= 3200) {
@@ -191,7 +176,6 @@
             document.querySelector(".six-btn-3").style.left = 0;
             document.querySelector(".radialImg2").style.opacity = 1;
         }
-        document.querySelector(".navbar").style.backgroundColor = "#3EC8AC";
     }
     });
 </script>

@@ -312,10 +312,10 @@
 	<script src="{{ asset('dashboard/assets/vendor_components/easypiechart/dist/jquery.easypiechart.js') }}"></script>
     <script src="{{ asset('dashboard/assets/vendor_components/jquery-steps-master/build/jquery.steps.js') }} "></script>
     <script src="{{ asset('dashboard/assets/vendor_components/jquery-validation-1.17.0/dist/jquery.validate.min.js') }} "></script>
-    {{-- <script src="{{ asset('dashboard/assets/vendor_components/sweetalert/sweetalert.min.js') }}"></script> --}}
     <script src="{{ asset('dashboard/main/js/pages/steps.js') }}"></script>
+    <script src="{{ asset('dashboard/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
 
-    <!-- Sunny Admin App -->e
+    <!-- Sunny Admin App -->
 	<script src="{{ asset('dashboard/main/js/template.js') }}"></script>
 	<script src="{{ asset('dashboard/main/js/pages/dashboard.js') }}"></script>
 
@@ -324,5 +324,7 @@
 
     <!-- CDN Sweet Alert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+
   </body>
 </html>

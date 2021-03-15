@@ -1,0 +1,31 @@
+.section-one {
+    height: 650px;
+    &-content {
+        color: white;
+        .left {
+            padding-top: 140px;
+        }
+        .right {
+            padding-top: 100px;
+            padding-left: 100px;
+            position: relative;
+            img {
+                position: absolute;
+                height: 400px;
+                width: 400px;
+                bottom: -25px;
+                right: 35px;
+                z-index: -2;
+            }
+            .divimage {
+                width: 400px;
+                height: 400px;
+                background-size: 40%;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position-x: -650px;
+                z-index: 1;
+            }
+        }
+    }
+}

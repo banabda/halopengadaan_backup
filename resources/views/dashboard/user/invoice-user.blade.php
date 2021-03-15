@@ -58,8 +58,8 @@
 
                         // If the count down is finished, write some text
                         if (distance < 0) {
-                        clearInterval(x{{ $invoice->id }});
-                        document.getElementById("waktu-{{ $invoice->id }}").innerHTML = "EXPIRED";
+                            clearInterval(x{{ $invoice->id }});
+                            document.getElementById("waktu-{{ $invoice->id }}").innerHTML = "EXPIRED";
                         }
                     }, 1000);
                 </script>
@@ -77,7 +77,7 @@
                   <h1 class="display-4" style="text-align: center">Yeay! Pembayaran Terkonfirmasi!</h1>
                   <p class="lead mt-4" style="text-align: center">Sekarang Anda Dapat Melakukan Konsultasi Langsung Dengan Para Pakar Dengan Menggunakan Menu <b>Konsultasi Sekarang</b> Pada Samping Kiri</p>
                 </div>
-              </div>
+             </div>
             @endif
 
         </div>
@@ -136,7 +136,7 @@
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+        <button type="submit" class="btn btn-primary">Upload</button>
         </form>
         </div>
     </div>

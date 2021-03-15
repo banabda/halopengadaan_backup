@@ -29,7 +29,7 @@
 
            <div class="box">
               <div class="box-header with-border">
-                <a href="{{ route('artikel.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5">New Artikel</button></a>
+                  <a href="{{ route('artikel.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5" >New Artikel</button></a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -72,6 +72,46 @@
     </div>
 </div>
 <!-- /.content-wrapper -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create Artikel</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <form id="createArtikel" action="{{ route('artikel.store') }}" method="POST" enctype="multipart/form-data">
+            <div class="modal-body">
+                @csrf
+                <input type="hidden" name="id" id="id_artikel">
+                <div class="form-group">
+                    <label for="judul_artikel" class="col-form-label">Judul:</label>
+                    <input type="text" class="form-control" name="judul" id="judul_artikel">
+                </div>
+                <div class="form-group">
+                    <label for="deskripsi_artikel" class="col-form-label">Deskripsi:</label>
+                    <textarea class="form-control" name="desc" id="deskripsi_artikel"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="link_artikel" class="col-form-label">Link Terkait:</label>
+                    <input type="url" class="form-control" name="link" id="link_artikel">
+                </div>
+                <div class="form-group">
+                    <label for="foto_artikel" class="col-form-label">Foto Thumbnail:</label>
+                    <input type="file" class="form-control" name="foto" id="foto_artikel">
+                </div>
+
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-primary">Simpan!</button>
+            </div>
+        </form>
+      </div>
+    </div>
+</div>
 <script>
     var table;
       $(function() {
@@ -82,8 +122,8 @@
               columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
                 {data: 'judul', name: 'judul'},
-                {data: 'link', name: 'link'},
-                {data: 'foto', name: 'foto'},
+                {data: 'link_url', name: 'link_url'},
+                {data: 'foto_artikel', name: 'foto_artikel'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
               ]
           });
@@ -95,9 +135,9 @@
       });
 </script>
 <script>
-    $(document).on('click', '.delete-confirm', function(){
-        var id_role = $(this).attr("id");
-        // console.log(id_role);
+    $(document).on('click', '   .delete-confirm', function(){
+        var id_artikel = $(this).attr("id");
+        // console.log(id_artikel);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -109,7 +149,7 @@
             // type: "info",
             icon: 'warning',
             showCancelButton: true,
-            confirmButtonText: "V@",
+            confirmButtonText: "Hapus",
             confirmButtonColor: "#ff0055",
             cancelButtonColor: "#999999",
             reverseButtons: true,
@@ -119,7 +159,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type:'DELETE',
-                    url: "{{url('admin/user')}}/" + id_role,
+                    url: "{{url('admin/artikel')}}/" + id_artikel,
                     success:function(data)
                     {
                         if(data.status == "ok"){

@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\UserhasPaket', 'user_id', 'id');
     }
+
+    public function message()
+    {
+        return $this->hasMany('App\Models\Message', 'user_id', 'id');
+    }
 }

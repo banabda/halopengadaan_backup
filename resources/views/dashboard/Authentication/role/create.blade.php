@@ -80,28 +80,28 @@
 
     $('#createRole').on('submit', function(event){
 
-    event.preventDefault();
-    $.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        }
-    });
-    $.ajax({
-        url: $(this).attr("action"),
-        method:"POST",
-        data:new FormData(this),
-        dataType:'JSON',
-        contentType: false,
-        cache: false,
-        processData: false,
-        success: (data) => {
-            window.location.href = '{{ route("role.index") }}';
-        },
+        event.preventDefault();
+        $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            url: $(this).attr("action"),
+            method:"POST",
+            data:new FormData(this),
+            dataType:'JSON',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: (data) => {
+                window.location.href = '{{ route("role.index") }}';
+            },
 
-        error: (data) => {
+            error: (data) => {
 
-        }
-    });
+            }
+        });
     });
 </script>
 @endsection

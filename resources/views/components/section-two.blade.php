@@ -6,54 +6,52 @@
     .two-btn-1{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 0.2s;
+        transition-delay: 0.1s;
     }
     .two-btn-2{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 0.4s;
+        transition-delay: 0.2s;
 
     }
     .two-btn-3{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 0.6s;
+        transition-delay: 0.3s;
 
     }
     .two-btn-4{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 0.8s;
+        transition-delay: 0.4s;
 
     }
     .two-btn-5{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 1s;
+        transition-delay: 0.5s;
 
     }
     .two-btn-6{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 1.2s;
+        transition-delay: 0.6s;
     }
     .two-btn-7{
         opacity: 0;
         transition: opacity 0.7s  ease-in;
-        transition-delay: 1.4s;
+        transition-delay: 0.7s;
 
     }
 </style>
 <div class="section-two">
     <div class="container section-two-content">
-        <div class="row">
+        <div class="row two-tittle">
             <div class="col-md-12">
-                <div class="row mb-5 two-tittle">
-                    <div class="col-md-12">
-                        <h1 class="text-center section-content-header">Untuk Siapa Layanan Ini?</h1>
-                    </div>
-                </div>
-                <div class="row mb-md-3 justify-content-center">
+                <h1 class="text-center section-content-header">Untuk Siapa Layanan Ini?</h1>
+            </div>
+            
+                {{-- <div class="row mb-md-3 justify-content-center">
                     <div class="col-md-3 text-center div-lienar-bg">
                         <button class="linear-bg font-weight-bold two-btn-1" disabled>
                             Pemerintah Pusat
@@ -91,8 +89,21 @@
                             Penyedia
                         </button>
                     </div>
-                </div>
+                </div> --}}
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <ul class="layananlist">
+                    <li class="two-btn-1">Pemerintah Pusat</li>
+                    <li class="two-btn-2">Pemerintah Daerah</li>
+                    <li class="two-btn-3">BUMN</li>
+                    <li class="two-btn-4">BUMD</li>
+                    <li class="two-btn-5">BLU</li>
+                    <li class="two-btn-6">BLUD</li>
+                    <li class="two-btn-7">Penyedia</li>
+                </ul>
             </div>
+            <div class="col-md-8"></div>
         </div>
     </div>
     

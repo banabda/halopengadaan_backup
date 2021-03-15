@@ -73,13 +73,15 @@
                                 <h4 class="box-title text-info mt-2"><i class="ti-package mr-15"></i> Pemilihan Paket</h4>
                                 <hr class="my-15">
                                 <div class="form-group">
+                                    <label for="membership">Pilih Paket</label>
                                     <select class="custom-select form-control" id="membership" name="paket">
                                         <option>Pilih Membership</option>
-                                        <option value="1">1 Bulan, (Rp. 250,000,-)</option>
-                                        <option value="2">3 Bulan, (Rp. 600,000,-)</option>
-                                        <option value="3">1 Jam, (Rp. 1.500.00,-)</option>
+                                        <option value="1">1x Konsultasi, (Rp. 50,000,-)</option>
+                                        <option value="2">10x Konsultasi / Bulan, (Rp. 250,000,-)</option>
+                                        <option value="3">1 Jam via Zoom, (Rp. 1.500.000,-)</option>
                                     </select>
                                 </div>
+
                                 <div class="box" style="display: none" id="card_kelebihan_paket">
                                     <div class="box-body">
                                     <h3>Kelebihan</h3>
@@ -89,7 +91,7 @@
                                     </div>
                                 </div>
 
-                                <h4 class="box-title text-info mt-2"><i class="ti-money mr-15"></i> Pemilihan Pembayaran</h4>
+                                <h4 class="box-title text-info mt-3"><i class="ti-money mr-15"></i> Pemilihan Pembayaran</h4>
                                 <hr class="my-15">
                                 <div class="row">
                                     <div class="col-md-6 col-12">
@@ -165,7 +167,7 @@
                         <li>Sumber Jawab Terkelola</li>
                         <li>Fast Response</li>
                         <li>Identitas Terjaga</li>
-                        <li>Konsultasi Langsung via Zoom</li>
+                        <li>Konsultasi langsung via Zoom</li>
                     `);
                 }
                 else {
@@ -181,10 +183,6 @@
                     console.log("Berhasil");
                     getProviders(nama_metode);
                 }
-                // else if (nama_metode == "UANG DIGITAL") {
-                //     // console.log("Uang Digital");
-                //     getProviders(nama_metode);
-                // }
                 else {
                     $('#nama_provider').html();
                 }
