@@ -86,7 +86,7 @@
             <section class="content">
 
                 <div class="col-lg-12 col-12">
-                    <div class="jumbotron jumbotron-fluid bg-success">
+                    <div class="jumbotron jumbotron-fluid bg-primary">
                         <div class="container">
                         <h1 class="display-4" style="text-align: center">Pesan Permasalahanmu Sudah Terkirim!</h1>
                         <p class="lead mt-4" style="text-align: center">Mohon Menunggu, Anda Akan Dihubungi Oleh Admin Kami Untuk Konsultasi via Zoom. Terima Kasih!</p>
