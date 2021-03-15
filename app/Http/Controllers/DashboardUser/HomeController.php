@@ -348,16 +348,22 @@ class HomeController extends Controller
 
     public function konsultasiZoom(Request $request)
     {
-        $data = $request->all();
+        $data = [
+            'invoice_id' => $request->invoice_id,
+            'user_id' => $request->user_id,
+            'judul' => $request->judul,
+            'message' => $request->message,
+            'status' => 'Pesan Terkirim'
+        ];
+        
         $message = Message::create($data);
         return redirect()->route('user.dashboard.konsultasi');
-
     }
 
     public function laporan($id)
     {
         $invoice = Invoice::with('user', 'user.profile')->where('id', $id)->first();
-        // dd($invoice);
+
         $data = [
             'invoice' => $invoice
         ];

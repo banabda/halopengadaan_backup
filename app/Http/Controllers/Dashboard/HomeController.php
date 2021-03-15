@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
+use App\Models\Message;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\UserhasPaket;
@@ -170,6 +171,50 @@ class HomeController extends Controller
             'status' => 'Teraktifasi'
         ]);
         $data->save();
+        return response()->json([
+            'status' => 'ok'
+        ]);
+    }
+
+    public function dataPaketZoom()
+    {
+        $data = Message::with('user.profile')->get();
+        // dd($data);
+        if (request()->ajax()) {
+            return DataTables()->of($data)
+            ->addColumn('nama_lengkap', function($name){
+                return $name->user->name;
+            })
+            ->addColumn('email', function($name){
+                return $name->user->email;
+            })
+            ->addColumn('nomor_whatsapp', function($name){
+                return $name->user->profile->no_hp;
+            })
+            ->addColumn('action', function($action){
+                if ($action->status == "Pesan Terkirim") {
+                    $btn = '<button class="btn btn-xs btn-info zoom-confirm" id="'. $action->id .'">Konfirmasi</button>';
+                } elseif ($action->status == "Terkonfirmasi") {
+                    $btn = '<button class="btn btn-xs btn-info" style="cursor: not-allowed;" disabled>Telah Terkonfirmasi</button>';
+                }
+                return $btn;
+            })
+            ->rawColumns(['nama_lengkap','email','nomor_whatsapp','action'])
+            ->addIndexColumn()
+            ->make(true);
+        }
+
+        return view('dashboard.admin.data-paket-zoom');
+    }
+
+    public function prosesDataPaketZoom($id)
+    {
+        $message = Message::find($id);
+        $data = [
+            'status' => 'Terkonfirmasi'
+        ];
+        $message->update($data);
+
         return response()->json([
             'status' => 'ok'
         ]);

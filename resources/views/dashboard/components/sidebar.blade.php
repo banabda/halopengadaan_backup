@@ -43,6 +43,12 @@
               <span>Metode Pembayaran</span>
             </a>
         </li>
+        <li>
+            <a href="{{route('metodepembayaran')}}">
+              <i data-feather="video"></i>
+              <span>Paket Zoom</span>
+            </a>
+        </li>
 
         <li class="header nav-small-cap">Keamanan</li>
         <li class="treeview">
