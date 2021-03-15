@@ -7,6 +7,7 @@ use App\Models\Metodepembayaran;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\Invoice;
+use App\Models\Message;
 use App\Models\UserhasPaket;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
@@ -324,25 +325,32 @@ class HomeController extends Controller
     public function konsultasi()
     {
         $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
+        $invoice = Invoice::where('user_id', Auth::user()->id)->latest()->first();
+        $message = Message::where('invoice_id', $invoice->id)->first();
+        // dd($message);
         if (is_null($userhaspaket)) {
             return redirect()->route('user.dashboard.membership');
         } elseif ($userhaspaket->expired_at <= Carbon::now()) {
             return redirect()->route('user.dashboard.membership');
         }
         else {
-            // $client = new Client();
-            // $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
-            //     'headers' => [
-            //         'authorization' => 'Bearer '. env('API_TOKEN')
-            //         ]
-            // ])->getBody()->getContents();
 
-            // $data = [
-            //     'phone' => json_decode($send)->phone
-            // ];
+            $data = [
+                'userHasPaket' => $userhaspaket,
+                'invoice' => $invoice,
+                'message' => $message
+            ];
 
-            return view('dashboard.user.konsultasi');
+            return view('dashboard.user.konsultasi', $data);
         }
+
+    }
+
+    public function konsultasiZoom(Request $request)
+    {
+        $data = $request->all();
+        $message = Message::create($data);
+        return redirect()->route('user.dashboard.konsultasi');
 
     }
 

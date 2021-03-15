@@ -108,6 +108,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 
     // Dashboard User Kwitansi
     Route::get('kwitansi', 'DashboardUser\HomeController@kwitansiProfil')->name('user.dashboard.kwitansi');
+
     // Konsultasi Sekarang
     Route::get('konsultasi', 'DashboardUser\HomeController@konsultasi')->name('user.dashboard.konsultasi');
+    // Konsultasi via Zoom
+    Route::post('konsultasi/zoom', 'DashboardUser\HomeController@konsultasiZoom')->name('user.dashboard.konsultasi.zoom');
 });
