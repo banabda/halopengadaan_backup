@@ -62,7 +62,7 @@
         <div class="container section-one-content">
             <div class="row justify-content-center">
                 <div class="col-md-6 left">
-    
+
                     <h1 class="font-weight-bold section-content-header h-sect1 mb-3">Halo Pengadaan</h1>
                     <div class="p-sect1">
                         <p class="section-content-paragraph text-justify ">
@@ -73,12 +73,12 @@
                             dimana semua jawaban terhadap pertanyaan akan dibedah dengan secara seksama berdasarkan peraturan perundang undangan.
                         </p>
                     </div>
-    
+
                 </div>
                 <div class="col-md-6 right">
                     <div class="divimage" style="background-image: url({{ asset('images/header.jpg') }})">
                     <img src="{{ asset('images/section1/background-img.png') }}" alt="">
-                        
+
                    </div>
                 </div>
             </div>

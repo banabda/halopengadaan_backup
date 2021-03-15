@@ -22,7 +22,7 @@
         <div class="row justify-content-center">
             <div class="col-md-5 left three-img">
                 <div class="divimage" style="background-image: url({{ asset('images/header.jpg') }})">
-                    <img src="{{ asset('images/section1/background-img.png') }}" alt="">  
+                    <img src="{{ asset('images/section1/background-img.png') }}" alt="">
                 </div>
             </div>
             <div class="col-md-7 divprapgraph">

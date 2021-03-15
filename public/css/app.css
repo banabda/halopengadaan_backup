@@ -10557,6 +10557,11 @@ h3 {
     opacity: 1 !important;
   }
 
+  .navbar {
+    background-color: #f5d000 !important;
+    transition: none !important;
+  }
+
   .radialImg1 {
     width: 100vw;
     top: 1900px !important;
