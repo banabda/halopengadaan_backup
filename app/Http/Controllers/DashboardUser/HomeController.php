@@ -162,30 +162,17 @@ class HomeController extends Controller
             $tagihan = intval('1500000');
         }
 
-        if (is_null($request->date_zoom)) {
-            $data = [
-                'user_id' => Auth::user()->id,
-                'paket' => $request->paket,
-                'metode_pembayaran' => $request->nama_method,
-                'nama_bank' => $request->nama_provider,
-                'nomor_rekening' => $metode_pembayaran->nomor_rekening,
-                'kode_unik' => $kode_unik,
-                'tagihan' => $tagihan + $kode_unik,
-                'status' => 'Menunggu Pembayaran'
-            ];
-        } else {
-            $data = [
-                'user_id' => Auth::user()->id,
-                'paket' => $request->paket,
-                'date_zoom' => $request->date_zoom,
-                'metode_pembayaran' => $request->nama_method,
-                'nama_bank' => $request->nama_provider,
-                'nomor_rekening' => $metode_pembayaran->nomor_rekening,
-                'kode_unik' => $kode_unik,
-                'tagihan' => $tagihan + $kode_unik,
-                'status' => 'Menunggu Pembayaran'
-            ];
-        }
+        $data = [
+            'user_id' => Auth::user()->id,
+            'paket' => $request->paket,
+            'metode_pembayaran' => $request->nama_method,
+            'nama_bank' => $request->nama_provider,
+            'nomor_rekening' => $metode_pembayaran->nomor_rekening,
+            'kode_unik' => $kode_unik,
+            'tagihan' => $tagihan + $kode_unik,
+            'status' => 'Menunggu Pembayaran'
+        ];
+
 
 
         $dataWa = [

@@ -14,7 +14,6 @@ class UserhasPaket extends Model
         'user_id',
         'paket',
         'expired_at',
-        'date_zoom',
         'status'
     ];
 

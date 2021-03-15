@@ -81,15 +81,18 @@ class HomeController extends Controller
         } elseif ($data->paket == "2") {
             $expired_at = Carbon::now()->addDays(60)->toDateTimeString();
         } elseif($data->paket == "3") {
-            $date_zoom = $data->date_zoom;
+            // $date_zoom = $data->date_zoom;
 
-            $dayExpired_at = intval(Carbon::parse($date_zoom)->format('d')) - Carbon::now()->format('d');
+            // $dayExpired_at = intval(Carbon::parse($date_zoom)->format('d')) - Carbon::now()->format('d');
 
-            $hourExpired_at = intval(Carbon::parse($date_zoom)->format('H'));
+            // $hourExpired_at = intval(Carbon::parse($date_zoom)->format('H'));
 
-            $expired_at = Carbon::now()->addDays($dayExpired_at)->addHours($hourExpired_at)->toDateTimeString();
+            // $expired_at = Carbon::now()->addDays($dayExpired_at)->addHours($hourExpired_at)->toDateTimeString();
+
+            $expired_at = Carbon::now()->addDays(1)->toDateTimeString();
+
         }
-        
+
         $data->update([
             'status' => 'Terkonfirmasi'
         ]);
@@ -99,7 +102,6 @@ class HomeController extends Controller
                 'user_id' => $data->user_id,
                 'paket' => $data->paket,
                 'expired_at' => $expired_at,
-                'date_zoom' => $date_zoom,
                 'status' => 'Aktif'
             ]);
         } else {
