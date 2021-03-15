@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3 text-center border border-info rounded shadow p-3 mb-4">
                         <center><img src="{{asset('images/whatsapp/samping.png')}}" alt="BANK MANDIRI" width="50%" height="200px" class="mr-2"></center>
-                        <a target="_blank" class="mt-2" href="https://wa.me/{{ $phone }}" style="color: #007bff!important"><h5><strong>https://wa.me/{{ $phone }}</strong></h5></a>
+                        <a target="_blank" class="mt-2" href="https://wa.me/6285691166309" style="color: #007bff!important"><h5><strong>https://wa.me/6285691166309</strong></h5></a>
                         </div>
                     </div>
 
@@ -41,7 +41,7 @@
 
                     <hr>
 
-                    <a target="_blank" href="https://wa.me/{{ $phone }}">
+                    <a target="_blank" href="https://wa.me/6285691166309">
                         <button class="btn btn-primary" data-toggle="modal" data-target="#pembayaran">
                             Konsultasi Sekarang
                         </button>

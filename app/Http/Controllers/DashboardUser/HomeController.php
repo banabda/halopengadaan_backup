@@ -330,18 +330,18 @@ class HomeController extends Controller
             return redirect()->route('user.dashboard.membership');
         }
         else {
-            $client = new Client();
-            $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
-                'headers' => [
-                    'authorization' => 'Bearer '. env('API_TOKEN')
-                    ]
-            ])->getBody()->getContents();
+            // $client = new Client();
+            // $send = $client->request('GET', env('API_URL'). '/devices/' . env('DEVICE_ID'), [
+            //     'headers' => [
+            //         'authorization' => 'Bearer '. env('API_TOKEN')
+            //         ]
+            // ])->getBody()->getContents();
 
-            $data = [
-                'phone' => json_decode($send)->phone
-            ];
+            // $data = [
+            //     'phone' => json_decode($send)->phone
+            // ];
 
-            return view('dashboard.user.konsultasi', $data);
+            return view('dashboard.user.konsultasi');
         }
 
     }
