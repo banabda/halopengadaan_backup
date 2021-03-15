@@ -82,11 +82,6 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group" style="display: none;" id="date_for_zoom">
-                                    <label for="tanggal_zoom">Pilih Tanggal</label>
-                                    <input class="form-control" type="datetime-local" id="tanggal_zoom" name="date_zoom">
-                                </div>
-
                                 <div class="box" style="display: none" id="card_kelebihan_paket">
                                     <div class="box-body">
                                     <h3>Kelebihan</h3>
@@ -174,7 +169,6 @@
                         <li>Identitas Terjaga</li>
                         <li>Konsultasi langsung via Zoom</li>
                     `);
-                    $('#date_for_zoom').show();
                 }
                 else {
                     $('#card_kelebihan_paket').hide();
