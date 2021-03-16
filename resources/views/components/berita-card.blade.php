@@ -5,6 +5,6 @@
         <div class="tag mr-2">{{ $tag }}</div>
     @endforeach --}}
     </div>
-    <h3 class="title my-3">{{ $title }}</h3>
+    <h3 class="title my-3 text-justify" style="font-size: 23px">{{ $title }}</h3>
     <h6 class="text">{{ $detail }}</h6>
 </div>

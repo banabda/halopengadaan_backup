@@ -11,10 +11,11 @@ class HomeController extends Controller
     public function index()
     {
         $artikel = Artikel::all();
-        
+
         $data = [
             'artikel' => $artikel
         ];
+        // dd($data);
 
         return view('home', $data);
     }

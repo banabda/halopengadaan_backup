@@ -7,11 +7,11 @@
             <div class="mr-3 underline">Terbaru</div>
         </div>
         <div class="row">
-            @for ($i = 1; $i < 9; $i++)
+            @foreach ($artikel as $item)
                 <div class="col-md-4 mb-4 p-0">
-                    @include('components.berita-card', ['title'=>'Judul Berita '.$i, 'detail'=>'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam odit dolor itaque, at eveniet dicta sint aut accusantium, animi consequuntur, minus dolorem omnis nostrum quia voluptate nihil. Quisquam, sed aliquid?', 'imgsrc'=>'', 'id' => $i])
+                    @include('components.berita-card', ['title'=> $item->judul, 'detail'=> Str::limit(strip_tags($item->desc), 100, '...'), 'imgsrc'=>'', 'id' => '1'])
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
 </div>

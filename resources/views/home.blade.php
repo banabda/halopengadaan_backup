@@ -26,6 +26,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 {{-- <div class="radialImg1">
     <img src="{{ asset('images/back-sect-4.png') }}" alt="">
 
