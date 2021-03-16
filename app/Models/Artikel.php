@@ -16,4 +16,9 @@ class Artikel extends Model
         'slug',
         'foto'
     ];
+
+    public function artikelView()
+    {
+        return $this->hasMany('App\Models\ArtikelViews', 'artikel_id', 'id');
+    }
 }

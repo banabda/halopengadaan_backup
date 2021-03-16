@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Models\Artikel;
+use App\Models\ArtikelViews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -164,12 +165,20 @@ class ArtikelController extends Controller
         ]);
     }
 
-    public function readArtikel($slug)
+    public function readArtikel(Request $request, $slug)
     {
         $artikel = Artikel::where('slug', $slug)->first();
 
+        $view = new ArtikelViews();
+        $view->artikel_id = $artikel->id;
+        $view->ipv4 = $request->ip();
+        $view->save();
+
+        $countView = ArtikelViews::where('artikel_id', $artikel->id)->count();
+        
         $data = [
-            'artikel' => $artikel
+            'artikel' => $artikel,
+            'view'=> $countView
         ];
 
         return view('components.show-artikel', $data);
