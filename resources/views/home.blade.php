@@ -78,8 +78,7 @@
                 </div>
                 <div class="col-md-6 right">
                     <div class="divimage" style="background-image: url({{ asset('images/header.jpg') }})">
-                    <img src="{{ asset('images/section1/background-img.png') }}" alt="">
-
+                        <img src="{{ asset('images/section1/background-img.png') }}" alt="">
                    </div>
                 </div>
             </div>

@@ -172,6 +172,6 @@ class ArtikelController extends Controller
             'artikel' => $artikel
         ];
 
-        return view('components.show-artikel');
+        return view('components.show-artikel', $data);
     }
 }

@@ -11,9 +11,8 @@ class PurchaseController extends Controller
     {
         $data = $request->all();
         $request->session()->put('paket', $id);
-        // echo $request->session()->get('paket');
-        return redirect()->route('register');
         
-        // dd($data);
+        return redirect()->route('register');
+
     }
 }
