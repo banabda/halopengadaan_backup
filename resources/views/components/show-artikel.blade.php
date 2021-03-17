@@ -18,9 +18,6 @@
                     <div class="col-md-9">
                         <h2 class="pl-2" style="font-size: 45px; font-weight: 590">Ini Title</h2>
                     </div>
-                    <div class="col-md-3">
-                        <i data-feather="eye"></i>
-                    </div>
                 </div>
                 <div class="card shadow" style="border-radius: 15px">
                     <img src="https://d1bpj0tv6vfxyp.cloudfront.net/articles/490905_16-3-2021_12-22-53.jpeg" style="border-radius: 10px 10px 0 0" class="card-img-top" alt="...">
@@ -69,23 +66,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3"></div>
-        </div>
-
-    </div>
-{{--
-    <div style="height: inherit; margin-top: 100px">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-6">
-                    Haha
-                </div>
-                <div class="col-md-6">
-                    Haha
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                      This is some text within a card body.
+                    </div>
                 </div>
             </div>
         </div>
-    </div> --}}
+
+    </div>
 </div>
 
 
