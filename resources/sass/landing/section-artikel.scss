@@ -1,4 +1,5 @@
-.artikel-card{
-    display: flex;
+.card-deck > .card {
+    width: 29%;
     flex-wrap: wrap;
+    flex: initial; 
 }
