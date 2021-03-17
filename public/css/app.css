@@ -10214,9 +10214,26 @@ h3 {
   text-align: justify;
 }
 
-.artikel-card {
-  display: flex;
-  flex-wrap: wrap;
+.image-artikel-terkait {
+  height: 110px;
+}
+
+.image-div-artikel-terkait {
+  margin: 0;
+}
+
+.artikel-terkait {
+  margin: 0;
+  padding: 10px 20px 0 0;
+}
+
+.font-artikel-terkait {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.time-artikel-terkait {
+  font-size: 12px;
 }
 
 .form-style .form-control {

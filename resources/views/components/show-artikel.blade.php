@@ -13,7 +13,7 @@
 
 
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-8">
                 <div class="row">
                     <div class="col-md-9">
                         <h2 class="pl-2" style="font-size: 45px; font-weight: 590">Ini Title</h2>
@@ -66,12 +66,22 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
-                      This is some text within a card body.
+            <div class="col-md-4">
+                <h3>Artikel Terkait</h3>
+                @for ($i = 1; $i <= 5; $i++)
+                <div class="card w-100 shadow" style="border-radius: 15px">
+                <div class="row">
+                    <div class="col-12 col-md-6 image-div-artikel-terkait">
+                        <img class="image-artikel-terkait" src="https://d1bpj0tv6vfxyp.cloudfront.net/articles/803370_17-3-2021_11-45-17-thumbnail.jpeg" alt="" srcset="" width="100%">
+                    </div>
+                    <div class="col-12 col-md-6 artikel-terkait" >
+                        <h3 class="font-artikel-terkait"> Ketahui 4 Efek Samping Melakukan Veneer Gigi </h3>
+                        <p class="time-artikel-terkait">20 Jam Lalu</p>
                     </div>
                 </div>
+                </div>
+                <hr>
+                @endfor
             </div>
         </div>
 
