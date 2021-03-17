@@ -1,5 +1,5 @@
 
-<div class="card m-2 h-100" style="
+<div class="card m-2 h-100 shadow-lg" style="
 border-radius:20px;
 ">
     <div class="card-body" style="padding: 0;">
@@ -18,7 +18,7 @@ border-radius:20px;
         </div>
         <div class="content-artikel" style="padding: 0 15px;">
             <h3 class="title my-3 text-justify" style="font-size: 23px">{{ $title }}</h3>
-            <p style="padding-top: 10px">{!! $detail !!} <a href="http://">Selengkapnya..</a></p>
+            <p style="padding-top: 10px">{!! $detail !!} <a href="http://">Selengkapnya ...</a></p>
             
         </div>
     </div>
