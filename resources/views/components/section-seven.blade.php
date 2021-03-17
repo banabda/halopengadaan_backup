@@ -9,7 +9,7 @@
         <div class="row">
             @foreach ($artikel as $item)
                 <div class="col-md-4 mb-4 p-0">
-                    @include('components.berita-card', ['title'=> $item->judul, 'detail'=> Str::limit(strip_tags($item->desc), 100, '...'), 'imgsrc'=>'', 'id' => '1'])
+                    @include('components.berita-card', ['title'=> $item->judul, 'detail'=> Str::limit(strip_tags($item->desc), 100, '...'), 'imgsrc'=> $item->foto])
                 </div>
             @endforeach
         </div>
