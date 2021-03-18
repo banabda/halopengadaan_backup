@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Konten Artikel</label>
-                                <textarea name="desc" class="form-control editor" rows="20" placeholder="Textarea text" required></textarea>
+                                <textarea name="desc" class="form-control editor" rows="20" placeholder="Konten Artikel"></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Foto Artikel</label>
