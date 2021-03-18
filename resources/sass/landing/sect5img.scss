@@ -1,20 +1,21 @@
-.sect3img {
+.sect5img {
     position: absolute;
-    top: 1400px;
+    top: 3025px;
     left: 0;
-    overflow: hidden;
     height: fit-content;
+    overflow: hidden;
     z-index: -3;
-    .sect3imgtag {
-        height: 1200px;
+    width: 100%;
+    .sect5imgtag {
+        height: 1550px;
         object-fit: contain;
         position: relative;
         top: 0;
-        left: -650px;
+        left: -200px;
     }
 }
 @include media-breakpoint-down(xs) {
-    .sect3img {
-        width: 100vw;
+    .sect5img {
+        top: 5000px;
     }
 }

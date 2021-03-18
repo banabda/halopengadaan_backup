@@ -17,7 +17,7 @@ border-radius:20px;
         @endforeach --}}
         </div>
         <div class="content-artikel" style="padding: 0 15px;">
-            <a href="{{ route('landing.artikel.show', $slug) }}" style="color: inherit; text-decoration:none"><h3 class="title my-3 text-justify" style="font-size: 23px">{{ $title }}</h3></a>
+            <a href="{{ route('landing.artikel.show', $slug) }}" style="color: inherit; text-decoration:none"><h3 class="title my-3" style="font-size: 23px">{{ $title }}</h3></a>
             <p style="padding-top: 10px">{!! $detail !!} <a href="{{ route('landing.artikel.show', $slug) }}">Selengkapnya ...</a></p>
 
         </div>
