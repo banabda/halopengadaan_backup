@@ -168,6 +168,8 @@ class ArtikelController extends Controller
     public function readArtikel(Request $request, $slug)
     {
         $artikel = Artikel::where('slug', $slug)->first();
+        $randomArtikel = Artikel::inRandomOrder()->limit(5)->get();
+
 
         $view = new ArtikelViews();
         $view->artikel_id = $artikel->id;
@@ -175,10 +177,11 @@ class ArtikelController extends Controller
         $view->save();
 
         $countView = ArtikelViews::where('artikel_id', $artikel->id)->count();
-        
+
         $data = [
             'artikel' => $artikel,
-            'view'=> $countView
+            'view'=> $countView,
+            'randomArtikel' => $randomArtikel
         ];
 
         return view('components.show-artikel', $data);
