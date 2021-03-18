@@ -18,6 +18,8 @@
 @import "./landing/sect1img.scss";
 @import "./landing/sect2img.scss";
 @import "./landing/sect3img.scss";
+@import "./landing/sect4img.scss";
+@import "./landing/sect5img.scss";
 @import "./landing/membership-card.scss";
 .form-style {
     .form-control {
@@ -159,52 +161,6 @@
         left: -500px;
         object-fit: contain;
         height: $radialHeight;
-    }
-}
-
-.sect4img {
-    position: absolute;
-    top: 2550px;
-    height: fit-content;
-    overflow: hidden;
-    z-index: -3;
-    width: 100%;
-    .sect4imgtag1 {
-        height: 400px;
-        object-fit: contain;
-        position: relative;
-        left: -425px;
-    }
-}
-.sect4img2 {
-    position: absolute;
-    top: 2350px;
-    right: 0;
-    height: fit-content;
-    overflow: hidden;
-    z-index: -3;
-    .sect4imgtag2 {
-        height: 600px;
-        object-fit: contain;
-        position: relative;
-        top: 0;
-        right: -300px;
-    }
-}
-.sect5img {
-    position: absolute;
-    top: 3025px;
-    left: 0;
-    height: fit-content;
-    overflow: hidden;
-    z-index: -3;
-    width: 100%;
-    .sect5imgtag {
-        height: 1550px;
-        object-fit: contain;
-        position: relative;
-        top: 0;
-        left: -200px;
     }
 }
 

@@ -1,0 +1,44 @@
+.sect4img {
+    position: absolute;
+    top: 2550px;
+    height: fit-content;
+    overflow: hidden;
+    z-index: -3;
+    width: 100%;
+    .sect4imgtag1 {
+        height: 400px;
+        object-fit: contain;
+        position: relative;
+        left: -425px;
+    }
+}
+.sect4img2 {
+    position: absolute;
+    top: 2350px;
+    right: 0;
+    height: fit-content;
+    overflow: hidden;
+    z-index: -3;
+    .sect4imgtag2 {
+        height: 600px;
+        object-fit: contain;
+        position: relative;
+        top: 0;
+        right: -300px;
+    }
+}
+@include media-breakpoint-down(xs) {
+    .sect4img {
+        top: 2500px;
+        .sect4imgtag1 {
+            left: -450px;
+        }
+    }
+    .sect4img2 {
+        top: 2900px;
+        .sect4imgtag2 {
+            height: 1500px;
+            right: -950px;
+        }
+    }
+}

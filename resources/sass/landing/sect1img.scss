@@ -16,3 +16,8 @@
     }
 }
 
+@include media-breakpoint-down(xs) {
+    .sect1img {
+        width: 100vw;
+    }
+}

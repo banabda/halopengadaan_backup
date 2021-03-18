@@ -48,5 +48,18 @@
         p {
             font-size: 1.1rem;
         }
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+}
+@include media-breakpoint-down(xs) {
+    .section-four {
+        height: 2300px;
+        img {
+            width: 70%;
+            display: flex;
+        }
     }
 }
