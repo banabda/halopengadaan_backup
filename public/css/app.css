@@ -10013,6 +10013,20 @@ h3 {
 .section-one-content .left {
   padding-top: 140px;
 }
+.section-one-content .left .h-sect1 {
+  opacity: 0;
+  position: relative;
+  left: -50px;
+  transition: left 0.3s ease-in, opacity 0.3s ease-in;
+  transition-delay: 0.1s;
+}
+.section-one-content .left .p-sect1 {
+  opacity: 0;
+  position: relative;
+  left: -50px;
+  transition: left 0.3s ease-in, opacity 0.3s ease-in;
+  transition-delay: 0.2s;
+}
 .section-one-content .right {
   padding-top: 100px;
   padding-left: 100px;
@@ -10052,6 +10066,43 @@ h3 {
 }
 .section-two-content .two-tittle {
   margin-bottom: 50px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.section-two-content .two-btn-1 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.1s;
+}
+.section-two-content .two-btn-2 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.2s;
+}
+.section-two-content .two-btn-3 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.3s;
+}
+.section-two-content .two-btn-4 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.4s;
+}
+.section-two-content .two-btn-5 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.5s;
+}
+.section-two-content .two-btn-6 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.6s;
+}
+.section-two-content .two-btn-7 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.7s;
 }
 .section-two-content .layananlist {
   list-style: none;
@@ -10097,6 +10148,21 @@ h3 {
   background-position-y: -70px;
   background-position-x: -200px;
   height: 700px;
+}
+.section-three-content .three-img {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.2s;
+}
+.section-three-content .three-p-1 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.4s;
+}
+.section-three-content .three-p-2 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.4s;
 }
 .section-three-content .left {
   padding-top: 100px;
@@ -10144,6 +10210,45 @@ h3 {
 .section-four-content {
   padding-top: 10vh;
 }
+.section-four-content .four-tittle {
+  opacity: 0;
+  transition: opacity 1s;
+}
+.section-four-content .four-btn-1 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.2s;
+}
+.section-four-content .four-btn-2 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.4s;
+}
+.section-four-content .four-btn-3 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.6s;
+}
+.section-four-content .four-btn-4 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.8s;
+}
+.section-four-content .four-btn-5 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 1s;
+}
+.section-four-content .four-btn-6 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 1.2s;
+}
+.section-four-content .four-btn-7 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 1.4s;
+}
 .section-four-content .kelebihanimg {
   margin-bottom: 10px;
 }
@@ -10156,6 +10261,35 @@ h3 {
 }
 .section-five-content {
   padding-top: 5vh;
+}
+.section-five-content .five-tittle {
+  opacity: 0;
+  transition: opacity 1s;
+}
+.section-five-content .five-btn-1 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.2s;
+}
+.section-five-content .five-btn-2 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.4s;
+}
+.section-five-content .five-btn-3 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.6s;
+}
+.section-five-content .five-btn-4 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 0.8s;
+}
+.section-five-content .five-btn-5 {
+  opacity: 0;
+  transition: opacity 0.7s ease-in;
+  transition-delay: 1s;
 }
 .section-five-content .linear-bg {
   height: 350px;
@@ -10199,6 +10333,31 @@ h3 {
 }
 .section-six-content {
   padding-top: 5vh;
+}
+.section-six-content .six-tittle {
+  opacity: 0;
+  transition: opacity 1s;
+}
+.section-six-content .six-btn-1 {
+  position: relative;
+  opacity: 0;
+  left: -50px;
+  transition: opacity 0.7s ease-in, left 0.5s ease;
+  transition-delay: 0.2s;
+}
+.section-six-content .six-btn-2 {
+  position: relative;
+  opacity: 0;
+  left: -50px;
+  transition: opacity 0.7s ease-in, left 0.5s ease;
+  transition-delay: 0.4s;
+}
+.section-six-content .six-btn-3 {
+  position: relative;
+  opacity: 0;
+  left: -50px;
+  transition: opacity 0.7s ease-in, left 0.5s ease;
+  transition-delay: 0.6s;
 }
 .section-six-content .linear-bg {
   height: 550px;
@@ -10296,7 +10455,7 @@ h3 {
 
 .title-artikel {
   font-size: 25px;
-  font-weight: 590;
+  font-weight: 600;
   padding-bottom: 0;
   margin-bottom: 0;
 }
@@ -10352,6 +10511,10 @@ h3 {
   color: #222;
 }
 
+.card-text {
+  font-size: 21px;
+}
+
 @media (max-width: 991.98px) {
   .artikel-terkait {
     margin: 10px 10px 0 10px;
@@ -10393,7 +10556,7 @@ h3 {
 
 .sect2img {
   position: absolute;
-  top: 1000;
+  top: 1000px;
   right: 0;
   overflow: hidden;
   height: -webkit-fit-content;
@@ -10413,7 +10576,7 @@ h3 {
 
 .sect3img {
   position: absolute;
-  top: 1400;
+  top: 1400px;
   left: 0;
   overflow: hidden;
   height: -webkit-fit-content;
@@ -10428,6 +10591,23 @@ h3 {
   position: relative;
   top: 0;
   left: -650px;
+}
+
+.btn-daftar {
+  background: linear-gradient(to left, #ca4b7c, #6e376e);
+  color: white;
+  border: none;
+}
+
+.btn-daftar:hover {
+  color: papayawhip;
+}
+
+.form-button {
+  position: absolute;
+  bottom: 30px;
+  left: 10px;
+  right: 0;
 }
 
 .form-style .form-control {
@@ -10572,7 +10752,7 @@ h3 {
 
 .sect4img {
   position: absolute;
-  top: 2550;
+  top: 2550px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -10585,12 +10765,12 @@ h3 {
   -o-object-fit: contain;
      object-fit: contain;
   position: relative;
-  left: -425;
+  left: -425px;
 }
 
 .sect4img2 {
   position: absolute;
-  top: 2350;
+  top: 2350px;
   right: 0;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -10604,12 +10784,12 @@ h3 {
      object-fit: contain;
   position: relative;
   top: 0;
-  right: -300;
+  right: -300px;
 }
 
 .sect5img {
   position: absolute;
-  top: 3025;
+  top: 3025px;
   left: 0;
   height: -webkit-fit-content;
   height: -moz-fit-content;

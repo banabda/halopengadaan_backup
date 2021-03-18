@@ -39,7 +39,7 @@
 
 .title-artikel{
     font-size: 25px;
-    font-weight: 590;
+    font-weight: 600;
     padding-bottom: 0;
     margin-bottom: 0;
 }
@@ -97,6 +97,10 @@
 
 .cl2{
     color: #222;
+}
+
+.card-text{
+    font-size: 21px;
 }
 
 @include media-breakpoint-down(md) {

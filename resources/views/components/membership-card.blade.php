@@ -1,19 +1,3 @@
-<style>
-    .btn-daftar{
-        background: linear-gradient(to left, #ca4b7c, #6e376e);
-        color: white;
-        border: none;
-    }
-    .btn-daftar:hover{
-        color: papayawhip;
-    }
-    .form-button{
-        position: absolute;
-        bottom: 30;
-        left: 10;
-        right: 0;
-    }
-</style>
 <div class="linear-bg mx-auto py-4 px-3 text-center">
     <div class="h-25">
         <h2>{{ $title }}</h2>
