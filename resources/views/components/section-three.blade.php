@@ -1,22 +1,3 @@
-<style>
-    .three-img{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 0.2s;
-    }
-    .three-p-1{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 0.4s;
-
-    }
-    .three-p-2{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 0.4s;
-
-    }
-</style>
 <div class="section-three" id="section-three">
     <div class="container section-three-content">
         <div class="row justify-content-center">

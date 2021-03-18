@@ -4,6 +4,20 @@
         color: white;
         .left {
             padding-top: 140px;
+            .h-sect1 {
+                opacity: 0;
+                position: relative;
+                left: -50px;
+                transition: left 0.3s ease-in, opacity 0.3s ease-in;
+                transition-delay: 0.1s;
+            }
+            .p-sect1 {
+                opacity: 0;
+                position: relative;
+                left: -50px;
+                transition: left 0.3s ease-in, opacity 0.3s ease-in;
+                transition-delay: 0.2s;
+            }
         }
         .right {
             padding-top: 100px;

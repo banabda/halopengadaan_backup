@@ -1,6 +1,31 @@
 .section-six {
     height: 900px;
     &-content {
+        .six-tittle {
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .six-btn-1 {
+            position: relative;
+            opacity: 0;
+            left: -50px;
+            transition: opacity 0.7s ease-in, left 0.5s ease;
+            transition-delay: 0.2s;
+        }
+        .six-btn-2 {
+            position: relative;
+            opacity: 0;
+            left: -50px;
+            transition: opacity 0.7s ease-in, left 0.5s ease;
+            transition-delay: 0.4s;
+        }
+        .six-btn-3 {
+            position: relative;
+            opacity: 0;
+            left: -50px;
+            transition: opacity 0.7s ease-in, left 0.5s ease;
+            transition-delay: 0.6s;
+        }
         padding-top: 5vh;
         .linear-bg {
             height: 550px;
@@ -10,10 +35,7 @@
             border-radius: 50px !important;
             // border-left: 15px solid #3EC8AC;
             // border-right: 15px solid #4E90A4;
-            background:
-          // linear-gradient(left, #3EC8AC 0%, #4E90A4 100%),
-          // linear-gradient(to bottom, #F3F9A7 ,#CAC531);
-                linear-gradient(to right, white, white),
+            background: linear-gradient(to right, white, white),
                 linear-gradient(to left, #ca4b7c, #6e376e);
             background-clip: padding-box, border-box;
             background-origin: padding-box, border-box;

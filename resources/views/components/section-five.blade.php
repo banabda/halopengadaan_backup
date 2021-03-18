@@ -1,38 +1,3 @@
-<style>
-    .five-tittle{
-        opacity: 0;
-        transition: opacity 1s;
-    }
-    .five-btn-1{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 0.2s;
-    }
-    .five-btn-2{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 0.4s;
-
-    }
-    .five-btn-3{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 0.6s;
-
-    }
-    .five-btn-4{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 0.8s;
-
-    }
-    .five-btn-5{
-        opacity: 0;
-        transition: opacity 0.7s  ease-in;
-        transition-delay: 1s;
-
-    }
-</style>
 <div class="section-five">
     <div class="container section-five-content">
         <div class="row">
