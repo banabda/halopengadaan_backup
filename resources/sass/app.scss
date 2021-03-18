@@ -15,7 +15,9 @@
 @import "./landing/section-six.scss";
 @import "./landing/section-seven.scss";
 @import "./landing/section-artikel.scss";
-
+@import "./landing/sect1img.scss";
+@import "./landing/sect2img.scss";
+@import "./landing/sect3img.scss";
 .form-style {
     .form-control {
         box-shadow: none;
@@ -159,55 +161,10 @@
     }
 }
 
-.sect1img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    height: fit-content;
-    width: 1200px;
-    .sect1imgtag {
-        height: 1000px;
-        object-fit: contain;
-        position: relative;
-        opacity: 0;
-        top: -1600px;
-        left: -1000px;
-        transition: left 1s ease, top 1s ease, opacity 1.5s ease-in;
-    }
-}
 
-.sect2img {
-    position: absolute;
-    top: 1000;
-    right: 0;
-    overflow: hidden;
-    height: fit-content;
-    .sect2imgtag {
-        opacity: 0;
-        height: 475px;
-        object-fit: contain;
-        position: relative;
-        top: 0;
-        right: -600px;
-        transition: right 1s ease, top 1s ease, opacity 1.5s ease-in;
-    }
-}
-.sect3img {
-    position: absolute;
-    top: 1400;
-    left: 0;
-    overflow: hidden;
-    height: fit-content;
-    z-index: -3;
-    .sect3imgtag {
-        height: 1200px;
-        object-fit: contain;
-        position: relative;
-        top: 0;
-        left: -650px;
-    }
-}
+
+
+
 .sect4img {
     position: absolute;
     top: 2550;
@@ -308,164 +265,6 @@
 }
 
 @include media-breakpoint-down(xl) {
-}
-
-@include media-breakpoint-down(xs) {
-    .two-tittle,
-    .two-btn-1,
-    .two-btn-2,
-    .two-btn-3,
-    .two-btn-4,
-    .two-btn-5,
-    .two-btn-6,
-    .two-btn-7,
-    .three-img,
-    .three-p-1,
-    .three-p-2,
-    .sect3imgtag,
-    .radialImg1,
-    .radialImg2,
-    .four-tittle,
-    .four-btn-1,
-    .four-btn-2,
-    .four-btn-3,
-    .four-btn-4,
-    .four-btn-5,
-    .four-btn-6,
-    .four-btn-7,
-    .five-tittle,
-    .five-btn-1,
-    .five-btn-2,
-    .five-btn-3,
-    .five-btn-4,
-    .five-btn-5,
-    .six-tittle,
-    .six-btn-1,
-    .six-btn-2,
-    .six-btn-3 {
-        opacity: 1 !important;
-    }
-    .radialImg1 {
-        width: 100vw;
-        top: 1900px !important;
-        img {
-            right: -400px !important;
-        }
-    }
-    .radialImg2 {
-        width: 100vw;
-        top: 5250px !important;
-        img {
-            left: -850px !important;
-        }
-    }
-    .head {
-        font-size: 0.7rem;
-        letter-spacing: 0;
-        line-height: 3vh;
-    }
-    .section-content-paragraph {
-        font-size: 1rem;
-    }
-    .section-content-header {
-        font-size: 2rem;
-    }
-    .sect1img {
-        width: 100vw;
-        .sect1imgtag {
-            height: 750px;
-            object-fit: contain;
-            position: relative;
-            opacity: 0;
-            top: -250px !important;
-            left: -150px !important;
-            transition: none;
-        }
-    }
-    .sect3img {
-        width: 100vw;
-        top: 1550px;
-        .sect3imgtag {
-            height: 800px;
-            object-fit: contain;
-            position: relative;
-            opacity: 0;
-            top: -30px !important;
-            left: -150px !important;
-            transition: none;
-        }
-    }
-    .section-one {
-        &-content {
-            p {
-                margin-top: 10px;
-            }
-            &-image {
-                margin-top: 75px;
-                width: 300px;
-                height: 300px;
-            }
-        }
-    }
-    .section-two {
-        height: 900px;
-        &-content {
-            padding-top: 15vh;
-            .linear-bg {
-                height: 5vh;
-                margin-bottom: 50px;
-            }
-        }
-    }
-    .section-three {
-        height: 800px;
-        &-content {
-            padding-top: 0;
-            .divprapgraph {
-                font-weight: bold;
-            }
-            .divimage {
-                height: 40vh;
-            }
-            &-image {
-                margin-top: 0;
-                width: 50vw;
-                height: 30vh;
-            }
-        }
-    }
-    .section-four {
-        height: 800px;
-        &-content {
-            padding-top: 0;
-            .kelebihanimg {
-                width: 60%;
-                margin-bottom: 1vh;
-            }
-            .divkelebihan {
-                width: 45vw;
-            }
-        }
-    }
-    .section-five {
-        height: 2000px;
-        &-content {
-            .linear-bg {
-                // width: 300px;
-                margin-bottom: 5vh;
-            }
-            .imagemember {
-                height: 15vh;
-            }
-            .linear-bg.big {
-                height: 50vh;
-                width: 300px;
-            }
-        }
-    }
-    .section-six {
-        height: 1850px;
-    }
 }
 
 ::-webkit-scrollbar {
