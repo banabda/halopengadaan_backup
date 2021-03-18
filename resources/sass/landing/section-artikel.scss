@@ -28,6 +28,10 @@
     font-size: 12px;
 }
 
+.additional-information{
+    font-size: 12px;
+}
+
 @include media-breakpoint-down(md) {
 
     .artikel-terkait{
@@ -41,5 +45,9 @@
 
     .time-artikel-terkait{
         font-size: 12px;
+    }
+
+    .section-two-artikel{
+        margin-top: 40px;
     }
 }

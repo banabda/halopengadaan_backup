@@ -13,10 +13,12 @@
 
 
         <div class="row">
-            <div class="col-md-8">
+            <div class="col-12 col-md-8">
                 <div class="row">
-                    <div class="col-md-9">
+                    <div class="col-12 col-md-9">
                         <h2 class="pl-2" style="font-size: 45px; font-weight: 590">Ini Title</h2>
+                        <p class="pl-2 text-muted d-inline additional-information"><i class="far fa-eye"></i> 27 views </p>
+                        <p class="pl-2 text-muted d-inline additional-information"><i class="far fa-clock"></i> 27 views </p>
                     </div>
                 </div>
                 <div class="card shadow" style="border-radius: 15px">
@@ -66,7 +68,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-12 col-md-4 section-two-artikel">
                 <h3>Artikel Terkait</h3>
                 @for ($i = 1; $i <= 5; $i++)
                 <div class="card artikel-card w-100 shadow-sm" style="border-radius: 15px">
