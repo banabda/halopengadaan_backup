@@ -47,15 +47,15 @@
                           <hr class="my-15">
                             <div class="form-group">
                                 <label>Judul Artikel</label>
-                                <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul Artikel">
+                                <input type="text" class="form-control" id="judul" name="judul" placeholder="Judul Artikel" required>
                             </div>
                             <div class="form-group">
                                 <label>Konten Artikel</label>
-                                <textarea name="desc" class="form-control editor" rows="20" placeholder="Textarea text"></textarea>
+                                <textarea name="desc" class="form-control editor" rows="20" placeholder="Textarea text" required></textarea>
                             </div>
                             <div class="form-group">
                                 <label>Foto Artikel</label>
-                                <input type="file" class="form-control" name="foto" placeholder="Judul Artikel">
+                                <input type="file" class="form-control" name="foto" placeholder="Judul Artikel" required>
                             </div>
                       </div>
                       <!-- /.box-body -->
