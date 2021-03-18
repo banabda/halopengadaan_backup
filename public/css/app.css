@@ -11246,12 +11246,20 @@ a.text-dark:focus {
 
 @media (max-width: 575.98px) {
   .section-four {
-    height: 2300px;
+    height: 2500px;
+  }
+
+  .section-four-content .divkelebihan {
+    margin-bottom: 24px;
   }
 
   .section-four img {
     width: 70%;
     display: flex;
+  }
+
+  .section-four p {
+    font-size: 1.5rem;
   }
 }
 
@@ -11678,7 +11686,7 @@ a.text-dark:focus {
 
 @media (max-width: 575.98px) {
   .sect4img {
-    top: 2500px;
+    top: 2600px;
   }
 
   .sect4img .sect4imgtag1 {
@@ -11686,7 +11694,7 @@ a.text-dark:focus {
   }
 
   .sect4img2 {
-    top: 2900px;
+    top: 2950px;
   }
 
   .sect4img2 .sect4imgtag2 {
