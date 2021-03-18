@@ -63,24 +63,44 @@
 
 @include media-breakpoint-down(xs) {
     .section-two {
+
         &-content {
-            padding-top: 100px;
-            .section-content-header {
-                font-size: 1.8rem;
+
+            .two-tittle {
+                font-size: 10rem;
                 font-weight: bold;
+
+            }
+            .two-btn-1 {
+                font-size: 1.5rem;
+            }
+            .two-btn-2 {
+                font-size: 1.5rem;
+            }
+            .two-btn-3 {
+                font-size: 1.5rem;
+            }
+            .two-btn-4 {
+                font-size: 1.5rem;
+            }
+            .two-btn-5 {
+                font-size: 1.5rem;
+            }
+            .two-btn-6 {
+                font-size: 1.5rem;
+            }
+            .two-btn-7 {
+                font-size: 1.5rem;
             }
             .layananlist {
+
+                li::before {
+
+                }
                 li {
-                    font-size: 1.5rem;
+
                 }
             }
-        }
-    }
-
-    .sect2img {
-        .sect2imgtag {
-            width: 80%;
-            margin-left: 20%;
         }
     }
 }
