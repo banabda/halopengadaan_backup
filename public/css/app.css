@@ -11467,7 +11467,7 @@ a.text-dark:focus {
 
 .title-artikel {
   font-size: 25px;
-  font-weight: 590;
+  font-weight: 600;
   padding-bottom: 0;
   margin-bottom: 0;
 }
@@ -11521,6 +11521,10 @@ a.text-dark:focus {
 
 .cl2 {
   color: #222;
+}
+
+.card-text {
+  font-size: 21px;
 }
 
 @media (max-width: 991.98px) {
