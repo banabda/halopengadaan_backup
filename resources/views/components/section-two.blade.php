@@ -1,4 +1,4 @@
-<style>
+<style type="text/css">
     .two-tittle{
         opacity: 0;
         transition: opacity 1s;
