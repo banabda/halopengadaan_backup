@@ -22,7 +22,7 @@ class ArtikelController extends Controller
         if (request()->ajax()) {
             return DataTables()->of($data)
             ->addColumn('link_url', function($url){
-                return '<a target="_blank" href="'. $url->link .'">Link Artikel</a>';
+                return '<a target="_blank" href="'. route('landing.artikel.show', $url->slug) .'">Link Artikel</a>';
             })
             ->addColumn('foto_artikel', function($foto){
                 return "<a target='_blank' href='". Storage::url($foto->foto) ."'><img src=". Storage::url($foto->foto). " height='150px' width='auto' alt='". $foto->foto ."'></a>";

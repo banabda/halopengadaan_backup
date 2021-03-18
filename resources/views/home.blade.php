@@ -1,40 +1,7 @@
-<style type="text/css">
-    .radialImg1{
-        opacity: 0;
-        transition: opacity 0.5s  ease-in;
-    }
-    .radialImg2{
-        opacity: 0;
-        transition: opacity 0.5s  ease-in;
-    }
-    .h-sect1{
-        opacity: 0;
-        position: relative;
-        left: -50px;
-        transition: left 0.3s ease-in, opacity 0.3s ease-in;
-        transition-delay: 0.1s;
-    }
-    .p-sect1{
-        opacity: 0;
-        position: relative;
-        left: -50px;
-        transition: left 0.3s ease-in, opacity 0.3s ease-in;
-        transition-delay: 0.2s;
-    }
-</style>
-
 @extends('layouts.app')
 
 @section('content')
 
-{{-- <div class="radialImg1">
-    <img src="{{ asset('images/back-sect-4.png') }}" alt="">
-
-</div> --}}
-{{-- <div class="radialImg2">
-    <img src="{{ asset('images/back-sect-3.png') }}" alt="">
-
-</div> --}}
 <div class="sect1img">
     <img class="sect1imgtag" src="{{ asset('images/section1/background.png') }}" alt="">
 

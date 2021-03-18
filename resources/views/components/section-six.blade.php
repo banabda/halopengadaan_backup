@@ -1,32 +1,4 @@
-<style>
-    .six-tittle{
-        opacity: 0;
-        transition: opacity 1s;
-    }
-    .six-btn-1{
-        position: relative;
-        opacity: 0;
-        left: -50px;
-        transition: opacity 0.7s ease-in, left 0.5s ease;
-        transition-delay: 0.2s;
-    }
-    .six-btn-2{
-        position: relative;
-        opacity: 0;
-        left: -50px;
-        transition: opacity 0.7s ease-in, left 0.5s ease;
-        transition-delay: 0.4s;
 
-    }
-    .six-btn-3{
-        position: relative;
-        opacity: 0;
-        left: -50px;
-        transition: opacity 0.7s ease-in, left 0.5s ease;
-        transition-delay: 0.6s;
-
-    }
-</style>
 <div class="section-six">
     <div class="container section-six-content">
         <div class="row">

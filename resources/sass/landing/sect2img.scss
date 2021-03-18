@@ -1,6 +1,6 @@
 .sect2img {
     position: absolute;
-    top: 1000;
+    top: 1000px;
     right: 0;
     overflow: hidden;
     height: fit-content;
@@ -14,5 +14,3 @@
         transition: right 1s ease, top 1s ease, opacity 1.5s ease-in;
     }
 }
-
-
