@@ -4,6 +4,43 @@
         padding-top: 200px;
         .two-tittle {
             margin-bottom: 50px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        .two-btn-1 {
+            opacity: 0;
+            transition: opacity 0.7s ease-in;
+            transition-delay: 0.1s;
+        }
+        .two-btn-2 {
+            opacity: 0;
+            transition: opacity 0.7s ease-in;
+            transition-delay: 0.2s;
+        }
+        .two-btn-3 {
+            opacity: 0;
+            transition: opacity 0.7s ease-in;
+            transition-delay: 0.3s;
+        }
+        .two-btn-4 {
+            opacity: 0;
+            transition: opacity 0.7s ease-in;
+            transition-delay: 0.4s;
+        }
+        .two-btn-5 {
+            opacity: 0;
+            transition: opacity 0.7s ease-in;
+            transition-delay: 0.5s;
+        }
+        .two-btn-6 {
+            opacity: 0;
+            transition: opacity 0.7s ease-in;
+            transition-delay: 0.6s;
+        }
+        .two-btn-7 {
+            opacity: 0;
+            transition: opacity 0.7s ease-in;
+            transition-delay: 0.7s;
         }
         .layananlist {
             list-style: none;
@@ -27,7 +64,7 @@
 @include media-breakpoint-down(xs) {
     .section-two {
         &-content {
-            .section-content-header{
+            .section-content-header {
                 margin-top: -80%;
                 font-size: 1.8rem;
                 font-weight: bold;
@@ -35,7 +72,6 @@
             .layananlist {
                 margin-top: -80%;
                 li {
-
                     font-size: 1.5rem;
                 }
             }
@@ -49,6 +85,4 @@
             margin-left: 20%;
         }
     }
-
-
 }
