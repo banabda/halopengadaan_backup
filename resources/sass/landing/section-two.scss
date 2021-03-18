@@ -64,13 +64,12 @@
 @include media-breakpoint-down(xs) {
     .section-two {
         &-content {
+            padding-top: 100px;
             .section-content-header {
-                margin-top: -80%;
                 font-size: 1.8rem;
                 font-weight: bold;
             }
             .layananlist {
-                margin-top: -80%;
                 li {
                     font-size: 1.5rem;
                 }
@@ -79,7 +78,6 @@
     }
 
     .sect2img {
-        margin-top: -60%;
         .sect2imgtag {
             width: 80%;
             margin-left: 20%;
