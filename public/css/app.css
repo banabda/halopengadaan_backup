@@ -11239,6 +11239,30 @@ a.text-dark:focus {
   font-size: 1.1rem;
 }
 
+.section-four-content img {
+  width: 100%;
+  display: block;
+}
+
+@media (max-width: 575.98px) {
+  .section-four {
+    height: 2500px;
+  }
+
+  .section-four-content .divkelebihan {
+    margin-bottom: 24px;
+  }
+
+  .section-four img {
+    width: 70%;
+    display: flex;
+  }
+
+  .section-four p {
+    font-size: 1.5rem;
+  }
+}
+
 .section-five {
   height: 1000px;
 }
@@ -11568,6 +11592,12 @@ a.text-dark:focus {
   transition: left 1s ease, top 1s ease, opacity 1.5s ease-in;
 }
 
+@media (max-width: 575.98px) {
+  .sect1img {
+    width: 100vw;
+  }
+}
+
 .sect2img {
   position: absolute;
   top: 1000px;
@@ -11607,6 +11637,97 @@ a.text-dark:focus {
   position: relative;
   top: 0;
   left: -650px;
+}
+
+@media (max-width: 575.98px) {
+  .sect3img {
+    width: 100vw;
+  }
+}
+
+.sect4img {
+  position: absolute;
+  top: 2550px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  z-index: -3;
+  width: 100%;
+}
+
+.sect4img .sect4imgtag1 {
+  height: 400px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  left: -425px;
+}
+
+.sect4img2 {
+  position: absolute;
+  top: 2350px;
+  right: 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  z-index: -3;
+}
+
+.sect4img2 .sect4imgtag2 {
+  height: 600px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  top: 0;
+  right: -300px;
+}
+
+@media (max-width: 575.98px) {
+  .sect4img {
+    top: 2600px;
+  }
+
+  .sect4img .sect4imgtag1 {
+    left: -450px;
+  }
+
+  .sect4img2 {
+    top: 2950px;
+  }
+
+  .sect4img2 .sect4imgtag2 {
+    height: 1500px;
+    right: -950px;
+  }
+}
+
+.sect5img {
+  position: absolute;
+  top: 3025px;
+  left: 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow: hidden;
+  z-index: -3;
+  width: 100%;
+}
+
+.sect5img .sect5imgtag {
+  height: 1550px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: relative;
+  top: 0;
+  left: -200px;
+}
+
+@media (max-width: 575.98px) {
+  .sect5img {
+    top: 5000px;
+  }
 }
 
 .btn-daftar {
@@ -11783,66 +11904,6 @@ a.text-dark:focus {
   -o-object-fit: contain;
      object-fit: contain;
   height: 1500px;
-}
-
-.sect4img {
-  position: absolute;
-  top: 2550px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  overflow: hidden;
-  z-index: -3;
-  width: 100%;
-}
-
-.sect4img .sect4imgtag1 {
-  height: 400px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  position: relative;
-  left: -425px;
-}
-
-.sect4img2 {
-  position: absolute;
-  top: 2350px;
-  right: 0;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  overflow: hidden;
-  z-index: -3;
-}
-
-.sect4img2 .sect4imgtag2 {
-  height: 600px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  position: relative;
-  top: 0;
-  right: -300px;
-}
-
-.sect5img {
-  position: absolute;
-  top: 3025px;
-  left: 0;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  overflow: hidden;
-  z-index: -3;
-  width: 100%;
-}
-
-.sect5img .sect5imgtag {
-  height: 1550px;
-  -o-object-fit: contain;
-     object-fit: contain;
-  position: relative;
-  top: 0;
-  left: -200px;
 }
 
 .items {
