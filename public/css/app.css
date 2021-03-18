@@ -11189,8 +11189,16 @@ a.text-dark:focus {
   text-align: justify;
 }
 
+.artikel-card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+}
+
 .image-artikel-terkait {
-  height: 110px;
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
 }
 
 .image-div-artikel-terkait {
@@ -11209,6 +11217,21 @@ a.text-dark:focus {
 
 .time-artikel-terkait {
   font-size: 12px;
+}
+
+@media (max-width: 991.98px) {
+  .artikel-terkait {
+    margin: 10px 10px 0 10px;
+    padding-left: 15px;
+  }
+
+  .font-artikel-terkait {
+    font-size: 15px;
+  }
+
+  .time-artikel-terkait {
+    font-size: 12px;
+  }
 }
 
 .form-style .form-control {

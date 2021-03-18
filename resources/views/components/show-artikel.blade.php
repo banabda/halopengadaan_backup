@@ -69,13 +69,13 @@
             <div class="col-md-4">
                 <h3>Artikel Terkait</h3>
                 @for ($i = 1; $i <= 5; $i++)
-                <div class="card w-100 shadow" style="border-radius: 15px">
+                <div class="card artikel-card w-100 shadow-sm" style="border-radius: 15px">
                 <div class="row">
                     <div class="col-12 col-md-6 image-div-artikel-terkait">
-                        <img class="image-artikel-terkait" src="https://d1bpj0tv6vfxyp.cloudfront.net/articles/803370_17-3-2021_11-45-17-thumbnail.jpeg" alt="" srcset="" width="100%">
+                        <img class="image-artikel-terkait" src="https://d1bpj0tv6vfxyp.cloudfront.net/articles/803370_17-3-2021_11-45-17-thumbnail.jpeg" alt="" srcset="" >
                     </div>
                     <div class="col-12 col-md-6 artikel-terkait" >
-                        <h3 class="font-artikel-terkait"> Ketahui 4 Efek Samping Melakukan Veneer Gigi </h3>
+                        <h3 class="font-artikel-terkait"> Ketahui 4 Efek Samping Melakukan Veneer Gigi Lorem ipsum dolor sit amet</h3>
                         <p class="time-artikel-terkait">20 Jam Lalu</p>
                     </div>
                 </div>
