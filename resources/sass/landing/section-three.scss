@@ -32,3 +32,18 @@
         }
     }
 }
+@include media-breakpoint-down(xs) {
+    .divimage {
+        display:none;
+    }
+    .divprapgraph {
+        margin-top: -180%
+    }
+
+    .sect3img .sect3imgtag {
+        height: 1000px;
+        left: -350!important;
+    }
+
+}
+

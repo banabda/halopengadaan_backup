@@ -1,0 +1,18 @@
+.sect2img {
+    position: absolute;
+    top: 1000;
+    right: 0;
+    overflow: hidden;
+    height: fit-content;
+    .sect2imgtag {
+        opacity: 0;
+        height: 475px;
+        object-fit: contain;
+        position: relative;
+        top: 0;
+        right: -600px;
+        transition: right 1s ease, top 1s ease, opacity 1.5s ease-in;
+    }
+}
+
+

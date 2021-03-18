@@ -15,7 +15,9 @@
 @import "./landing/section-six.scss";
 @import "./landing/section-seven.scss";
 @import "./landing/section-artikel.scss";
-
+@import "./landing/sect1img.scss";
+@import "./landing/sect2img.scss";
+@import "./landing/sect3img.scss";
 .form-style {
     .form-control {
         box-shadow: none;
@@ -159,55 +161,10 @@
     }
 }
 
-.sect1img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    height: fit-content;
-    width: 1200px;
-    .sect1imgtag {
-        height: 1000px;
-        object-fit: contain;
-        position: relative;
-        opacity: 0;
-        top: -1600px;
-        left: -1000px;
-        transition: left 1s ease, top 1s ease, opacity 1.5s ease-in;
-    }
-}
 
-.sect2img {
-    position: absolute;
-    top: 1000;
-    right: 0;
-    overflow: hidden;
-    height: fit-content;
-    .sect2imgtag {
-        opacity: 0;
-        height: 475px;
-        object-fit: contain;
-        position: relative;
-        top: 0;
-        right: -600px;
-        transition: right 1s ease, top 1s ease, opacity 1.5s ease-in;
-    }
-}
-.sect3img {
-    position: absolute;
-    top: 1400;
-    left: 0;
-    overflow: hidden;
-    height: fit-content;
-    z-index: -3;
-    .sect3imgtag {
-        height: 1200px;
-        object-fit: contain;
-        position: relative;
-        top: 0;
-        left: -650px;
-    }
-}
+
+
+
 .sect4img {
     position: absolute;
     top: 2550;
@@ -382,19 +339,7 @@
             transition: none;
         }
     }
-    .sect3img {
-        width: 100vw;
-        top: 1550px;
-        .sect3imgtag {
-            height: 800px;
-            object-fit: contain;
-            position: relative;
-            opacity: 0;
-            top: -30px !important;
-            left: -150px !important;
-            transition: none;
-        }
-    }
+
     .section-one {
         &-content {
             p {
