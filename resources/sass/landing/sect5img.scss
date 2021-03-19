@@ -1,17 +1,17 @@
 .sect5img {
     position: absolute;
-    top: 3025px;
+    top: 3000px;
     left: 0;
     height: fit-content;
     overflow: hidden;
     z-index: -3;
     width: 100%;
     .sect5imgtag {
-        height: 1550px;
-        object-fit: contain;
+        // height: 1900px;
+        object-fit: cover;
         position: relative;
         top: 0;
-        left: -200px;
+        left: -300px;
     }
 }
 @include media-breakpoint-down(xs) {

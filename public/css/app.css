@@ -10704,7 +10704,7 @@ h3 {
 }
 .sect5img {
   position: absolute;
-  top: 3025px;
+  top: 3000px;
   left: 0;
   height: -webkit-fit-content;
   height: -moz-fit-content;
@@ -10714,12 +10714,11 @@ h3 {
   width: 100%;
 }
 .sect5img .sect5imgtag {
-  height: 1550px;
-  -o-object-fit: contain;
-     object-fit: contain;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: relative;
   top: 0;
-  left: -200px;
+  left: -300px;
 }
 
 @media (max-width: 575.98px) {
