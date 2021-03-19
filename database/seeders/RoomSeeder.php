@@ -18,7 +18,7 @@ class RoomSeeder extends Seeder
             'barang room ',
             'konstruksi room ',
             'konsultan non konstruksi room ',
-            'sua kelola room ',
+            'swa kelola room ',
             'jasa lainnya room ',
         ];
         for ($i=1; $i < 6; $i++) { 

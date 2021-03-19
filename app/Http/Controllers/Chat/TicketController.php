@@ -3,9 +3,9 @@
 namespace App\Http\Controllers\Chat;
 
 use App\Events\JoinRoomEvent;
-use App\Models\Chat;
 use App\Models\Ticket;
-use App\Http\Controllers\Controller; 
+use App\Http\Controllers\Controller;
+use App\Models\Room;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -19,15 +19,16 @@ class TicketController extends Controller
         $user = 'us'.$request->user_id;
         $nara = 'na'.$request->narasumber_id;
         $name = $room.$user.$nara.$now;
+        
         $ticket = Ticket::create([
             'name' => $name,
             'room_id' => $request->id,
             'expired_at' => Carbon::now()->addMinutes(1)
         ]);
-        $room = Chat::find($request->id);
+        $room = Room::find($request->id);
         $room->ticket = $name;
         $room->save();
-        // dd($ticket);
+        
         broadcast(new JoinRoomEvent($room));
         return response()->json(['ticket'=>$ticket, 'room'=>$room]);
     }

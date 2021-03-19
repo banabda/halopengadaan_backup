@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Models\Chat;
 use App\Models\Message;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -14,15 +15,15 @@ use Illuminate\Queue\SerializesModels;
 class RoomEvent implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
-    public $message;
+    public $chat;
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct(Message $message)
+    public function __construct(Chat $chat)
     {
-        $this->message = $message;
+        $this->chat = $chat;
     }
 
     /**
@@ -32,12 +33,12 @@ class RoomEvent implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('room.'.$this->message->to);
+        return new PrivateChannel('room.'.$this->chat->to);
     }
 
     public function broadcastWith()
     {
-        $this->message->load('fromContact');
-        return ['message' => $this->message];
+        $this->chat->load('fromContact');
+        return ['message' => $this->chat];
     }
 }

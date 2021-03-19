@@ -24,7 +24,7 @@ class JoinRoomEvent implements ShouldBroadcast
     public function __construct(Room $room)
     {
         $this->room = $room;
-        // Log::info($this->room);
+        Log::info($this->room);
     }
 
     /**

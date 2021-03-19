@@ -124,8 +124,9 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
     Route::post('konsultasi/zoom', 'DashboardUser\HomeController@konsultasiZoom')->name('user.dashboard.konsultasi.zoom');
 });
 
-Route::group(['prefix' => 'chat'], function ()
+Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
 {
+    Route::get('/', fn () => view('layouts.chat'));
     // ROOMS
     Route::get('/rooms', [RoomController::class, 'index']);
     Route::get('/rooms/{bidang_code}', [RoomController::class, 'getBidang']);
