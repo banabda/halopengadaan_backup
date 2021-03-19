@@ -1,18 +1,27 @@
-let opacity = [0, 0, 0, 0, 0];
+let opacity = [0, 0, 0, 0, 0, 0];
+var width = screen.width,
+    height = screen.height;
+console.log(width, height);
 window.addEventListener("load", () => {
     document.querySelector(".h-sect1").style.opacity = 1;
     document.querySelector(".p-sect1").style.opacity = 1;
     document.querySelector(".h-sect1").style.left = 0;
     document.querySelector(".p-sect1").style.left = 0;
     document.querySelector(".sect1imgtag").style.top = "-175px";
-    document.querySelector(".sect1imgtag").style.left = "-275px";
+    if (height > 720 && width > 1280) {
+        document.querySelector(".sect1imgtag").style.height = "1050px";
+        document.querySelector(".sect1imgtag").style.left = "-120px";
+    } else {
+        document.querySelector(".sect1imgtag").style.left = "-275px";
+    }
     document.querySelector(".sect1imgtag").style.opacity = 1;
+    document.querySelector(".right").style.opacity = 1;
 });
 
 window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
-
-    if (currentScroll >= 550) {
+    console.log(currentScroll);
+    if (currentScroll >= 400) {
         if (opacity[0] == 0) {
             opacity[0] = 1;
             document.querySelector(".two-tittle").style.opacity = 1;
@@ -28,7 +37,7 @@ window.addEventListener("scroll", () => {
         }
     }
 
-    if (currentScroll >= 1200) {
+    if (currentScroll >= 1050) {
         if (opacity[1] == 0) {
             opacity[1] = 1;
             document.querySelector(".three-img").style.opacity = 1;
@@ -48,7 +57,7 @@ window.addEventListener("scroll", () => {
             document.querySelector(".four-btn-5").style.opacity = 1;
             document.querySelector(".four-btn-6").style.opacity = 1;
             document.querySelector(".four-btn-7").style.opacity = 1;
-            document.querySelector(".radialImg1").style.opacity = 1;
+            // document.querySelector(".radialImg1").style.opacity = 1;
         }
     }
 
@@ -74,7 +83,14 @@ window.addEventListener("scroll", () => {
             document.querySelector(".six-btn-1").style.left = 0;
             document.querySelector(".six-btn-2").style.left = 0;
             document.querySelector(".six-btn-3").style.left = 0;
-            document.querySelector(".radialImg2").style.opacity = 1;
+            // document.querySelector(".radialImg2").style.opacity = 1;
+        }
+    }
+
+    if (currentScroll >= 4200) {
+        if (opacity[5] == 0) {
+            opacity[5] = 1;
+            // document.querySelector(".radialImg2").style.opacity = 1;
         }
     }
 });

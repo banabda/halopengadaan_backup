@@ -10029,6 +10029,9 @@ h3 {
   padding-top: 100px;
   padding-left: 100px;
   position: relative;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+  transition-delay: 0.5s;
 }
 .section-one-content .right img {
   position: absolute;

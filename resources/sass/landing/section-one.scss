@@ -23,6 +23,9 @@
             padding-top: 100px;
             padding-left: 100px;
             position: relative;
+            opacity: 0;
+            transition: opacity 0.5s ease-in;
+            transition-delay: 0.5s;
             img {
                 position: absolute;
                 height: 400px;
@@ -51,21 +54,16 @@
                 padding-top: 45%;
                 .h-sect1 {
                     font-size: 2rem;
-
                 }
                 .p-sect1 {
-
                 }
             }
             .right {
-
                 img {
                     width: 350px;
-
                 }
                 .divimage {
                     display: none;
-
                 }
             }
         }
