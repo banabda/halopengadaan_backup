@@ -161,6 +161,6 @@ class RegulasiController extends Controller
             'regulasi' => $regulasi
         ];
 
-        return view('components.section-artikel', $data);
+        return view('components.section-regulasi', $data);
     }
 }
