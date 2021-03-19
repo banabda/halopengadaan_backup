@@ -87,7 +87,7 @@ export default {
 .message-list {
   background-color: rgb(236, 245, 253);
   height: 100%;
-  max-height: 550px;
+  // max-height: 550px;
   overflow-y: scroll;
   ul {
     list-style-type: none;
