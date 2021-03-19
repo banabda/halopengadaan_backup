@@ -10217,7 +10217,7 @@ h3 {
   }
 }
 .section-four {
-  height: 800px;
+  height: 900px;
 }
 .section-four-content {
   padding-top: 10vh;
@@ -10669,7 +10669,7 @@ h3 {
 
 .sect4img2 {
   position: absolute;
-  top: 2350px;
+  top: 2550px;
   right: 0;
   height: -webkit-fit-content;
   height: -moz-fit-content;
