@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Chat;
 
 use App\Events\JoinRoomEvent;
 use App\Models\Chat;
 use App\Models\Ticket;
+use App\Http\Controllers\Controller; 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 

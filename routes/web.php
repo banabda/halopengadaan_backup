@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Chat\ChatController;
+use App\Http\Controllers\Chat\RoomController;
+use App\Http\Controllers\Chat\TicketController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -119,4 +122,24 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
     Route::get('konsultasi', 'DashboardUser\HomeController@konsultasi')->name('user.dashboard.konsultasi');
     // Konsultasi via Zoom
     Route::post('konsultasi/zoom', 'DashboardUser\HomeController@konsultasiZoom')->name('user.dashboard.konsultasi.zoom');
+});
+
+Route::group(['prefix' => 'chat'], function ()
+{
+    // ROOMS
+    Route::get('/rooms', [RoomController::class, 'index']);
+    Route::get('/rooms/{bidang_code}', [RoomController::class, 'getBidang']);
+    Route::post('/joinroom', [RoomController::class, 'join']);
+    Route::post('/exitroom', [RoomController::class, 'exit']);
+
+    // CHAT
+    Route::get('/contacts', [ChatController::class, 'index']);
+    Route::get('/messages', [ChatController::class, 'messages']);
+    Route::post('/conversation', [ChatController::class, 'getMessageFor']);
+    Route::post('/conversation/send', [ChatController::class, 'sendMessage']);
+    Route::post('/conversation/uploadFile', [ChatController::class, 'uploadFile']);
+
+    // TICKET
+    Route::get('/getticket/{name}', [TicketController::class, 'show']);
+    Route::post('/ticket', [TicketController::class, 'store']);
 });
