@@ -1,7 +1,7 @@
 <template>
   <div class="container chat-component pt-4">
     <Bidang
-      v-if="bidang == null"
+      v-if="bidang == null && role[0] != 'super admin'"
       :bidang="bidang"
       @selectedBidang="setBidang"
     ></Bidang>

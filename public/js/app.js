@@ -2027,6 +2027,18 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -50237,13 +50249,24 @@ var render = function() {
                 "button",
                 {
                   staticClass: "btn mr-0 ml-auto",
-                  class: _vm.isChatting ? "btn-danger" : "btn-info",
+                  class:
+                    _vm.role[0] == "user"
+                      ? "btn-info"
+                      : _vm.isChatting
+                      ? "btn-danger"
+                      : "btn-info",
                   on: { click: _vm.exit }
                 },
                 [
                   _vm._v(
                     "\n        " +
-                      _vm._s(_vm.isChatting ? "End chat" : "Close Room") +
+                      _vm._s(
+                        _vm.role[0] == "user"
+                          ? "Close Room"
+                          : _vm.isChatting
+                          ? "End chat"
+                          : "Close Room"
+                      ) +
                       "\n      "
                   )
                 ]
@@ -50304,7 +50327,7 @@ var render = function() {
     "div",
     { staticClass: "container chat-component pt-4" },
     [
-      _vm.bidang == null
+      _vm.bidang == null && _vm.role[0] != "super admin"
         ? _c("Bidang", {
             attrs: { bidang: _vm.bidang },
             on: { selectedBidang: _vm.setBidang }

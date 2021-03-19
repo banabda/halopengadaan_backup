@@ -29,9 +29,21 @@
         <button
           @click="exit"
           class="btn mr-0 ml-auto"
-          :class="isChatting ? 'btn-danger' : 'btn-info'"
+          :class="
+            role[0] == 'user'
+              ? 'btn-info'
+              : isChatting
+              ? 'btn-danger'
+              : 'btn-info'
+          "
         >
-          {{ isChatting ? "End chat" : "Close Room" }}
+          {{
+            role[0] == "user"
+              ? "Close Room"
+              : isChatting
+              ? "End chat"
+              : "Close Room"
+          }}
         </button>
       </div>
       <h1 v-else>Select a room</h1>
