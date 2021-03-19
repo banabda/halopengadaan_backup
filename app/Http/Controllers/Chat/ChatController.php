@@ -1,16 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Chat;
 
 use App\Events\RoomEvent;
 use App\Models\Chat;
 use App\Models\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 class ChatController extends Controller
 {
+    public function messages()
+    {
+        return Chat::all();
+    }
+    
     public function index()
     {
         $contacts = User::where('id', '!=', auth()->id())->get();
