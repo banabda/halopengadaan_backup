@@ -25,7 +25,7 @@
                         <p class="text-center section-content-paragraph h-25">Hemat waktu</p>
                     </div>
                 </div>
-                <div class="row-md justify-content-center">
+                <div class="row justify-content-center">
                     <div class="col-md-3 divkelebihan four-btn-5">
                         <img src="{{ asset('images/kelebihan/biaya.svg')}}" class="mx-auto kelebihanimg h-75" alt="ahli">
                         <p class="text-center section-content-paragraph h-25">Hemat biaya</p>
