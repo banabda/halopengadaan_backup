@@ -24,6 +24,9 @@ export default {
   },
   mounted() {
     console.log("Component mounted.");
+    if (this.role == "user") {
+      this.bidang = JSON.parse(localStorage.getItem("room")).bidang_code;
+    }
   },
   methods: {
     setBidang(index) {

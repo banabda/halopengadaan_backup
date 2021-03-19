@@ -2227,6 +2227,10 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {
     console.log("Component mounted.");
+
+    if (this.role == "user") {
+      this.bidang = JSON.parse(localStorage.getItem("room")).bidang_code;
+    }
   },
   methods: {
     setBidang: function setBidang(index) {
@@ -2470,10 +2474,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RoomList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RoomList */ "./resources/js/components/RoomList.vue");
 /* harmony import */ var _RoomAll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RoomAll */ "./resources/js/components/RoomAll.vue");
 /* harmony import */ var _ChatBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChatBox */ "./resources/js/components/ChatBox.vue");
-var _methods;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 //
 //
 //
@@ -2540,6 +2540,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       this.selectedRoom = JSON.parse(localStorage.getItem("room"));
 
       if (this.selectedRoom != null) {
+        console.log("user");
+        this.echoRoom(this.selectedRoom.id);
         this.getMessage(this.selectedRoom);
         this.subsRoom(this.selectedRoom);
       }
@@ -2569,7 +2571,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     });
     this.getRooms();
   },
-  methods: (_methods = {
+  methods: {
     startChat: function startChat(room) {
       this.selectedRoom = room;
 
@@ -2664,55 +2666,49 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
         return single;
       });
-    }
-  }, _defineProperty(_methods, "startChat", function startChat(room) {
-    this.selectedRoom = room;
+    },
+    subsRoom: function subsRoom(room) {
+      var _this5 = this;
 
-    if (this.role[0] == "user") {
-      localStorage.setItem("room", JSON.stringify(room));
-    }
+      axios.post("/chat/joinroom", {
+        room: room,
+        user: this.user,
+        role: this.role
+      }).then(function () {
+        _this5.getRooms();
+      });
+    },
+    echoRoom: function echoRoom(id) {
+      var _this6 = this;
 
-    this.echoRoom(room.id);
-    this.subsRoom(room);
-    this.getMessage(room);
-  }), _defineProperty(_methods, "subsRoom", function subsRoom(room) {
-    var _this5 = this;
+      console.log("echo user");
+      Echo["private"]("room.".concat(id)).listen("RoomEvent", function (e) {
+        console.log("new msg", e.message);
 
-    axios.post("/chat/joinroom", {
-      room: room,
-      user: this.user,
-      role: this.role
-    }).then(function () {
-      _this5.getRooms();
-    });
-  }), _defineProperty(_methods, "echoRoom", function echoRoom(id) {
-    var _this6 = this;
-
-    Echo["private"]("room.".concat(id)).listen("RoomEvent", function (e) {
-      console.log("new msg", e.message);
-
-      if (_this6.role[0] == "narasumber") {
-        if (!e.message.is_narasumber) {
-          _this6.audio.play();
+        if (_this6.role[0] == "narasumber") {
+          if (!e.message.is_narasumber) {
+            _this6.audio.play();
+          }
+        } else if (_this6.role[0] == "user") {
+          if (e.message.is_narasumber) {
+            _this6.audio.play();
+          }
         }
-      } else if (_this6.role[0] == "user") {
-        if (e.message.is_narasumber) {
-          _this6.audio.play();
-        }
-      }
 
-      _this6.handleNewMessage(e.message);
-    });
-  }), _defineProperty(_methods, "getMessage", function getMessage(room) {
-    var _this7 = this;
+        _this6.handleNewMessage(e.message);
+      });
+    },
+    getMessage: function getMessage(room) {
+      var _this7 = this;
 
-    axios.post("/chat/conversation", {
-      id: room.id,
-      ticket: room.ticket
-    }).then(function (response) {
-      _this7.messages = response.data;
-    });
-  }), _methods),
+      axios.post("/chat/conversation", {
+        id: room.id,
+        ticket: room.ticket
+      }).then(function (response) {
+        _this7.messages = response.data;
+      });
+    }
+  },
   watch: {
     bidang_code: function bidang_code(_bidang_code) {
       var _this8 = this;

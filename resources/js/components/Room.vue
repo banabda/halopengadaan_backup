@@ -53,6 +53,8 @@ export default {
     if (this.role[0] == "user") {
       this.selectedRoom = JSON.parse(localStorage.getItem("room"));
       if (this.selectedRoom != null) {
+        console.log("user");
+        this.echoRoom(this.selectedRoom.id);
         this.getMessage(this.selectedRoom);
         this.subsRoom(this.selectedRoom);
       }
@@ -163,15 +165,6 @@ export default {
         return single;
       });
     },
-    startChat(room) {
-      this.selectedRoom = room;
-      if (this.role[0] == "user") {
-        localStorage.setItem("room", JSON.stringify(room));
-      }
-      this.echoRoom(room.id);
-      this.subsRoom(room);
-      this.getMessage(room);
-    },
     subsRoom(room) {
       axios
         .post("/chat/joinroom", {
@@ -184,6 +177,7 @@ export default {
         });
     },
     echoRoom(id) {
+      console.log("echo user");
       Echo.private(`room.${id}`).listen("RoomEvent", (e) => {
         console.log("new msg", e.message);
         if (this.role[0] == "narasumber") {
