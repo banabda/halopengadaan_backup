@@ -2512,7 +2512,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       selectedRoom: null,
       messages: [],
       rooms: [],
-      bidang_code: 4,
+      bidang_code: null,
       ticket: null,
       audio: null,
       audioSrc: "/sound/notification.mp3"
@@ -2705,7 +2705,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
     bidang_code: function bidang_code(_bidang_code) {
       var _this8 = this;
 
-      axios.get("/chat/rooms/" + _bidang_code).then(function (response) {
+      if (this.role != "super admin") axios.get("/chat/rooms/" + _bidang_code).then(function (response) {
         _this8.rooms = response.data;
       });
     },

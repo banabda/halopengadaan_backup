@@ -41,7 +41,7 @@ export default {
       selectedRoom: null,
       messages: [],
       rooms: [],
-      bidang_code: 4,
+      bidang_code: null,
       ticket: null,
       audio: null,
       audioSrc: "/sound/notification.mp3",
@@ -208,9 +208,10 @@ export default {
   },
   watch: {
     bidang_code(bidang_code) {
-      axios.get("/chat/rooms/" + bidang_code).then((response) => {
-        this.rooms = response.data;
-      });
+      if (this.role != "super admin")
+        axios.get("/chat/rooms/" + bidang_code).then((response) => {
+          this.rooms = response.data;
+        });
     },
     rooms(rooms) {
       this.rooms = rooms;
