@@ -10745,7 +10745,27 @@ h3 {
 }
 
 .regulasi {
-  margin-top: 65px;
+  margin-top: 125px;
+}
+.regulasi .btn-title {
+  font-size: 15px;
+  font-weight: 600;
+}
+.regulasi .date-regulasi {
+  font-size: 12px;
+  font-style: inherit;
+}
+.regulasi .title-regulasi {
+  font-size: 20px;
+}
+.regulasi .img-regulasi {
+  width: 100%;
+  height: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.regulasi .card-regulasi {
+  border-radius: 20px;
 }
 
 .form-style .form-control {

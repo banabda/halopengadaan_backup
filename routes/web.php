@@ -45,6 +45,7 @@ Route::get('artikel/{slug}', 'Dashboard\ArtikelController@readArtikel')->name('l
 
 // Menu Regulasi
 Route::get('regulasi', 'Dashboard\RegulasiController@menuRegulasi')->name('landing.regulasi');
+Route::get('regulasi/{id}', 'Dashboard\RegulasiController@seeDokumen')->name('landing.regulasi.dokumen');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
@@ -79,7 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::resource('artikel', 'Dashboard\ArtikelController');
 
     // Regulasi
-    Route::get('regulasi/dokumen/{id}', 'Dashboard\RegulasiController@seeDokumen')->name('admin.dashboard.regulasi.dokumen');
+
     Route::resource('regulasi', 'Dashboard\RegulasiController');
 
     // Data Pembayaran Invoice
