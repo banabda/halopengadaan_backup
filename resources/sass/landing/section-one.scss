@@ -45,9 +45,10 @@
 }
 @include media-breakpoint-down(xs) {
     .section-one {
+        height: 700px;
         &-content {
             .left {
-                padding-top: 50px;
+                padding-top: 45%;
                 .h-sect1 {
                     font-size: 2rem;
 

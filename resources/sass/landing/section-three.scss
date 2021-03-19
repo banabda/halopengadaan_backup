@@ -50,8 +50,12 @@
 @include media-breakpoint-down(xs) {
     .section-three {
         &-content {
+            .left {
+                padding-top: 10px;
+            }
             .left .divimage {
                 display: none;
+
             }
             .divprapgraph {
                 padding-top: 0;
