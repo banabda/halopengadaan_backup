@@ -43,6 +43,8 @@ window.addEventListener("scroll", () => {
             document.querySelector(".three-img").style.opacity = 1;
             document.querySelector(".three-p-2").style.opacity = 1;
             document.querySelector(".three-p-1").style.opacity = 1;
+            document.querySelector(".sect3imgtag").style.opacity = 1;
+            document.querySelector(".sect3imgtag").style.left = "-650px";
         }
     }
 

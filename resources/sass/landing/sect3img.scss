@@ -10,7 +10,9 @@
         object-fit: contain;
         position: relative;
         top: 0;
-        left: -650px;
+        left: -900px;
+        opacity: 0;
+        transition: left 1s ease, top 1s ease, opacity 1s ease-in;
     }
 }
 @include media-breakpoint-down(xs) {
