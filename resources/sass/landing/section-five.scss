@@ -54,7 +54,7 @@
         }
         .linear-bg.big {
             border-radius: 50px !important;
-            width: 600px;
+            width: 700px;
             img {
                 max-height: 200px;
             }
@@ -67,8 +67,20 @@
         .linear-bg:hover {
             box-shadow: 5px 5px 20px 5px rgba(128, 128, 128, 0.486);
         }
-        .linear-bg.big {
-            width: 700px;
+    }
+}
+@include media-breakpoint-down(xs) {
+    .section-five {
+        height: 2200px;
+        &-content {
+            .linear-bg.big {
+                width: 300px;
+                height: 525px;
+                h3 {
+                    text-align: center;
+                    padding-left: 0;
+                }
+            }
         }
     }
 }

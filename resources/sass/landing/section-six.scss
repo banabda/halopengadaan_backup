@@ -48,3 +48,8 @@
         }
     }
 }
+@include media-breakpoint-down(xs) {
+    .section-six {
+        height: 2000px;
+    }
+}
