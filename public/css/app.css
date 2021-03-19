@@ -10052,7 +10052,7 @@ h3 {
 
 @media (max-width: 575.98px) {
   .section-one-content .left {
-    padding-top: 25px;
+    padding-top: 50px;
   }
   .section-one-content .left .h-sect1 {
     font-size: 2rem;
@@ -10128,30 +10128,22 @@ h3 {
 }
 
 @media (max-width: 575.98px) {
-  .section-two-content .two-tittle {
-    font-size: 10rem;
+  .section-two-content {
+    padding-top: 100px;
+  }
+  .section-two-content .two-tittle .section-content-header {
+    font-size: 1.8rem;
     font-weight: bold;
   }
-  .section-two-content .two-btn-1 {
+  .section-two-content .layananlist li {
     font-size: 1.5rem;
+    font-weight: lighter;
   }
-  .section-two-content .two-btn-2 {
-    font-size: 1.5rem;
-  }
-  .section-two-content .two-btn-3 {
-    font-size: 1.5rem;
-  }
-  .section-two-content .two-btn-4 {
-    font-size: 1.5rem;
-  }
-  .section-two-content .two-btn-5 {
-    font-size: 1.5rem;
-  }
-  .section-two-content .two-btn-6 {
-    font-size: 1.5rem;
-  }
-  .section-two-content .two-btn-7 {
-    font-size: 1.5rem;
+
+  .sect2imgtag {
+    margin-left: 20%;
+    width: 80%;
+    padding-top: 100px;
   }
 }
 .section-three {
