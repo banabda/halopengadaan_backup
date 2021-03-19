@@ -153,4 +153,14 @@ class RegulasiController extends Controller
 
         return response()->file($path);
     }
+
+    public function menuRegulasi()
+    {
+        $regulasi = Regulasi::all();
+        $data = [
+            'regulasi' => $regulasi
+        ];
+
+        return view('components.section-artikel', $data);
+    }
 }

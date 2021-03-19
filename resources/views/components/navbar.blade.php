@@ -25,7 +25,7 @@
                     </li>
                     <li class="nav-item mx-2">
 
-                        <a class="nav-link" href="#">{{ __('Regulasi') }}</a>
+                        <a class="nav-link" href="{{ route('landing.regulasi') }}">{{ __('Regulasi') }}</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" role="button" id="section-three-nav">{{ __('Profil Praktisi Pengadaan') }}</a>
