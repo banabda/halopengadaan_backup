@@ -43,6 +43,9 @@ Route::post('purchase/{id}', 'Landing\PurchaseController@savePaket')->name('land
 // Show Artikel
 Route::get('artikel/{slug}', 'Dashboard\ArtikelController@readArtikel')->name('landing.artikel.show');
 
+// Menu Regulasi
+Route::get('regulasi', 'Dashboard\RegulasiController@menuRegulasi')->name('landing.regulasi');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
     // crud narasumber
