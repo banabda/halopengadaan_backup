@@ -98,7 +98,6 @@
             .layananlist {
 
                 li::before {
-
                 }
                 li {
                     font-size: 1.5rem;
@@ -107,11 +106,12 @@
             }
         }
     }
-
-    .sect2imgtag {
-        margin-left: 20%;
-        width: 80%;
-        padding-top: 100px;
+    .sect2img {
+        padding-top: 30%;
+        .sect2imgtag {
+            margin-left: 20%;
+            width: 80%;
+            // padding-top: 50px;
     }
-
+}
 }
