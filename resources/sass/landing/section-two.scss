@@ -65,22 +65,53 @@
     .section-two {
         &-content {
             padding-top: 100px;
-            .section-content-header {
-                font-size: 1.8rem;
-                font-weight: bold;
+            .two-tittle {
+                .section-content-header{
+                    font-size: 1.8rem;
+                    font-weight: bold;
+
+                }
+
+            }
+
+            .two-btn-1 {
+
+            }
+            .two-btn-2 {
+
+            }
+            .two-btn-3 {
+
+            }
+            .two-btn-4 {
+
+            }
+            .two-btn-5 {
+
+            }
+            .two-btn-6 {
+
+            }
+            .two-btn-7 {
+
             }
             .layananlist {
+
+                li::before {
+
+                }
                 li {
                     font-size: 1.5rem;
+                    font-weight: lighter;
                 }
             }
         }
     }
 
-    .sect2img {
-        .sect2imgtag {
-            width: 80%;
-            margin-left: 20%;
-        }
+    .sect2imgtag {
+        margin-left: 20%;
+        width: 80%;
+        padding-top: 100px;
     }
+
 }
