@@ -2041,6 +2041,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 
@@ -2473,6 +2478,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     room: {
@@ -2484,6 +2493,10 @@ __webpack_require__.r(__webpack_exports__);
     },
     role: {
       type: Array,
+      require: true
+    },
+    ticket: {
+      type: Object,
       require: true
     }
   },
@@ -2509,6 +2522,9 @@ __webpack_require__.r(__webpack_exports__);
   watch: {
     room: function room(_room) {
       this.scrollToBottom();
+    },
+    ticket: function ticket(_ticket) {
+      this.ticket = _ticket;
     },
     messages: function messages(_messages) {
       this.scrollToBottom();
@@ -2890,6 +2906,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
 //
 //
 //
@@ -10225,7 +10244,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-list[data-v-6a7499aa] {\n  background-color: #ecf5fd;\n  height: 100%;\n  overflow-y: scroll;\n}\n.message-list ul[data-v-6a7499aa] {\n  list-style-type: none;\n  padding: 5px;\n}\n.message-list ul li.message[data-v-6a7499aa] {\n  margin: 10px 0;\n  width: 100%;\n}\n.message-list ul li.message .chat[data-v-6a7499aa] {\n  max-width: 500px;\n  flex-direction: column;\n  position: relative;\n  border-radius: 8px;\n  padding: 12px;\n  display: inline-block;\n}\n.message-list ul li.message .chat img[data-v-6a7499aa] {\n  display: block;\n}\n.message-list ul li.message .chat .message-time[data-v-6a7499aa] {\n  display: flex;\n  justify-content: flex-end;\n  font-size: 0.8rem;\n  font-weight: 200;\n}\n.message-list ul li.message .chat .text[data-v-6a7499aa] {\n  max-width: fit-content(20em);\n  word-wrap: break-word;\n  margin-bottom: 5px;\n  font-size: 1.1rem;\n  white-space: pre-line;\n}\n.message-list ul li.message.received[data-v-6a7499aa] {\n  text-align: left;\n}\n.message-list ul li.message.received .chat[data-v-6a7499aa] {\n  background-color: mediumspringgreen;\n}\n.message-list ul li.message.sent[data-v-6a7499aa] {\n  text-align: right;\n}\n.message-list ul li.message.sent .chat[data-v-6a7499aa] {\n  background-color: mediumturquoise;\n  text-align: left;\n}\n[data-v-6a7499aa]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-6a7499aa]::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-list[data-v-6a7499aa] {\n  background-color: #ecf5fd;\n  height: 100%;\n  overflow-y: scroll;\n}\n.message-list .waiting[data-v-6a7499aa] {\n  height: inherit;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-weight: bold;\n  font-size: 1.5rem;\n}\n.message-list ul[data-v-6a7499aa] {\n  list-style-type: none;\n  padding: 5px;\n}\n.message-list ul li.message[data-v-6a7499aa] {\n  margin: 10px 0;\n  width: 100%;\n}\n.message-list ul li.message .chat[data-v-6a7499aa] {\n  max-width: 500px;\n  flex-direction: column;\n  position: relative;\n  border-radius: 8px;\n  padding: 12px;\n  display: inline-block;\n}\n.message-list ul li.message .chat img[data-v-6a7499aa] {\n  display: block;\n}\n.message-list ul li.message .chat .message-time[data-v-6a7499aa] {\n  display: flex;\n  justify-content: flex-end;\n  font-size: 0.8rem;\n  font-weight: 200;\n}\n.message-list ul li.message .chat .text[data-v-6a7499aa] {\n  max-width: fit-content(20em);\n  word-wrap: break-word;\n  margin-bottom: 5px;\n  font-size: 1.1rem;\n  white-space: pre-line;\n}\n.message-list ul li.message.received[data-v-6a7499aa] {\n  text-align: left;\n}\n.message-list ul li.message.received .chat[data-v-6a7499aa] {\n  background-color: mediumspringgreen;\n}\n.message-list ul li.message.sent[data-v-6a7499aa] {\n  text-align: right;\n}\n.message-list ul li.message.sent .chat[data-v-6a7499aa] {\n  background-color: mediumturquoise;\n  text-align: left;\n}\n[data-v-6a7499aa]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-6a7499aa]::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50363,7 +50382,12 @@ var render = function() {
       ]),
       _vm._v(" "),
       _c("MessageList", {
-        attrs: { room: _vm.room, messages: _vm.messages, role: _vm.role }
+        attrs: {
+          room: _vm.room,
+          messages: _vm.messages,
+          role: _vm.role,
+          ticket: _vm.ticket
+        }
       }),
       _vm._v(" "),
       _vm.role[0] != "super admin" && _vm.room != null
@@ -50654,7 +50678,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { ref: "messages", staticClass: "message-list" }, [
-    _vm.room
+    _vm.room && _vm.ticket
       ? _c(
           "ul",
           _vm._l(_vm.messages, function(message) {
@@ -50714,6 +50738,12 @@ var render = function() {
           }),
           0
         )
+      : _vm.role[0] == "user"
+      ? _c("div", { staticClass: "waiting" }, [
+          !_vm.room.narasumber_id
+            ? _c("p", [_vm._v("Menunggu Narasumber")])
+            : _c("p", [_vm._v("Menunggu Narasumber Memulai Percakapan")])
+        ])
       : _vm._e()
   ])
 }
@@ -50964,27 +50994,41 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "contact" }, [
-              _c("p", { staticClass: "name" }, [
-                _vm._v(
-                  "\n          " +
-                    _vm._s(
-                      room.narasumber_name == null
-                        ? "no narasumber"
-                        : room.narasumber_name
-                    ) +
-                    "\n        "
-                )
-              ]),
+              _c(
+                "p",
+                {
+                  staticClass: "name",
+                  class: room.narasumber_name ? "font-weight-bold" : ""
+                },
+                [
+                  _vm._v(
+                    "\n          " +
+                      _vm._s(
+                        room.narasumber_name == null
+                          ? "no narasumber"
+                          : room.narasumber_name
+                      ) +
+                      "\n        "
+                  )
+                ]
+              ),
               _vm._v(" "),
-              _c("p", { staticClass: "email" }, [
-                _vm._v(
-                  "\n          " +
-                    _vm._s(
-                      room.user_name == null ? "no user" : room.user_name
-                    ) +
-                    "\n        "
-                )
-              ])
+              _c(
+                "p",
+                {
+                  staticClass: "email",
+                  class: room.user_name ? "font-weight-bold" : ""
+                },
+                [
+                  _vm._v(
+                    "\n          " +
+                      _vm._s(
+                        room.user_name == null ? "no user" : room.user_name
+                      ) +
+                      "\n        "
+                  )
+                ]
+              )
             ]),
             _vm._v(" "),
             room.unread

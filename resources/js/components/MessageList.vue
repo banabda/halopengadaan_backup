@@ -1,6 +1,6 @@
 <template>
   <div class="message-list" ref="messages">
-    <ul v-if="room">
+    <ul v-if="room && ticket">
       <li
         v-for="message in messages"
         :class="`message ${
@@ -38,6 +38,10 @@
         </div>
       </li>
     </ul>
+    <div v-else-if="role[0] == 'user'" class="waiting">
+      <p v-if="!room.narasumber_id">Menunggu Narasumber</p>
+      <p v-else>Menunggu Narasumber Memulai Percakapan</p>
+    </div>
   </div>
 </template>
 <script>
@@ -52,6 +56,10 @@ export default {
     },
     role: {
       type: Array,
+      require: true,
+    },
+    ticket: {
+      type: Object,
       require: true,
     },
   },
@@ -77,6 +85,9 @@ export default {
     room(room) {
       this.scrollToBottom();
     },
+    ticket(ticket) {
+      this.ticket = ticket;
+    },
     messages(messages) {
       this.scrollToBottom();
     },
@@ -89,6 +100,14 @@ export default {
   height: 100%;
   // max-height: 550px;
   overflow-y: scroll;
+  .waiting {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+  }
   ul {
     list-style-type: none;
     padding: 5px;

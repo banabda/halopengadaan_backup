@@ -48,7 +48,12 @@
       </div>
       <h1 v-else>Select a room</h1>
     </div>
-    <MessageList :room="room" :messages="messages" :role="role"></MessageList>
+    <MessageList
+      :room="room"
+      :messages="messages"
+      :role="role"
+      :ticket="ticket"
+    ></MessageList>
     <MessageInput
       v-if="role[0] != 'super admin' && room != null"
       :role="role"

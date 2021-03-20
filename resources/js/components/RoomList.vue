@@ -16,14 +16,17 @@
           </p>
         </div>
         <div class="contact">
-          <p class="name">
+          <p
+            class="name"
+            :class="room.narasumber_name ? 'font-weight-bold' : ''"
+          >
             {{
               room.narasumber_name == null
                 ? "no narasumber"
                 : room.narasumber_name
             }}
           </p>
-          <p class="email">
+          <p class="email" :class="room.user_name ? 'font-weight-bold' : ''">
             {{ room.user_name == null ? "no user" : room.user_name }}
           </p>
         </div>
