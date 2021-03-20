@@ -7,7 +7,13 @@
       @keydown.enter.exact.prevent="send"
       placeholder="Type a message"
     ></textarea>
-    <a><i class="bi bi-paperclip" @click="showModal"></i></a>
+    <a
+      ><i
+        class="bi bi-paperclip"
+        :class="uploadedFile ? 'on' : ''"
+        @click="showModal"
+      ></i
+    ></a>
     <emoji-picker @emoji="insert" :search="search" class="my-auto">
       <div
         class="emoji-invoker"
@@ -75,6 +81,10 @@ export default {
       type: Object,
       require: true,
     },
+    uploadedFile: {
+      type: Object,
+      require: true,
+    },
   },
   data() {
     return {
@@ -125,6 +135,16 @@ export default {
 .message-input {
   position: relative;
   display: inline-block;
+  .bi-paperclip {
+    transition: transform 0.3s ease-in-out;
+    &.on {
+      color: #ca4b7c;
+    }
+  }
+  .bi-paperclip:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 }
 .emoji-invoker {
   position: relative;
@@ -193,7 +213,12 @@ export default {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent !important;
 }
 
 /* Handle */

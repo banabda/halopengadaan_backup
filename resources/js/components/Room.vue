@@ -6,6 +6,7 @@
         <RoomList
           v-if="role[0] != 'user'"
           :rooms="rooms"
+          :roomselect="selectedRoom"
           @selected="startChat"
         ></RoomList>
         <ChatBox

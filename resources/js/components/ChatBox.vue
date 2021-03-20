@@ -53,6 +53,7 @@
       v-if="role[0] != 'super admin' && room != null"
       :role="role"
       :room="room"
+      :uploadedFile="uploadedFile"
       @createTicket="$emit('createTicket', room)"
       @send="sendMessage"
       @show="showModal"

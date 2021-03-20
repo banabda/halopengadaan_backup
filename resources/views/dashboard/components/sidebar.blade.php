@@ -134,14 +134,14 @@
         @endphp
         @if (is_null($profile))
             <li>
-                <a href="{{ route('profile') }}">
+                <a href="/chat">
                     <i data-feather="pie-chart"></i>
                     <span>Jawab Konsultasi</span>
                 </a>
             </li>
         @else
             <li>
-                <a target="_blank" href="https://e-lpkn.id">
+                <a target="_blank" href="/chat">
                     <i data-feather="pie-chart"></i>
                     <span>Jawab Konsultasi</span>
                 </a>

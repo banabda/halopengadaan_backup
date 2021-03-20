@@ -2040,6 +2040,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2360,6 +2361,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
@@ -2378,6 +2385,10 @@ __webpack_require__.r(__webpack_exports__);
       require: true
     },
     room: {
+      type: Object,
+      require: true
+    },
+    uploadedFile: {
       type: Object,
       require: true
     }
@@ -2521,6 +2532,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _RoomList__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RoomList */ "./resources/js/components/RoomList.vue");
 /* harmony import */ var _RoomAll__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RoomAll */ "./resources/js/components/RoomAll.vue");
 /* harmony import */ var _ChatBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ChatBox */ "./resources/js/components/ChatBox.vue");
+//
 //
 //
 //
@@ -2845,6 +2857,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     role: {
@@ -2903,11 +2917,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     rooms: {
       type: Array,
       "default": []
+    },
+    roomselect: {
+      type: Object,
+      "default": null
     }
   },
   watch: {
@@ -2920,8 +2945,8 @@ __webpack_require__.r(__webpack_exports__);
   },
   mounted: function mounted() {},
   methods: {
-    selectedContact: function selectedContact(room) {
-      this.$emit("selected", room);
+    selectedRoom: function selectedRoom(rm) {
+      this.$emit("selected", rm);
     }
   }
 });
@@ -10176,7 +10201,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-input a[data-v-d519e324],\n.message-input .bi[data-v-d519e324] {\n  align-self: center;\n  font-size: 30px;\n  margin: 0 6px;\n}\n.message-input textarea[data-v-d519e324] {\n  width: 85%;\n  margin: 10px;\n  margin-right: 0;\n  resize: none;\n  border-radius: 6px;\n  border: 1px solid lightgray;\n  padding: 10px;\n  overflow-y: scroll;\n}\n.message-input textarea.user[data-v-d519e324] {\n  width: 89%;\n}\n.message-input[data-v-d519e324] {\n  position: relative;\n  display: inline-block;\n}\n.emoji-invoker[data-v-d519e324] {\n  position: relative;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  border-radius: 50%;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.emoji-invoker[data-v-d519e324]:hover {\n  transform: scale(1.1);\n}\n.emoji-invoker > svg[data-v-d519e324] {\n  fill: #b1c6d0;\n}\n.emoji-picker[data-v-d519e324] {\n  position: absolute;\n  z-index: 1;\n  border: 1px solid #ccc;\n  width: 25rem;\n  height: 25rem;\n  overflow: scroll;\n  padding: 1rem;\n  box-sizing: border-box;\n  border-radius: 0.5rem;\n  background: #fff;\n  box-shadow: 1px 1px 8px #c7dbe6;\n}\n.emoji-picker__search[data-v-d519e324] {\n  display: flex;\n}\n.emoji-picker__search > input[data-v-d519e324] {\n  flex: 1;\n  border-radius: 10rem;\n  border: 1px solid #ccc;\n  padding: 0.5rem 1rem;\n  outline: none;\n}\n.emoji-picker h5[data-v-d519e324] {\n  margin: 10px 0;\n  color: #b1b1b1;\n  text-transform: uppercase;\n  font-size: 1rem;\n  cursor: default;\n}\n.emoji-picker .emojis[data-v-d519e324] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.emoji-picker .emojis[data-v-d519e324]:after {\n  content: \"\";\n  flex: auto;\n}\n.emoji-picker .emojis span[data-v-d519e324] {\n  padding: 0.2rem;\n  font-size: 1.5em;\n  cursor: pointer;\n  border-radius: 5px;\n}\n.emoji-picker .emojis span[data-v-d519e324]:hover {\n  background: #ececec;\n  cursor: pointer;\n}\n[data-v-d519e324]::-webkit-scrollbar {\n  width: 5px;\n}\n\n/* Handle */\n[data-v-d519e324]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-d519e324]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-input a[data-v-d519e324],\n.message-input .bi[data-v-d519e324] {\n  align-self: center;\n  font-size: 30px;\n  margin: 0 6px;\n}\n.message-input textarea[data-v-d519e324] {\n  width: 85%;\n  margin: 10px;\n  margin-right: 0;\n  resize: none;\n  border-radius: 6px;\n  border: 1px solid lightgray;\n  padding: 10px;\n  overflow-y: scroll;\n}\n.message-input textarea.user[data-v-d519e324] {\n  width: 89%;\n}\n.message-input[data-v-d519e324] {\n  position: relative;\n  display: inline-block;\n}\n.message-input .bi-paperclip[data-v-d519e324] {\n  transition: transform 0.3s ease-in-out;\n}\n.message-input .bi-paperclip.on[data-v-d519e324] {\n  color: #ca4b7c;\n}\n.message-input .bi-paperclip[data-v-d519e324]:hover {\n  cursor: pointer;\n  transform: scale(1.1);\n}\n.emoji-invoker[data-v-d519e324] {\n  position: relative;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  border-radius: 50%;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.emoji-invoker[data-v-d519e324]:hover {\n  transform: scale(1.1);\n}\n.emoji-invoker > svg[data-v-d519e324] {\n  fill: #b1c6d0;\n}\n.emoji-picker[data-v-d519e324] {\n  position: absolute;\n  z-index: 1;\n  border: 1px solid #ccc;\n  width: 25rem;\n  height: 25rem;\n  overflow: scroll;\n  padding: 1rem;\n  box-sizing: border-box;\n  border-radius: 0.5rem;\n  background: #fff;\n  box-shadow: 1px 1px 8px #c7dbe6;\n}\n.emoji-picker__search[data-v-d519e324] {\n  display: flex;\n}\n.emoji-picker__search > input[data-v-d519e324] {\n  flex: 1;\n  border-radius: 10rem;\n  border: 1px solid #ccc;\n  padding: 0.5rem 1rem;\n  outline: none;\n}\n.emoji-picker h5[data-v-d519e324] {\n  margin: 10px 0;\n  color: #b1b1b1;\n  text-transform: uppercase;\n  font-size: 1rem;\n  cursor: default;\n}\n.emoji-picker .emojis[data-v-d519e324] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.emoji-picker .emojis[data-v-d519e324]:after {\n  content: \"\";\n  flex: auto;\n}\n.emoji-picker .emojis span[data-v-d519e324] {\n  padding: 0.2rem;\n  font-size: 1.5em;\n  cursor: pointer;\n  border-radius: 5px;\n}\n.emoji-picker .emojis span[data-v-d519e324]:hover {\n  background: #ececec;\n  cursor: pointer;\n}\n[data-v-d519e324]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-d519e324]::-webkit-scrollbar-track {\n  background: transparent !important;\n}\n\n/* Handle */\n[data-v-d519e324]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-d519e324]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10200,7 +10225,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-list[data-v-6a7499aa] {\n  background-color: #ecf5fd;\n  height: 100%;\n  overflow-y: scroll;\n}\n.message-list ul[data-v-6a7499aa] {\n  list-style-type: none;\n  padding: 5px;\n}\n.message-list ul li.message[data-v-6a7499aa] {\n  margin: 10px 0;\n  width: 100%;\n}\n.message-list ul li.message .chat[data-v-6a7499aa] {\n  max-width: 500px;\n  flex-direction: column;\n  position: relative;\n  border-radius: 8px;\n  padding: 12px;\n  display: inline-block;\n}\n.message-list ul li.message .chat img[data-v-6a7499aa] {\n  display: block;\n}\n.message-list ul li.message .chat .message-time[data-v-6a7499aa] {\n  display: flex;\n  justify-content: flex-end;\n  font-size: 0.8rem;\n  font-weight: 200;\n}\n.message-list ul li.message .chat .text[data-v-6a7499aa] {\n  max-width: fit-content(20em);\n  word-wrap: break-word;\n  margin-bottom: 5px;\n  font-size: 1.1rem;\n  white-space: pre-line;\n}\n.message-list ul li.message.received[data-v-6a7499aa] {\n  text-align: left;\n}\n.message-list ul li.message.received .chat[data-v-6a7499aa] {\n  background-color: mediumspringgreen;\n}\n.message-list ul li.message.sent[data-v-6a7499aa] {\n  text-align: right;\n}\n.message-list ul li.message.sent .chat[data-v-6a7499aa] {\n  background-color: mediumturquoise;\n  text-align: left;\n}\n[data-v-6a7499aa]::-webkit-scrollbar {\n  width: 5px;\n}\n\n/* Track */\n[data-v-6a7499aa]::-webkit-scrollbar-track {\n  background: #f1f1f1;\n}\n\n/* Handle */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-list[data-v-6a7499aa] {\n  background-color: #ecf5fd;\n  height: 100%;\n  overflow-y: scroll;\n}\n.message-list ul[data-v-6a7499aa] {\n  list-style-type: none;\n  padding: 5px;\n}\n.message-list ul li.message[data-v-6a7499aa] {\n  margin: 10px 0;\n  width: 100%;\n}\n.message-list ul li.message .chat[data-v-6a7499aa] {\n  max-width: 500px;\n  flex-direction: column;\n  position: relative;\n  border-radius: 8px;\n  padding: 12px;\n  display: inline-block;\n}\n.message-list ul li.message .chat img[data-v-6a7499aa] {\n  display: block;\n}\n.message-list ul li.message .chat .message-time[data-v-6a7499aa] {\n  display: flex;\n  justify-content: flex-end;\n  font-size: 0.8rem;\n  font-weight: 200;\n}\n.message-list ul li.message .chat .text[data-v-6a7499aa] {\n  max-width: fit-content(20em);\n  word-wrap: break-word;\n  margin-bottom: 5px;\n  font-size: 1.1rem;\n  white-space: pre-line;\n}\n.message-list ul li.message.received[data-v-6a7499aa] {\n  text-align: left;\n}\n.message-list ul li.message.received .chat[data-v-6a7499aa] {\n  background-color: mediumspringgreen;\n}\n.message-list ul li.message.sent[data-v-6a7499aa] {\n  text-align: right;\n}\n.message-list ul li.message.sent .chat[data-v-6a7499aa] {\n  background-color: mediumturquoise;\n  text-align: left;\n}\n[data-v-6a7499aa]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-6a7499aa]::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10248,7 +10273,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".button-list[data-v-7ad935aa] {\n  align-content: center;\n  height: inherit;\n}\n.btn-1[data-v-7ad935aa] {\n  width: 150px;\n  height: 80px;\n  margin-left: 80px;\n}\n.div-button[data-v-7ad935aa] {\n  justify-content: left;\n  align-items: center;\n}\n.admin .btn-1[data-v-7ad935aa] {\n  width: 120px;\n  height: 70px;\n  margin-left: 0px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".button-list[data-v-7ad935aa] {\n  align-content: center;\n  height: inherit;\n}\n.button-list button[data-v-7ad935aa] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  border: none;\n}\n.btn-1[data-v-7ad935aa] {\n  width: 150px;\n  height: 80px;\n  margin-left: 80px;\n}\n.div-button[data-v-7ad935aa] {\n  justify-content: left;\n  align-items: center;\n}\n.admin .btn-1[data-v-7ad935aa] {\n  width: 120px;\n  height: 70px;\n  margin-left: 0px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10272,7 +10297,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".contacts-list[data-v-777f2104] {\n  flex: 2;\n  max-height: 85vh;\n  overflow-y: auto;\n  border-right: 1px solid #6d6c6c;\n}\n.contacts-list ul[data-v-777f2104] {\n  list-style-type: none;\n  padding-left: 0;\n}\n.contacts-list ul li[data-v-777f2104] {\n  display: flex;\n  padding: 2px;\n  border-bottom: 1px solid #6d6c6c;\n  height: 80px;\n  position: relative;\n  cursor: pointer;\n}\n.contacts-list ul .unread[data-v-777f2104] {\n  background-color: #2db42d;\n  color: white;\n  position: absolute;\n  right: 11px;\n  top: 30px;\n  display: flex;\n  font-weight: 700;\n  min-width: 20px;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  font-size: 12px;\n  padding: 0 4px;\n  border-radius: 50%;\n}\n.contacts-list ul .room[data-v-777f2104] {\n  flex: 2;\n  display: flex;\n  align-items: center;\n  font-size: 12px;\n  font-weight: bold;\n}\n.contacts-list ul .room p[data-v-777f2104] {\n  margin: 10px 0;\n  padding: 0;\n}\n.contacts-list ul .room img[data-v-777f2104] {\n  width: 35px;\n  border-radius: 50%;\n  margin: 0 auto;\n}\n.contacts-list ul .contact[data-v-777f2104] {\n  flex: 3;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.contacts-list ul .contact p[data-v-777f2104] {\n  margin: 0;\n}\n.contacts-list ul .contact p.name[data-v-777f2104] {\n  font-size: 15px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".contacts-list[data-v-777f2104] {\n  flex: 2;\n  max-height: 85vh;\n  overflow-y: auto;\n  border-right: 1px solid rgba(109, 108, 108, 0.521);\n}\n.contacts-list ul[data-v-777f2104] {\n  list-style-type: none;\n  padding-left: 0;\n}\n.contacts-list ul li[data-v-777f2104] {\n  display: flex;\n  padding: 2px;\n  border-bottom: 1px solid rgba(109, 108, 108, 0.219);\n  height: 80px;\n  position: relative;\n  cursor: pointer;\n}\n.contacts-list ul li.roomselected[data-v-777f2104] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  color: white;\n}\n.contacts-list ul .unread[data-v-777f2104] {\n  background-color: #2db42d;\n  color: white;\n  position: absolute;\n  right: 11px;\n  top: 30px;\n  display: flex;\n  font-weight: 700;\n  min-width: 20px;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  font-size: 12px;\n  padding: 0 4px;\n  border-radius: 50%;\n}\n.contacts-list ul .room[data-v-777f2104] {\n  flex: 2;\n  display: flex;\n  align-items: center;\n  font-size: 12px;\n  font-weight: bold;\n}\n.contacts-list ul .room p[data-v-777f2104] {\n  margin: 10px 0;\n  padding: 0;\n}\n.contacts-list ul .room img[data-v-777f2104] {\n  width: 35px;\n  border-radius: 50%;\n  margin: 0 auto;\n}\n.contacts-list ul .room .room-name[data-v-777f2104] {\n  text-transform: capitalize;\n}\n.contacts-list ul .contact[data-v-777f2104] {\n  flex: 3;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.contacts-list ul .contact p[data-v-777f2104] {\n  margin: 0;\n}\n.contacts-list ul .contact p.name[data-v-777f2104] {\n  font-size: 15px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50343,7 +50368,11 @@ var render = function() {
       _vm._v(" "),
       _vm.role[0] != "super admin" && _vm.room != null
         ? _c("MessageInput", {
-            attrs: { role: _vm.role, room: _vm.room },
+            attrs: {
+              role: _vm.role,
+              room: _vm.room,
+              uploadedFile: _vm.uploadedFile
+            },
             on: {
               createTicket: function($event) {
                 return _vm.$emit("createTicket", _vm.room)
@@ -50472,6 +50501,7 @@ var render = function() {
           _c("a", [
             _c("i", {
               staticClass: "bi bi-paperclip",
+              class: _vm.uploadedFile ? "on" : "",
               on: { click: _vm.showModal }
             })
           ]),
@@ -50729,7 +50759,10 @@ var render = function() {
                 [
                   _vm.role[0] != "user"
                     ? _c("RoomList", {
-                        attrs: { rooms: _vm.rooms },
+                        attrs: {
+                          rooms: _vm.rooms,
+                          roomselect: _vm.selectedRoom
+                        },
                         on: { selected: _vm.startChat }
                       })
                     : _vm._e(),
@@ -50809,21 +50842,33 @@ var render = function() {
                 ),
                 _vm._v(" "),
                 _c("div", { staticClass: "in-room ml-3" }, [
-                  _c("div", [
-                    _vm._v(_vm._s(room.user_name ? room.user_name : "no user"))
-                  ]),
+                  _c(
+                    "div",
+                    { class: room.user_name ? "font-weight-bold" : "" },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(room.user_name ? room.user_name : "no user") +
+                          "\n        "
+                      )
+                    ]
+                  ),
                   _vm._v(" "),
-                  _c("div", [
-                    _vm._v(
-                      "\n          " +
-                        _vm._s(
-                          room.narasumber_name
-                            ? room.narasumber_name
-                            : "no narasumber"
-                        ) +
-                        "\n        "
-                    )
-                  ])
+                  _c(
+                    "div",
+                    { class: room.narasumber_name ? "font-weight-bold" : "" },
+                    [
+                      _vm._v(
+                        "\n          " +
+                          _vm._s(
+                            room.narasumber_name
+                              ? room.narasumber_name
+                              : "no narasumber"
+                          ) +
+                          "\n        "
+                      )
+                    ]
+                  )
                 ])
               ]
             )
@@ -50900,15 +50945,20 @@ var render = function() {
           "li",
           {
             key: room.id,
+            class: _vm.roomselect
+              ? _vm.roomselect.id == room.id
+                ? "roomselected"
+                : ""
+              : "",
             on: {
               click: function($event) {
-                return _vm.selectedContact(room)
+                return _vm.selectedRoom(room)
               }
             }
           },
           [
             _c("div", { staticClass: "room p-2 text-center" }, [
-              _c("p", [
+              _c("p", { staticClass: "room-name" }, [
                 _vm._v("\n          " + _vm._s(room.name) + "\n        ")
               ])
             ]),

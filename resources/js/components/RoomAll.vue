@@ -10,8 +10,10 @@
           {{ room.name }}
         </button>
         <div class="in-room ml-3">
-          <div>{{ room.user_name ? room.user_name : "no user" }}</div>
-          <div>
+          <div :class="room.user_name ? 'font-weight-bold' : ''">
+            {{ room.user_name ? room.user_name : "no user" }}
+          </div>
+          <div :class="room.narasumber_name ? 'font-weight-bold' : ''">
             {{ room.narasumber_name ? room.narasumber_name : "no narasumber" }}
           </div>
         </div>
@@ -51,6 +53,10 @@ export default {
 .button-list {
   align-content: center;
   height: inherit;
+  button {
+    background: linear-gradient(to left, #ca4b7c, #6e376e);
+    border: none;
+  }
 }
 .btn-1 {
   width: 150px;

@@ -10,7 +10,7 @@ if (window.location.pathname == "/") {
         document.querySelector(".h-sect1").style.left = 0;
         document.querySelector(".p-sect1").style.left = 0;
         document.querySelector(".sect1imgtag").style.top = "-175px";
-        if (height > 720 && width > 1280) {
+        if (height > 768 && width > 1366) {
             document.querySelector(".sect1imgtag").style.height = "1050px";
             document.querySelector(".sect1imgtag").style.left = "-120px";
         } else {
