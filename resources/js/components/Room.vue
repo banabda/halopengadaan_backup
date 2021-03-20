@@ -59,6 +59,7 @@ export default {
         this.echoRoom(this.selectedRoom.id);
         this.getMessage(this.selectedRoom);
         this.subsRoom(this.selectedRoom);
+        this.getTicket(this.selectedRoom.ticket);
       }
     }
     // console.log("room");
@@ -66,6 +67,9 @@ export default {
       // console.log("echo");
       if (this.role[0] == "user" && e.room.user_id == null) {
         this.exitRoom();
+      }
+      if (this.role[0] == "user" && e.room.user_id != null) {
+        localStorage.setItem("room", JSON.stringify(e.room));
       }
       var $this = this;
       this.rooms.find(function (value, index) {

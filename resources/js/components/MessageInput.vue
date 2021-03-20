@@ -2,6 +2,7 @@
   <div v-if="room.ticket != null" class="message-input d-flex">
     <textarea
       autofocus
+      :class="role[0] == 'user' ? 'user' : ''"
       v-model="message"
       @keydown.enter.exact.prevent="send"
       placeholder="Type a message"
@@ -116,6 +117,9 @@ export default {
     border: 1px solid lightgray;
     padding: 10px;
     overflow-y: scroll;
+    &.user {
+      width: 89%;
+    }
   }
 }
 .message-input {
