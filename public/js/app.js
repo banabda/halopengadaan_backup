@@ -2540,17 +2540,16 @@ __webpack_require__.r(__webpack_exports__);
       this.selectedRoom = JSON.parse(localStorage.getItem("room"));
 
       if (this.selectedRoom != null) {
-        console.log("user");
+        // console.log("user");
         this.echoRoom(this.selectedRoom.id);
         this.getMessage(this.selectedRoom);
         this.subsRoom(this.selectedRoom);
       }
-    }
+    } // console.log("room");
 
-    console.log("room");
+
     Echo["private"]("room-info").listen("JoinRoomEvent", function (e) {
-      console.log("echo");
-
+      // console.log("echo");
       if (_this.role[0] == "user" && e.room.user_id == null) {
         _this.exitRoom();
       }
@@ -2611,7 +2610,7 @@ __webpack_require__.r(__webpack_exports__);
     createTicket: function createTicket(room) {
       var _this3 = this;
 
-      console.log("cp", room);
+      // console.log("cp", room);
       axios.post("/chat/ticket", {
         id: room.id,
         user_id: room.user_id,
@@ -2681,10 +2680,9 @@ __webpack_require__.r(__webpack_exports__);
     echoRoom: function echoRoom(id) {
       var _this6 = this;
 
-      console.log("echo user");
+      // console.log("echo user");
       Echo["private"]("room.".concat(id)).listen("RoomEvent", function (e) {
-        console.log("new msg", e.message);
-
+        // console.log("new msg", e.message);
         if (_this6.role[0] == "narasumber") {
           if (!e.message.is_narasumber) {
             _this6.audio.play();

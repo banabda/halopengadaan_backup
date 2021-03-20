@@ -53,15 +53,15 @@ export default {
     if (this.role[0] == "user") {
       this.selectedRoom = JSON.parse(localStorage.getItem("room"));
       if (this.selectedRoom != null) {
-        console.log("user");
+        // console.log("user");
         this.echoRoom(this.selectedRoom.id);
         this.getMessage(this.selectedRoom);
         this.subsRoom(this.selectedRoom);
       }
     }
-    console.log("room");
+    // console.log("room");
     Echo.private("room-info").listen("JoinRoomEvent", (e) => {
-      console.log("echo");
+      // console.log("echo");
       if (this.role[0] == "user" && e.room.user_id == null) {
         this.exitRoom();
       }
@@ -112,7 +112,7 @@ export default {
       this.ticket.expHou = new Date(this.ticket.expired_at).getHours();
     },
     createTicket(room) {
-      console.log("cp", room);
+      // console.log("cp", room);
       axios
         .post("/chat/ticket", {
           id: room.id,
@@ -177,9 +177,9 @@ export default {
         });
     },
     echoRoom(id) {
-      console.log("echo user");
+      // console.log("echo user");
       Echo.private(`room.${id}`).listen("RoomEvent", (e) => {
-        console.log("new msg", e.message);
+        // console.log("new msg", e.message);
         if (this.role[0] == "narasumber") {
           if (!e.message.is_narasumber) {
             this.audio.play();

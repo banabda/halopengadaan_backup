@@ -1,7 +1,7 @@
 let opacity = [0, 0, 0, 0, 0, 0];
 var width = screen.width,
     height = screen.height;
-console.log(width, height);
+// console.log(width, height);
 window.addEventListener("load", () => {
     document.querySelector(".h-sect1").style.opacity = 1;
     document.querySelector(".p-sect1").style.opacity = 1;
@@ -20,7 +20,7 @@ window.addEventListener("load", () => {
 
 window.addEventListener("scroll", () => {
     const currentScroll = window.pageYOffset;
-    console.log(currentScroll);
+    // console.log(currentScroll);
     if (currentScroll >= 400) {
         if (opacity[0] == 0) {
             opacity[0] = 1;
