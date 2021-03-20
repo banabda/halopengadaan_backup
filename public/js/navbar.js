@@ -1,6 +1,3 @@
-$(document).ready(function() {
-    console.log("jquery");
-});
 $("#section-one-nav").click(function() {
     // console.log(window.location.pathname);
     if (window.location.pathname == "/") {
