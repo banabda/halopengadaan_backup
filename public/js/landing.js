@@ -59,10 +59,17 @@ window.addEventListener("scroll", () => {
             document.querySelector(".four-btn-5").style.opacity = 1;
             document.querySelector(".four-btn-6").style.opacity = 1;
             document.querySelector(".four-btn-7").style.opacity = 1;
-            document.querySelector(".sect4imgtag1").style.opacity = 1;
-            document.querySelector(".sect4imgtag1").style.left = "-425px";
-            document.querySelector(".sect4imgtag2").style.opacity = 1;
-            document.querySelector(".sect4imgtag2").style.right = "-300px";
+            if (height < 720 || width < 1280) {
+                document.querySelector(".sect4imgtag1").style.opacity = 1;
+                document.querySelector(".sect4imgtag1").style.left = "-425px";
+                document.querySelector(".sect4imgtag2").style.opacity = 1;
+                document.querySelector(".sect4imgtag2").style.right = "-950px";
+            } else {
+                document.querySelector(".sect4imgtag1").style.opacity = 1;
+                document.querySelector(".sect4imgtag1").style.left = "-425px";
+                document.querySelector(".sect4imgtag2").style.opacity = 1;
+                document.querySelector(".sect4imgtag2").style.right = "-300px";
+            }
         }
     }
 
