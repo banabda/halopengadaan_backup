@@ -75,6 +75,8 @@ window.addEventListener("scroll", () => {
             document.querySelector(".five-btn-3").style.opacity = 1;
             document.querySelector(".five-btn-4").style.opacity = 1;
             document.querySelector(".five-btn-5").style.opacity = 1;
+            document.querySelector(".sect5imgtag").style.opacity = 1;
+            document.querySelector(".sect5imgtag").style.left = "-300px";
         }
     }
 

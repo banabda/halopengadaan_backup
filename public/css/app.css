@@ -10729,7 +10729,10 @@ h3 {
      object-fit: cover;
   position: relative;
   top: 0;
-  left: -300px;
+  left: 600px;
+  opacity: 0;
+  transition-delay: 0.5s;
+  transition: left 1s ease, top 1s ease, opacity 1s ease-in;
 }
 
 @media (max-width: 575.98px) {
