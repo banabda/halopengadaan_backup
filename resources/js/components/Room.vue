@@ -1,5 +1,6 @@
 <template>
   <div class="card">
+    <notifications position="bottom right" group="timer" />
     <div class="card-body p-0">
       <div class="chat-app" v-if="role[0] != 'user' || selectedRoom != null">
         <RoomList
@@ -15,6 +16,7 @@
           @createTicket="createTicket"
           @exit="exitRoom"
           @timeup="timeup"
+          @notif="showNotifications"
         ></ChatBox>
       </div>
       <RoomAll v-else :role="role" :rooms="rooms" @chat="startChat"></RoomAll>
@@ -198,6 +200,16 @@ export default {
         .then((response) => {
           this.messages = response.data;
         });
+    },
+    showNotifications(properties) {
+      this.$notify({
+        group: properties.group,
+        type: properties.type,
+        title: properties.title,
+        duration: properties.duration,
+        speed: 1000,
+        text: properties.text,
+      });
     },
   },
   watch: {

@@ -37,6 +37,7 @@ export default {
       ],
     };
   },
+  mounted() {},
   methods: {
     selectBidang(index) {
       this.$emit("selectedBidang", index);

@@ -170,6 +170,51 @@ export default {
     ticket(ticket) {
       this.nowTime();
     },
+    minute(minute) {
+      if (minute > 5 && minute < 10) {
+        var notifprops = {
+          group: "timer",
+          type: "warn",
+          title: "Sesi Chat",
+          duration: 10000,
+          text: "<p>Sisa waktu sesi konsultasi anda kurang dari 10 menit</p>",
+        };
+        this.$emit("notif", notifprops);
+      } else if (this.minute > 1 && this.minute < 5) {
+        var notifprops = {
+          group: "timer",
+          type: "warn",
+          title: "Sesi Chat",
+          duration: 10000,
+          speed: 1000,
+          text: "<p>Sisa waktu sesi konsultasi anda kurang dari 5 menit</p>",
+        };
+        this.$emit("notif", notifprops);
+      } else if (minute < 1) {
+        var notifprops = {
+          group: "timer",
+          type: "warn",
+          title: "Sesi Chat",
+          duration: 10000,
+          speed: 1000,
+          text: "<p>Sisa waktu sesi konsultasi anda kurang dari 1 menit</p>",
+        };
+        this.$emit("notif", notifprops);
+      }
+    },
+    second(second) {
+      if (this.minute == 0 && second == 0) {
+        var notifprops = {
+          group: "timer",
+          type: "error",
+          title: "Sesi Chat",
+          duration: 10000,
+          speed: 1000,
+          text: "<p>Waktu habis!</p>",
+        };
+        this.$emit("notif", notifprops);
+      }
+    },
   },
   components: {
     MessageInput,
