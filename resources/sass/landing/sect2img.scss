@@ -14,3 +14,13 @@
         transition: right 1s ease, top 1s ease, opacity 1.5s ease-in;
     }
 }
+@include media-breakpoint-down(xs) {
+    .sect2img {
+        padding-top: 45%;
+        .sect2imgtag {
+            margin-left: 20%;
+            width: 80%;
+            // padding-top: 50px;
+        }
+    }
+}

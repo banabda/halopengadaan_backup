@@ -34,6 +34,7 @@ if (window.location.pathname == "/") {
                 document.querySelector(".two-btn-5").style.opacity = 1;
                 document.querySelector(".two-btn-6").style.opacity = 1;
                 document.querySelector(".two-btn-7").style.opacity = 1;
+                document.querySelector(".two-btn-8").style.opacity = 1;
                 document.querySelector(".sect2imgtag").style.opacity = 1;
                 document.querySelector(".sect2imgtag").style.right = 0;
             }

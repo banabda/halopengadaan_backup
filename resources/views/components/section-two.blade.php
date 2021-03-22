@@ -55,6 +55,7 @@
                     <li class="two-btn-5">BLU</li>
                     <li class="two-btn-6">BLUD</li>
                     <li class="two-btn-7">Penyedia</li>
+                    <li class="two-btn-8">Permasalahan Hukum</li>
                 </ul>
             </div>
             <div class="col-md-8"></div>
