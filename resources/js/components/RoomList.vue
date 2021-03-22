@@ -50,22 +50,35 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      isShow: true,
+    };
   },
-  mounted() {},
+  mounted() {
+    console.log(this.$vssWidth, this.$vssHeight);
+  },
   methods: {
     selectedRoom(rm) {
       this.$emit("selected", rm);
+    },
+  },
+  watch: {
+    $vssWidth($vssWidth) {
+      console.log("Width", $vssWidth);
+    },
+    $vssHeight($vssHeight) {
+      console.log("Height", $vssHeight);
     },
   },
 };
 </script>
 <style lang="scss" scoped>
 .contacts-list {
-  flex: 2;
   max-height: 85vh;
+  background-color: white;
   overflow-y: auto;
-  border-right: 1px solid rgba(109, 108, 108, 0.521);
+  transition: flex 0.2s ease-in-out;
+  flex: 2;
   ul {
     list-style-type: none;
     padding-left: 0;

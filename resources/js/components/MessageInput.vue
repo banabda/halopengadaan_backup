@@ -27,6 +27,7 @@
         <div
           class="emoji-picker"
           :style="{ bottom: 90 + 'px', right: 20 + 'px' }"
+          :class="$vssWidth < 1125 ? 'mobile' : ''"
         >
           <div class="emoji-picker__search">
             <input type="text" v-model="search" v-focus />
@@ -174,6 +175,9 @@ export default {
   border-radius: 0.5rem;
   background: #fff;
   box-shadow: 1px 1px 8px #c7dbe6;
+  &.mobile {
+    width: auto;
+  }
 }
 .emoji-picker__search {
   display: flex;

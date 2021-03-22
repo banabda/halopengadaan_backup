@@ -17,10 +17,11 @@
         <div class="chat">
           <img
             class="mx-auto mb-4"
-            width="300px"
+            width="250px"
             v-if="message.type.includes('image')"
             :src="message.path"
             :alt="message.file_name"
+            @click="showImg(message.path)"
           />
           <button
             class="btn btn-info mb-4"
@@ -74,6 +75,10 @@ export default {
     }
   },
   methods: {
+    showImg(url) {
+      console.log("test");
+      this.$emit("imgUrl", url);
+    },
     scrollToBottom() {
       setTimeout(() => {
         this.$refs.messages.scrollTop =
@@ -107,6 +112,9 @@ export default {
     align-items: center;
     font-weight: bold;
     font-size: 1.5rem;
+    p {
+      text-align: center;
+    }
   }
   ul {
     list-style-type: none;
@@ -124,6 +132,7 @@ export default {
           display: inline-block;
           img {
             display: block;
+            cursor: pointer;
           }
           .message-time {
             display: flex;

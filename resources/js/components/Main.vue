@@ -24,7 +24,7 @@ export default {
   },
   mounted() {
     console.log("Component mounted.");
-    if (this.role == "user") {
+    if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
       this.bidang = JSON.parse(localStorage.getItem("room")).bidang_code;
     }
   },

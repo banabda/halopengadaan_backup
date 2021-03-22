@@ -5,12 +5,14 @@
     <div class="card-body p-0">
       <div class="chat-app" v-if="role[0] != 'user' || selectedRoom != null">
         <RoomList
-          v-if="role[0] != 'user'"
+          v-if="showRoom && role[0] != 'user'"
           :rooms="rooms"
           :roomselect="selectedRoom"
           @selected="startChat"
+          id="room"
         ></RoomList>
         <ChatBox
+          v-if="showChatBox"
           :room="selectedRoom"
           :messages="messages"
           :role="role"
@@ -19,6 +21,7 @@
           @exit="exitRoom"
           @timeup="timeup"
           @notif="showNotifications"
+          id="chatbox"
         ></ChatBox>
       </div>
       <RoomAll v-else :role="role" :rooms="rooms" @chat="startChat"></RoomAll>
@@ -43,6 +46,8 @@ export default {
   data() {
     return {
       selectedRoom: null,
+      showRoom: false,
+      showChatBox: true,
       messages: [],
       rooms: [],
       bidang_code: null,
@@ -52,6 +57,15 @@ export default {
     };
   },
   mounted() {
+    if (this.role[0] != "user") {
+      if (this.$vssWidth < 1125 || this.$vssHeight < 625) {
+        this.showRoom = true;
+        this.showChatBox = false;
+      } else {
+        this.showRoom = true;
+        this.showChatBox = true;
+      }
+    }
     this.audio = new Audio(this.audioSrc);
     this.bidang_code = this.bidang;
     if (this.role[0] == "user") {
@@ -103,7 +117,13 @@ export default {
     startChat(room) {
       this.selectedRoom = room;
       if (this.role[0] == "user") {
+        this.showChatBox = true;
         localStorage.setItem("room", JSON.stringify(room));
+      } else {
+        if (this.$vssWidth < 1125 || this.$vssHeight < 625) {
+          this.showRoom = false;
+          this.showChatBox = true;
+        }
       }
       this.echoRoom(room.id);
       this.subsRoom(room);
@@ -147,6 +167,10 @@ export default {
       this.selectedRoom = null;
       if (this.role[0] == "user") {
         localStorage.removeItem("room");
+      }
+      if (this.$vssWidth < 1125 || this.$vssHeight < 625) {
+        this.showRoom = true;
+        this.showChatBox = false;
       }
     },
     getRooms() {
@@ -246,6 +270,11 @@ export default {
           this.getMessage(selectedRoom);
         }
         this.getTicket(this.selectedRoom.ticket);
+      } else {
+        if (this.$vssWidth < 1125 || this.$vssHeight < 625) {
+          this.showRoom = true;
+          this.showChatBox = false;
+        }
       }
     },
   },
@@ -256,6 +285,16 @@ export default {
   display: flex;
   height: 80vh;
 }
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  // transform: translateX(-50px);
+}
+
 ::-webkit-scrollbar {
   width: 8px;
 }

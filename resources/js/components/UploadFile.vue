@@ -1,5 +1,5 @@
 <template>
-  <modal name="upload-file" height="auto" :width="700" @before-close="setUrl">
+  <modal name="upload-file" height="auto" :width="'80%'" @before-close="setUrl">
     <div class="p-3">
       <h1>Upload File</h1>
       <p>
