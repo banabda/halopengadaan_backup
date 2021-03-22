@@ -2574,6 +2574,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 
@@ -2634,6 +2635,19 @@ __webpack_require__.r(__webpack_exports__);
 
       if (_this.role[0] == "user" && e.room.user_id != null) {
         localStorage.setItem("room", JSON.stringify(e.room));
+      }
+
+      if (_this.role[0] == "narasumber" && e.room.user_id) {
+        var pronot = {
+          group: "user",
+          type: "success",
+          title: "Sesi Chat",
+          duration: 5000,
+          speed: 1000,
+          text: "<p>".concat(e.room.user_name, " has joined room ").concat(e.room.name, "</p>")
+        };
+
+        _this.showNotifications(pronot);
       }
 
       var $this = _this;
@@ -50777,6 +50791,8 @@ var render = function() {
       _c("notifications", {
         attrs: { position: "bottom right", group: "timer" }
       }),
+      _vm._v(" "),
+      _c("notifications", { attrs: { position: "top right", group: "user" } }),
       _vm._v(" "),
       _c(
         "div",

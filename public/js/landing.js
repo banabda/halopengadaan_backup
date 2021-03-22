@@ -97,10 +97,10 @@ if (window.location.pathname == "/") {
             if (opacity[4] == 0) {
                 opacity[4] = 1;
                 document.querySelector(".six-tittle").style.opacity = 1;
-                document.querySelector(".six-btn-1").style.opacity = 1;
+                // document.querySelector(".six-btn-1").style.opacity = 1;
                 document.querySelector(".six-btn-2").style.opacity = 1;
                 document.querySelector(".six-btn-3").style.opacity = 1;
-                document.querySelector(".six-btn-1").style.left = 0;
+                // document.querySelector(".six-btn-1").style.left = 0;
                 document.querySelector(".six-btn-2").style.left = 0;
                 document.querySelector(".six-btn-3").style.left = 0;
                 // document.querySelector(".radialImg2").style.opacity = 1;

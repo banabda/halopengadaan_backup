@@ -1,6 +1,7 @@
 <template>
   <div class="card">
     <notifications position="bottom right" group="timer" />
+    <notifications position="top right" group="user" />
     <div class="card-body p-0">
       <div class="chat-app" v-if="role[0] != 'user' || selectedRoom != null">
         <RoomList
@@ -71,6 +72,17 @@ export default {
       }
       if (this.role[0] == "user" && e.room.user_id != null) {
         localStorage.setItem("room", JSON.stringify(e.room));
+      }
+      if (this.role[0] == "narasumber" && e.room.user_id) {
+        var pronot = {
+          group: "user",
+          type: "success",
+          title: "Sesi Chat",
+          duration: 5000,
+          speed: 1000,
+          text: `<p>${e.room.user_name} has joined room ${e.room.name}</p>`,
+        };
+        this.showNotifications(pronot);
       }
       var $this = this;
       this.rooms.find(function (value, index) {

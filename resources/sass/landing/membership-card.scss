@@ -12,3 +12,22 @@
     left: 10px;
     right: 0;
 }
+.title-membership {
+    height: 15%;
+    display: flex;
+    align-items: center;
+    h2 {
+        font-weight: bolder;
+    }
+}
+.price-membership {
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list-membership {
+    height: 55%;
+    display: flex;
+    align-items: flex-start;
+}
