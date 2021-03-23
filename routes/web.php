@@ -49,13 +49,6 @@ Route::get('regulasi/{id}', 'Dashboard\RegulasiController@seeDokumen')->name('la
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
-    // crud narasumber
-    Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
-    Route::post('store','Narasumber\NarasumberController@store')->name('narasumber.store');
-    Route::get('detail/{id}','Narasumber\NarasumberController@detail');
-    Route::get('delete/{id}','Narasumber\NarasumberController@delete');
-    Route::get('edit/{id}','Narasumber\NarasumberController@edit');
-    Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
 
     // crud halaman metode pembayaran
     Route::get('metode-pembayaran','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
@@ -124,6 +117,11 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
     // Konsultasi via Zoom
     Route::post('konsultasi/zoom', 'DashboardUser\HomeController@konsultasiZoom')->name('user.dashboard.konsultasi.zoom');
 });
+
+Route::group(['prefix' => 'narasumber', 'middleware' => ['role:narasumber']], function()
+{
+
+}
 
 Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
 {

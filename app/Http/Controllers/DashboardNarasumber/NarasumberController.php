@@ -52,4 +52,15 @@ class NarasumberController extends Controller
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
+
+    public function profile()
+    {
+        return view('dashboard.narasumber.profile');
+    }
+
+    public function saveProfile(Request $request)
+    {
+        $data = $request->all();
+        dd($data);
+    }
 }
