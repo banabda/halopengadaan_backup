@@ -121,7 +121,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 Route::group(['prefix' => 'narasumber', 'middleware' => ['role:narasumber']], function()
 {
 
-}
+});
 
 Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
 {
