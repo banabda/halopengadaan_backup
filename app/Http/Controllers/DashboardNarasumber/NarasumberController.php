@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\DashboardNarasumber;
 
 use App\Http\Controllers\Controller;
+use App\Models\NarasumberProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class NarasumberController extends Controller
@@ -55,12 +58,27 @@ class NarasumberController extends Controller
 
     public function profile()
     {
+        $profile = NarasumberProfile::with('user')->where('user_id', Auth::user()->id)->first();
+
         return view('dashboard.narasumber.profile');
     }
 
     public function saveProfile(Request $request)
     {
         $data = $request->all();
-        dd($data);
+        $user = Auth::user()->id;
+        $path = 'dokumen/narasumber/cv/' . $user ;
+        $file = $request->file('cv');
+        $path = Storage::disk('public')->put(
+            $path,
+            $file
+        );
+
+        $data['cv'] = $path;
+
+        $profile = NarasumberProfile::create($data);
+
+        return redirect()->route('narasumber.dashboard.profile');
+
     }
 }

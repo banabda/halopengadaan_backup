@@ -1,6 +1,17 @@
 @extends('dashboard.dashboard')
 @section('content')
 
+<script src="{{ asset('tinymce/js/tinymce.min.js') }}"></script>
+
+<script>
+    tinymce.init({
+        selector: 'textarea.editor',  // change this value according to your HTML
+        plugins: 'lists,table,textcolor',
+        toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent ',
+        theme_advanced_buttons1 : "save,newdocument,|,bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,styleselect,formatselect,fontselect,fontsizeselect",
+    });
+</script>
+
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <div class="container-full">
@@ -122,76 +133,46 @@
                 <div class="active tab-pane" id="profile">
                   <div class="box p-15">
                       {{-- @if (is_null($user->profile)) --}}
-                        <form class="form-horizontal form-element col-12 pt-4" action="{{ route('profile.save') }}" method="POST">
+                        <form class="form-horizontal form-element col-12 pt-4" action="{{ route('narasumber.dashboard.profile.save') }}" method="POST">
                             @csrf
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                            <input type="hidden" name="is_complete" value="1">
                             <div class="form-group row">
-                            <label for="inputName" class="col-sm-2 control-label pt-1">Nama Lengkap</label>
-
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputName" value="{{ Auth::user()->name }}" name="nama_lengkap"  placeholder="Nama Lengkap">
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="inputEmail" class="col-sm-2 control-label pt-1">Email</label>
-
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail" value="{{ Auth::user()->email }}" name="email" placeholder="Email Aktif">
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="inputPhone" class="col-sm-2 control-label pt-1">Nomor HP</label>
-
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputPhone" name="no_hp" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="inputExperience" class="col-sm-2 control-label pt-1">Alamat Rumah</label>
-
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="inputExperience" name="alamat_rumah" placeholder="Alamat Lengkap"></textarea>
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="inputSkills" class="col-sm-2 control-label pt-1">Alamat Kerja</label>
-
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="inputExperience" name="alamat_kerja" placeholder="Alamat Tempat Kerja / Bisnis"></textarea>
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-2 control-label pt-1">Upload CV</label>
-
-                            <div class="col-sm-10">
-                                <input type="file" class="" id="inputExperience" name="upload_cv">
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Jenis Kerja</label>
+                                <label for="inputName" class="col-sm-2 control-label pt-1">Nama Lengkap</label>
 
                                 <div class="col-sm-10">
-                                <select name="jenis_kerja" id="jenis_kerja" class="form-control">
-                                    <option>Jenis Kerja</option>
-                                    <option value="PNS">PNS</option>
-                                    <option value="BUMN" >BUMN</option>
-                                    <option value="BUMD" >BUMD</option>
-                                    <option value="BLU" >BLU</option>
-                                    <option value="BLUD" >BLUD</option>
-                                    <option value="Perusahaan" >Perusahaan</option>
-                                </select>
+                                    <input type="text" class="form-control" id="inputName" value="{{ Auth::user()->name }}" name="name"  placeholder="Nama Lengkap">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="status" class="col-sm-2 control-label pt-2">Status</label>
+                                <label for="inputEmail" class="col-sm-2 control-label pt-1">Email</label>
 
                                 <div class="col-sm-10">
-                                <select name="status" id="status" class="form-control">
-                                    <option>Pilih Status</option>
-                                    <option value="Penyedia" >Penyedia</option>
-                                    <option value="Pengguna" >Pengguna</option>
-                                </select>
+                                    <input type="email" class="form-control" id="inputEmail" value="{{ Auth::user()->email }}" name="email" placeholder="Email Aktif">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="inputPhone" class="col-sm-2 control-label pt-1">Nomor HP</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputPhone" name="no_hp" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="upload_cv" class="col-sm-2 control-label pt-1">Upload CV</label>
+                                <div class="col-sm-10">
+                                    <input type="file" id="upload_cv" name="cv">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Utama</label>
+
+                                <div class="col-sm-10">
+                                    <textarea name="keahlian_utama" class="form-control editor" rows="8" placeholder="Keahlian Utama"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Pendukung</label>
+                                <div class="col-sm-10">
+                                    <textarea name="keahlian_pendukung" class="form-control editor" rows="8" placeholder="Keahlian Pendukung"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">

@@ -121,6 +121,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 Route::group(['prefix' => 'narasumber', 'middleware' => ['role:narasumber']], function()
 {
     Route::get('profile', 'DashboardNarasumber\NarasumberController@profile')->name('narasumber.dashboard.profile');
+    Route::post('profile/save', 'DashboardNarasumber\NarasumberController@saveProfile')->name('narasumber.dashboard.profile.save');
 });
 
 Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()

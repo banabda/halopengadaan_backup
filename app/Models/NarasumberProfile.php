@@ -19,4 +19,9 @@ class NarasumberProfile extends Model
         'keahlian_utama',
         'keahlian_pendukung'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User', 'user_id', 'id');
+    }
 }
