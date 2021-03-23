@@ -1,14 +1,19 @@
 <div class="linear-bg mx-auto py-4 px-3 text-center">
-    <div class="h-25">
+    <div class="title-membership">
         <h2>{{ $title }}</h2>
     </div>
-    <div class="h-25">
-        <h1>Rp {{ $harga }},-</h1>
+    <div class="price-membership">
+        <div>
+            <h1>Rp {{ $harga }},- </h1>
+            <h1> {{ $waktu }} </h1>
+        </div>
     </div>
-    <div class="h-50">
+    <div class="list-membership">
         <ul class="text-left">
-            @foreach ($point as $item)
-            <li><h6 class="py-1">{{ $item }}</h6></li>
+            @foreach($point as $item)
+                <li>
+                    <h6 class="py-1">{{ $item }}</h6>
+                </li>
             @endforeach
 
         </ul>
@@ -18,5 +23,5 @@
             <button type="submit" class="btn btn-warning btn-daftar">DAFTAR SEKARANG</button>
         </form>
     </div>
-    
+
 </div>

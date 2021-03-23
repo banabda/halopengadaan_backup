@@ -10,7 +10,7 @@ if (window.location.pathname == "/") {
         document.querySelector(".h-sect1").style.left = 0;
         document.querySelector(".p-sect1").style.left = 0;
         document.querySelector(".sect1imgtag").style.top = "-175px";
-        if (height > 720 && width > 1280) {
+        if (height > 768 && width > 1366) {
             document.querySelector(".sect1imgtag").style.height = "1050px";
             document.querySelector(".sect1imgtag").style.left = "-120px";
         } else {
@@ -34,6 +34,7 @@ if (window.location.pathname == "/") {
                 document.querySelector(".two-btn-5").style.opacity = 1;
                 document.querySelector(".two-btn-6").style.opacity = 1;
                 document.querySelector(".two-btn-7").style.opacity = 1;
+                document.querySelector(".two-btn-8").style.opacity = 1;
                 document.querySelector(".sect2imgtag").style.opacity = 1;
                 document.querySelector(".sect2imgtag").style.right = 0;
             }
@@ -97,10 +98,10 @@ if (window.location.pathname == "/") {
             if (opacity[4] == 0) {
                 opacity[4] = 1;
                 document.querySelector(".six-tittle").style.opacity = 1;
-                document.querySelector(".six-btn-1").style.opacity = 1;
+                // document.querySelector(".six-btn-1").style.opacity = 1;
                 document.querySelector(".six-btn-2").style.opacity = 1;
                 document.querySelector(".six-btn-3").style.opacity = 1;
-                document.querySelector(".six-btn-1").style.left = 0;
+                // document.querySelector(".six-btn-1").style.left = 0;
                 document.querySelector(".six-btn-2").style.left = 0;
                 document.querySelector(".six-btn-3").style.left = 0;
                 // document.querySelector(".radialImg2").style.opacity = 1;

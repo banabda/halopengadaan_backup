@@ -16,14 +16,18 @@ class RoomSeeder extends Seeder
     {
         $bidangs = [
             'barang room ',
-            'konstruksi room ',
-            'konsultan non konstruksi room ',
-            'swa kelola room ',
+            'jasa konstruksi room ',
+            'konsultasi non konstruksi room ',
+            'swakelola room ',
             'jasa lainnya room ',
+            'perencanaan room ',
+            'pemilihan room ',
+            'pelaksanaan kontrak room ',
         ];
+        Room::truncate();
         for ($i=1; $i < 6; $i++) { 
             foreach ($bidangs as $key=>$bidang) {
-                Room::firstOrCreate(['name' => $bidang.$i, 'bidang_code'=>$key]);
+                Room::updateOrCreate(['name' => $bidang.$i, 'bidang_code'=>$key]);
             }  
         }
     }

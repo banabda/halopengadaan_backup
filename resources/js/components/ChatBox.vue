@@ -48,22 +48,31 @@
       </div>
       <h1 v-else>Select a room</h1>
     </div>
-    <MessageList :room="room" :messages="messages" :role="role"></MessageList>
+    <MessageList
+      :room="room"
+      :messages="messages"
+      :role="role"
+      :ticket="ticket"
+      @imgUrl="showImg"
+    ></MessageList>
     <MessageInput
       v-if="role[0] != 'super admin' && room != null"
       :role="role"
       :room="room"
+      :uploadedFile="uploadedFile"
       @createTicket="$emit('createTicket', room)"
       @send="sendMessage"
       @show="showModal"
     ></MessageInput>
     <upload-file @file="setFile" :uploadedFile="uploadedFile"></upload-file>
+    <ImagePreview :imgUrl="imgUrl"></ImagePreview>
   </div>
 </template>
 <script>
 import MessageInput from "./MessageInput";
 import MessageList from "./MessageList";
 import UploadFile from "./UploadFile.vue";
+import ImagePreview from "./ImagePreview";
 export default {
   props: {
     room: { type: Object, default: null },
@@ -80,6 +89,7 @@ export default {
       exp: null,
       isChatting: false,
       time: null,
+      imgUrl: null,
     };
   },
   mounted() {
@@ -88,6 +98,10 @@ export default {
     }
   },
   methods: {
+    showImg(imgUrl) {
+      this.imgUrl = imgUrl;
+      this.$modal.show("image-preview");
+    },
     nowTime() {
       if (this.ticket && this.time == null) {
         var _tcktdate = new Date(this.ticket.expired_at);
@@ -220,6 +234,7 @@ export default {
     MessageInput,
     MessageList,
     UploadFile,
+    ImagePreview,
   },
 };
 </script>

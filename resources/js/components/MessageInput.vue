@@ -7,7 +7,13 @@
       @keydown.enter.exact.prevent="send"
       placeholder="Type a message"
     ></textarea>
-    <a><i class="bi bi-paperclip" @click="showModal"></i></a>
+    <a
+      ><i
+        class="bi bi-paperclip"
+        :class="uploadedFile ? 'on' : ''"
+        @click="showModal"
+      ></i
+    ></a>
     <emoji-picker @emoji="insert" :search="search" class="my-auto">
       <div
         class="emoji-invoker"
@@ -21,6 +27,7 @@
         <div
           class="emoji-picker"
           :style="{ bottom: 90 + 'px', right: 20 + 'px' }"
+          :class="$vssWidth < 1125 ? 'mobile' : ''"
         >
           <div class="emoji-picker__search">
             <input type="text" v-model="search" v-focus />
@@ -75,6 +82,10 @@ export default {
       type: Object,
       require: true,
     },
+    uploadedFile: {
+      type: Object,
+      require: true,
+    },
   },
   data() {
     return {
@@ -125,6 +136,16 @@ export default {
 .message-input {
   position: relative;
   display: inline-block;
+  .bi-paperclip {
+    transition: transform 0.3s ease-in-out;
+    &.on {
+      color: #ca4b7c;
+    }
+  }
+  .bi-paperclip:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
 }
 .emoji-invoker {
   position: relative;
@@ -154,6 +175,9 @@ export default {
   border-radius: 0.5rem;
   background: #fff;
   box-shadow: 1px 1px 8px #c7dbe6;
+  &.mobile {
+    width: auto;
+  }
 }
 .emoji-picker__search {
   display: flex;
@@ -193,7 +217,12 @@ export default {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent !important;
 }
 
 /* Handle */

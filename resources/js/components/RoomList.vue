@@ -1,22 +1,32 @@
 <template>
   <div class="contacts-list">
     <ul>
-      <li v-for="room in rooms" :key="room.id" @click="selectedContact(room)">
+      <li
+        v-for="room in rooms"
+        :key="room.id"
+        @click="selectedRoom(room)"
+        :class="
+          roomselect ? (roomselect.id == room.id ? 'roomselected' : '') : ''
+        "
+      >
         <div class="room p-2 text-center">
           <!-- <img :src="room.profile_image" :alt="room.name" /> -->
-          <p>
+          <p class="room-name">
             {{ room.name }}
           </p>
         </div>
         <div class="contact">
-          <p class="name">
+          <p
+            class="name"
+            :class="room.narasumber_name ? 'font-weight-bold' : ''"
+          >
             {{
               room.narasumber_name == null
                 ? "no narasumber"
                 : room.narasumber_name
             }}
           </p>
-          <p class="email">
+          <p class="email" :class="room.user_name ? 'font-weight-bold' : ''">
             {{ room.user_name == null ? "no user" : room.user_name }}
           </p>
         </div>
@@ -32,6 +42,7 @@ export default {
       type: Array,
       default: [],
     },
+    roomselect: { type: Object, default: null },
   },
   watch: {
     rooms(rooms) {
@@ -39,32 +50,49 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      isShow: true,
+    };
   },
-  mounted() {},
+  mounted() {
+    console.log(this.$vssWidth, this.$vssHeight);
+  },
   methods: {
-    selectedContact(room) {
-      this.$emit("selected", room);
+    selectedRoom(rm) {
+      this.$emit("selected", rm);
+    },
+  },
+  watch: {
+    $vssWidth($vssWidth) {
+      console.log("Width", $vssWidth);
+    },
+    $vssHeight($vssHeight) {
+      console.log("Height", $vssHeight);
     },
   },
 };
 </script>
 <style lang="scss" scoped>
 .contacts-list {
-  flex: 2;
   max-height: 85vh;
+  background-color: white;
   overflow-y: auto;
-  border-right: 1px solid rgb(109, 108, 108);
+  transition: flex 0.2s ease-in-out;
+  flex: 2;
   ul {
     list-style-type: none;
     padding-left: 0;
     li {
       display: flex;
       padding: 2px;
-      border-bottom: 1px solid rgb(109, 108, 108);
+      border-bottom: 1px solid rgba(109, 108, 108, 0.219);
       height: 80px;
       position: relative;
       cursor: pointer;
+      &.roomselected {
+        background: linear-gradient(to left, #ca4b7c, #6e376e);
+        color: white;
+      }
     }
 
     .unread {
@@ -98,6 +126,9 @@ export default {
         width: 35px;
         border-radius: 50%;
         margin: 0 auto;
+      }
+      .room-name {
+        text-transform: capitalize;
       }
     }
     .contact {

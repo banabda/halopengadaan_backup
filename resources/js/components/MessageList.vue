@@ -1,6 +1,6 @@
 <template>
   <div class="message-list" ref="messages">
-    <ul v-if="room">
+    <ul v-if="room && ticket">
       <li
         v-for="message in messages"
         :class="`message ${
@@ -17,10 +17,11 @@
         <div class="chat">
           <img
             class="mx-auto mb-4"
-            width="300px"
+            width="250px"
             v-if="message.type.includes('image')"
             :src="message.path"
             :alt="message.file_name"
+            @click="showImg(message.path)"
           />
           <button
             class="btn btn-info mb-4"
@@ -38,6 +39,10 @@
         </div>
       </li>
     </ul>
+    <div v-else-if="role[0] == 'user'" class="waiting">
+      <p v-if="!room.narasumber_id">Menunggu Narasumber</p>
+      <p v-else>Menunggu Narasumber Memulai Percakapan</p>
+    </div>
   </div>
 </template>
 <script>
@@ -54,6 +59,10 @@ export default {
       type: Array,
       require: true,
     },
+    ticket: {
+      type: Object,
+      require: true,
+    },
   },
   data() {
     return {
@@ -66,6 +75,10 @@ export default {
     }
   },
   methods: {
+    showImg(url) {
+      console.log("test");
+      this.$emit("imgUrl", url);
+    },
     scrollToBottom() {
       setTimeout(() => {
         this.$refs.messages.scrollTop =
@@ -76,6 +89,9 @@ export default {
   watch: {
     room(room) {
       this.scrollToBottom();
+    },
+    ticket(ticket) {
+      this.ticket = ticket;
     },
     messages(messages) {
       this.scrollToBottom();
@@ -89,6 +105,17 @@ export default {
   height: 100%;
   // max-height: 550px;
   overflow-y: scroll;
+  .waiting {
+    height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    p {
+      text-align: center;
+    }
+  }
   ul {
     list-style-type: none;
     padding: 5px;
@@ -105,6 +132,7 @@ export default {
           display: inline-block;
           img {
             display: block;
+            cursor: pointer;
           }
           .message-time {
             display: flex;
@@ -140,12 +168,12 @@ export default {
   }
 }
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 8px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
 }
 
 /* Handle */
