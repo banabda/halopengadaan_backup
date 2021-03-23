@@ -120,7 +120,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
 
 Route::group(['prefix' => 'narasumber', 'middleware' => ['role:narasumber']], function()
 {
-
+    Route::get('profile', 'DashboardNarasumber\NarasumberController@profile')->name('narasumber.dashboard.profile');
 });
 
 Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()

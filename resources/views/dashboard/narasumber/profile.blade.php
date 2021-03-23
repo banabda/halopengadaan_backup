@@ -8,7 +8,7 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-                  <h3 class="page-title">Profile</h3>
+                  <h3 class="page-title">Profile Narasumber</h3>
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
@@ -20,23 +20,23 @@
               </div>
           </div>
       </div>
-      @if (is_null($user->profile))
+      {{-- @if (is_null($user->profile)) --}}
       <div class="px-30 my-15 no-print">
         <div class="callout callout-danger" style="margin-bottom: 0!important;">
           <h4><i class="fa fa-info"></i> Note:</h4>
           Lengkapi bagian profil terlebih dahulu !
         </div>
       </div>
-      @elseif(is_null($user->profile->nama_lengkap) && is_null($user->profile->email) && is_null($user->profile->no_hp))
+      {{-- @elseif(is_null($user->profile->nama_lengkap) && is_null($user->profile->email) && is_null($user->profile->no_hp)) --}}
       <div class="px-30 my-15 no-print">
         <div class="callout callout-danger" style="margin-bottom: 0!important;">
           <h4><i class="fa fa-info"></i> Note:</h4>
           Lengkapi bagian profil terlebih dahulu !
         </div>
       </div>
-      @else
+      {{-- @else
 
-      @endif
+      @endif --}}
 
 
       <!-- Main content -->
@@ -49,22 +49,22 @@
 
                     <div class="box-body text-center pb-50">
                       <a href="#">
-                        @if (is_null($user->profile))
+                        {{-- @if (is_null($user->profile)) --}}
                             <img class="avatar avatar-xxl avatar-bordered" src="https://avatars.dicebear.com/4.5/api/initials/{{ Auth::user()->name }}.svg" alt="">
-                        @elseif(is_null($user->profile->foto))
+                        {{-- @elseif(is_null($user->profile->foto))
                             <img class="avatar avatar-xxl avatar-bordered" src="https://avatars.dicebear.com/4.5/api/initials/{{ Auth::user()->name }}.svg" alt="">
                         @else
                             <img class="avatar avatar-xxl avatar-bordered" src="{{ Storage::url($user->profile->foto) }}" alt="">
-                        @endif
+                        @endif --}}
                       </a>
-                      <h4 class="mt-3 mb-0"><a class="hover-primary text-white" href="#">{{ $user->name }}</a></h4>
+                      <h4 class="mt-3 mb-0"><a class="hover-primary text-white" href="#">Zulkifli Raihan</a></h4>
                       {{-- <span><i class="fa fa-map-marker w-20"></i> Miami</span> --}}
                     </div>
 
                     <ul class="box-body flexbox flex-justified text-center" data-overlay="4">
                       <li>
                         <span class="opacity-60">Status Akun</span><br>
-                        @if (is_null($user->profile))
+                        {{-- @if (is_null($user->profile))
                             <span class="font-size-20">Belum Aktif</span>
                         @elseif(!is_null($user->profile))
                             <span class="font-size-20">Profile Update</span>
@@ -78,8 +78,7 @@
                             @else
                                 <span class="font-size-20">Paket Platinum</span>
                             @endif
-                            {{-- <span class="font-size-20">Active</span> --}}
-                        @endif
+                        @endif --}}
                         {{-- <span class="font-size-20">Active</span> --}}
                       </li>
                     </ul>
@@ -122,7 +121,7 @@
 
                 <div class="active tab-pane" id="profile">
                   <div class="box p-15">
-                      @if (is_null($user->profile))
+                      {{-- @if (is_null($user->profile)) --}}
                         <form class="form-horizontal form-element col-12 pt-4" action="{{ route('profile.save') }}" method="POST">
                             @csrf
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -210,7 +209,7 @@
                             </div>
                             </div>
                         </form>
-                      @else
+                      {{-- @else
                         <form class="form-horizontal form-element col-12 pt-4" action="{{ route('profile.save') }}" method="POST">
                             @csrf
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
@@ -291,7 +290,7 @@
                             </div>
                             </div>
                         </form>
-                      @endif
+                      @endif --}}
 
                   </div>
                 </div>
