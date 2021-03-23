@@ -1948,10 +1948,27 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
-      bidangList: ["barang", "konstruksi", "konsultan non konstruksi", "swa kelola", "jasa lainnya"]
+      bidangList: ["barang", "jasa konstruksi", "konsultasi non konstruksi", "swakelola", "jasa lainnya", "perencanaan", "pemilihan", "pelaksanaan kontrak"]
     };
   },
   mounted: function mounted() {},
@@ -10263,7 +10280,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".title[data-v-2f690768] {\n  justify-content: center;\n  font-size: 50px;\n  font-weight: 600;\n}\n.card-title[data-v-2f690768] {\n  text-align: center;\n}\n.card-body.body-bidang[data-v-2f690768] {\n  height: 200px;\n  justify-content: space-between;\n  flex-direction: column;\n  display: flex;\n  align-self: center;\n}\nimg[data-v-2f690768] {\n  height: 120px;\n  -o-object-fit: cover;\n     object-fit: cover;\n}\n.button-bidang[data-v-2f690768] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  color: white;\n  width: 100px;\n  align-self: center;\n  transition: transform 0.3s ease-in-out;\n}\n.button-bidang[data-v-2f690768]:hover {\n  transform: scale(1.1);\n}\n.item-bidang[data-v-2f690768] {\n  transition: box-shadow 0.3s ease-in-out;\n}\n.item-bidang[data-v-2f690768]:hover {\n  box-shadow: 1px 1px 15px 1px rgba(128, 128, 128, 0.726);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".title[data-v-2f690768] {\n  justify-content: center;\n  font-size: 50px;\n  font-weight: 600;\n}\n.card-title[data-v-2f690768] {\n  text-align: center;\n  font-weight: bold;\n  font-size: 1.5rem;\n  text-transform: capitalize;\n}\n.card-body.body-bidang[data-v-2f690768] {\n  height: 150px;\n  justify-content: space-between;\n  flex-direction: column;\n  display: flex;\n  align-self: center;\n}\nimg[data-v-2f690768] {\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.button-bidang[data-v-2f690768] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  color: white;\n  width: 100px;\n  align-self: center;\n  transition: transform 0.3s ease-in-out;\n}\n.button-bidang[data-v-2f690768]:hover {\n  transform: scale(1.1);\n}\n.item-bidang[data-v-2f690768] {\n  transition: box-shadow 0.3s ease-in-out;\n}\n.item-bidang[data-v-2f690768]:hover {\n  box-shadow: 1px 1px 15px 1px rgba(128, 128, 128, 0.726);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50496,31 +50513,36 @@ var render = function() {
       _vm._v(" "),
       _c(
         "div",
-        { staticClass: "card-deck mb-4" },
+        { staticClass: "row row-cols-1 row-cols-md-3" },
         _vm._l(_vm.bidangList, function(bdng, index) {
-          return _c("div", { key: index, staticClass: "card item-bidang" }, [
-            _c("img", {
-              staticClass: "card-img-top",
-              attrs: { src: "/images/header.jpg", alt: "Card image cap" }
-            }),
-            _vm._v(" "),
-            _c("div", { staticClass: "card-body body-bidang" }, [
-              _c("h5", { staticClass: "card-title mb-3" }, [
-                _vm._v(_vm._s(bdng))
-              ]),
+          return _c("div", { key: index, staticClass: "col mb-4" }, [
+            _c("div", { staticClass: "card h-100" }, [
+              _c("img", {
+                staticClass: "card-img-top",
+                attrs: {
+                  src: "/images/bidang/bidang" + (index + 1) + ".svg",
+                  alt: bdng
+                }
+              }),
               _vm._v(" "),
-              _c(
-                "button",
-                {
-                  staticClass: "btn button-bidang",
-                  on: {
-                    click: function($event) {
-                      return _vm.selectBidang(index)
+              _c("div", { staticClass: "card-body body-bidang" }, [
+                _c("h5", { staticClass: "card-title mb-3" }, [
+                  _vm._v(_vm._s(bdng))
+                ]),
+                _vm._v(" "),
+                _c(
+                  "button",
+                  {
+                    staticClass: "btn button-bidang",
+                    on: {
+                      click: function($event) {
+                        return _vm.selectBidang(index)
+                      }
                     }
-                  }
-                },
-                [_vm._v("\n            Pilih\n          ")]
-              )
+                  },
+                  [_vm._v("\n              Pilih\n            ")]
+                )
+              ])
             ])
           ])
         }),
