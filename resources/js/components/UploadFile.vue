@@ -46,6 +46,7 @@
   </modal>
 </template>
 <script>
+import Swal from "sweetalert2";
 export default {
   name: "UploadFile",
   props: {
@@ -85,6 +86,14 @@ export default {
         .then((res) => {
           _Ufile.path = res.data.media_url;
           this.localUploadedFile = _Ufile;
+          Swal.fire({
+            toast: true,
+            position: "top-end",
+            showConfirmButton: false,
+            timer: 3000,
+            icon: "success",
+            title: "File Uploaded!",
+          });
         });
     },
     chooseFile() {

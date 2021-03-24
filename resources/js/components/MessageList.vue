@@ -166,14 +166,14 @@ export default {
         &.received {
           text-align: left;
           .chat {
-            background-color: mediumspringgreen;
+            background: #fe7087;
           }
         }
 
         &.sent {
           text-align: right;
           .chat {
-            background-color: mediumturquoise;
+            background: #fe9d82;
             text-align: left;
           }
         }
