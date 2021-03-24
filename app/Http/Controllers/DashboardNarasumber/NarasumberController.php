@@ -62,8 +62,8 @@ class NarasumberController extends Controller
         $data = [
             'user' => $user
         ];
-
-        return view('dashboard.narasumber.profile');
+        // dd($user->profileNarasumber);
+        return view('dashboard.narasumber.profile', $data);
     }
 
     public function saveProfile(Request $request)
