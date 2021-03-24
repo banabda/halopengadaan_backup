@@ -19,12 +19,13 @@ class HomeChatController extends Controller
                 $role->where('name', 'user');
             }
         )->first();
+        
         $narasumber = User::where('id', Auth::user()->id)->whereHas(
             'roles', function($role){
                 $role->where('name', 'narasumber');
             }
         )->first();
-        
+
         if ($user) {
             if (is_null($userhaspaket)) {
                 return redirect()->route('user.dashboard.membership');
