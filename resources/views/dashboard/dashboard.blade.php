@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="{{ asset('dashboard/main/css/vendors_css.css') }}">
 
     {{-- {{ asset('dashboard/') }} --}}
-    
+
 	<!-- Style-->
 	<link rel="stylesheet" href="{{ asset('dashboard/main/css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('dashboard/main/css/skin_color.css') }}">
@@ -317,6 +317,8 @@
     <script src="{{ asset('dashboard/assets/vendor_components/jquery-validation-1.17.0/dist/jquery.validate.min.js') }} "></script>
     <script src="{{ asset('dashboard/main/js/pages/steps.js') }}"></script>
     <script src="{{ asset('dashboard/assets/vendor_components/apexcharts-bundle/dist/apexcharts.js') }}"></script>
+    <script src="{{ asset('dashboard/main/js/pages/advanced-form-element.js') }}"></script>
+
 
     <!-- Sunny Admin App -->
 	<script src="{{ asset('dashboard/main/js/template.js') }}"></script>

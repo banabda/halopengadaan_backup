@@ -49,7 +49,7 @@ class LoginController extends Controller
             } elseif ($user->hasRole('user') ) {
                 return redirect()->route('profile');
             } elseif ($user->hasRole('narasumber')) {
-                return redirect()->route('profile');
+                return redirect()->route('narasumber.dashboard.profile');
             }
 
             return redirect()->route('landing');

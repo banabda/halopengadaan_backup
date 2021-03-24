@@ -103,11 +103,13 @@ class HomeController extends Controller
                 'user_id' => $data->user_id,
                 'paket' => $data->paket,
                 'expired_at' => $expired_at,
+                'saldo' => 7,
                 'status' => 'Aktif'
             ]);
         } else {
             $userHasPaket->update([
-                'expired_at' => $expired_at
+                'expired_at' => $expired_at,
+                'saldo' => 7
             ]);
         }
 

@@ -163,13 +163,6 @@
                             </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-2 control-label pt-1">Upload CV</label>
-
-                            <div class="col-sm-10">
-                                <input type="file" class="" id="inputExperience" name="upload_cv">
-                            </div>
-                            </div>
-                            <div class="form-group row">
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Jenis Kerja</label>
 
                                 <div class="col-sm-10">
