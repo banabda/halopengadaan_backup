@@ -125,7 +125,8 @@ Route::group(['prefix' => 'narasumber', 'middleware' => ['role:narasumber']], fu
 
 Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
 {
-    Route::get('/', fn () => view('layouts.chat'));
+    Route::get('/', 'Chat\HomeChatController@index')->name('dashboard.chat');
+
     // ROOMS
     Route::get('/rooms', [RoomController::class, 'index']);
     Route::get('/rooms/{bidang_code}', [RoomController::class, 'getBidang']);

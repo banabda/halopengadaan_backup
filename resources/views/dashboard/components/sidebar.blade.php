@@ -100,7 +100,7 @@
           </li>
 
           <li>
-            <a href="{{ route('user.dashboard.konsultasi') }}">
+            <a href="{{ route('dashboard.chat') }}">
               <i data-feather="message-circle"></i>
               <span>Konsultasi Sekarang</span>
             </a>
