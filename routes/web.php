@@ -49,7 +49,6 @@ Route::get('regulasi/{id}', 'Dashboard\RegulasiController@seeDokumen')->name('la
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
-
     // crud halaman metode pembayaran
     Route::get('metode-pembayaran','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
     Route::post('buatmethod','Metodepembayaran\MetodepembayaranController@store')->name('metodepembayaran.store');
