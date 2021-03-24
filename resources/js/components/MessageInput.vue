@@ -7,7 +7,7 @@
       @keydown.enter.exact.prevent="send"
       placeholder="Type a message"
     ></textarea>
-    <a class="notif" data-badge=" " :class="uploadedFile ? 'on' : ''"
+    <a
       ><i
         class="bi bi-paperclip"
         :class="uploadedFile ? 'on' : ''"
@@ -118,23 +118,6 @@ export default {
     align-self: center;
     font-size: 30px;
     margin: 0 6px;
-  }
-  .notif {
-    color: black;
-  }
-  .notif.on:after {
-    content: " ";
-    position: absolute;
-    top: 20px;
-    right: 50px;
-    font-size: 0.7em;
-    background: #e53935;
-    color: white;
-    width: 15px;
-    height: 15px;
-    text-align: center;
-    line-height: 18px;
-    border-radius: 50%;
   }
   textarea {
     width: 85%;

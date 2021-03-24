@@ -2973,6 +2973,15 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     role: {
@@ -2988,6 +2997,11 @@ __webpack_require__.r(__webpack_exports__);
     startChat: function startChat(room) {
       this.$emit("chat", room);
     }
+  },
+  data: function data() {
+    return {
+      bidangList: ["barang", "konstruksi", "konsultasi", "swakelola", "lainnya", "perencanaan", "pemilihan", "kontrak"]
+    };
   }
 });
 
@@ -10377,7 +10391,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-input a[data-v-d519e324],\n.message-input .bi[data-v-d519e324] {\n  align-self: center;\n  font-size: 30px;\n  margin: 0 6px;\n}\n.message-input .notif[data-v-d519e324] {\n  color: black;\n}\n.message-input .notif.on[data-v-d519e324]:after {\n  content: \" \";\n  position: absolute;\n  top: 20px;\n  right: 50px;\n  font-size: 0.7em;\n  background: #e53935;\n  color: white;\n  width: 15px;\n  height: 15px;\n  text-align: center;\n  line-height: 18px;\n  border-radius: 50%;\n}\n.message-input textarea[data-v-d519e324] {\n  width: 85%;\n  margin: 10px;\n  margin-right: 0;\n  resize: none;\n  border-radius: 6px;\n  border: 1px solid lightgray;\n  padding: 10px;\n  overflow-y: scroll;\n}\n.message-input textarea.mobile[data-v-d519e324] {\n  width: 89%;\n}\n.message-input[data-v-d519e324] {\n  position: relative;\n  display: inline-block;\n}\n.message-input .bi-paperclip.on[data-v-d519e324] {\n  color: #ca4b7c;\n  font-weight: bold;\n}\n.emoji-invoker[data-v-d519e324] {\n  position: relative;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  border-radius: 50%;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.emoji-invoker[data-v-d519e324]:hover {\n  transform: scale(1.1);\n}\n.emoji-invoker > svg[data-v-d519e324] {\n  fill: #b1c6d0;\n}\n.emoji-picker[data-v-d519e324] {\n  position: absolute;\n  z-index: 1;\n  border: 1px solid #ccc;\n  width: 25rem;\n  height: 25rem;\n  overflow: scroll;\n  padding: 1rem;\n  box-sizing: border-box;\n  border-radius: 0.5rem;\n  background: #fff;\n  box-shadow: 1px 1px 8px #c7dbe6;\n}\n.emoji-picker.mobile[data-v-d519e324] {\n  width: auto;\n}\n.emoji-picker__search[data-v-d519e324] {\n  display: flex;\n}\n.emoji-picker__search > input[data-v-d519e324] {\n  flex: 1;\n  border-radius: 10rem;\n  border: 1px solid #ccc;\n  padding: 0.5rem 1rem;\n  outline: none;\n}\n.emoji-picker h5[data-v-d519e324] {\n  margin: 10px 0;\n  color: #b1b1b1;\n  text-transform: uppercase;\n  font-size: 1rem;\n  cursor: default;\n}\n.emoji-picker .emojis[data-v-d519e324] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.emoji-picker .emojis[data-v-d519e324]:after {\n  content: \"\";\n  flex: auto;\n}\n.emoji-picker .emojis span[data-v-d519e324] {\n  padding: 0.2rem;\n  font-size: 1.5em;\n  cursor: pointer;\n  border-radius: 5px;\n}\n.emoji-picker .emojis span[data-v-d519e324]:hover {\n  background: #ececec;\n  cursor: pointer;\n}\n[data-v-d519e324]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-d519e324]::-webkit-scrollbar-track {\n  background: transparent !important;\n}\n\n/* Handle */\n[data-v-d519e324]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-d519e324]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-input a[data-v-d519e324],\n.message-input .bi[data-v-d519e324] {\n  align-self: center;\n  font-size: 30px;\n  margin: 0 6px;\n}\n.message-input textarea[data-v-d519e324] {\n  width: 85%;\n  margin: 10px;\n  margin-right: 0;\n  resize: none;\n  border-radius: 6px;\n  border: 1px solid lightgray;\n  padding: 10px;\n  overflow-y: scroll;\n}\n.message-input textarea.mobile[data-v-d519e324] {\n  width: 89%;\n}\n.message-input[data-v-d519e324] {\n  position: relative;\n  display: inline-block;\n}\n.message-input .bi-paperclip.on[data-v-d519e324] {\n  color: #ca4b7c;\n  font-weight: bold;\n}\n.emoji-invoker[data-v-d519e324] {\n  position: relative;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  border-radius: 50%;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.emoji-invoker[data-v-d519e324]:hover {\n  transform: scale(1.1);\n}\n.emoji-invoker > svg[data-v-d519e324] {\n  fill: #b1c6d0;\n}\n.emoji-picker[data-v-d519e324] {\n  position: absolute;\n  z-index: 1;\n  border: 1px solid #ccc;\n  width: 25rem;\n  height: 25rem;\n  overflow: scroll;\n  padding: 1rem;\n  box-sizing: border-box;\n  border-radius: 0.5rem;\n  background: #fff;\n  box-shadow: 1px 1px 8px #c7dbe6;\n}\n.emoji-picker.mobile[data-v-d519e324] {\n  width: auto;\n}\n.emoji-picker__search[data-v-d519e324] {\n  display: flex;\n}\n.emoji-picker__search > input[data-v-d519e324] {\n  flex: 1;\n  border-radius: 10rem;\n  border: 1px solid #ccc;\n  padding: 0.5rem 1rem;\n  outline: none;\n}\n.emoji-picker h5[data-v-d519e324] {\n  margin: 10px 0;\n  color: #b1b1b1;\n  text-transform: uppercase;\n  font-size: 1rem;\n  cursor: default;\n}\n.emoji-picker .emojis[data-v-d519e324] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.emoji-picker .emojis[data-v-d519e324]:after {\n  content: \"\";\n  flex: auto;\n}\n.emoji-picker .emojis span[data-v-d519e324] {\n  padding: 0.2rem;\n  font-size: 1.5em;\n  cursor: pointer;\n  border-radius: 5px;\n}\n.emoji-picker .emojis span[data-v-d519e324]:hover {\n  background: #ececec;\n  cursor: pointer;\n}\n[data-v-d519e324]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-d519e324]::-webkit-scrollbar-track {\n  background: transparent !important;\n}\n\n/* Handle */\n[data-v-d519e324]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-d519e324]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10449,7 +10463,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".button-list[data-v-7ad935aa] {\n  align-content: space-evenly;\n  height: inherit;\n}\n.button-list button[data-v-7ad935aa] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  border: none;\n}\n.btn-1[data-v-7ad935aa] {\n  width: 150px;\n  height: 80px;\n}\n.div-button[data-v-7ad935aa] {\n  justify-content: center;\n  align-items: center;\n}\n.admin .btn-1[data-v-7ad935aa] {\n  width: 120px;\n  height: 70px;\n  margin-left: 0px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".button-list[data-v-7ad935aa] {\n  align-content: space-evenly;\n  height: inherit;\n}\n.button-list button[data-v-7ad935aa] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  border: none;\n}\n.btn-1[data-v-7ad935aa] {\n  width: 200px;\n  cursor: pointer;\n}\n.div-button[data-v-7ad935aa] {\n  justify-content: center;\n  align-items: center;\n}\n.admin .btn-1[data-v-7ad935aa] {\n  width: 120px;\n  height: 70px;\n  margin-left: 0px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -54509,21 +54523,13 @@ var render = function() {
             }
           }),
           _vm._v(" "),
-          _c(
-            "a",
-            {
-              staticClass: "notif",
+          _c("a", [
+            _c("i", {
+              staticClass: "bi bi-paperclip",
               class: _vm.uploadedFile ? "on" : "",
-              attrs: { "data-badge": " " }
-            },
-            [
-              _c("i", {
-                staticClass: "bi bi-paperclip",
-                class: _vm.uploadedFile ? "on" : "",
-                on: { click: _vm.showModal }
-              })
-            ]
-          ),
+              on: { click: _vm.showModal }
+            })
+          ]),
           _vm._v(" "),
           _c("emoji-picker", {
             staticClass: "my-auto",
@@ -54875,18 +54881,22 @@ var render = function() {
               "div",
               { key: index, staticClass: "col-md-6 div-button d-flex my-3" },
               [
-                _c(
-                  "button",
-                  {
-                    staticClass: "btn-1 btn btn-primary",
-                    on: {
-                      click: function($event) {
-                        return _vm.startChat(room)
-                      }
-                    }
+                _c("img", {
+                  staticClass: "btn-1",
+                  attrs: {
+                    src:
+                      "/images/room/" +
+                      _vm.bidangList[room.bidang_code] +
+                      " " +
+                      (index + 1) +
+                      ".svg"
                   },
-                  [_vm._v("\n        " + _vm._s(room.name) + "\n      ")]
-                ),
+                  on: {
+                    click: function($event) {
+                      return _vm.startChat(room)
+                    }
+                  }
+                }),
                 _vm._v(" "),
                 _c("div", { staticClass: "in-room ml-3" }, [
                   _c(
