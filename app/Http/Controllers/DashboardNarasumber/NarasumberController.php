@@ -58,7 +58,10 @@ class NarasumberController extends Controller
 
     public function profile()
     {
-        $profile = NarasumberProfile::with('user')->where('user_id', Auth::user()->id)->first();
+        $user = User::with('profileNarasumber')->where('id', Auth::user()->id)->first();
+        $data = [
+            'user' => $user
+        ];
 
         return view('dashboard.narasumber.profile');
     }
@@ -67,8 +70,8 @@ class NarasumberController extends Controller
     {
         $data = $request->all();
         $user = Auth::user()->id;
-        $path = 'dokumen/narasumber/cv/' . $user ;
         $file = $request->file('cv');
+        $path = 'dokumen/narasumber/cv/' . $user ;
         $path = Storage::disk('public')->put(
             $path,
             $file

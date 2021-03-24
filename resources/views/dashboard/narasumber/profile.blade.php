@@ -133,7 +133,7 @@
                 <div class="active tab-pane" id="profile">
                   <div class="box p-15">
                       {{-- @if (is_null($user->profile)) --}}
-                        <form class="form-horizontal form-element col-12 pt-4" action="{{ route('narasumber.dashboard.profile.save') }}" method="POST">
+                        <form class="form-horizontal form-element col-12 pt-4" action="{{ route('narasumber.dashboard.profile.save') }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                             <div class="form-group row">
