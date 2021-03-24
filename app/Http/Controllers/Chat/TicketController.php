@@ -24,7 +24,7 @@ class TicketController extends Controller
         $ticket = Ticket::create([
             'name' => $name,
             'room_id' => $request->id,
-            'expired_at' => Carbon::now()->addMinutes(6)
+            'expired_at' => Carbon::now()->addMinutes(60)
         ]);
         $room = Room::find($request->id);
         $room->ticket = $name;

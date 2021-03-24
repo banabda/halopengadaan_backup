@@ -1,8 +1,9 @@
 <template>
   <div class="message-list" ref="messages">
-    <ul v-if="room && ticket">
+    <transition-group name="list-complete" tag="ul" v-if="room && ticket">
       <li
         v-for="message in messages"
+        class="list-complete-item"
         :class="`message ${
           isNarasumber
             ? message.is_narasumber
@@ -24,7 +25,7 @@
             @click="showImg(message.path)"
           />
           <button
-            class="btn btn-info mb-4"
+            class="btn btn-file mb-4"
             v-else-if="message.file_name != null"
           >
             {{ message.file_name }}
@@ -38,7 +39,7 @@
           }}</span>
         </div>
       </li>
-    </ul>
+    </transition-group>
     <div v-else-if="role[0] == 'user'" class="waiting">
       <p v-if="!room.narasumber_id">Menunggu Narasumber</p>
       <p v-else>Menunggu Narasumber Memulai Percakapan</p>
@@ -100,6 +101,19 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.list-complete-item {
+  transition: all 0.3s;
+  // display: inline-block;
+  // margin-right: 10px;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
+}
 .message-list {
   background-color: rgb(236, 245, 253);
   height: 100%;
@@ -130,6 +144,10 @@ export default {
           border-radius: 8px;
           padding: 12px;
           display: inline-block;
+          .btn-file {
+            color: white;
+            background: linear-gradient(to left, #ca4b7c, #6e376e);
+          }
           img {
             display: block;
             cursor: pointer;
@@ -152,14 +170,14 @@ export default {
         &.received {
           text-align: left;
           .chat {
-            background-color: mediumspringgreen;
+            background: #fe7087;
           }
         }
 
         &.sent {
           text-align: right;
           .chat {
-            background-color: mediumturquoise;
+            background: #fe9d82;
             text-align: left;
           }
         }

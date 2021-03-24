@@ -2,7 +2,7 @@
   <div v-if="room.ticket != null" class="message-input d-flex">
     <textarea
       autofocus
-      :class="role[0] == 'user' ? 'user' : ''"
+      :class="role[0] == 'user' || $vssWidth < 1125 ? 'mobile' : ''"
       v-model="message"
       @keydown.enter.exact.prevent="send"
       placeholder="Type a message"
@@ -12,8 +12,8 @@
         class="bi bi-paperclip"
         :class="uploadedFile ? 'on' : ''"
         @click="showModal"
-      ></i
-    ></a>
+      ></i>
+    </a>
     <emoji-picker @emoji="insert" :search="search" class="my-auto">
       <div
         class="emoji-invoker"
@@ -128,7 +128,7 @@ export default {
     border: 1px solid lightgray;
     padding: 10px;
     overflow-y: scroll;
-    &.user {
+    &.mobile {
       width: 89%;
     }
   }
@@ -137,14 +137,10 @@ export default {
   position: relative;
   display: inline-block;
   .bi-paperclip {
-    transition: transform 0.3s ease-in-out;
     &.on {
       color: #ca4b7c;
+      font-weight: bold;
     }
-  }
-  .bi-paperclip:hover {
-    cursor: pointer;
-    transform: scale(1.1);
   }
 }
 .emoji-invoker {
