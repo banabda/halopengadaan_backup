@@ -67,6 +67,14 @@ export default {
   methods: {
     removeFile() {
       this.localUploadedFile = null;
+      Swal.fire({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        icon: "warning",
+        title: "File Removed!",
+      });
     },
     setFile(event) {
       var _file = event.target.files[0];

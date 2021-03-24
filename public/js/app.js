@@ -3164,6 +3164,14 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     removeFile: function removeFile() {
       this.localUploadedFile = null;
+      sweetalert2__WEBPACK_IMPORTED_MODULE_0___default().fire({
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        icon: "warning",
+        title: "File Removed!"
+      });
     },
     setFile: function setFile(event) {
       var _this = this;
