@@ -10358,7 +10358,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-input a[data-v-d519e324],\n.message-input .bi[data-v-d519e324] {\n  align-self: center;\n  font-size: 30px;\n  margin: 0 6px;\n}\n.message-input textarea[data-v-d519e324] {\n  width: 85%;\n  margin: 10px;\n  margin-right: 0;\n  resize: none;\n  border-radius: 6px;\n  border: 1px solid lightgray;\n  padding: 10px;\n  overflow-y: scroll;\n}\n.message-input textarea.user[data-v-d519e324] {\n  width: 89%;\n}\n.message-input[data-v-d519e324] {\n  position: relative;\n  display: inline-block;\n}\n.message-input .bi-paperclip[data-v-d519e324] {\n  transition: transform 0.3s ease-in-out;\n}\n.message-input .bi-paperclip.on[data-v-d519e324] {\n  color: #ca4b7c;\n}\n.message-input .bi-paperclip[data-v-d519e324]:hover {\n  cursor: pointer;\n  transform: scale(1.1);\n}\n.emoji-invoker[data-v-d519e324] {\n  position: relative;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  border-radius: 50%;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.emoji-invoker[data-v-d519e324]:hover {\n  transform: scale(1.1);\n}\n.emoji-invoker > svg[data-v-d519e324] {\n  fill: #b1c6d0;\n}\n.emoji-picker[data-v-d519e324] {\n  position: absolute;\n  z-index: 1;\n  border: 1px solid #ccc;\n  width: 25rem;\n  height: 25rem;\n  overflow: scroll;\n  padding: 1rem;\n  box-sizing: border-box;\n  border-radius: 0.5rem;\n  background: #fff;\n  box-shadow: 1px 1px 8px #c7dbe6;\n}\n.emoji-picker.mobile[data-v-d519e324] {\n  width: auto;\n}\n.emoji-picker__search[data-v-d519e324] {\n  display: flex;\n}\n.emoji-picker__search > input[data-v-d519e324] {\n  flex: 1;\n  border-radius: 10rem;\n  border: 1px solid #ccc;\n  padding: 0.5rem 1rem;\n  outline: none;\n}\n.emoji-picker h5[data-v-d519e324] {\n  margin: 10px 0;\n  color: #b1b1b1;\n  text-transform: uppercase;\n  font-size: 1rem;\n  cursor: default;\n}\n.emoji-picker .emojis[data-v-d519e324] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.emoji-picker .emojis[data-v-d519e324]:after {\n  content: \"\";\n  flex: auto;\n}\n.emoji-picker .emojis span[data-v-d519e324] {\n  padding: 0.2rem;\n  font-size: 1.5em;\n  cursor: pointer;\n  border-radius: 5px;\n}\n.emoji-picker .emojis span[data-v-d519e324]:hover {\n  background: #ececec;\n  cursor: pointer;\n}\n[data-v-d519e324]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-d519e324]::-webkit-scrollbar-track {\n  background: transparent !important;\n}\n\n/* Handle */\n[data-v-d519e324]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-d519e324]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".message-input a[data-v-d519e324],\n.message-input .bi[data-v-d519e324] {\n  align-self: center;\n  font-size: 30px;\n  margin: 0 6px;\n}\n.message-input textarea[data-v-d519e324] {\n  width: 85%;\n  margin: 10px;\n  margin-right: 0;\n  resize: none;\n  border-radius: 6px;\n  border: 1px solid lightgray;\n  padding: 10px;\n  overflow-y: scroll;\n}\n.message-input textarea.mobile[data-v-d519e324] {\n  width: 89%;\n}\n.message-input[data-v-d519e324] {\n  position: relative;\n  display: inline-block;\n}\n.message-input .bi-paperclip[data-v-d519e324] {\n  transition: transform 0.3s ease-in-out;\n}\n.message-input .bi-paperclip.on[data-v-d519e324] {\n  color: #ca4b7c;\n}\n.message-input .bi-paperclip[data-v-d519e324]:hover {\n  cursor: pointer;\n  transform: scale(1.1);\n}\n.emoji-invoker[data-v-d519e324] {\n  position: relative;\n  width: -webkit-fit-content;\n  width: -moz-fit-content;\n  width: fit-content;\n  height: -webkit-fit-content;\n  height: -moz-fit-content;\n  height: fit-content;\n  border-radius: 50%;\n  cursor: pointer;\n  transition: all 0.2s;\n}\n.emoji-invoker[data-v-d519e324]:hover {\n  transform: scale(1.1);\n}\n.emoji-invoker > svg[data-v-d519e324] {\n  fill: #b1c6d0;\n}\n.emoji-picker[data-v-d519e324] {\n  position: absolute;\n  z-index: 1;\n  border: 1px solid #ccc;\n  width: 25rem;\n  height: 25rem;\n  overflow: scroll;\n  padding: 1rem;\n  box-sizing: border-box;\n  border-radius: 0.5rem;\n  background: #fff;\n  box-shadow: 1px 1px 8px #c7dbe6;\n}\n.emoji-picker.mobile[data-v-d519e324] {\n  width: auto;\n}\n.emoji-picker__search[data-v-d519e324] {\n  display: flex;\n}\n.emoji-picker__search > input[data-v-d519e324] {\n  flex: 1;\n  border-radius: 10rem;\n  border: 1px solid #ccc;\n  padding: 0.5rem 1rem;\n  outline: none;\n}\n.emoji-picker h5[data-v-d519e324] {\n  margin: 10px 0;\n  color: #b1b1b1;\n  text-transform: uppercase;\n  font-size: 1rem;\n  cursor: default;\n}\n.emoji-picker .emojis[data-v-d519e324] {\n  display: flex;\n  flex-wrap: wrap;\n  justify-content: space-between;\n}\n.emoji-picker .emojis[data-v-d519e324]:after {\n  content: \"\";\n  flex: auto;\n}\n.emoji-picker .emojis span[data-v-d519e324] {\n  padding: 0.2rem;\n  font-size: 1.5em;\n  cursor: pointer;\n  border-radius: 5px;\n}\n.emoji-picker .emojis span[data-v-d519e324]:hover {\n  background: #ececec;\n  cursor: pointer;\n}\n[data-v-d519e324]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-d519e324]::-webkit-scrollbar-track {\n  background: transparent !important;\n}\n\n/* Handle */\n[data-v-d519e324]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-d519e324]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50808,7 +50808,8 @@ var render = function() {
                 expression: "message"
               }
             ],
-            class: _vm.role[0] == "user" ? "user" : "",
+            class:
+              _vm.role[0] == "user" || _vm.$vssWidth < 1125 ? "mobile" : "",
             attrs: { autofocus: "", placeholder: "Type a message" },
             domProps: { value: _vm.message },
             on: {
@@ -51368,13 +51369,7 @@ var render = function() {
                   )
                 ]
               )
-            ]),
-            _vm._v(" "),
-            room.unread
-              ? _c("span", { staticClass: "unread" }, [
-                  _vm._v(_vm._s(room.unread))
-                ])
-              : _vm._e()
+            ])
           ]
         )
       }),

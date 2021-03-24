@@ -30,7 +30,7 @@
             {{ room.user_name == null ? "no user" : room.user_name }}
           </p>
         </div>
-        <span class="unread" v-if="room.unread">{{ room.unread }}</span>
+        <!-- <span class="unread" v-if="room.unread">{{ room.unread }}</span> -->
       </li>
     </ul>
   </div>
