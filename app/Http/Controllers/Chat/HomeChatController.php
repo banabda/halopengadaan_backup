@@ -34,6 +34,7 @@ class HomeChatController extends Controller
             } elseif ($userhaspaket->saldo == 0) {
                 return redirect()->route('user.dashboard.membership');
             }
+            return view('layouts.chat');
         } elseif ($narasumber) {
             return view('layouts.chat');
         }
