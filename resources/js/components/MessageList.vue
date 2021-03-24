@@ -25,7 +25,7 @@
             @click="showImg(message.path)"
           />
           <button
-            class="btn btn-info mb-4"
+            class="btn btn-file mb-4"
             v-else-if="message.file_name != null"
           >
             {{ message.file_name }}
@@ -144,6 +144,10 @@ export default {
           border-radius: 8px;
           padding: 12px;
           display: inline-block;
+          .btn-file {
+            color: white;
+            background: linear-gradient(to left, #ca4b7c, #6e376e);
+          }
           img {
             display: block;
             cursor: pointer;
