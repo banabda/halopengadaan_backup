@@ -31,23 +31,23 @@
               </div>
           </div>
       </div>
-      {{-- @if (is_null($user->profile)) --}}
+      @if (is_null($user->profileNarasumber))
       <div class="px-30 my-15 no-print">
         <div class="callout callout-danger" style="margin-bottom: 0!important;">
           <h4><i class="fa fa-info"></i> Note:</h4>
           Lengkapi bagian profil terlebih dahulu !
         </div>
       </div>
-      {{-- @elseif(is_null($user->profile->nama_lengkap) && is_null($user->profile->email) && is_null($user->profile->no_hp)) --}}
+      @elseif(is_null($user->profileNarasumber->name) && is_null($user->profileNarasumber->email) && is_null($user->profileNarasumber->no_hp))
       <div class="px-30 my-15 no-print">
         <div class="callout callout-danger" style="margin-bottom: 0!important;">
           <h4><i class="fa fa-info"></i> Note:</h4>
           Lengkapi bagian profil terlebih dahulu !
         </div>
       </div>
-      {{-- @else
+      @else
 
-      @endif --}}
+      @endif
 
 
       <!-- Main content -->
@@ -60,13 +60,13 @@
 
                     <div class="box-body text-center pb-50">
                       <a href="#">
-                        {{-- @if (is_null($user->profile)) --}}
+                        @if (is_null($user->profileNarasumber))
                             <img class="avatar avatar-xxl avatar-bordered" src="https://avatars.dicebear.com/4.5/api/initials/{{ Auth::user()->name }}.svg" alt="">
-                        {{-- @elseif(is_null($user->profile->foto))
+                        @elseif(is_null($user->profileNarasumber->foto))
                             <img class="avatar avatar-xxl avatar-bordered" src="https://avatars.dicebear.com/4.5/api/initials/{{ Auth::user()->name }}.svg" alt="">
                         @else
                             <img class="avatar avatar-xxl avatar-bordered" src="{{ Storage::url($user->profile->foto) }}" alt="">
-                        @endif --}}
+                        @endif
                       </a>
                       <h4 class="mt-3 mb-0"><a class="hover-primary text-white" href="#">Zulkifli Raihan</a></h4>
                       {{-- <span><i class="fa fa-map-marker w-20"></i> Miami</span> --}}
@@ -74,7 +74,7 @@
 
                     <ul class="box-body flexbox flex-justified text-center" data-overlay="4">
                       <li>
-                        <span class="opacity-60">Status Akun</span><br>
+                        {{-- <span class="opacity-60">Status Akun</span><br> --}}
                         {{-- @if (is_null($user->profile))
                             <span class="font-size-20">Belum Aktif</span>
                         @elseif(!is_null($user->profile))
