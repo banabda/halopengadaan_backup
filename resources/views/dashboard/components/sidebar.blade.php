@@ -134,7 +134,7 @@
         @endphp
         @if (is_null($profile))
             <li>
-                <a href="/chat">
+                <a target="_blank" href="/chat">
                     <i data-feather="pie-chart"></i>
                     <span>Jawab Konsultasi</span>
                 </a>

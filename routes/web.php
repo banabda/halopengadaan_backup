@@ -72,7 +72,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::resource('artikel', 'Dashboard\ArtikelController');
 
     // Regulasi
-
     Route::resource('regulasi', 'Dashboard\RegulasiController');
 
     // Data Pembayaran Invoice
