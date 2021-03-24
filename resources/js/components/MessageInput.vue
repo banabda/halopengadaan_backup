@@ -7,13 +7,13 @@
       @keydown.enter.exact.prevent="send"
       placeholder="Type a message"
     ></textarea>
-    <a
+    <a class="notif" data-badge=" " :class="uploadedFile ? 'on' : ''"
       ><i
         class="bi bi-paperclip"
         :class="uploadedFile ? 'on' : ''"
         @click="showModal"
-      ></i
-    ></a>
+      ></i>
+    </a>
     <emoji-picker @emoji="insert" :search="search" class="my-auto">
       <div
         class="emoji-invoker"
@@ -119,6 +119,23 @@ export default {
     font-size: 30px;
     margin: 0 6px;
   }
+  .notif {
+    color: black;
+  }
+  .notif.on:after {
+    content: " ";
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    font-size: 0.7em;
+    background: #e53935;
+    color: white;
+    width: 15px;
+    height: 15px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 50%;
+  }
   textarea {
     width: 85%;
     margin: 10px;
@@ -137,14 +154,10 @@ export default {
   position: relative;
   display: inline-block;
   .bi-paperclip {
-    transition: transform 0.3s ease-in-out;
     &.on {
       color: #ca4b7c;
+      font-weight: bold;
     }
-  }
-  .bi-paperclip:hover {
-    cursor: pointer;
-    transform: scale(1.1);
   }
 }
 .emoji-invoker {
