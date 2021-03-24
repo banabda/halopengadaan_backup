@@ -1946,25 +1946,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   data: function data() {
     return {
@@ -2498,6 +2479,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
 //
 //
 //
@@ -10400,7 +10382,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".message-list[data-v-6a7499aa] {\n  background-color: #ecf5fd;\n  height: 100%;\n  overflow-y: scroll;\n}\n.message-list .waiting[data-v-6a7499aa] {\n  height: inherit;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-weight: bold;\n  font-size: 1.5rem;\n}\n.message-list .waiting p[data-v-6a7499aa] {\n  text-align: center;\n}\n.message-list ul[data-v-6a7499aa] {\n  list-style-type: none;\n  padding: 5px;\n}\n.message-list ul li.message[data-v-6a7499aa] {\n  margin: 10px 0;\n  width: 100%;\n}\n.message-list ul li.message .chat[data-v-6a7499aa] {\n  max-width: 500px;\n  flex-direction: column;\n  position: relative;\n  border-radius: 8px;\n  padding: 12px;\n  display: inline-block;\n}\n.message-list ul li.message .chat img[data-v-6a7499aa] {\n  display: block;\n  cursor: pointer;\n}\n.message-list ul li.message .chat .message-time[data-v-6a7499aa] {\n  display: flex;\n  justify-content: flex-end;\n  font-size: 0.8rem;\n  font-weight: 200;\n}\n.message-list ul li.message .chat .text[data-v-6a7499aa] {\n  max-width: fit-content(20em);\n  word-wrap: break-word;\n  margin-bottom: 5px;\n  font-size: 1.1rem;\n  white-space: pre-line;\n}\n.message-list ul li.message.received[data-v-6a7499aa] {\n  text-align: left;\n}\n.message-list ul li.message.received .chat[data-v-6a7499aa] {\n  background-color: mediumspringgreen;\n}\n.message-list ul li.message.sent[data-v-6a7499aa] {\n  text-align: right;\n}\n.message-list ul li.message.sent .chat[data-v-6a7499aa] {\n  background-color: mediumturquoise;\n  text-align: left;\n}\n[data-v-6a7499aa]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-6a7499aa]::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".list-complete-item[data-v-6a7499aa] {\n  transition: all 0.3s;\n}\n.list-complete-enter[data-v-6a7499aa], .list-complete-leave-to[data-v-6a7499aa] {\n  opacity: 0;\n  transform: translateY(30px);\n}\n.list-complete-leave-active[data-v-6a7499aa] {\n  position: absolute;\n}\n.message-list[data-v-6a7499aa] {\n  background-color: #ecf5fd;\n  height: 100%;\n  overflow-y: scroll;\n}\n.message-list .waiting[data-v-6a7499aa] {\n  height: inherit;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  font-weight: bold;\n  font-size: 1.5rem;\n}\n.message-list .waiting p[data-v-6a7499aa] {\n  text-align: center;\n}\n.message-list ul[data-v-6a7499aa] {\n  list-style-type: none;\n  padding: 5px;\n}\n.message-list ul li.message[data-v-6a7499aa] {\n  margin: 10px 0;\n  width: 100%;\n}\n.message-list ul li.message .chat[data-v-6a7499aa] {\n  max-width: 500px;\n  flex-direction: column;\n  position: relative;\n  border-radius: 8px;\n  padding: 12px;\n  display: inline-block;\n}\n.message-list ul li.message .chat img[data-v-6a7499aa] {\n  display: block;\n  cursor: pointer;\n}\n.message-list ul li.message .chat .message-time[data-v-6a7499aa] {\n  display: flex;\n  justify-content: flex-end;\n  font-size: 0.8rem;\n  font-weight: 200;\n}\n.message-list ul li.message .chat .text[data-v-6a7499aa] {\n  max-width: fit-content(20em);\n  word-wrap: break-word;\n  margin-bottom: 5px;\n  font-size: 1.1rem;\n  white-space: pre-line;\n}\n.message-list ul li.message.received[data-v-6a7499aa] {\n  text-align: left;\n}\n.message-list ul li.message.received .chat[data-v-6a7499aa] {\n  background-color: mediumspringgreen;\n}\n.message-list ul li.message.sent[data-v-6a7499aa] {\n  text-align: right;\n}\n.message-list ul li.message.sent .chat[data-v-6a7499aa] {\n  background-color: mediumturquoise;\n  text-align: left;\n}\n[data-v-6a7499aa]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-6a7499aa]::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-6a7499aa]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -51013,80 +50995,90 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { ref: "messages", staticClass: "message-list" }, [
-    _vm.room && _vm.ticket
-      ? _c(
-          "ul",
-          _vm._l(_vm.messages, function(message) {
-            return _c(
-              "li",
-              {
-                key: message.id,
-                class:
-                  "message " +
-                  (_vm.isNarasumber
-                    ? message.is_narasumber
-                      ? "received"
-                      : "sent"
-                    : message.is_narasumber
-                    ? "sent"
-                    : "received")
-              },
-              [
-                _c("div", { staticClass: "chat" }, [
-                  message.type.includes("image")
-                    ? _c("img", {
-                        staticClass: "mx-auto mb-4",
-                        attrs: {
-                          width: "250px",
-                          src: message.path,
-                          alt: message.file_name
-                        },
-                        on: {
-                          click: function($event) {
-                            return _vm.showImg(message.path)
+  return _c(
+    "div",
+    { ref: "messages", staticClass: "message-list" },
+    [
+      _vm.room && _vm.ticket
+        ? _c(
+            "transition-group",
+            { attrs: { name: "list-complete", tag: "ul" } },
+            _vm._l(_vm.messages, function(message) {
+              return _c(
+                "li",
+                {
+                  key: message.id,
+                  staticClass: "list-complete-item",
+                  class:
+                    "message " +
+                    (_vm.isNarasumber
+                      ? message.is_narasumber
+                        ? "received"
+                        : "sent"
+                      : message.is_narasumber
+                      ? "sent"
+                      : "received")
+                },
+                [
+                  _c("div", { staticClass: "chat" }, [
+                    message.type.includes("image")
+                      ? _c("img", {
+                          staticClass: "mx-auto mb-4",
+                          attrs: {
+                            width: "250px",
+                            src: message.path,
+                            alt: message.file_name
+                          },
+                          on: {
+                            click: function($event) {
+                              return _vm.showImg(message.path)
+                            }
                           }
-                        }
-                      })
-                    : message.file_name != null
-                    ? _c("button", { staticClass: "btn btn-info mb-4" }, [
-                        _vm._v(
-                          "\n          " +
-                            _vm._s(message.file_name) +
-                            "\n        "
-                        )
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  _c("div", {
-                    staticClass: "text",
-                    domProps: { innerHTML: _vm._s(message.text) }
-                  }),
-                  _vm._v(" "),
-                  _c("span", { staticClass: "message-time" }, [
-                    _vm._v(
-                      _vm._s(
-                        new Date(message.created_at).toLocaleTimeString("id", {
-                          hour: "2-digit",
-                          minute: "2-digit"
                         })
+                      : message.file_name != null
+                      ? _c("button", { staticClass: "btn btn-info mb-4" }, [
+                          _vm._v(
+                            "\n          " +
+                              _vm._s(message.file_name) +
+                              "\n        "
+                          )
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
+                    _c("div", {
+                      staticClass: "text",
+                      domProps: { innerHTML: _vm._s(message.text) }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "message-time" }, [
+                      _vm._v(
+                        _vm._s(
+                          new Date(message.created_at).toLocaleTimeString(
+                            "id",
+                            {
+                              hour: "2-digit",
+                              minute: "2-digit"
+                            }
+                          )
+                        )
                       )
-                    )
+                    ])
                   ])
-                ])
-              ]
-            )
-          }),
-          0
-        )
-      : _vm.role[0] == "user"
-      ? _c("div", { staticClass: "waiting" }, [
-          !_vm.room.narasumber_id
-            ? _c("p", [_vm._v("Menunggu Narasumber")])
-            : _c("p", [_vm._v("Menunggu Narasumber Memulai Percakapan")])
-        ])
-      : _vm._e()
-  ])
+                ]
+              )
+            }),
+            0
+          )
+        : _vm.role[0] == "user"
+        ? _c("div", { staticClass: "waiting" }, [
+            !_vm.room.narasumber_id
+              ? _c("p", [_vm._v("Menunggu Narasumber")])
+              : _c("p", [_vm._v("Menunggu Narasumber Memulai Percakapan")])
+          ])
+        : _vm._e()
+    ],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

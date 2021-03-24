@@ -1,8 +1,9 @@
 <template>
   <div class="message-list" ref="messages">
-    <ul v-if="room && ticket">
+    <transition-group name="list-complete" tag="ul" v-if="room && ticket">
       <li
         v-for="message in messages"
+        class="list-complete-item"
         :class="`message ${
           isNarasumber
             ? message.is_narasumber
@@ -38,7 +39,7 @@
           }}</span>
         </div>
       </li>
-    </ul>
+    </transition-group>
     <div v-else-if="role[0] == 'user'" class="waiting">
       <p v-if="!room.narasumber_id">Menunggu Narasumber</p>
       <p v-else>Menunggu Narasumber Memulai Percakapan</p>
@@ -100,6 +101,19 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.list-complete-item {
+  transition: all 0.3s;
+  // display: inline-block;
+  // margin-right: 10px;
+}
+.list-complete-enter, .list-complete-leave-to
+/* .list-complete-leave-active below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
+.list-complete-leave-active {
+  position: absolute;
+}
 .message-list {
   background-color: rgb(236, 245, 253);
   height: 100%;
