@@ -3118,6 +3118,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_defineProperty({
   props: {
     rooms: {
@@ -55108,18 +55112,20 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "room-list" }, [
-    _c(
-      "div",
-      {
-        staticClass: "back d-flex",
-        on: {
-          click: function($event) {
-            return _vm.$emit("back")
-          }
-        }
-      },
-      [_vm._m(0)]
-    ),
+    _vm.role[0] == "narasumber"
+      ? _c(
+          "div",
+          {
+            staticClass: "back d-flex",
+            on: {
+              click: function($event) {
+                return _vm.$emit("back")
+              }
+            }
+          },
+          [_vm._m(0)]
+        )
+      : _vm._e(),
     _vm._v(" "),
     _c(
       "ul",
