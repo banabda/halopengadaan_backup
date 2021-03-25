@@ -2,20 +2,26 @@
   <div class="chat-box">
     <div class="header">
       <div class="room d-flex" v-if="room">
-        <div class="name-room">
-          <h4 style="font-weight: bold">{{ room.name }}</h4>
+        <div class="name-room mr-2">
+          <div
+            style="font-weight: bold"
+            :class="$vssWidth < 1125 ? 'mobile' : 'desktop'"
+          >
+            {{ room.name }}
+          </div>
           <div class="d-flex">
-            <h4
+            <div
               class="mb-0"
-              :class="
+              :class="[
                 role[0] == 'user'
                   ? room.narasumber_name == null
                     ? ''
                     : 'font-weight-bold'
                   : room.user_name == null
                   ? ''
-                  : 'font-weight-bold'
-              "
+                  : 'font-weight-bold',
+                $vssWidth < 1125 ? 'mobile' : 'desktop',
+              ]"
             >
               {{
                 role[0] == "user"
@@ -26,10 +32,13 @@
                   ? "no user"
                   : room.user_name
               }}
-            </h4>
-            <h4
+            </div>
+            <div
               class="mb-0 ml-3"
-              :class="room.narasumber_name == null ? '' : 'font-weight-bold'"
+              :class="[
+                room.narasumber_name == null ? '' : 'font-weight-bold',
+                $vssWidth < 1125 ? 'mobile' : 'desktop',
+              ]"
               v-if="role[0] == 'super admin'"
             >
               {{
@@ -37,22 +46,21 @@
                   ? "no narasumber"
                   : room.narasumber_name
               }}
-            </h4>
+            </div>
           </div>
         </div>
-        <h4 class="ticket" v-if="room.ticket">
+        <h4
+          class="ticket"
+          :class="$vssWidth < 1125 ? 'mobile' : 'desktop'"
+          v-if="room.ticket"
+        >
           Sisa waktu {{ minute | two_digits }}:{{ second | two_digits }}
         </h4>
         <button
           @click="exit"
-          class="btn mr-0 ml-auto"
-          :class="
-            role[0] == 'user'
-              ? 'btn-info'
-              : isChatting
-              ? 'btn-danger'
-              : 'btn-info'
-          "
+          class="btn btn-room mr-0"
+          :class="ticket ? 'ml-2' : 'ml-auto'"
+          v-if="role[0] != 'super admin'"
         >
           {{
             role[0] == "user"
@@ -258,6 +266,12 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.mobile {
+  font-size: 0.8rem;
+}
+.desktop {
+  font-size: 1.2rem;
+}
 .chat-box {
   flex: 5;
   display: flex;
@@ -266,9 +280,9 @@ export default {
   .header {
     padding: 8px;
     margin: 0;
-    height: 120px;
     .room,
     .no-room {
+      height: 100px;
       font-size: 2px !important;
       color: black;
       padding: 16px 24px;
@@ -276,14 +290,17 @@ export default {
       text-transform: capitalize;
       box-shadow: 0px 3px 4px 3px rgb(128 128 128 / 10%);
       background-color: white;
-      .room-name {
-        h1 {
-          margin: 0;
-          padding: 0;
-        }
-      }
       .ticket {
         margin: auto;
+      }
+      .btn-room {
+        background-color: transparent;
+        color: #6e376e;
+        border-color: #6e376e;
+        &:hover {
+          background-color: #6e376e;
+          color: white;
+        }
       }
     }
   }

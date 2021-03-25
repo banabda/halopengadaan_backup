@@ -1,8 +1,8 @@
 <template>
-  <div style="height: 85vh" class="">
-    <div class="row p-3 button-list" v-if="role[0] != 'super admin'">
+  <div style="height: 85vh" class="room-all card">
+    <div class="row pt-3 button-list" v-if="role[0] != 'super admin'">
       <div
-        class="col-md-6 div-button d-flex my-3"
+        class="col-md-6 div-button d-flex"
         v-for="(room, index) in rooms"
         :key="index"
       >
@@ -78,6 +78,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .button-list {
+  overflow-y: scroll;
   align-content: space-evenly;
   height: inherit;
   button {
@@ -93,6 +94,7 @@ export default {
 .div-button {
   justify-content: center;
   align-items: center;
+  height: 100px;
 }
 
 .admin {

@@ -9,6 +9,7 @@
           :rooms="rooms"
           :roomselect="selectedRoom"
           @selected="startChat"
+          @back="back"
           id="room"
         ></RoomList>
         <ChatBox
@@ -114,6 +115,9 @@ export default {
     this.getRooms();
   },
   methods: {
+    back() {
+      this.$emit("back");
+    },
     startChat(room) {
       this.selectedRoom = room;
       if (this.role[0] == "user") {
@@ -288,7 +292,7 @@ export default {
 <style lang="scss" scoped>
 .chat-app {
   display: flex;
-  height: 80vh;
+  height: 85vh;
 }
 .fade-enter-active,
 .fade-leave-active {
