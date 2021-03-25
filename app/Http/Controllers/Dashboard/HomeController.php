@@ -185,6 +185,58 @@ class HomeController extends Controller
         ]);
     }
 
+    public function dataNarasumberProfile(Request $request)
+    {
+        $data = User::with('profileNarasumber')->whereHas(
+            'roles', function($role){
+                $role->where('name', 'narasumber');
+            }
+        );
+        // dd($data);
+        if (request()->ajax()) {
+            return DataTables()->of($data)
+            // ->addIndexColumn()
+            // ->filter(function ($query) use ($request) {
+            //     if (!empty($request->get('status'))) {
+            //         $status = $request->get('status');
+            //         if ($status != -1) {
+            //             $query->where('status', $status);
+            //         }
+            //     }
+            // })
+            ->addColumn('nomor', function(){
+                $no = 1;
+                return $no++;
+            })
+            ->addColumn('profile', function($row){
+                if (!is_null($row->profileNarasumber)) {
+                    $btn = '<button class="btn btn-xs btn-info profile-narasumber" id="'. $row->id .'">Lihat Profile</button>';
+                } elseif (is_null($row->profileNarasumber)) {
+                    $btn = '<button class="btn btn-xs btn-info profile-narasumber" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Ada Profile</button>';
+                }
+
+                return $btn;
+            })
+            ->addColumn('action', function($row){
+                if (!is_null($row->profileNarasumber) && $row->profileNarasumber->status == "Belum Terverifikasi") {
+                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .'">Aktifasi</button>';
+                } elseif (is_null($row->profileNarasumber)) {
+                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Aktif</button>';
+                } else {
+                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .' style="cursor: not-allowed;" disabled>Telah Aktif</button>';
+                }
+
+                return $btn;
+            })
+            ->rawColumns(['action','profile', 'nomor'])
+            ->addIndexColumn()
+            ->make(true);
+        }
+
+        return view('dashboard.admin.data-narasumberprofile');
+
+    }
+
     public function dataPaketZoom()
     {
         $data = Message::with('user.profile')->get();

@@ -17,7 +17,9 @@ class NarasumberProfile extends Model
         'no_hp',
         'cv',
         'keahlian_utama',
-        'keahlian_pendukung'
+        'keahlian_pendukung',
+        'foto',
+        'status'
     ];
 
     public function user()

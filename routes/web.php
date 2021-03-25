@@ -83,6 +83,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::get('narasumber', 'Dashboard\HomeController@dataNarasumber')->name('admin.dashboard.narasumber');
     Route::post('narasumber/verify/{id}', 'Dashboard\HomeController@verifyUserNarasumber')->name('admin.dashboard.narasumber.verify');
 
+    // Data Profile Narasumber
+    Route::get('narasumber/profile', 'Dashboard\HomeController@dataNarasumberProfile')->name('admin.dashboard.narasumber.profile');
+
     // Data Paket Zoom
     Route::get('message/zoom', 'Dashboard\HomeController@dataPaketZoom')->name('admin.dashboard.zoom');
     Route::post('message/zoom/{id}', 'Dashboard\HomeController@prosesDataPaketZoom')->name('admin.dashboard.zoom.proses');
@@ -143,8 +146,8 @@ Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
     // TICKET
     Route::get('/getticket/{name}', [TicketController::class, 'show']);
     Route::post('/ticket', [TicketController::class, 'store']);
-    
+
     // SALDO
     Route::get('/saldo/{user_id}', [HomeChatController::class, 'getSaldo']);
-    
+
 });
