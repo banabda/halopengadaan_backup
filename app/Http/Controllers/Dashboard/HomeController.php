@@ -52,10 +52,13 @@ class HomeController extends Controller
                 return Carbon::parse($tanggal->updated_at)->format('d F Y');
             })
             ->addColumn('action', function($action){
+
                 if ($action->status == "Telah Terbayar") {
                     $btn = '<button class="btn btn-xs btn-info invoice-confirm" id="'. $action->id .'">Konfirmasi</button>';
                 } elseif ($action->status == "Terkonfirmasi") {
                     $btn = '<button class="btn btn-xs btn-info" style="cursor: not-allowed;" disabled>Telah Terkonfirmasi</button>';
+                } elseif ($action->status = "Menunggu Pembayaran") {
+                    $btn = '<button class="btn btn-xs btn-info" style="cursor: not-allowed;" disabled>Belum Bayar</button>';
                 }
                 return $btn;
             })
@@ -73,14 +76,17 @@ class HomeController extends Controller
     public function prosesInvoice($id)
     {
         $data = Invoice::where('id', $id)->first();
+        // dd($data);
         $profile = Profile::where('user_id', $data->user_id)->first();
         $userHasPaket = UserhasPaket::where('user_id', $data->user_id)->first();
 
         $expired_at =  '';
         if ($data->paket == "1") {
             $expired_at = Carbon::now()->addDays(30)->toDateTimeString();
+            $saldo = 1;
         } elseif ($data->paket == "2") {
             $expired_at = Carbon::now()->addDays(60)->toDateTimeString();
+            $saldo = 2;
         } elseif($data->paket == "3") {
             // $date_zoom = $data->date_zoom;
 
@@ -91,7 +97,7 @@ class HomeController extends Controller
             // $expired_at = Carbon::now()->addDays($dayExpired_at)->addHours($hourExpired_at)->toDateTimeString();
 
             $expired_at = Carbon::now()->addDays(1)->toDateTimeString();
-
+            $saldo = 0;
         }
 
         $data->update([
@@ -103,13 +109,14 @@ class HomeController extends Controller
                 'user_id' => $data->user_id,
                 'paket' => $data->paket,
                 'expired_at' => $expired_at,
-                'saldo' => 7,
+                'saldo' => $saldo,
                 'status' => 'Aktif'
             ]);
         } else {
             $userHasPaket->update([
+                'paket' => $data->paket,
                 'expired_at' => $expired_at,
-                'saldo' => 7
+                'saldo' => $saldo
             ]);
         }
 

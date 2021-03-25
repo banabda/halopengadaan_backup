@@ -206,7 +206,7 @@
         }
     </script>
 @elseif(!is_null($userhasPaket) && !is_null($invoice))
-    @if ($userhasPaket->expired_at <= Carbon\Carbon::now()  && $invoice->status == "Terkonfirmasi"))
+    @if ($userhasPaket->expired_at <= Carbon\Carbon::now()  && $invoice->status == "Terkonfirmasi")
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="container-full">
@@ -406,7 +406,7 @@
                 });
             }
         </script>
-    @elseif ($userhasPaket->saldo == 0)
+    @elseif ($userhasPaket->saldo == 0 && $invoice->status == "Terkonfirmasi")
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="container-full">
