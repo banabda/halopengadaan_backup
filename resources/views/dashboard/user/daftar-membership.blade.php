@@ -406,7 +406,7 @@
                 });
             }
         </script>
-    @elseif ($userhasPaket->saldo == 0 && $invoice->status == "Terkonfirmasi")
+    @elseif ($userhasPaket->saldo == 0 && $userhasPaket->paket == 2 && $invoice->status == "Terkonfirmasi")
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <div class="container-full">
