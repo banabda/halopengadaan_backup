@@ -8,6 +8,7 @@
           v-if="showRoom && role[0] != 'user'"
           :rooms="rooms"
           :roomselect="selectedRoom"
+          :role="role"
           @selected="startChat"
           @back="back"
           id="room"

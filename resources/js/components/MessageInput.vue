@@ -128,7 +128,7 @@ export default {
 }
 .message-input {
   background-color: white;
-  box-shadow: 0px 0px 10px 5px rgb(128 128 128 / 10%);
+  box-shadow: 0px 3px 15px 5px rgb(128 128 128 / 30%);
   border-radius: 10px;
   margin: 8px 8px 0 8px;
   a:hover {
