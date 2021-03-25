@@ -305,7 +305,7 @@
 
 <script>
     $(document).ready(function () {
-        $('#modalPendaftaran').modal('show')
+        $('#modalPendaftaran').modal('show');
     });
 
     function readURL(input) {

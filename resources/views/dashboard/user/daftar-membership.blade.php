@@ -132,7 +132,7 @@
 
     <script>
         $(document).ready(function () {
-            
+
             // Select Membership
             $('#membership').on('change', function () {
                 var membership = $('#membership').val();
@@ -333,7 +333,7 @@
 
         <script>
             $(document).ready(function () {
-                
+
                 // Select Membership
                 $('#membership').on('change', function () {
                     var membership = $('#membership').val();
@@ -533,7 +533,7 @@
 
         <script>
             $(document).ready(function () {
-                
+                $('#modalNotification').modal('show');
                 // Select Membership
                 $('#membership').on('change', function () {
                     var membership = $('#membership').val();
@@ -612,5 +612,29 @@
 @else
     @include('dashboard.user.invoice-user')
 @endif
+
+  <!-- Modal -->
+  <div class="modal center-modal fade" id="modalNotification" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content bg-danger">
+        <div class="modal-header">
+            <i data-feather="info"></i> &nbsp;
+            <h4 style="margin-top: 1.51px"> Pemberitahuan:</h4>
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Sisa Kesempatan Chat Anda Tersisa : 0</p>
+          <p>Silahkan Membeli Paket Kembali Agar Dapat Berkonsultasi dengan Para Pakar</p>
+        </div>
+        {{-- <div class="modal-footer modal-footer-uniform">
+          <button type="button" class="btn btn-rounded btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-rounded btn-primary float-right">Save changes</button>
+        </div> --}}
+      </div>
+    </div>
+  </div>
+<!-- /.modal -->
 
 @endsection
