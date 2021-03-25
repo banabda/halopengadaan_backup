@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Chat\ChatController;
+use App\Http\Controllers\Chat\HomeChatController;
 use App\Http\Controllers\Chat\RoomController;
 use App\Http\Controllers\Chat\TicketController;
 use Illuminate\Support\Facades\Auth;
@@ -142,4 +143,8 @@ Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
     // TICKET
     Route::get('/getticket/{name}', [TicketController::class, 'show']);
     Route::post('/ticket', [TicketController::class, 'store']);
+    
+    // SALDO
+    Route::get('/saldo/{user_id}', [HomeChatController::class, 'getSaldo']);
+    
 });

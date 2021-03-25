@@ -6,6 +6,7 @@ use App\Events\JoinRoomEvent;
 use App\Models\Chat;
 use App\Models\Room;
 use App\Http\Controllers\Controller;
+use App\Models\UserhasPaket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -21,26 +22,25 @@ class RoomController extends Controller
         $unreads = array();
         foreach ($room as $key => $value) {
             $unReadIds = Chat::select(DB::raw('`to` as room_id, count(`to`) as message_count'))
-            ->where('to', $value->id)
-            ->where('is_narasumber', false)
-            ->where('read', false)
-            ->groupBy('to')
-            ->get();
+                ->where('to', $value->id)
+                ->where('is_narasumber', false)
+                ->where('read', false)
+                ->groupBy('to')
+                ->get();
             array_push($unreads, $unReadIds);
         }
 
-        $room = $room->map(function ($val) use ($unreads)
-        {
+        $room = $room->map(function ($val) use ($unreads) {
             foreach ($unreads as $key => $value) {
                 $contactUnread = $value->where('room_id', $val->id)->first();
                 if ($contactUnread) {
                     $val->unread = $contactUnread->message_count;
-                } 
+                }
             }
-            if(!isset($val->unread)) $val->unread = 0;
+            if (!isset($val->unread)) $val->unread = 0;
             return $val;
         });
-        
+
         return response()->json($room);
     }
 
@@ -69,7 +69,7 @@ class RoomController extends Controller
         }
         // broadcast(new RoomEvent($message));
         broadcast(new JoinRoomEvent($room));
-        return response()->json(['room'=>$room, 'status'=>$stat]);
+        return response()->json(['room' => $room, 'status' => $stat]);
     }
 
     public function exit(Request $request)
@@ -84,7 +84,7 @@ class RoomController extends Controller
                 $room->narasumber_name = null;
                 array_push($stat, 'narasumber removed');
             }
-        } 
+        }
         if ($room->user_id != null) {
             $room->user_id = null;
             $room->user_name = null;
@@ -92,8 +92,7 @@ class RoomController extends Controller
         }
         $room->ticket = null;
         $room->save();
-
         broadcast(new JoinRoomEvent($room));
-        return response()->json(['room'=>$room, 'status'=>$stat]);
+        return response()->json(['room' => $room, 'status' => $stat]);
     }
 }

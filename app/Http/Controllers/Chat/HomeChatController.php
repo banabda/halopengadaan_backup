@@ -40,4 +40,10 @@ class HomeChatController extends Controller
         }
 
     }
+
+    public function getSaldo($user_id)
+    {
+        $saldo = UserhasPaket::where('user_id', $user_id)->first();
+        return response()->json($saldo);
+    }
 }
