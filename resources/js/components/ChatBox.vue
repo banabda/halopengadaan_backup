@@ -63,7 +63,9 @@
           }}
         </button>
       </div>
-      <h1 v-else>Select a room</h1>
+      <div v-else class="no-room">
+        <h1>Select a room</h1>
+      </div>
     </div>
     <MessageList
       :room="room"
@@ -265,7 +267,8 @@ export default {
     padding: 8px;
     margin: 0;
     height: 120px;
-    .room {
+    .room,
+    .no-room {
       font-size: 2px !important;
       color: black;
       padding: 16px 24px;

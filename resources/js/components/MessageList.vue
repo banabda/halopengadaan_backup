@@ -1,48 +1,50 @@
 <template>
   <div class="message-list" ref="messages">
-    <transition-group name="list-complete" tag="ul" v-if="room && ticket">
-      <li
-        v-for="message in messages"
-        class="list-complete-item"
-        :class="`message ${
-          isNarasumber
-            ? message.is_narasumber
-              ? 'received'
-              : 'sent'
-            : message.is_narasumber
-            ? 'sent'
-            : 'received'
-        }`"
-        :key="message.id"
-      >
-        <div class="chat">
-          <img
-            class="mx-auto mb-4"
-            width="250px"
-            v-if="message.type.includes('image')"
-            :src="message.path"
-            :alt="message.file_name"
-            @click="showImg(message.path)"
-          />
-          <button
-            class="btn btn-file mb-4"
-            v-else-if="message.file_name != null"
-          >
-            {{ message.file_name }}
-          </button>
-          <div class="text" v-html="message.text"></div>
-          <span class="message-time">{{
-            new Date(message.created_at).toLocaleTimeString("id", {
-              hour: "2-digit",
-              minute: "2-digit",
-            })
-          }}</span>
-        </div>
-      </li>
-    </transition-group>
-    <div v-else-if="role[0] == 'user'" class="waiting">
-      <p v-if="!room.narasumber_id">Menunggu Narasumber</p>
-      <p v-else>Menunggu Narasumber Memulai Percakapan</p>
+    <div class="chat-board">
+      <transition-group name="list-complete" tag="ul" v-if="room && ticket">
+        <li
+          v-for="message in messages"
+          class="list-complete-item"
+          :class="`message ${
+            isNarasumber
+              ? message.is_narasumber
+                ? 'received'
+                : 'sent'
+              : message.is_narasumber
+              ? 'sent'
+              : 'received'
+          }`"
+          :key="message.id"
+        >
+          <div class="chat">
+            <img
+              class="mx-auto mb-4"
+              width="250px"
+              v-if="message.type.includes('image')"
+              :src="message.path"
+              :alt="message.file_name"
+              @click="showImg(message.path)"
+            />
+            <button
+              class="btn btn-file mb-4"
+              v-else-if="message.file_name != null"
+            >
+              {{ message.file_name }}
+            </button>
+            <div class="text" v-html="message.text"></div>
+            <span class="message-time">{{
+              new Date(message.created_at).toLocaleTimeString("id", {
+                hour: "2-digit",
+                minute: "2-digit",
+              })
+            }}</span>
+          </div>
+        </li>
+      </transition-group>
+      <div v-else-if="role[0] == 'user'" class="waiting">
+        <p v-if="!room.narasumber_id">Menunggu Narasumber</p>
+        <p v-else>Menunggu Narasumber Memulai Percakapan</p>
+      </div>
     </div>
   </div>
 </template>
@@ -114,9 +116,15 @@ export default {
 .list-complete-leave-active {
   position: absolute;
 }
+.chat-board {
+  height: inherit;
+}
 .message-list {
-  background-color: rgb(236, 245, 253);
+  background-color: white;
+  box-shadow: 0px 0px 10px 5px rgb(128 128 128 / 10%);
+  border-radius: 10px;
   height: 100%;
+  margin: 8px 8px 0 8px;
   // max-height: 550px;
   overflow-y: scroll;
   .waiting {
