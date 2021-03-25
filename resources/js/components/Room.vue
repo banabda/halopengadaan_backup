@@ -301,7 +301,7 @@ export default {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 /* Track */
@@ -312,6 +312,7 @@ export default {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
+  border-radius: 0;
 }
 
 /* Handle on hover */

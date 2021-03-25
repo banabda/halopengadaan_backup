@@ -2047,6 +2047,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 
@@ -10328,7 +10345,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".chat-box[data-v-5142db38] {\n  flex: 5;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.chat-box .header[data-v-5142db38] {\n  padding: 10px;\n  margin: 0;\n  border-bottom: 1px dashed lightgray;\n}\n.chat-box .header .room[data-v-5142db38] {\n  font-size: 2px !important;\n  color: green;\n}\n.chat-box .header .room .room-name h1[data-v-5142db38] {\n  margin: 0;\n  padding: 0;\n}\n.chat-box .header .room .ticket[data-v-5142db38] {\n  margin: auto;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".chat-box[data-v-5142db38] {\n  flex: 5;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n}\n.chat-box .header[data-v-5142db38] {\n  padding: 8px;\n  margin: 0;\n  height: 120px;\n}\n.chat-box .header .room[data-v-5142db38] {\n  font-size: 2px !important;\n  color: black;\n  padding: 16px 24px;\n  border-radius: 10px;\n  text-transform: capitalize;\n  box-shadow: 0px 3px 4px 3px rgba(128, 128, 128, 0.1);\n  background-color: white;\n}\n.chat-box .header .room .room-name h1[data-v-5142db38] {\n  margin: 0;\n  padding: 0;\n}\n.chat-box .header .room .ticket[data-v-5142db38] {\n  margin: auto;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10448,7 +10465,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".chat-app[data-v-cd69db74] {\n  display: flex;\n  height: 80vh;\n}\n.fade-enter-active[data-v-cd69db74],\n.fade-leave-active[data-v-cd69db74] {\n  transition: all 0.5s;\n}\n.fade-enter[data-v-cd69db74],\n.fade-leave-to[data-v-cd69db74] {\n  opacity: 0;\n}\n[data-v-cd69db74]::-webkit-scrollbar {\n  width: 8px;\n}\n\n/* Track */\n[data-v-cd69db74]::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n[data-v-cd69db74]::-webkit-scrollbar-thumb {\n  background: #888;\n}\n\n/* Handle on hover */\n[data-v-cd69db74]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".chat-app[data-v-cd69db74] {\n  display: flex;\n  height: 80vh;\n}\n.fade-enter-active[data-v-cd69db74],\n.fade-leave-active[data-v-cd69db74] {\n  transition: all 0.5s;\n}\n.fade-enter[data-v-cd69db74],\n.fade-leave-to[data-v-cd69db74] {\n  opacity: 0;\n}\n[data-v-cd69db74]::-webkit-scrollbar {\n  width: 4px;\n}\n\n/* Track */\n[data-v-cd69db74]::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n[data-v-cd69db74]::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 0;\n}\n\n/* Handle on hover */\n[data-v-cd69db74]::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -10496,7 +10513,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".contacts-list[data-v-777f2104] {\n  max-height: 85vh;\n  overflow-y: auto;\n  transition: flex 0.2s ease-in-out;\n  flex: 2;\n}\n.contacts-list ul[data-v-777f2104] {\n  list-style-type: none;\n  padding: 16px 16px;\n}\n.contacts-list ul li[data-v-777f2104] {\n  margin-bottom: 16px;\n  position: relative;\n  cursor: pointer;\n}\n.contacts-list ul li .the-room[data-v-777f2104] {\n  padding: 16px 0px;\n  width: 100%;\n  display: flex;\n  border-radius: 8px;\n  background-color: white;\n  box-shadow: 0px 3px 4px 3px rgba(128, 128, 128, 0.1);\n}\n.contacts-list ul li .the-room.roomselected[data-v-777f2104] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  color: white;\n}\n.contacts-list ul .unread[data-v-777f2104] {\n  background-color: #2db42d;\n  color: white;\n  position: absolute;\n  right: 11px;\n  top: 30px;\n  display: flex;\n  font-weight: 700;\n  min-width: 20px;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  font-size: 12px;\n  padding: 0 4px;\n  border-radius: 50%;\n}\n.contacts-list ul .room[data-v-777f2104] {\n  flex: 2;\n  display: flex;\n  align-items: center;\n  font-size: 12px;\n  font-weight: bold;\n}\n.contacts-list ul .room p[data-v-777f2104] {\n  margin: 10px 0;\n  padding: 0;\n}\n.contacts-list ul .room img[data-v-777f2104] {\n  width: 35px;\n  border-radius: 50%;\n  margin: 0 auto;\n}\n.contacts-list ul .room .room-name[data-v-777f2104] {\n  text-transform: capitalize;\n  font-weight: bolder;\n}\n.contacts-list ul .contact[data-v-777f2104] {\n  flex: 3;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.contacts-list ul .contact p[data-v-777f2104] {\n  margin: 0;\n}\n.contacts-list ul .contact p.name[data-v-777f2104] {\n  font-size: 15px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".room-list-content[data-v-777f2104],\n.room-list[data-v-777f2104]:hover,\n.room-list[data-v-777f2104]:focus {\n  visibility: visible;\n}\n.room-list[data-v-777f2104] {\n  max-height: 85vh;\n  visibility: hidden;\n  overflow-y: auto;\n  transition: flex 0.2s ease-in-out;\n  flex: 2;\n}\n.room-list ul[data-v-777f2104] {\n  list-style-type: none;\n  padding: 16px 8px 16px 16px;\n}\n.room-list ul li[data-v-777f2104] {\n  margin-bottom: 16px;\n  position: relative;\n  cursor: pointer;\n}\n.room-list ul li .the-room[data-v-777f2104] {\n  padding: 16px 4px;\n  width: 100%;\n  display: flex;\n  border-radius: 8px;\n  background-color: white;\n  box-shadow: 0px 3px 4px 3px rgba(128, 128, 128, 0.1);\n}\n.room-list ul li .the-room.roomselected[data-v-777f2104] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  color: white;\n}\n.room-list ul .unread[data-v-777f2104] {\n  background-color: #2db42d;\n  color: white;\n  position: absolute;\n  right: 11px;\n  top: 30px;\n  display: flex;\n  font-weight: 700;\n  min-width: 20px;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  font-size: 12px;\n  padding: 0 4px;\n  border-radius: 50%;\n}\n.room-list ul .room[data-v-777f2104] {\n  flex: 2;\n  display: flex;\n  align-items: center;\n  font-size: 12px;\n  font-weight: bold;\n}\n.room-list ul .room p[data-v-777f2104] {\n  margin: 10px 0;\n  padding: 0;\n}\n.room-list ul .room img[data-v-777f2104] {\n  width: 35px;\n  border-radius: 50%;\n  margin: 0 auto;\n}\n.room-list ul .room .room-name[data-v-777f2104] {\n  text-transform: capitalize;\n  font-weight: bolder;\n}\n.room-list ul .contact[data-v-777f2104] {\n  flex: 3;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.room-list ul .contact p[data-v-777f2104] {\n  margin: 0;\n}\n.room-list ul .contact p.name[data-v-777f2104] {\n  font-size: 15px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -54260,35 +54277,61 @@ var render = function() {
                   _vm._v(_vm._s(_vm.room.name))
                 ]),
                 _vm._v(" "),
-                _c("h4", [
-                  _vm._v(
-                    "\n          " +
-                      _vm._s(
+                _c("div", { staticClass: "d-flex" }, [
+                  _c(
+                    "h4",
+                    {
+                      staticClass: "mb-0",
+                      class:
                         _vm.role[0] == "user"
                           ? _vm.room.narasumber_name == null
-                            ? "no narasumber"
-                            : _vm.room.narasumber_name
+                            ? ""
+                            : "font-weight-bold"
                           : _vm.room.user_name == null
-                          ? "no user"
-                          : _vm.room.user_name
-                      ) +
-                      "\n        "
-                  )
-                ]),
-                _vm._v(" "),
-                _vm.role[0] == "super admin"
-                  ? _c("h4", [
+                          ? ""
+                          : "font-weight-bold"
+                    },
+                    [
                       _vm._v(
-                        "\n          " +
+                        "\n            " +
                           _vm._s(
-                            _vm.room.narasumber_name == null
-                              ? "no narasumber"
-                              : _vm.room.narasumber_name
+                            _vm.role[0] == "user"
+                              ? _vm.room.narasumber_name == null
+                                ? "no narasumber"
+                                : _vm.room.narasumber_name
+                              : _vm.room.user_name == null
+                              ? "no user"
+                              : _vm.room.user_name
                           ) +
-                          "\n        "
+                          "\n          "
                       )
-                    ])
-                  : _vm._e()
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm.role[0] == "super admin"
+                    ? _c(
+                        "h4",
+                        {
+                          staticClass: "mb-0 ml-3",
+                          class:
+                            _vm.room.narasumber_name == null
+                              ? ""
+                              : "font-weight-bold"
+                        },
+                        [
+                          _vm._v(
+                            "\n            " +
+                              _vm._s(
+                                _vm.room.narasumber_name == null
+                                  ? "no narasumber"
+                                  : _vm.room.narasumber_name
+                              ) +
+                              "\n          "
+                          )
+                        ]
+                      )
+                    : _vm._e()
+                ])
               ]),
               _vm._v(" "),
               _vm.room.ticket
@@ -55002,9 +55045,10 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "contacts-list" }, [
+  return _c("div", { staticClass: "room-list" }, [
     _c(
       "ul",
+      { staticClass: "room-list-content" },
       _vm._l(_vm.rooms, function(room) {
         return _c(
           "li",

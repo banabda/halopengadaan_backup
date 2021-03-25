@@ -4,24 +4,41 @@
       <div class="room d-flex" v-if="room">
         <div class="name-room">
           <h4 style="font-weight: bold">{{ room.name }}</h4>
-          <h4>
-            {{
-              role[0] == "user"
-                ? room.narasumber_name == null
+          <div class="d-flex">
+            <h4
+              class="mb-0"
+              :class="
+                role[0] == 'user'
+                  ? room.narasumber_name == null
+                    ? ''
+                    : 'font-weight-bold'
+                  : room.user_name == null
+                  ? ''
+                  : 'font-weight-bold'
+              "
+            >
+              {{
+                role[0] == "user"
+                  ? room.narasumber_name == null
+                    ? "no narasumber"
+                    : room.narasumber_name
+                  : room.user_name == null
+                  ? "no user"
+                  : room.user_name
+              }}
+            </h4>
+            <h4
+              class="mb-0 ml-3"
+              :class="room.narasumber_name == null ? '' : 'font-weight-bold'"
+              v-if="role[0] == 'super admin'"
+            >
+              {{
+                room.narasumber_name == null
                   ? "no narasumber"
                   : room.narasumber_name
-                : room.user_name == null
-                ? "no user"
-                : room.user_name
-            }}
-          </h4>
-          <h4 v-if="role[0] == 'super admin'">
-            {{
-              room.narasumber_name == null
-                ? "no narasumber"
-                : room.narasumber_name
-            }}
-          </h4>
+              }}
+            </h4>
+          </div>
         </div>
         <h4 class="ticket" v-if="room.ticket">
           Sisa waktu {{ minute | two_digits }}:{{ second | two_digits }}
@@ -245,12 +262,17 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   .header {
-    padding: 10px;
+    padding: 8px;
     margin: 0;
-    border-bottom: 1px dashed lightgray;
+    height: 120px;
     .room {
       font-size: 2px !important;
-      color: green;
+      color: black;
+      padding: 16px 24px;
+      border-radius: 10px;
+      text-transform: capitalize;
+      box-shadow: 0px 3px 4px 3px rgb(128 128 128 / 10%);
+      background-color: white;
       .room-name {
         h1 {
           margin: 0;

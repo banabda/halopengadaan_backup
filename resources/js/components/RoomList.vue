@@ -1,6 +1,6 @@
 <template>
-  <div class="contacts-list">
-    <ul>
+  <div class="room-list">
+    <ul class="room-list-content">
       <li
         v-for="room in rooms"
         :key="room.id"
@@ -78,15 +78,21 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.contacts-list {
+.room-list-content,
+.room-list:hover,
+.room-list:focus {
+  visibility: visible;
+}
+.room-list {
   max-height: 85vh;
   // background-color: blue;
+  visibility: hidden;
   overflow-y: auto;
   transition: flex 0.2s ease-in-out;
   flex: 2;
   ul {
     list-style-type: none;
-    padding: 16px 16px;
+    padding: 16px 8px 16px 16px;
     li {
       margin-bottom: 16px;
       position: relative;
@@ -96,7 +102,7 @@ export default {
           background: linear-gradient(to left, #ca4b7c, #6e376e);
           color: white;
         }
-        padding: 16px 0px;
+        padding: 16px 4px;
         width: 100%;
         display: flex;
         border-radius: 8px;
