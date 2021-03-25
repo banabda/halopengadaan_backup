@@ -1,6 +1,10 @@
 <template>
   <div class="room-list">
-    <div class="back d-flex" @click="$emit('back')">
+    <div
+      class="back d-flex"
+      @click="$emit('back')"
+      v-if="role[0] == 'narasumber'"
+    >
       <div class="back-div">
         <img
           src="/images/bidang/back.svg"
