@@ -113,6 +113,10 @@ export default {
 </script>
 <style lang="scss" scoped>
 .message-input {
+  background-color: white;
+  box-shadow: 0px 0px 10px 5px rgb(128 128 128 / 10%);
+  border-radius: 10px;
+  margin: 8px 8px 0 8px;
   a,
   .bi {
     align-self: center;
@@ -131,6 +135,10 @@ export default {
     &.mobile {
       width: 89%;
     }
+  }
+  textarea:focus {
+    outline: none !important;
+    border-color: 5px solid #ca4b7c !important;
   }
 }
 .message-input {
