@@ -132,7 +132,7 @@
 
     <script>
         $(document).ready(function () {
-
+            
             // Select Membership
             $('#membership').on('change', function () {
                 var membership = $('#membership').val();
@@ -333,7 +333,7 @@
 
         <script>
             $(document).ready(function () {
-
+                
                 // Select Membership
                 $('#membership').on('change', function () {
                     var membership = $('#membership').val();
@@ -533,7 +533,7 @@
 
         <script>
             $(document).ready(function () {
-
+                
                 // Select Membership
                 $('#membership').on('change', function () {
                     var membership = $('#membership').val();
@@ -612,4 +612,5 @@
 @else
     @include('dashboard.user.invoice-user')
 @endif
+
 @endsection
