@@ -1,8 +1,8 @@
 <template>
-  <div class="card">
+  <div>
     <notifications position="bottom right" group="timer" />
     <notifications position="top right" group="user" />
-    <div class="card-body p-0">
+    <div class="p-0">
       <div class="chat-app" v-if="role[0] != 'user' || selectedRoom != null">
         <RoomList
           v-if="showRoom && role[0] != 'user'"

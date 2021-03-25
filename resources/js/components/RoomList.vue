@@ -5,30 +5,35 @@
         v-for="room in rooms"
         :key="room.id"
         @click="selectedRoom(room)"
-        :class="
-          roomselect ? (roomselect.id == room.id ? 'roomselected' : '') : ''
-        "
+        class="the-room"
       >
-        <div class="room p-2 text-center">
-          <!-- <img :src="room.profile_image" :alt="room.name" /> -->
-          <p class="room-name">
-            {{ room.name }}
-          </p>
-        </div>
-        <div class="contact">
-          <p
-            class="name"
-            :class="room.narasumber_name ? 'font-weight-bold' : ''"
-          >
-            {{
-              room.narasumber_name == null
-                ? "no narasumber"
-                : room.narasumber_name
-            }}
-          </p>
-          <p class="email" :class="room.user_name ? 'font-weight-bold' : ''">
-            {{ room.user_name == null ? "no user" : room.user_name }}
-          </p>
+        <div
+          class="the-room"
+          :class="
+            roomselect ? (roomselect.id == room.id ? 'roomselected' : '') : ''
+          "
+        >
+          <div class="room p-2 text-center">
+            <!-- <img :src="room.profile_image" :alt="room.name" /> -->
+            <h6 class="room-name">
+              {{ room.name }}
+            </h6>
+          </div>
+          <div class="contact">
+            <p
+              class="name"
+              :class="room.narasumber_name ? 'font-weight-bold' : ''"
+            >
+              {{
+                room.narasumber_name == null
+                  ? "no narasumber"
+                  : room.narasumber_name
+              }}
+            </p>
+            <p class="email" :class="room.user_name ? 'font-weight-bold' : ''">
+              {{ room.user_name == null ? "no user" : room.user_name }}
+            </p>
+          </div>
         </div>
         <!-- <span class="unread" v-if="room.unread">{{ room.unread }}</span> -->
       </li>
@@ -75,23 +80,28 @@ export default {
 <style lang="scss" scoped>
 .contacts-list {
   max-height: 85vh;
-  background-color: white;
+  // background-color: blue;
   overflow-y: auto;
   transition: flex 0.2s ease-in-out;
   flex: 2;
   ul {
     list-style-type: none;
-    padding-left: 0;
+    padding: 16px 16px;
     li {
-      display: flex;
-      padding: 2px;
-      border-bottom: 1px solid rgba(109, 108, 108, 0.219);
-      height: 80px;
+      margin-bottom: 16px;
       position: relative;
       cursor: pointer;
-      &.roomselected {
-        background: linear-gradient(to left, #ca4b7c, #6e376e);
-        color: white;
+      .the-room {
+        &.roomselected {
+          background: linear-gradient(to left, #ca4b7c, #6e376e);
+          color: white;
+        }
+        padding: 16px 0px;
+        width: 100%;
+        display: flex;
+        border-radius: 8px;
+        background-color: white;
+        box-shadow: 0px 3px 4px 3px rgb(128 128 128 / 10%);
       }
     }
 
@@ -129,6 +139,7 @@ export default {
       }
       .room-name {
         text-transform: capitalize;
+        font-weight: bolder;
       }
     }
     .contact {
