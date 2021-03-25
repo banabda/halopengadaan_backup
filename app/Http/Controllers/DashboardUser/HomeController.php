@@ -193,6 +193,7 @@ class HomeController extends Controller
     public function saveBuktiPembayaran(Request $request)
     {
         $data = $request->all();
+        // dd($data);
         $profile = Profile::where('user_id', Auth::user()->id)->first();
 
         $user = Auth::user()->id;
@@ -223,7 +224,13 @@ class HomeController extends Controller
 
         $this->waSaveBuktiPembayaran($dataWa);
 
-        return redirect()->route('user.dashboard.membership');
+        return response()->json([
+            'status' => 'ok',
+            'messages' => 'Upload Berhasil!',
+            'route' => route('user.dashboard.membership')
+        ]);
+
+        // return redirect()->route('user.dashboard.membership');
 
     }
 
@@ -355,7 +362,7 @@ class HomeController extends Controller
             'message' => $request->message,
             'status' => 'Pesan Terkirim'
         ];
-        
+
         $message = Message::create($data);
         return redirect()->route('user.dashboard.konsultasi');
     }
