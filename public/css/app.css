@@ -11000,19 +11000,18 @@ h3 {
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 5px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background-color: transparent;
-  border-radius: 10px;
+  background: transparent;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #7a99d9), color-stop(0.72, #3ec8ac), color-stop(0.86, #4e90a4));
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #6e376e), color-stop(0.72, #ca4b7c));
 }
 
 /* Handle on hover */
