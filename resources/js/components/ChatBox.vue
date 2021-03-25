@@ -156,7 +156,7 @@ export default {
         _fileType = this.uploadedFile.type;
         _filePath = this.uploadedFile.path;
       }
-      console.log();
+      // console.log();
       axios
         .post("/chat/conversation/send", {
           isNarasumber: _role,

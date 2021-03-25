@@ -2159,9 +2159,9 @@ __webpack_require__.r(__webpack_exports__);
         _fileName = this.uploadedFile.name;
         _fileType = this.uploadedFile.type;
         _filePath = this.uploadedFile.path;
-      }
+      } // console.log();
 
-      console.log();
+
       axios.post("/chat/conversation/send", {
         isNarasumber: _role,
         room_id: this.room.id,
@@ -2320,16 +2320,14 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    console.log("Component mounted.");
-
+    // console.log("Component mounted.");
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
       this.bidang = JSON.parse(localStorage.getItem("room")).bidang_code;
     }
   },
   methods: {
     setBidang: function setBidang(index) {
-      this.bidang = index;
-      console.log("bidang value :", this.bidang);
+      this.bidang = index; // console.log("bidang value :", this.bidang);
     }
   },
   components: {
@@ -2787,11 +2785,17 @@ __webpack_require__.r(__webpack_exports__);
     },
     exitRoom: function exitRoom() {
       if (this.selectedRoom) Echo.leave("room.".concat(this.selectedRoom.id));
-      this.selectedRoom = null;
 
-      if (this.role[0] == "user") {
+      if (this.role[0] == "user" && this.selectedRoom) {
+        axios.get("/chat/saldo/".concat(this.selectedRoom.user_id)).then(function (res) {
+          if (res.data.saldo == 0) {
+            window.location.href = "/user/membership";
+          }
+        });
         localStorage.removeItem("room");
       }
+
+      this.selectedRoom = null;
 
       if (this.$vssWidth < 1125 || this.$vssHeight < 625) {
         this.showRoom = true;

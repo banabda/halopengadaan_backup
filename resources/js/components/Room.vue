@@ -164,10 +164,15 @@ export default {
     },
     exitRoom() {
       if (this.selectedRoom) Echo.leave(`room.${this.selectedRoom.id}`);
-      this.selectedRoom = null;
-      if (this.role[0] == "user") {
+      if (this.role[0] == "user" && this.selectedRoom) {
+        axios.get(`/chat/saldo/${this.selectedRoom.user_id}`).then((res) => {
+          if (res.data.saldo == 0) {
+            window.location.href = "/user/membership";
+          }
+        });
         localStorage.removeItem("room");
       }
+      this.selectedRoom = null;
       if (this.$vssWidth < 1125 || this.$vssHeight < 625) {
         this.showRoom = true;
         this.showChatBox = false;

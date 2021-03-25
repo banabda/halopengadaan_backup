@@ -23,7 +23,7 @@ export default {
     };
   },
   mounted() {
-    console.log("Component mounted.");
+    // console.log("Component mounted.");
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
       this.bidang = JSON.parse(localStorage.getItem("room")).bidang_code;
     }
@@ -31,7 +31,7 @@ export default {
   methods: {
     setBidang(index) {
       this.bidang = index;
-      console.log("bidang value :", this.bidang);
+      // console.log("bidang value :", this.bidang);
     },
   },
   components: { Bidang, Room },

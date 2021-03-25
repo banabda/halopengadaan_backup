@@ -10,7 +10,7 @@
                         @include('components.section-five-card', ['big'=> false,'title'=>'Konsultasi Online', 'detail'=>'Rp250.000,- /bulan', 'imgsrc' => asset('images/section5/image2.png'), 'point' => []])
                     </div>
                     <div class="col-md-4 text-center mb-3 five-btn-2">
-                        @include('components.section-five-card', ['big'=> false,'title'=>'Konsultasi Langsung via zoom', 'detail'=>'Rp1.500.000,- / 1 jam', 'imgsrc' => asset('images/section5/image3.png'), 'point' => []])
+                        @include('components.section-five-card', ['big'=> false,'title'=>'Konsultasi Langsung via Zoom', 'detail'=>'Rp1.500.000,- / 1 jam', 'imgsrc' => asset('images/section5/image3.png'), 'point' => []])
                     </div>
                     <div class="col-md-4 text-center mb-3 five-btn-3">
                         @include('components.section-five-card', ['big'=> false,'title'=>'Pertanyaan Tertulis', 'detail'=>'Hubungi admin untuk informasi lebih lanjut', 'imgsrc' => asset('images/section5/image4.png'), 'point' => []])
