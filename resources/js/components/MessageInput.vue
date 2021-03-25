@@ -53,7 +53,7 @@
   </div>
   <button
     v-else-if="role[0] == 'narasumber' && room.user_id != null"
-    class="btn btn-success"
+    class="btn btn-start"
     @click="$emit('createTicket')"
   >
     Start Chat
@@ -112,11 +112,28 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.btn-start {
+  background: linear-gradient(to left, #ca4b7c, #6e376e);
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  width: 50%;
+  height: 100px;
+  margin: 24px 24px;
+  align-self: center;
+  transition: box-shadow 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 20px #719ece;
+  }
+}
 .message-input {
   background-color: white;
   box-shadow: 0px 0px 10px 5px rgb(128 128 128 / 10%);
   border-radius: 10px;
   margin: 8px 8px 0 8px;
+  a:hover {
+    transform: scale(1.1);
+  }
   a,
   .bi {
     align-self: center;
@@ -124,6 +141,7 @@ export default {
     margin: 0 6px;
   }
   textarea {
+    transition: all 0.2s ease-in-out;
     width: 85%;
     margin: 10px;
     margin-right: 0;
@@ -138,7 +156,8 @@ export default {
   }
   textarea:focus {
     outline: none !important;
-    border-color: 5px solid #ca4b7c !important;
+    border: 2px solid #ca4b7c !important;
+    box-shadow: 0 0 10px #719ece;
   }
 }
 .message-input {

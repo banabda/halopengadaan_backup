@@ -5,7 +5,13 @@
       :bidang="bidang"
       @selectedBidang="setBidang"
     ></Bidang>
-    <room v-else :role="role" :user="user" :bidang="bidang"></room>
+    <room
+      v-else
+      :role="role"
+      :user="user"
+      :bidang="bidang"
+      @back="removeBidang"
+    ></room>
   </div>
 </template>
 
@@ -29,6 +35,9 @@ export default {
     }
   },
   methods: {
+    removeBidang() {
+      this.bidang = null;
+    },
     setBidang(index) {
       this.bidang = index;
       // console.log("bidang value :", this.bidang);

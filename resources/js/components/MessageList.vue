@@ -124,6 +124,7 @@ export default {
   box-shadow: 0px 0px 10px 5px rgb(128 128 128 / 10%);
   border-radius: 10px;
   margin: 8px 8px 0 8px;
+  padding: 0 0 0 8px;
   height: 100%;
   // max-height: 550px;
   overflow-y: scroll;
@@ -146,7 +147,7 @@ export default {
         margin: 10px 0;
         width: 100%;
         .chat {
-          max-width: 500px;
+          max-width: 75%;
           flex-direction: column;
           position: relative;
           border-radius: 8px;
@@ -194,7 +195,7 @@ export default {
   }
 }
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 /* Track */
@@ -205,6 +206,7 @@ export default {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
+  border-radius: 0;
 }
 
 /* Handle on hover */
