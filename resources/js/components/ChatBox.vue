@@ -288,7 +288,7 @@ export default {
       padding: 16px 24px;
       border-radius: 10px;
       text-transform: capitalize;
-      box-shadow: 0px 3px 4px 3px rgb(128 128 128 / 10%);
+      box-shadow: 0px 3px 15px 5px rgb(128 128 128 / 30%);
       background-color: white;
       .ticket {
         margin: auto;

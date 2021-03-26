@@ -247,10 +247,15 @@ class HomeController extends Controller
         if (is_null($profile)) {
             return redirect()->route('profile');
         } else {
-            $data = Invoice::with('user')->where([
-                ['user_id', Auth::user()->id],
-                ['status', 'Menunggu Pembayaran']
-            ])->orWhere('status', 'Telah Terbayar')->get();
+
+
+            // $data = Invoice::with('user')->where([
+            //     ['user_id', Auth::user()->id],
+            //     ['status', 'Menunggu Pembayaran']
+            // ])->orWhere('status', 'Telah Terbayar')->get();
+
+            $data = Invoice::with('user')->where('user_id', Auth::user()->id)->wherein('status', ['Menunggu Pembayaran',
+                    'Telah Terbayar'])->get();
 
             if(request()->ajax()){
                 return DataTables::of($data)

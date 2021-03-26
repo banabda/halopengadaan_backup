@@ -1,5 +1,15 @@
 <template>
   <div style="height: 85vh" class="room-all card">
+    <div class="back d-flex" @click="$emit('back')">
+      <div class="back-div">
+        <img
+          src="/images/bidang/back.svg"
+          alt="back"
+          class="back-button mr-2"
+        />
+        <div class="font-weight-bold">Kembali untuk pilih bidang</div>
+      </div>
+    </div>
     <div class="row pt-3 button-list" v-if="role[0] != 'super admin'">
       <div
         class="col-md-6 div-button d-flex"
@@ -77,10 +87,30 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.back {
+  position: relative;
+  padding: 8px 8px 8px 16px;
+  cursor: pointer;
+  .back-div {
+    font-size: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 4px;
+    width: 200px;
+    height: 80px;
+    display: flex;
+    // border-radius: 8px;
+    // background-color: white;
+    // box-shadow: 0px 3px 4px 3px rgb(128 128 128 / 10%);
+    .back-button {
+      height: 40px;
+    }
+  }
+}
 .button-list {
   overflow-y: scroll;
-  align-content: space-evenly;
-  height: inherit;
+  // align-content: space-evenly;
+  height: 85vh;
   button {
     background: linear-gradient(to left, #ca4b7c, #6e376e);
     border: none;

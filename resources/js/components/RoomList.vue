@@ -61,6 +61,7 @@ export default {
       type: Array,
       default: [],
     },
+    role: { type: Array, default: [] },
     roomselect: { type: Object, default: null },
   },
   watch: {
@@ -83,10 +84,10 @@ export default {
   },
   watch: {
     $vssWidth($vssWidth) {
-      console.log("Width", $vssWidth);
+      // console.log("Width", $vssWidth);
     },
     $vssHeight($vssHeight) {
-      console.log("Height", $vssHeight);
+      // console.log("Height", $vssHeight);
     },
   },
 };
@@ -140,7 +141,7 @@ export default {
         display: flex;
         border-radius: 8px;
         background-color: white;
-        box-shadow: 0px 3px 4px 3px rgb(128 128 128 / 10%);
+        box-shadow: 0px 3px 11px 3px rgb(128 128 128 / 30%);
       }
     }
 
