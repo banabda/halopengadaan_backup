@@ -100,8 +100,12 @@ class ArtikelController extends Controller
      */
     public function edit($id)
     {
-        $data = Artikel::find($id)->first();
-        return view('dashboard.admin.artikel.edit', compact('data'));
+        $artikel = Artikel::find($id);
+
+        $data = [
+            'data' => $artikel
+        ];
+        return view('dashboard.admin.artikel.edit', $data);
     }
 
     /**

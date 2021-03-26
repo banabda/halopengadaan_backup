@@ -10,12 +10,11 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $artikel = Artikel::all();
+        $artikel = Artikel::limit(9)->get();
 
         $data = [
             'artikel' => $artikel
         ];
-        // dd($data);
 
         return view('home', $data);
     }
