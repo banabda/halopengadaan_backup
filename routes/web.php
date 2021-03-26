@@ -85,6 +85,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 
     // Data Profile Narasumber
     Route::get('narasumber/profile', 'Dashboard\HomeController@dataNarasumberProfile')->name('admin.dashboard.narasumber.profile');
+    Route::post('narasumber/profile/{id}', 'Dashboard\HomeController@detailDataNarasumberProfile')->name('admin.dashboard.narasumber.profile.detail');
+    Route::get('narasumber/profile/cv/{id}', 'Dashboard\HomeController@cvDataNarasumberProfile')->name('admin.dashboard.narasumber.profile.cv');
 
     // Data Paket Zoom
     Route::get('message/zoom', 'Dashboard\HomeController@dataPaketZoom')->name('admin.dashboard.zoom');

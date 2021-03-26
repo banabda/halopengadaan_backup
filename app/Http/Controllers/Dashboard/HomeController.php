@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use App\Models\Message;
+use App\Models\NarasumberProfile;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\UserhasPaket;
@@ -235,6 +236,22 @@ class HomeController extends Controller
 
         return view('dashboard.admin.data-narasumberprofile');
 
+    }
+
+    public function detailDataNarasumberProfile($id)
+    {
+        $data = NarasumberProfile::where('user_id', $id)->first();
+
+        return $data;
+
+    }
+
+    public function cvDataNarasumberProfile($id)
+    {
+        $data = NarasumberProfile::find($id);
+        $path = storage_path('app/public/' . $data->cv) ;
+        
+        return response()->file($path);
     }
 
     public function dataPaketZoom()

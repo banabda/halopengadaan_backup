@@ -1,6 +1,24 @@
 @extends('dashboard.dashboard')
 @section('content')
+<style>
+    .modal-body div{float:left; width: 100%}
+    .modal-body div p{float:left; width: 20%; font-weight: 600;}
+    .modal-body div span{float:left; width: 80%}
+    .modal-body div .content-keahlian_utama{
+        float:left;
+        width: 80%;
+    }
+    .modal-body div .content-keahlian_pendukung{
+        float:left;
+        width: 80%;
+    }
 
+    .modal-body div .content-cv{
+        float:left;
+        width: 80%;
+    }
+
+</style>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <div class="container-full">
@@ -89,28 +107,34 @@
         </div>
         <div class="modal-body">
             <div class="name">
-                <p>Nama Lengkap: </p>
+                <p>Nama Lengkap : </p>
                 <span></span>
             </div>
             <div class="email">
-                <p>Email: </p>
+                <p>Email : </p>
                 <span></span>
             </div>
             <div class="no_hp">
-                <p>No HP: </p>
+                <p>No HP : </p>
                 <span></span>
             </div>
             <div class="keahlian_utama">
-                <p>Keahlian Utama: </p>
-                <span></span>
+                <p>Keahlian Utama : </p>
+                <div class="content-keahlian_utama">
+
+                </div>
             </div>
             <div class="keahlian_pendukung">
-                <p>Keahlian Pendukung: </p>
-                <span></span>
+                <p>Keahlian Pendukung : </p>
+                <div class="content-keahlian_pendukung">
+
+                </div>
             </div>
             <div class="cv">
-              <p>CV: </p>
-              <span></span>
+              <p>CV : </p>
+              <div class="content-cv">
+
+            </div>
             </div>
         </div>
         <div class="modal-footer">
@@ -154,14 +178,10 @@
       });
 </script>
 <script>
-        $(document).on('click', '.profile-narasumber', function(){
-            $("#modalProfileNarasumber").modal("show");
-        });
-</script>
-<script>
-    $(document).on('click', '.aktifasi-narasumber', function(){
-        var id_user = $(this).attr("id");
-        console.log(id_user);
+    $(document).on('click', '.profile-narasumber', function(){
+        var id_profileNarasumber = $(this).attr("id");
+        console.log(id_profileNarasumber);
+
         event.preventDefault();
         $.ajaxSetup({
             headers: {
@@ -170,17 +190,61 @@
         });
         $.ajax({
             type:'POST',
-            url: "{{url('admin/narasumber/verify')}}/" + id_user,
+            url: "{{url('admin/narasumber/profile')}}/" + id_profileNarasumber,
             success:function(data)
             {
-                if(data.status == "ok"){
-                    table.draw(false);
-                }
+                $(".modal-body div span").text("");
+                $(".content-keahlian_utama").html("");
+                $(".content-keahlian_pendukung").html("");
+                $(".content-cv").html("");
+                $(".name span").text(data.name);
+                $(".email span").text(data.email);
+                $(".no_hp span").text(data.no_hp);
+                $(".content-keahlian_utama").append(
+                    data.keahlian_utama
+                );
+                $(".content-keahlian_pendukung").append(
+                    data.keahlian_pendukung
+                );
+                $(".content-cv").append(
+                    `
+                    <a target="_target" href="{{ url('admin/narasumber/profile/cv/') }}/` + data.id +`"><button class="btn btn-sm btn-info download-cv" id="`+ data.id +`">Download</button></a>
+                    `
+                );
+                console.log(data);
+                $("#modalProfileNarasumber").modal("show");
             },
             error: function(data){
 
             }
         });
+    });
+
+</script>
+
+<script>
+    $(document).on('click', '.aktifasi-narasumber', function(event){
+        var id_user = $(this).attr("id");
+        console.log(id_user);
+        event.preventDefault();
+        // $.ajaxSetup({
+        //     headers: {
+        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        //     }
+        // });
+        // $.ajax({
+        //     type:'POST',
+        //     url: "{{url('admin/narasumber/verify')}}/" + id_user,
+        //     success:function(data)
+        //     {
+        //         if(data.status == "ok"){
+        //             table.draw(false);
+        //         }
+        //     },
+        //     error: function(data){
+
+        //     }
+        // });
     });
 </script>
 @endsection
