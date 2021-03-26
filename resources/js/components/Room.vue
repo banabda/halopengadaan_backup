@@ -1,14 +1,16 @@
 <template>
-  <div class="card">
+  <div>
     <notifications position="bottom right" group="timer" />
     <notifications position="top right" group="user" />
-    <div class="card-body p-0">
+    <div class="p-0">
       <div class="chat-app" v-if="role[0] != 'user' || selectedRoom != null">
         <RoomList
           v-if="showRoom && role[0] != 'user'"
           :rooms="rooms"
           :roomselect="selectedRoom"
+          :role="role"
           @selected="startChat"
+          @back="back"
           id="room"
         ></RoomList>
         <ChatBox
@@ -114,6 +116,9 @@ export default {
     this.getRooms();
   },
   methods: {
+    back() {
+      this.$emit("back");
+    },
     startChat(room) {
       this.selectedRoom = room;
       if (this.role[0] == "user") {
@@ -164,10 +169,15 @@ export default {
     },
     exitRoom() {
       if (this.selectedRoom) Echo.leave(`room.${this.selectedRoom.id}`);
-      this.selectedRoom = null;
-      if (this.role[0] == "user") {
+      if (this.role[0] == "user" && this.selectedRoom) {
+        axios.get(`/chat/saldo/${this.selectedRoom.user_id}`).then((res) => {
+          if (res.data.saldo == 0) {
+            window.location.href = "/user/membership";
+          }
+        });
         localStorage.removeItem("room");
       }
+      this.selectedRoom = null;
       if (this.$vssWidth < 1125 || this.$vssHeight < 625) {
         this.showRoom = true;
         this.showChatBox = false;
@@ -283,7 +293,7 @@ export default {
 <style lang="scss" scoped>
 .chat-app {
   display: flex;
-  height: 80vh;
+  height: 85vh;
 }
 .fade-enter-active,
 .fade-leave-active {
@@ -296,7 +306,7 @@ export default {
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 4px;
 }
 
 /* Track */
@@ -307,6 +317,7 @@ export default {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #888;
+  border-radius: 0;
 }
 
 /* Handle on hover */

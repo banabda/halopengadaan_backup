@@ -107,7 +107,7 @@
                 </div>
             </div>
             <br/>
-            <form action="{{ route('user.dashboard.saveBuktiPembayaran') }}" method="POST" enctype="multipart/form-data">
+            <form id="uploadPembayaran" action="{{ route('user.dashboard.saveBuktiPembayaran') }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
                     <input type="hidden" name="id" value="{{ $invoice->id }}">
@@ -136,7 +136,7 @@
         </div>
         <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Upload</button>
+        <button class="btn btn-primary">Upload</button>
         </form>
         </div>
     </div>
@@ -160,4 +160,66 @@
         .removeAttr('title')
         .removeAttr('data-orignial-title');
     }
+
+
+</script>
+<script>
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                $('#brosur_placeholder').attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]); // convert to base64 string
+        }
+    }
+
+    $("#brosurFile").change(function() {
+        readURL(this);
+    });
+</script>
+<script>
+    $('#uploadPembayaran').on('submit', function(event){
+        event.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+        });
+
+
+        Swal.fire({
+            text : "Mohon menunggu..."
+        });
+
+        swal.showLoading();
+
+        $.ajax({
+            url: $(this).attr("action"),
+            method:"POST",
+            data:new FormData(this),
+            dataType:'JSON',
+            contentType: false,
+            cache: false,
+            processData: false,
+            success: (data) => {
+                if(data.status == "ok"){
+                    swal.close();
+                    Swal.fire({
+                        icon: 'success',
+                        title: data.messages
+                    });
+
+                    setTimeout(function() {
+                        window.location.href = data.route;
+                    }, 1000);
+                }
+            },
+            error: (data) => {
+
+            }
+        });
+    });
 </script>

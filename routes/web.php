@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Chat\ChatController;
+use App\Http\Controllers\Chat\HomeChatController;
 use App\Http\Controllers\Chat\RoomController;
 use App\Http\Controllers\Chat\TicketController;
 use Illuminate\Support\Facades\Auth;
@@ -49,14 +50,6 @@ Route::get('regulasi/{id}', 'Dashboard\RegulasiController@seeDokumen')->name('la
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
-    // crud narasumber
-    Route::get('','Narasumber\NarasumberController@index')->name('narasumber');
-    Route::post('store','Narasumber\NarasumberController@store')->name('narasumber.store');
-    Route::get('detail/{id}','Narasumber\NarasumberController@detail');
-    Route::get('delete/{id}','Narasumber\NarasumberController@delete');
-    Route::get('edit/{id}','Narasumber\NarasumberController@edit');
-    Route::post('update','Narasumber\NarasumberController@update')->name('narasumber.update');
-
     // crud halaman metode pembayaran
     Route::get('metode-pembayaran','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
     Route::post('buatmethod','Metodepembayaran\MetodepembayaranController@store')->name('metodepembayaran.store');
@@ -80,7 +73,6 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::resource('artikel', 'Dashboard\ArtikelController');
 
     // Regulasi
-
     Route::resource('regulasi', 'Dashboard\RegulasiController');
 
     // Data Pembayaran Invoice
@@ -90,6 +82,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     // Data Narasumber
     Route::get('narasumber', 'Dashboard\HomeController@dataNarasumber')->name('admin.dashboard.narasumber');
     Route::post('narasumber/verify/{id}', 'Dashboard\HomeController@verifyUserNarasumber')->name('admin.dashboard.narasumber.verify');
+
+    // Data Profile Narasumber
+    Route::get('narasumber/profile', 'Dashboard\HomeController@dataNarasumberProfile')->name('admin.dashboard.narasumber.profile');
 
     // Data Paket Zoom
     Route::get('message/zoom', 'Dashboard\HomeController@dataPaketZoom')->name('admin.dashboard.zoom');
@@ -125,9 +120,16 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
     Route::post('konsultasi/zoom', 'DashboardUser\HomeController@konsultasiZoom')->name('user.dashboard.konsultasi.zoom');
 });
 
+Route::group(['prefix' => 'narasumber', 'middleware' => ['role:narasumber']], function()
+{
+    Route::get('profile', 'DashboardNarasumber\NarasumberController@profile')->name('narasumber.dashboard.profile');
+    Route::post('profile/save', 'DashboardNarasumber\NarasumberController@saveProfile')->name('narasumber.dashboard.profile.save');
+});
+
 Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
 {
-    Route::get('/', fn () => view('layouts.chat'));
+    Route::get('/', 'Chat\HomeChatController@index')->name('dashboard.chat');
+
     // ROOMS
     Route::get('/rooms', [RoomController::class, 'index']);
     Route::get('/rooms/{bidang_code}', [RoomController::class, 'getBidang']);
@@ -144,4 +146,8 @@ Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
     // TICKET
     Route::get('/getticket/{name}', [TicketController::class, 'show']);
     Route::post('/ticket', [TicketController::class, 'store']);
+
+    // SALDO
+    Route::get('/saldo/{user_id}', [HomeChatController::class, 'getSaldo']);
+
 });

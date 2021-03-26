@@ -2,40 +2,65 @@
   <div class="chat-box">
     <div class="header">
       <div class="room d-flex" v-if="room">
-        <div class="name-room">
-          <h4 style="font-weight: bold">{{ room.name }}</h4>
-          <h4>
-            {{
-              role[0] == "user"
-                ? room.narasumber_name == null
+        <div class="name-room mr-2">
+          <div
+            style="font-weight: bold"
+            :class="$vssWidth < 1125 ? 'mobile' : 'desktop'"
+          >
+            {{ room.name }}
+          </div>
+          <div class="d-flex">
+            <div
+              class="mb-0"
+              :class="[
+                role[0] == 'user'
+                  ? room.narasumber_name == null
+                    ? ''
+                    : 'font-weight-bold'
+                  : room.user_name == null
+                  ? ''
+                  : 'font-weight-bold',
+                $vssWidth < 1125 ? 'mobile' : 'desktop',
+              ]"
+            >
+              {{
+                role[0] == "user"
+                  ? room.narasumber_name == null
+                    ? "no narasumber"
+                    : room.narasumber_name
+                  : room.user_name == null
+                  ? "no user"
+                  : room.user_name
+              }}
+            </div>
+            <div
+              class="mb-0 ml-3"
+              :class="[
+                room.narasumber_name == null ? '' : 'font-weight-bold',
+                $vssWidth < 1125 ? 'mobile' : 'desktop',
+              ]"
+              v-if="role[0] == 'super admin'"
+            >
+              {{
+                room.narasumber_name == null
                   ? "no narasumber"
                   : room.narasumber_name
-                : room.user_name == null
-                ? "no user"
-                : room.user_name
-            }}
-          </h4>
-          <h4 v-if="role[0] == 'super admin'">
-            {{
-              room.narasumber_name == null
-                ? "no narasumber"
-                : room.narasumber_name
-            }}
-          </h4>
+              }}
+            </div>
+          </div>
         </div>
-        <h4 class="ticket" v-if="room.ticket">
+        <h4
+          class="ticket"
+          :class="$vssWidth < 1125 ? 'mobile' : 'desktop'"
+          v-if="room.ticket"
+        >
           Sisa waktu {{ minute | two_digits }}:{{ second | two_digits }}
         </h4>
         <button
           @click="exit"
-          class="btn mr-0 ml-auto"
-          :class="
-            role[0] == 'user'
-              ? 'btn-info'
-              : isChatting
-              ? 'btn-danger'
-              : 'btn-info'
-          "
+          class="btn btn-room mr-0"
+          :class="ticket ? 'ml-2' : 'ml-auto'"
+          v-if="role[0] != 'super admin'"
         >
           {{
             role[0] == "user"
@@ -46,7 +71,9 @@
           }}
         </button>
       </div>
-      <h1 v-else>Select a room</h1>
+      <div v-else class="no-room">
+        <h1>Select a room</h1>
+      </div>
     </div>
     <MessageList
       :room="room"
@@ -156,7 +183,7 @@ export default {
         _fileType = this.uploadedFile.type;
         _filePath = this.uploadedFile.path;
       }
-      console.log();
+      // console.log();
       axios
         .post("/chat/conversation/send", {
           isNarasumber: _role,
@@ -239,26 +266,41 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.mobile {
+  font-size: 0.8rem;
+}
+.desktop {
+  font-size: 1.2rem;
+}
 .chat-box {
   flex: 5;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   .header {
-    padding: 10px;
+    padding: 8px;
     margin: 0;
-    border-bottom: 1px dashed lightgray;
-    .room {
+    .room,
+    .no-room {
+      height: 100px;
       font-size: 2px !important;
-      color: green;
-      .room-name {
-        h1 {
-          margin: 0;
-          padding: 0;
-        }
-      }
+      color: black;
+      padding: 16px 24px;
+      border-radius: 10px;
+      text-transform: capitalize;
+      box-shadow: 0px 3px 15px 5px rgb(128 128 128 / 30%);
+      background-color: white;
       .ticket {
         margin: auto;
+      }
+      .btn-room {
+        background-color: transparent;
+        color: #6e376e;
+        border-color: #6e376e;
+        &:hover {
+          background-color: #6e376e;
+          color: white;
+        }
       }
     }
   }

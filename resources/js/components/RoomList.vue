@@ -1,36 +1,55 @@
 <template>
-  <div class="contacts-list">
-    <ul>
+  <div class="room-list">
+    <div
+      class="back d-flex"
+      @click="$emit('back')"
+      v-if="role[0] == 'narasumber'"
+    >
+      <div class="back-div">
+        <img
+          src="/images/bidang/back.svg"
+          alt="back"
+          class="back-button mr-2"
+        />
+        <div class="font-weight-bold">Kembali untuk pilih bidang</div>
+      </div>
+    </div>
+    <ul class="room-list-content">
       <li
         v-for="room in rooms"
         :key="room.id"
         @click="selectedRoom(room)"
-        :class="
-          roomselect ? (roomselect.id == room.id ? 'roomselected' : '') : ''
-        "
+        class="the-room"
       >
-        <div class="room p-2 text-center">
-          <!-- <img :src="room.profile_image" :alt="room.name" /> -->
-          <p class="room-name">
-            {{ room.name }}
-          </p>
+        <div
+          class="the-room"
+          :class="
+            roomselect ? (roomselect.id == room.id ? 'roomselected' : '') : ''
+          "
+        >
+          <div class="room p-2 text-center">
+            <!-- <img :src="room.profile_image" :alt="room.name" /> -->
+            <h6 class="room-name">
+              {{ room.name }}
+            </h6>
+          </div>
+          <div class="contact">
+            <p
+              class="name"
+              :class="room.narasumber_name ? 'font-weight-bold' : ''"
+            >
+              {{
+                room.narasumber_name == null
+                  ? "no narasumber"
+                  : room.narasumber_name
+              }}
+            </p>
+            <p class="email" :class="room.user_name ? 'font-weight-bold' : ''">
+              {{ room.user_name == null ? "no user" : room.user_name }}
+            </p>
+          </div>
         </div>
-        <div class="contact">
-          <p
-            class="name"
-            :class="room.narasumber_name ? 'font-weight-bold' : ''"
-          >
-            {{
-              room.narasumber_name == null
-                ? "no narasumber"
-                : room.narasumber_name
-            }}
-          </p>
-          <p class="email" :class="room.user_name ? 'font-weight-bold' : ''">
-            {{ room.user_name == null ? "no user" : room.user_name }}
-          </p>
-        </div>
-        <span class="unread" v-if="room.unread">{{ room.unread }}</span>
+        <!-- <span class="unread" v-if="room.unread">{{ room.unread }}</span> -->
       </li>
     </ul>
   </div>
@@ -42,6 +61,7 @@ export default {
       type: Array,
       default: [],
     },
+    role: { type: Array, default: [] },
     roomselect: { type: Object, default: null },
   },
   watch: {
@@ -55,7 +75,7 @@ export default {
     };
   },
   mounted() {
-    console.log(this.$vssWidth, this.$vssHeight);
+    // console.log(this.$vssWidth, this.$vssHeight);
   },
   methods: {
     selectedRoom(rm) {
@@ -64,34 +84,64 @@ export default {
   },
   watch: {
     $vssWidth($vssWidth) {
-      console.log("Width", $vssWidth);
+      // console.log("Width", $vssWidth);
     },
     $vssHeight($vssHeight) {
-      console.log("Height", $vssHeight);
+      // console.log("Height", $vssHeight);
     },
   },
 };
 </script>
 <style lang="scss" scoped>
-.contacts-list {
+.back-button {
+  height: 40px;
+}
+.room-list-content,
+.room-list .back,
+.room-list:hover,
+.room-list:focus {
+  visibility: visible;
+}
+.room-list {
   max-height: 85vh;
-  background-color: white;
+  // background-color: blue;
+  visibility: hidden;
   overflow-y: auto;
   transition: flex 0.2s ease-in-out;
   flex: 2;
-  ul {
-    list-style-type: none;
-    padding-left: 0;
-    li {
+  .back {
+    padding: 8px 8px 8px 16px;
+    cursor: pointer;
+    .back-div {
+      font-size: 1rem;
+      justify-content: center;
+      align-items: center;
+      padding: 16px 4px;
+      width: 100%;
       display: flex;
-      padding: 2px;
-      border-bottom: 1px solid rgba(109, 108, 108, 0.219);
-      height: 80px;
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 0px 3px 4px 3px rgb(128 128 128 / 10%);
+    }
+  }
+  ul {
+    padding: 8px 8px 16px 16px;
+    list-style-type: none;
+    li {
+      margin-bottom: 16px;
       position: relative;
       cursor: pointer;
-      &.roomselected {
-        background: linear-gradient(to left, #ca4b7c, #6e376e);
-        color: white;
+      .the-room {
+        &.roomselected {
+          background: linear-gradient(to left, #ca4b7c, #6e376e);
+          color: white;
+        }
+        padding: 16px 4px;
+        width: 100%;
+        display: flex;
+        border-radius: 8px;
+        background-color: white;
+        box-shadow: 0px 3px 11px 3px rgb(128 128 128 / 30%);
       }
     }
 
@@ -129,6 +179,7 @@ export default {
       }
       .room-name {
         text-transform: capitalize;
+        font-weight: bolder;
       }
     }
     .contact {

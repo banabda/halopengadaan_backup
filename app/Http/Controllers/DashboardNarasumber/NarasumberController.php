@@ -3,9 +3,12 @@
 namespace App\Http\Controllers\DashboardNarasumber;
 
 use App\Http\Controllers\Controller;
+use App\Models\NarasumberProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class NarasumberController extends Controller
@@ -51,5 +54,44 @@ class NarasumberController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
+    }
+
+    public function profile()
+    {
+        $user = User::with('profileNarasumber')->where('id', Auth::user()->id)->first();
+        $data = [
+            'user' => $user
+        ];
+        // dd($user->profileNarasumber);
+        return view('dashboard.narasumber.profile', $data);
+    }
+
+    public function saveProfile(Request $request)
+    {
+        $data = [
+            'user_id' => $request->user_id,
+            'name' => $request->name,
+            'email' => $request->email,
+            'no_hp' => $request->no_hp,
+            'cv' => $request->cv,
+            'keahlian_utama' => $request->keahlian_utama,
+            'keahlian_pendukung' => $request->keahlian_pendukung,
+            'status' => 'Belum Terverifikasi'
+        ];
+
+        $user = Auth::user()->id;
+        $file = $request->file('cv');
+        $path = 'dokumen/narasumber/cv/' . $user ;
+        $path = Storage::disk('public')->put(
+            $path,
+            $file
+        );
+
+        $data['cv'] = $path;
+
+        $profile = NarasumberProfile::create($data);
+
+        return redirect()->route('narasumber.dashboard.profile');
+
     }
 }

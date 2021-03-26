@@ -5,7 +5,13 @@
       :bidang="bidang"
       @selectedBidang="setBidang"
     ></Bidang>
-    <room v-else :role="role" :user="user" :bidang="bidang"></room>
+    <room
+      v-else
+      :role="role"
+      :user="user"
+      :bidang="bidang"
+      @back="removeBidang"
+    ></room>
   </div>
 </template>
 
@@ -23,15 +29,18 @@ export default {
     };
   },
   mounted() {
-    console.log("Component mounted.");
+    // console.log("Component mounted.");
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
       this.bidang = JSON.parse(localStorage.getItem("room")).bidang_code;
     }
   },
   methods: {
+    removeBidang() {
+      this.bidang = null;
+    },
     setBidang(index) {
       this.bidang = index;
-      console.log("bidang value :", this.bidang);
+      // console.log("bidang value :", this.bidang);
     },
   },
   components: { Bidang, Room },

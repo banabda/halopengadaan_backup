@@ -19,25 +19,6 @@
           </div>
         </div>
       </div>
-      <!-- <div class="card-deck mb-4">
-        <div
-          class="card item-bidang"
-          v-for="(bdng, index) in bidangList"
-          :key="index"
-        >
-          <img
-            class="card-img-top"
-            :src="'/images/bidang/bidang' + (index + 1) + '.svg'"
-            alt="Card image cap"
-          />
-          <div class="card-body body-bidang">
-            <h5 class="card-title mb-3">{{ bdng }}</h5>
-            <button class="btn button-bidang" @click="selectBidang(index)">
-              Pilih
-            </button>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
 </template>

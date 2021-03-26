@@ -62,4 +62,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Models\Message', 'user_id', 'id');
     }
+
+    public function profileNarasumber()
+    {
+        return $this->hasOne('App\Models\NarasumberProfile', 'user_id', 'id');
+    }
 }

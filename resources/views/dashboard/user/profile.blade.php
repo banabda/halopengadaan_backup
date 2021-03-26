@@ -163,13 +163,6 @@
                             </div>
                             </div>
                             <div class="form-group row">
-                                <label for="inputSkills" class="col-sm-2 control-label pt-1">Upload CV</label>
-
-                            <div class="col-sm-10">
-                                <input type="file" class="" id="inputExperience" name="upload_cv">
-                            </div>
-                            </div>
-                            <div class="form-group row">
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Jenis Kerja</label>
 
                                 <div class="col-sm-10">
@@ -311,6 +304,10 @@
 <!-- /.content-wrapper -->
 
 <script>
+    $(document).ready(function () {
+        $('#modalPendaftaran').modal('show');
+    });
+
     function readURL(input) {
         if (input.files && input.files[0]) {
             var reader = new FileReader();
@@ -327,8 +324,26 @@
         readURL(this);
     });
 </script>
-<script>
 
-</script>
+  <!-- Modal -->
+<div class="modal center-modal fade bs-example-modal-lg" id="modalPendaftaran" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                {{-- <h4 class="modal-title" id="myLargeModalLabel">Large modal</h4> --}}
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            </div>
+            <div class="modal-body">
+                <img src="{{ asset('images/panduan-user-dashboard.svg') }}" alt="tata-pendaftaran" srcset="">
+                {{-- panduan-user-dashboard.svg --}}
+            </div>
+            {{-- <div class="modal-footer">
+                <button type="button" class="btn btn-danger btn-rounded text-left" data-dismiss="modal">Close</button>
+            </div> --}}
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
 
 @endsection
