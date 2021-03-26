@@ -153,9 +153,9 @@
               serverSide: true,
               ajax: {
                   url: "{{ route('admin.dashboard.narasumber.profile') }}",
-                //   data : function(narasumber){
-                //      narasumber.status = $('#status').val();
-                //   }
+                  data : function(narasumber){
+                     narasumber.status = $('#status').val();
+                  }
               },
               columns: [
                 {data: 'nomor', name: 'nomor', className : "text-center"},

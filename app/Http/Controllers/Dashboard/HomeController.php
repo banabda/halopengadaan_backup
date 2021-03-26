@@ -196,15 +196,15 @@ class HomeController extends Controller
         // dd($data);
         if (request()->ajax()) {
             return DataTables()->of($data)
-            // ->addIndexColumn()
-            // ->filter(function ($query) use ($request) {
-            //     if (!empty($request->get('status'))) {
-            //         $status = $request->get('status');
-            //         if ($status != -1) {
-            //             $query->where('status', $status);
-            //         }
-            //     }
-            // })
+            ->addIndexColumn()
+            ->filter(function ($query) use ($request) {
+                if (!empty($request->get('status'))) {
+                    $status = $request->get('status');
+                    if ($status != -1) {
+                        $query->where('status', $status);
+                    }
+                }
+            })
             ->addColumn('nomor', function(){
                 $no = 1;
                 return $no++;
@@ -222,7 +222,7 @@ class HomeController extends Controller
                 if (!is_null($row->profileNarasumber) && $row->profileNarasumber->status == "Belum Terverifikasi") {
                     $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .'">Aktifkan</button>';
                 } elseif (is_null($row->profileNarasumber)) {
-                    $btn = '<button class="btn btn-xs btn-info" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Aktif</button>';
+                    $btn = '<button class="btn btn-xs btn-info" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Ada Profile</button>';
                 } else {
                     $btn = '<button class="btn btn-xs btn-info" id="'. $row->id .' style="cursor: not-allowed;" disabled>Telah Aktif</button>';
                 }
