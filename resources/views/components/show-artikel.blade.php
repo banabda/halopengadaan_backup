@@ -50,7 +50,7 @@
                         <img class="image-artikel-terkait" src="{{ Storage::url($item->foto) }}" alt="" srcset="" >
                     </div>
                     <div class="col-12 col-md-6 artikel-terkait" >
-                        <h3 class="font-artikel-terkait"> {{ $item->judul }}</h3>
+                        <a href="{{ route('landing.artikel.show', $item->slug) }}" style="color: inherit; text-decoration:none"><h3 class="font-artikel-terkait"> {{ $item->judul }}</h3></a>
                         <p class="time-artikel-terkait">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</p>
                     </div>
                 </div>
