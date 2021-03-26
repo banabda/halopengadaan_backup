@@ -32,7 +32,12 @@ class HomeChatController extends Controller
             }
             return view('layouts.chat');
         } elseif ($user->hasRole('narasumber')) {
-            return view('layouts.chat');
+            if (is_null($user->profileNarasumber)) {
+                return redirect()->route('narasumber.dashboard.profile');
+            } else {
+                return view('layouts.chat');
+            }
+
         } else {
             return view('layouts.chat');
         }
