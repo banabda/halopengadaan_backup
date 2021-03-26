@@ -2665,6 +2665,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -2978,6 +2984,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10530,7 +10546,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".button-list[data-v-7ad935aa] {\n  overflow-y: scroll;\n  align-content: space-evenly;\n  height: inherit;\n}\n.button-list button[data-v-7ad935aa] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  border: none;\n}\n.btn-1[data-v-7ad935aa] {\n  width: 200px;\n  cursor: pointer;\n}\n.div-button[data-v-7ad935aa] {\n  justify-content: center;\n  align-items: center;\n  height: 100px;\n}\n.admin .btn-1[data-v-7ad935aa] {\n  width: 120px;\n  height: 70px;\n  margin-left: 0px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".back[data-v-7ad935aa] {\n  position: relative;\n  padding: 8px 8px 8px 16px;\n  cursor: pointer;\n}\n.back .back-div[data-v-7ad935aa] {\n  font-size: 1rem;\n  justify-content: center;\n  align-items: center;\n  padding: 16px 4px;\n  width: 200px;\n  height: 80px;\n  display: flex;\n}\n.back .back-div .back-button[data-v-7ad935aa] {\n  height: 40px;\n}\n.button-list[data-v-7ad935aa] {\n  overflow-y: scroll;\n  height: 85vh;\n}\n.button-list button[data-v-7ad935aa] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  border: none;\n}\n.btn-1[data-v-7ad935aa] {\n  width: 200px;\n  cursor: pointer;\n}\n.div-button[data-v-7ad935aa] {\n  justify-content: center;\n  align-items: center;\n  height: 100px;\n}\n.admin .btn-1[data-v-7ad935aa] {\n  width: 120px;\n  height: 70px;\n  margin-left: 0px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -54954,7 +54970,7 @@ var render = function() {
               )
             : _c("RoomAll", {
                 attrs: { role: _vm.role, rooms: _vm.rooms },
-                on: { chat: _vm.startChat }
+                on: { back: _vm.back, chat: _vm.startChat }
               })
         ],
         1
@@ -54990,6 +55006,19 @@ var render = function() {
     "div",
     { staticClass: "room-all card", staticStyle: { height: "85vh" } },
     [
+      _c(
+        "div",
+        {
+          staticClass: "back d-flex",
+          on: {
+            click: function($event) {
+              return _vm.$emit("back")
+            }
+          }
+        },
+        [_vm._m(0)]
+      ),
+      _vm._v(" "),
       _vm.role[0] != "super admin"
         ? _c(
             "div",
@@ -55092,7 +55121,23 @@ var render = function() {
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "back-div" }, [
+      _c("img", {
+        staticClass: "back-button mr-2",
+        attrs: { src: "/images/bidang/back.svg", alt: "back" }
+      }),
+      _vm._v(" "),
+      _c("div", { staticClass: "font-weight-bold" }, [
+        _vm._v("Kembali untuk pilih bidang")
+      ])
+    ])
+  }
+]
 render._withStripped = true
 
 
