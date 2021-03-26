@@ -180,7 +180,6 @@
 <script>
     $(document).on('click', '.profile-narasumber', function(){
         var id_profileNarasumber = $(this).attr("id");
-        console.log(id_profileNarasumber);
 
         event.preventDefault();
         $.ajaxSetup({
@@ -211,7 +210,6 @@
                     <a target="_target" href="{{ url('admin/narasumber/profile/cv/') }}/` + data.id +`"><button class="btn btn-sm btn-info download-cv" id="`+ data.id +`">Download</button></a>
                     `
                 );
-                console.log(data);
                 $("#modalProfileNarasumber").modal("show");
             },
             error: function(data){
@@ -224,27 +222,27 @@
 
 <script>
     $(document).on('click', '.aktifasi-narasumber', function(event){
-        var id_user = $(this).attr("id");
-        console.log(id_user);
+        var id_profileNarasumber = $(this).attr("id");
+        console.log(id_profileNarasumber);
         event.preventDefault();
-        // $.ajaxSetup({
-        //     headers: {
-        //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-        //     }
-        // });
-        // $.ajax({
-        //     type:'POST',
-        //     url: "{{url('admin/narasumber/verify')}}/" + id_user,
-        //     success:function(data)
-        //     {
-        //         if(data.status == "ok"){
-        //             table.draw(false);
-        //         }
-        //     },
-        //     error: function(data){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $.ajax({
+            type:'POST',
+            url: "{{url('admin/narasumber/profile/verify/')}}/" + id_profileNarasumber,
+            success:function(data)
+            {
+                if(data.status == "ok"){
+                    table.draw(false);
+                }
+            },
+            error: function(data){
 
-        //     }
-        // });
+            }
+        });
     });
 </script>
 @endsection

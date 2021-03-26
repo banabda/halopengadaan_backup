@@ -213,18 +213,18 @@ class HomeController extends Controller
                 if (!is_null($row->profileNarasumber)) {
                     $btn = '<button class="btn btn-xs btn-info profile-narasumber" id="'. $row->id .'">Lihat Profile</button>';
                 } elseif (is_null($row->profileNarasumber)) {
-                    $btn = '<button class="btn btn-xs btn-info profile-narasumber" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Ada Profile</button>';
+                    $btn = '<button class="btn btn-xs btn-info" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Ada Profile</button>';
                 }
 
                 return $btn;
             })
             ->addColumn('action', function($row){
                 if (!is_null($row->profileNarasumber) && $row->profileNarasumber->status == "Belum Terverifikasi") {
-                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .'">Aktifasi</button>';
+                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .'">Aktifkan</button>';
                 } elseif (is_null($row->profileNarasumber)) {
-                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Aktif</button>';
+                    $btn = '<button class="btn btn-xs btn-info" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Aktif</button>';
                 } else {
-                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .' style="cursor: not-allowed;" disabled>Telah Aktif</button>';
+                    $btn = '<button class="btn btn-xs btn-info" id="'. $row->id .' style="cursor: not-allowed;" disabled>Telah Aktif</button>';
                 }
 
                 return $btn;
@@ -250,8 +250,19 @@ class HomeController extends Controller
     {
         $data = NarasumberProfile::find($id);
         $path = storage_path('app/public/' . $data->cv) ;
-        
+
         return response()->file($path);
+    }
+
+    public function verifyDataNarasumberProfile($id)
+    {
+        $data = NarasumberProfile::where('user_id', $id)->first();
+        $data->status = 'Terverifikasi';
+        $data->save();
+
+        return response()->json([
+            'status' => 'ok'
+        ]);
     }
 
     public function dataPaketZoom()
