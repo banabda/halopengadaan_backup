@@ -9,10 +9,10 @@
                     {{-- <div class="avatar"><p>Halo Pengadaan</p></div> --}}
                     <div class="title">
                         <a class="modal-title" href="/">Halopengadaan</a>
-                        <h4 class="modal-register">Login Form</h4>
+                        <h4 class="modal-login">Login Form</h4>
                     </div>
                     <div class="form-group">
-                        <h4>Email</h4>
+                        <h5>Email</h5>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -21,7 +21,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <h4>Password</h4>
+                        <h5>Password</h5>
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
                         @error('password')
                             <span class="invalid-feedback" role="alert">

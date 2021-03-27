@@ -12,7 +12,7 @@
                         <h4 class="modal-register">Register Form</h4>
                     </div>
                     <div class="form-group">
-                        <h4>Full Name</h4>
+                        <h5>Full Name</h5>
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
                         @error('name')
                             <span class="invalid-feedback" role="alert">
@@ -21,7 +21,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
-                        <h4>Email</h4>
+                        <h5>Email</h5>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
                         @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -31,7 +31,7 @@
                     </div>
                     <div class="d-flex">
                         <div class="form-group w-50 p-1">
-                            <h4>Password</h4>
+                            <h5>Password</h5>
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
                             @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -40,7 +40,7 @@
                             @enderror
                         </div>
                         <div class="form-group w-50 p-1">
-                            <h4>Password Confirmation</h4>
+                            <h5>Password Confirmation</h5>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                         </div> 
 
