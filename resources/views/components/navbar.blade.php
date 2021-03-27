@@ -75,7 +75,13 @@
                                     <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 @endif
                             @else
-                                <a class="dropdown-item" href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
+                                @role('user')
+                                    <a class="dropdown-item" href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
+                                @elserole('narasumber')
+                                    <a class="dropdown-item" href="{{ route('narasumber.dashboard.profile') }}">{{ Auth::user()->name }}</a>
+                                @elserole('super admin')
+                                    <a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard</a>
+                                @endrole
                             @endguest
                         </div>
                     </li>

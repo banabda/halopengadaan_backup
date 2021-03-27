@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use App\Models\Message;
+use App\Models\NarasumberProfile;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\UserhasPaket;
@@ -195,15 +196,15 @@ class HomeController extends Controller
         // dd($data);
         if (request()->ajax()) {
             return DataTables()->of($data)
-            // ->addIndexColumn()
-            // ->filter(function ($query) use ($request) {
-            //     if (!empty($request->get('status'))) {
-            //         $status = $request->get('status');
-            //         if ($status != -1) {
-            //             $query->where('status', $status);
-            //         }
-            //     }
-            // })
+            ->addIndexColumn()
+            ->filter(function ($query) use ($request) {
+                if (!empty($request->get('status'))) {
+                    $status = $request->get('status');
+                    if ($status != -1) {
+                        $query->where('status', $status);
+                    }
+                }
+            })
             ->addColumn('nomor', function(){
                 $no = 1;
                 return $no++;
@@ -212,18 +213,18 @@ class HomeController extends Controller
                 if (!is_null($row->profileNarasumber)) {
                     $btn = '<button class="btn btn-xs btn-info profile-narasumber" id="'. $row->id .'">Lihat Profile</button>';
                 } elseif (is_null($row->profileNarasumber)) {
-                    $btn = '<button class="btn btn-xs btn-info profile-narasumber" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Ada Profile</button>';
+                    $btn = '<button class="btn btn-xs btn-info" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Ada Profile</button>';
                 }
 
                 return $btn;
             })
             ->addColumn('action', function($row){
                 if (!is_null($row->profileNarasumber) && $row->profileNarasumber->status == "Belum Terverifikasi") {
-                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .'">Aktifasi</button>';
+                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .'">Aktifkan</button>';
                 } elseif (is_null($row->profileNarasumber)) {
-                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Aktif</button>';
+                    $btn = '<button class="btn btn-xs btn-info" id="'. $row->id .' style="cursor: not-allowed;" disabled>Tidak Ada Profile</button>';
                 } else {
-                    $btn = '<button class="btn btn-xs btn-info aktifasi-narasumber" id="'. $row->id .' style="cursor: not-allowed;" disabled>Telah Aktif</button>';
+                    $btn = '<button class="btn btn-xs btn-info" id="'. $row->id .' style="cursor: not-allowed;" disabled>Telah Aktif</button>';
                 }
 
                 return $btn;
@@ -235,6 +236,33 @@ class HomeController extends Controller
 
         return view('dashboard.admin.data-narasumberprofile');
 
+    }
+
+    public function detailDataNarasumberProfile($id)
+    {
+        $data = NarasumberProfile::where('user_id', $id)->first();
+
+        return $data;
+
+    }
+
+    public function cvDataNarasumberProfile($id)
+    {
+        $data = NarasumberProfile::find($id);
+        $path = storage_path('app/public/' . $data->cv) ;
+
+        return response()->file($path);
+    }
+
+    public function verifyDataNarasumberProfile($id)
+    {
+        $data = NarasumberProfile::where('user_id', $id)->first();
+        $data->status = 'Terverifikasi';
+        $data->save();
+
+        return response()->json([
+            'status' => 'ok'
+        ]);
     }
 
     public function dataPaketZoom()
