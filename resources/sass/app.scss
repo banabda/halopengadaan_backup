@@ -22,8 +22,9 @@
 @import "./landing/sect5img.scss";
 @import "./landing/membership-card.scss";
 @import "./landing/section-regulasi.scss";
+@import "./auth/registration.scss";
 
-.form-style {
+.form-style1 {
     .form-control {
         box-shadow: none;
         border-color: #ddd;
