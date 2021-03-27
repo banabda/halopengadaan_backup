@@ -28,7 +28,7 @@
                         <a class="nav-link" href="{{ route('landing.regulasi') }}">{{ __('Regulasi') }}</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" role="button" id="section-three-nav">{{ __('Profil Praktisi Pengadaan') }}</a>
+                        <a class="nav-link" role="button" id="section-three-nav">{{ __('Profil') }}</a>
                     </li>
                     {{-- <li class="nav-item mx-2 dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMembership" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -84,8 +84,8 @@
                             {{ __('Layanan') }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownLayanan">
-                            <a class="dropdown-item" href="https://lpkn.id/">{{ __('Pelatihan Pengadaan') }}</a>
-                            <a class="dropdown-item" href="https://kelassmart.com/">{{ __('Buku Pengadaan') }}</a>
+                            <a class="dropdown-item" target="_blank" href="https://lpkn.id/">{{ __('Pelatihan Pengadaan') }}</a>
+                            <a class="dropdown-item" target="_blank" href="https://lpkn.id/landing/layanan/3">{{ __('Buku Pengadaan') }}</a>
                         </div>
                     </li>
             </ul>

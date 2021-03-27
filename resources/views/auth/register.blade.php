@@ -9,7 +9,7 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     {{-- <div class="avatar"><p>Halo Pengadaan</p></div> --}}
-                    <h4 class="modal-title">Register to Halo Pengadaan</h4>
+                    <h4 class="modal-title">Register to Halopengadaan</h4>
                     <div class="form-group">
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="name">
                         @error('name')
