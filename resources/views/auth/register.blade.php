@@ -1,7 +1,5 @@
 @extends('layouts.app')
-
 @section('content')
-{{-- @include('components.navbar') --}}
 <div class="back-register">
     <div class="the-row justify-content-center">
         <div class="col-md-8 register">
@@ -9,7 +7,10 @@
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     {{-- <div class="avatar"><p>Halo Pengadaan</p></div> --}}
-                    <h1 class="modal-title">Register to Halopengadaan</h1>
+                    <div class="title">
+                        <a class="modal-title" href="/">Halopengadaan</a>
+                        <h4 class="modal-register">Register Form</h4>
+                    </div>
                     <div class="form-group">
                         <h4>Full Name</h4>
                         <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
@@ -49,7 +50,7 @@
                     </div>
                 </form>			
                 @if (Route::has('register'))
-                <div class="medium mt-2">Have an account? <a href="{{ route('login') }}">Sign In</a></div>
+                <div class="medium mt-2">Have an account? <a href="{{ route('login') }}" class="font-weight-bold">Sign In</a></div>
                 @endif
             </div>
         </div>

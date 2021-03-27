@@ -1,19 +1,18 @@
 @extends('layouts.app')
-
 @section('content')
-@include('components.navbar')
-<style>
-	
-</style>
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 form-style">
+<div class="back-login">
+    <div class="the-row justify-content-center">
+        <div class="col-md-8 login">
             <div class="login-form">    
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     {{-- <div class="avatar"><p>Halo Pengadaan</p></div> --}}
-                    <h4 class="modal-title">Login to Halo Pengadaan</h4>
+                    <div class="title">
+                        <a class="modal-title" href="/">Halopengadaan</a>
+                        <h4 class="modal-register">Login Form</h4>
+                    </div>
                     <div class="form-group">
+                        <h4>Email</h4>
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
                         @error('email')
                             <span class="invalid-feedback" role="alert">
@@ -22,6 +21,7 @@
                         @enderror
                     </div>
                     <div class="form-group">
+                        <h4>Password</h4>
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="Password">
                         @error('password')
                             <span class="invalid-feedback" role="alert">
@@ -29,7 +29,7 @@
                             </span>
                         @enderror
                     </div>
-                    <div class="form-group small clearfix">
+                    {{-- <div class="form-group small clearfix">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
@@ -42,11 +42,13 @@
                                 {{ __('Forgot Your Password?') }}
                             </a>
                         @endif
-                    </div> 
-                    <input type="submit" class="btn btn-primary btn-block btn-lg" value="Login">              
+                    </div> --}}
+                    <div class="btn-div w-25">
+                        <input type="submit" class="btn btn-submit btn-block btn-lg" value="Login">
+                    </div>              
                 </form>			
                 @if (Route::has('register'))
-                <div class="text-center small">Don't have an account? <a href="{{ route('register') }}">Sign up</a></div>
+                <div class="medium mt-2">Don't have an account? <a href="{{ route('register') }}" class="font-weight-bold">Sign up</a></div>
                 @endif
             </div>
         </div>
