@@ -68,7 +68,7 @@
                             <img class="avatar avatar-xxl avatar-bordered" src="{{ Storage::url($user->profile->foto) }}" alt="">
                         @endif
                       </a>
-                      <h4 class="mt-3 mb-0"><a class="hover-primary text-white" href="#">Zulkifli Raihan</a></h4>
+                      <h4 class="mt-3 mb-0"><a class="hover-primary text-white" href="#">{{ Auth::user()->name }}</a></h4>
                       {{-- <span><i class="fa fa-map-marker w-20"></i> Miami</span> --}}
                     </div>
 
