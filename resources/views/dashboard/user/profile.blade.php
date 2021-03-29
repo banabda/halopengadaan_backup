@@ -305,7 +305,11 @@
 
 <script>
     $(document).ready(function () {
+        if(localStorage.getItem('popState') != 'shown'){
+        // $("#popup").delay(2000).fadeIn();
+        localStorage.setItem('popState','shown')
         $('#modalPendaftaran').modal('show');
+    }
     });
 
     function readURL(input) {
