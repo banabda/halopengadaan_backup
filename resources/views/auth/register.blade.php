@@ -1,15 +1,17 @@
 @extends('layouts.app')
 @section('content')
+@include('components.navbar')
+
 <div class="back-register">
     <div class="the-row justify-content-center">
-        <div class="col-md-4 register">
+        <div class="col-md-6 register">
             <div class="register-form">    
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     {{-- <div class="avatar"><p>Halo Pengadaan</p></div> --}}
-                    <div class="title d-flex">
+                    <div class="title d-md-flex">
                         <a class="modal-title" href="/">Halopengadaan</a>
-                        <h4 class="modal-register ml-auto my-auto">Register Form</h4>
+                        <h4 class="modal-register ml-auto my-auto">Registration Form</h4>
                     </div>
                     <div class="form-group">
                         <h5>Full Name</h5>
@@ -29,7 +31,7 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="d-flex">
+                    <div class="d-flex password">
                         <div class="form-group w-50 p-1">
                             <h5>Password</h5>
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
@@ -45,7 +47,7 @@
                         </div> 
 
                     </div>
-                    <div class="btn-div w-25">
+                    <div class="btn-div">
                         <input type="submit" class="btn btn-submit btn-block btn-lg" value="Register">              
                     </div>
                 </form>			
