@@ -10821,17 +10821,19 @@ h3 {
 .back-register .register .register-form {
   background-color: white;
   border-radius: 10px;
+  box-shadow: 5px 5px 20px 5px rgba(255, 255, 255, 0.664);
   padding: 1rem 2rem;
 }
 .back-register .register .register-form .title {
   margin-bottom: 1rem;
 }
 .back-register .register .register-form .modal-register {
-  transform: translateY(-0.6rem);
+  font-size: 0.9rem;
+  color: rgba(107, 107, 107, 0.534);
 }
 .back-register .register .register-form .modal-title {
   color: black;
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
@@ -10870,6 +10872,7 @@ h3 {
 }
 .back-register-narasumber .register-narasumber .register-narasumber-form {
   background-color: white;
+  box-shadow: 5px 5px 20px 5px rgba(255, 255, 255, 0.664);
   border-radius: 10px;
   padding: 1rem 2rem;
 }
@@ -10877,11 +10880,12 @@ h3 {
   margin-bottom: 1rem;
 }
 .back-register-narasumber .register-narasumber .register-narasumber-form .modal-register-narasumber {
-  transform: translateY(-0.6rem);
+  font-size: 0.9rem;
+  color: rgba(107, 107, 107, 0.534);
 }
 .back-register-narasumber .register-narasumber .register-narasumber-form .modal-title {
   color: black;
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
@@ -10919,6 +10923,7 @@ h3 {
   align-content: center;
 }
 .back-login .login .login-form {
+  box-shadow: 5px 5px 20px 5px rgba(255, 255, 255, 0.664);
   background-color: white;
   border-radius: 10px;
   padding: 1rem 2rem;
@@ -10927,11 +10932,12 @@ h3 {
   margin-bottom: 1rem;
 }
 .back-login .login .login-form .modal-login {
-  transform: translateY(-0.6rem);
+  font-size: 0.9rem;
+  color: rgba(107, 107, 107, 0.534);
 }
 .back-login .login .login-form .modal-title {
   color: black;
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: bold;
   text-decoration: none;
   transition: color 0.3s ease-in-out;
@@ -10954,6 +10960,76 @@ h3 {
   color: white;
   font-weight: 600;
   letter-spacing: 2px;
+  background: linear-gradient(45deg, #6e376e, #fe7087);
+}
+.back-login .login .login-form .form-group.clearfix {
+  margin: 0;
+  align-self: center;
+  margin-left: auto;
+}
+.back-login .login .login-form .forgot-link {
+  font-size: 1rem;
+}
+
+.back-reset {
+  background: linear-gradient(45deg, #6e376e, #fe7087);
+  height: 100vh;
+}
+.back-reset .the-row {
+  margin: 0 !important;
+  display: flex;
+  flex-wrap: wrap;
+  height: inherit;
+  align-content: center;
+}
+.back-reset .reset .reset-form {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 5px 20px 5px rgba(255, 255, 255, 0.664);
+  padding: 1rem 2rem;
+}
+.back-reset .reset .reset-form .title {
+  margin-bottom: 1rem;
+}
+.back-reset .reset .reset-form .modal-reset {
+  font-size: 0.9rem;
+  color: rgba(107, 107, 107, 0.534);
+}
+.back-reset .reset .reset-form .modal-title {
+  color: black;
+  font-size: 2.25rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+.back-reset .reset .reset-form .modal-title:hover {
+  color: #fe7087;
+}
+.back-reset .reset .reset-form .form-control {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  padding: 20px;
+  height: 2.2rem;
+  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  -moz-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.08);
+  border: none;
+  background-color: #fafafa;
+  transition: all 0.2s ease-in-out;
+}
+.back-reset .reset .reset-form .form-control:hover,
+.back-reset .reset .reset-form .form-control:focus {
+  box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.6);
+  -webkit-box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.6);
+}
+.back-reset .reset .reset-form .btn-submit {
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   background: linear-gradient(45deg, #6e376e, #fe7087);
 }
 
