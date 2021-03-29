@@ -78,18 +78,60 @@ class NarasumberController extends Controller
             'keahlian_pendukung' => $request->keahlian_pendukung,
             'status' => 'Belum Terverifikasi'
         ];
+        // dd($data);
+        $profile = NarasumberProfile::with('user')->where('user_id', Auth::user()->id)->first();
 
-        $user = Auth::user()->id;
-        $file = $request->file('cv');
-        $path = 'dokumen/narasumber/cv/' . $user ;
-        $path = Storage::disk('public')->put(
-            $path,
-            $file
-        );
+        if (is_null($profile)) {
+            // dd('Profile Kosong');
+            $user = Auth::user()->id;
+            $file = $request->file('cv');
+            $path = 'dokumen/narasumber/cv/' . $user ;
+            $path = Storage::disk('public')->put(
+                $path,
+                $file
+            );
 
-        $data['cv'] = $path;
+            $data['cv'] = $path;
 
-        $profile = NarasumberProfile::create($data);
+            $createProfile = NarasumberProfile::create($data);
+
+        } else {
+            // dd('Profile Update');
+
+            // Jika Request CV Tidak Null
+            if ($request->cv != null) {
+                Storage::disk('public')->delete([
+                    $profile->cv
+                ]);
+
+                $user = Auth::user()->id;
+                $file = $request->file('cv');
+                $path = 'dokumen/narasumber/cv/' . $user ;
+                $path = Storage::disk('public')->put(
+                    $path,
+                    $file
+                );
+
+                $data['cv'] = $path;
+
+                $profile->cv = $data['cv'];
+            }
+
+            $profile->user_id = $data['user_id'];
+            $profile->name = $data['name'];
+            $profile->email = $data['email'];
+            $profile->no_hp = $data['no_hp'];
+            $profile->keahlian_utama = $data['keahlian_utama'];
+            $profile->keahlian_pendukung = $data['keahlian_pendukung'];
+            $profile->save();
+
+            $user =  User::with('profileNarasumber')->where('id', $profile->user_id)->first();
+            $user->email = $data['email'];
+            $user->name = $data['name'];
+            $user->save();
+
+        }
+
 
         return redirect()->route('narasumber.dashboard.profile');
 
