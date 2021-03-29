@@ -88,7 +88,7 @@ export default {
     }
     // console.log("room");
     Echo.private("room-info").listen("JoinRoomEvent", (e) => {
-      // console.log("echo");
+      console.log("echo");
       if (this.role[0] == "user" && e.room.user_id == null) {
         this.exitRoom();
       }
