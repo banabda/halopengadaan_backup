@@ -1,13 +1,14 @@
 @extends('layouts.app')
 @section('content')
+@include('components.navbar')
 <div class="back-login">
     <div class="the-row justify-content-center">
-        <div class="col-md-4 login">
+        <div class="col-md-6 login">
             <div class="login-form">    
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     {{-- <div class="avatar"><p>Halo Pengadaan</p></div> --}}
-                    <div class="title d-flex">
+                    <div class="title d-md-flex">
                         <a class="modal-title" href="/">Halopengadaan</a>
                         <h4 class="modal-login ml-auto my-auto">Login Form</h4>
                     </div>
@@ -29,8 +30,8 @@
                             </span>
                             @enderror
                         </div>
-                    <div class="w-100 d-flex">
-                        <div class="btn-div w-25">
+                    <div class="w-100 d-md-flex">
+                        <div class="btn-div">
                             <input type="submit" class="btn btn-submit btn-block btn-lg" value="Login">
                         </div>              
                         <div class="form-group clearfix">

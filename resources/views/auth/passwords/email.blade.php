@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
+@include('components.navbar')
 <div class="back-reset">
     <div class="the-row justify-content-center">
-        <div class="col-md-4 reset">
+        <div class="col-md-6 reset">
             <div class="reset-form">
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
@@ -12,7 +13,7 @@
                 @endif
                 <form method="POST" action="{{ route('password.email') }}">
                     @csrf
-                    <div class="title d-flex">
+                    <div class="title d-md-flex">
                         <a class="modal-title" href="/">Halopengadaan</a>
                         <h4 class="modal-reset ml-auto my-auto">Reset Password</h4>
                     </div>

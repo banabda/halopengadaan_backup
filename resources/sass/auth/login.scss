@@ -18,6 +18,7 @@
                 margin-bottom: 1rem;
             }
             .modal-login {
+                text-align: right;
                 font-size: 0.9rem;
                 color: rgba(107, 107, 107, 0.534);
             }
@@ -45,6 +46,7 @@
             .btn-submit {
                 color: white;
                 font-weight: 600;
+                width: fit-content;
                 letter-spacing: 2px;
                 background: linear-gradient(45deg, #6e376e, #fe7087);
             }
@@ -55,6 +57,47 @@
             }
             .forgot-link {
                 font-size: 1rem;
+            }
+        }
+    }
+}
+@include media-breakpoint-down(xs) {
+    .back-login {
+        .the-row {
+            padding-top: 30px;
+        }
+        .login {
+            .login-form {
+                box-shadow: 0 0 20px rgba(255, 255, 255, 0.664);
+                .title {
+                    text-align: center !important;
+                }
+                .modal-login {
+                    text-align: center;
+                    font-size: 0.9rem;
+                }
+                .modal-title {
+                    font-size: 1.25rem;
+                }
+                .form-control {
+                    padding: 10px;
+                    font-size: 1rem;
+                }
+                .form-group h5 {
+                    font-size: 1rem;
+                }
+                .btn-submit {
+                    margin: auto;
+                    font-size: 1rem;
+                }
+                .form-group.clearfix {
+                    margin: 10px auto;
+                    text-align: center;
+                }
+                .medium {
+                    margin: 10px auto;
+                    text-align: center;
+                }
             }
         }
     }
