@@ -22,7 +22,7 @@ class RegulasiController extends Controller
         if (request()->ajax()) {
             return DataTables()->of($data)
             ->addColumn('link', function($link){
-                return '<a target="_blank" href="'. route('admin.dashboard.regulasi.dokumen', $link->id) .'">Lihat Dokumen</a>';
+                return '<a target="_blank" href="'. route('landing.regulasi.dokumen', $link->id) .'">Lihat Dokumen</a>';
             })
             ->addColumn('action', function($row){
                 $btn = '<a class="btn btn-xs btn-info mr-2 edit-regulasi" href="'. route('regulasi.edit', $row->id) .'" id="'. $row->id .'">
@@ -157,6 +157,7 @@ class RegulasiController extends Controller
     public function menuRegulasi()
     {
         $regulasi = Regulasi::all();
+        // dd($regulasi);
         $data = [
             'regulasi' => $regulasi
         ];

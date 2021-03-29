@@ -68,7 +68,7 @@
                             <img class="avatar avatar-xxl avatar-bordered" src="{{ Storage::url($user->profile->foto) }}" alt="">
                         @endif
                       </a>
-                      <h4 class="mt-3 mb-0"><a class="hover-primary text-white" href="#">Zulkifli Raihan</a></h4>
+                      <h4 class="mt-3 mb-0"><a class="hover-primary text-white" href="#">{{ Auth::user()->name }}</a></h4>
                       {{-- <span><i class="fa fa-map-marker w-20"></i> Miami</span> --}}
                     </div>
 
@@ -159,7 +159,7 @@
                             <div class="form-group row">
                                 <label for="upload_cv" class="col-sm-2 control-label pt-1">Upload CV</label>
                                 <div class="col-sm-10">
-                                    <input type="file" id="upload_cv" name="cv">
+                                    <input type="file" id="upload_cv" name="cv" required>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -191,63 +191,63 @@
                             </div>
                         </form>
                       @else
-                      <form class="form-horizontal form-element col-12 pt-4" action="{{ route('narasumber.dashboard.profile.save') }}" method="POST" enctype="multipart/form-data">
-                        @csrf
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
-                        <div class="form-group row">
-                            <label for="inputName" class="col-sm-2 control-label pt-1">Nama Lengkap</label>
+                        <form class="form-horizontal form-element col-12 pt-4" action="{{ route('narasumber.dashboard.profile.save') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="user_id" value="{{ $user->profileNarasumber->user_id }}">
+                            <div class="form-group row">
+                                <label for="inputName" class="col-sm-2 control-label pt-1">Nama Lengkap</label>
 
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputName" value="{{ Auth::user()->name }}" name="name"  placeholder="Nama Lengkap">
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputName" value="{{ Auth::user()->name }}" name="name"  placeholder="Nama Lengkap">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputEmail" class="col-sm-2 control-label pt-1">Email</label>
+                            <div class="form-group row">
+                                <label for="inputEmail" class="col-sm-2 control-label pt-1">Email</label>
 
-                            <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail" value="{{ Auth::user()->email }}" name="email" placeholder="Email Aktif">
+                                <div class="col-sm-10">
+                                    <input type="email" class="form-control" id="inputEmail" value="{{ Auth::user()->email }}" name="email" placeholder="Email Aktif">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="inputPhone" class="col-sm-2 control-label pt-1">Nomor HP</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="inputPhone" name="no_hp" value="{{ $user->profileNarasumber->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
+                            <div class="form-group row">
+                                <label for="inputPhone" class="col-sm-2 control-label pt-1">Nomor HP</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="inputPhone" name="no_hp" value="{{ $user->profileNarasumber->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="upload_cv" class="col-sm-2 control-label pt-1">Upload CV</label>
-                            <div class="col-sm-10">
-                                <input type="file" id="upload_cv" name="cv">
+                            <div class="form-group row">
+                                <label for="upload_cv" class="col-sm-2 control-label pt-1">Upload CV</label>
+                                <div class="col-sm-10">
+                                    <input type="file" id="upload_cv" name="cv">
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Utama</label>
+                            <div class="form-group row">
+                                <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Utama</label>
 
-                            <div class="col-sm-10">
-                                <textarea name="keahlian_utama" class="form-control editor" rows="8" placeholder="Keahlian Utama">{{ $user->profileNarasumber->keahlian_utama }}</textarea>
+                                <div class="col-sm-10">
+                                    <textarea name="keahlian_utama" class="form-control editor" rows="8" placeholder="Keahlian Utama">{{ $user->profileNarasumber->keahlian_utama }}</textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Pendukung</label>
-                            <div class="col-sm-10">
-                                <textarea name="keahlian_pendukung" class="form-control editor" rows="8" placeholder="Keahlian Pendukung">{{ $user->profileNarasumber->keahlian_pendukung }}</textarea>
+                            <div class="form-group row">
+                                <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Pendukung</label>
+                                <div class="col-sm-10">
+                                    <textarea name="keahlian_pendukung" class="form-control editor" rows="8" placeholder="Keahlian Pendukung">{{ $user->profileNarasumber->keahlian_pendukung }}</textarea>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group row">
-                        <div class="ml-auto col-sm-10">
-                            <div class="checkbox">
-                            <input type="checkbox" id="basic_checkbox_1" checked="">
-                            <label for="basic_checkbox_1"> I agree to the</label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Terms and Conditions</a>
+                            <div class="form-group row">
+                            <div class="ml-auto col-sm-10">
+                                <div class="checkbox">
+                                <input type="checkbox" id="basic_checkbox_1" checked="">
+                                <label for="basic_checkbox_1"> I agree to the</label>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<a href="#">Terms and Conditions</a>
+                                </div>
                             </div>
-                        </div>
-                        </div>
-                        <div class="form-group row">
-                        <div class="ml-auto col-sm-10">
-                            <button type="submit" class="btn btn-rounded btn-success">Submit</button>
-                        </div>
-                        </div>
-                    </form>
+                            </div>
+                            <div class="form-group row">
+                            <div class="ml-auto col-sm-10">
+                                <button type="submit" class="btn btn-rounded btn-success">Submit</button>
+                            </div>
+                            </div>
+                        </form>
                       @endif
 
                   </div>

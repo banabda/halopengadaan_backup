@@ -43,11 +43,11 @@
                         <div class="form-group w-50 p-1">
                             <h5>Password Confirmation</h5>
                             <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                        </div> 
+                        </div>
 
                     </div>
                     <div class="btn-div w-25">
-                    <button class="btn btn-submit btn-block btn-lg" >Register</button>
+                        <button class="btn btn-submit btn-block btn-lg" >Register</button>
                     </div>
                     {{-- <input type="submit" class="btn btn-primary btn-block btn-lg" value="Register"> --}}
                 </form>
@@ -58,50 +58,4 @@
         </div>
     </div>
 </div>
-<script>
-    $('#createNarasumber').on('submit', function (event) {
-        event.preventDefault();
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        $.ajax({
-            url: $(this).attr("action"),
-            method:"POST",
-            data:new FormData(this),
-            dataType:'JSON',
-            contentType: false,
-            cache: false,
-            processData: false,
-            success: function (response) {
-                Swal.fire({
-                    title: response.messages,
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                    }
-                });
-                $('.swal2-confirm').click(function(){
-                    window.location.href = response.route;
-                });
-            },
-            error: function(data) {
-                var dataError = data.responseJSON['errors'].password;
-
-                Swal.fire({
-                    title: dataError,
-                    showClass: {
-                        popup: 'animate__animated animate__fadeInDown'
-                    },
-                    hideClass: {
-                        popup: 'animate__animated animate__fadeOutUp'
-                    }
-                });
-            }
-        });
-    });
-</script>
 @endsection
