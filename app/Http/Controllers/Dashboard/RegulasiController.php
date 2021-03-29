@@ -157,6 +157,7 @@ class RegulasiController extends Controller
     public function menuRegulasi()
     {
         $regulasi = Regulasi::all();
+        // dd($regulasi);
         $data = [
             'regulasi' => $regulasi
         ];
