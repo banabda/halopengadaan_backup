@@ -21,7 +21,7 @@ class NarasumberController extends Controller
     public function saveRegister(Request $request)
     {
         $data = $request->all();
-
+        
         // $this->validate($request,[
         //     'name' => 'required|max:255',
         //     'email' => 'required|string|email|max:255|unique:users',
