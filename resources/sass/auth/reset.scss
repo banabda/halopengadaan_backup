@@ -1,4 +1,4 @@
-.back-login {
+.back-reset {
     background: linear-gradient(45deg, #6e376e, #fe7087);
     height: 100vh;
     .the-row {
@@ -8,16 +8,16 @@
         height: inherit;
         align-content: center;
     }
-    .login {
-        .login-form {
-            box-shadow: 5px 5px 20px 5px rgba(255, 255, 255, 0.664);
+    .reset {
+        .reset-form {
             background-color: white;
             border-radius: 10px;
+            box-shadow: 5px 5px 20px 5px rgba(255, 255, 255, 0.664);
             padding: 1rem 2rem;
             .title {
                 margin-bottom: 1rem;
             }
-            .modal-login {
+            .modal-reset {
                 font-size: 0.9rem;
                 color: rgba(107, 107, 107, 0.534);
             }
@@ -41,20 +41,20 @@
                 -webkit-box-shadow: inset 0 1px 3px 0 rgb(0 0 0 / 8%);
                 border: none;
                 background-color: #fafafa;
+                transition: all 0.2s ease-in-out;
+            }
+            .form-control:hover,
+            .form-control:focus {
+                box-shadow: inset 0 1px 3px 0 rgb(0 0 0 / 60%);
+                -moz-box-shadow: inset 0 1px 3px 0 rgb(0 0 0 / 60%);
+                -webkit-box-shadow: inset 0 1px 3px 0 rgb(0 0 0 / 60%);
             }
             .btn-submit {
                 color: white;
                 font-weight: 600;
-                letter-spacing: 2px;
+                letter-spacing: 1px;
+                width: fit-content;
                 background: linear-gradient(45deg, #6e376e, #fe7087);
-            }
-            .form-group.clearfix {
-                margin: 0;
-                align-self: center;
-                margin-left: auto;
-            }
-            .forgot-link {
-                font-size: 1rem;
             }
         }
     }

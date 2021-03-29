@@ -2,14 +2,14 @@
 @section('content')
 <div class="back-login">
     <div class="the-row justify-content-center">
-        <div class="col-md-8 login">
+        <div class="col-md-4 login">
             <div class="login-form">    
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     {{-- <div class="avatar"><p>Halo Pengadaan</p></div> --}}
-                    <div class="title">
+                    <div class="title d-flex">
                         <a class="modal-title" href="/">Halopengadaan</a>
-                        <h4 class="modal-login">Login Form</h4>
+                        <h4 class="modal-login ml-auto my-auto">Login Form</h4>
                     </div>
                     <div class="form-group">
                         <h5>Email</h5>
@@ -27,25 +27,27 @@
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
-                        @enderror
-                    </div>
-                    {{-- <div class="form-group small clearfix">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                            <label class="form-check-label" for="remember">
-                                {{ __('Remember Me') }}
-                            </label>
+                            @enderror
                         </div>
-                        @if (Route::has('password.request'))
-                            <a class="forgot-link" href="{{ route('password.request') }}">
-                                {{ __('Forgot Your Password?') }}
-                            </a>
-                        @endif
-                    </div> --}}
-                    <div class="btn-div w-25">
-                        <input type="submit" class="btn btn-submit btn-block btn-lg" value="Login">
-                    </div>              
+                    <div class="w-100 d-flex">
+                        <div class="btn-div w-25">
+                            <input type="submit" class="btn btn-submit btn-block btn-lg" value="Login">
+                        </div>              
+                        <div class="form-group clearfix">
+                            {{-- <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+    
+                                <label class="form-check-label" for="remember">
+                                    {{ __('Remember Me') }}
+                                </label>
+                            </div> --}}
+                            @if (Route::has('password.request'))
+                                <a class="forgot-link font-weight-bold" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
+                        </div>
+                    </div>
                 </form>			
                 @if (Route::has('register'))
                 <div class="medium mt-2">Don't have an account? <a href="{{ route('register') }}" class="font-weight-bold">Sign up</a></div>

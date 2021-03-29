@@ -3,14 +3,14 @@
 @section('content')
 <div class="back-register-narasumber">
     <div class="the-row justify-content-center">
-        <div class="col-md-8 register-narasumber">
+        <div class="col-md-4 register-narasumber">
             <div class="register-narasumber-form">
                 <form method="POST" id="createNarasumber" action="{{ route('narasumber.register.save') }}">
                     @csrf
                     {{-- <div class="avatar"><p>Halo Pengadaan</p></div> --}}
-                    <div class="title">
+                    <div class="title d-flex">
                         <a class="modal-title" href="/">Halopengadaan</a>
-                        <h4 class="modal-register-narasumber">Register Form For <b>Narasumber</b></h4>
+                        <h4 class="modal-register-narasumber ml-auto my-auto">Register Form For <b>Narasumber</b></h4>
                     </div>
                     <div class="form-group">
                         <h4>Full Name</h4>

@@ -2,7 +2,7 @@
     <div class="container section-three-content">
         <div class="row justify-content-center">
             <div class="col-md-5 left three-img">
-                <div class="divimage" style="background-image: url({{ asset('images/header.jpg') }})">
+                <div class="divimage" style="background-image: url({{ asset('images/header2.svg') }})">
                     <img src="{{ asset('images/section1/background-img.png') }}" alt="">
                 </div>
             </div>

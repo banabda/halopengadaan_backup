@@ -2,14 +2,14 @@
 @section('content')
 <div class="back-register">
     <div class="the-row justify-content-center">
-        <div class="col-md-8 register">
+        <div class="col-md-4 register">
             <div class="register-form">    
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
                     {{-- <div class="avatar"><p>Halo Pengadaan</p></div> --}}
-                    <div class="title">
+                    <div class="title d-flex">
                         <a class="modal-title" href="/">Halopengadaan</a>
-                        <h4 class="modal-register">Register Form</h4>
+                        <h4 class="modal-register ml-auto my-auto">Register Form</h4>
                     </div>
                     <div class="form-group">
                         <h5>Full Name</h5>
