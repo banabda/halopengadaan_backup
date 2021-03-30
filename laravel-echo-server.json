@@ -1,5 +1,5 @@
 {
-	"authHost": "http://halopengadaan.id",
+	"authHost": "https://halopengadaan.id",
 	"authEndpoint": "/broadcasting/auth",
 	"clients": [
 		{
