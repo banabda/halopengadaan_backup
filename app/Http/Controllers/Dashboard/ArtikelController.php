@@ -169,11 +169,23 @@ class ArtikelController extends Controller
         ]);
     }
 
+    public function menuArtikel()
+    {
+        $artikel = Artikel::paginate(9);
+        $randomArtikel = Artikel::inRandomOrder()->limit(5)->get();
+
+        $data = [
+            'artikel' => $artikel,
+            'randomArtikel' => $randomArtikel
+        ];
+
+        return view('components.section-artikel', $data);
+    }
+
     public function readArtikel(Request $request, $slug)
     {
         $artikel = Artikel::where('slug', $slug)->first();
         $randomArtikel = Artikel::inRandomOrder()->limit(5)->get();
-
 
         $view = new ArtikelViews();
         $view->artikel_id = $artikel->id;

@@ -48,6 +48,10 @@ Route::get('artikel/{slug}', 'Dashboard\ArtikelController@readArtikel')->name('l
 Route::get('regulasi', 'Dashboard\RegulasiController@menuRegulasi')->name('landing.regulasi');
 Route::get('regulasi/{id}', 'Dashboard\RegulasiController@seeDokumen')->name('landing.regulasi.dokumen');
 
+
+// Menu Artikel
+Route::get('artikel', 'Dashboard\ArtikelController@menuArtikel')->name('landing.artikel');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
     // crud halaman metode pembayaran
