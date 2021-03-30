@@ -16,7 +16,7 @@
                                     @include('components.berita-card', ['title'=> $item->judul, 'detail'=> Str::limit(strip_tags($item->desc), 150, ''), 'imgsrc'=> $item->foto, 'slug' => $item->slug])
                                 </div>
                             @endforeach
-                            
+
                         </div>
                     </div>
 
@@ -28,12 +28,13 @@
                         </div>
 
                         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <!-- Right Sidebar Halopengadaan -->
                         <ins class="adsbygoogle"
-                            style="display:block; text-align:center;"
-                            data-ad-layout="in-article"
-                            data-ad-format="fluid"
+                            style="display:block"
                             data-ad-client="ca-pub-6746594015510305"
-                            data-ad-slot="7417722766"></ins>
+                            data-ad-slot="4790228808"
+                            data-ad-format="auto"
+                            data-full-width-responsive="true"></ins>
                         <script>
                             (adsbygoogle = window.adsbygoogle || []).push({});
                         </script>
