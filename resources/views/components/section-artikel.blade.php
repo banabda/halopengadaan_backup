@@ -4,52 +4,55 @@
     @include('components.navbar')
     <div class="container">
         <div class="regulasi">
-            <button class="btn btn-danger mb-2 btn-title">
-               <i class="fa fa-book" aria-hidden="true"></i> &nbsp; Produk Hukum Terbaru
-            </button>
             <div class="row">
-                @foreach ($regulasi as $item)
-                <div class="col-md-6">
-                    <div class="card card-regulasi shadow-lg mt-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="https://jdih.lkpp.go.id/backend/web/uploads/images/surat-edaran.png" class="card-img-top img-regulasi" alt="...">
+                <div class="row">
+                    <div class="col-12 col-md-8">
+                        <div class="row">
+                            @php
+                                $counter = 0;
+                            @endphp
+                            @foreach ($artikel as $item)
+                                <div class="col-md-4 mb-4 p-0">
+                                    @include('components.berita-card', ['title'=> $item->judul, 'detail'=> Str::limit(strip_tags($item->desc), 150, ''), 'imgsrc'=> $item->foto, 'slug' => $item->slug])
                                 </div>
-                                <div class="col-md-8">
-                                    <div class="date-regulasi">
-                                        <i class="fa fa-calendar-alt" aria-hidden="true"></i> {{ Carbon\Carbon::parse($item->created_at)->format('d F Y') }}
-                                    </div>
-                                    <h5 class="title-regulasi mt-3">{{ $item->nama_regulasi }}</h5>
-                                    <a target="_blank" href="{{ route('landing.regulasi.dokumen', $item->id) }}" class="btn btn-secondary btn-sm mt-4">
-                                        <i class="fas fa-download mr-2"></i>Download
-                                    </a>
-                                </div>
+                            @endforeach
+                            
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-4 section-two-artikel">
+                        <div class="how2 how2-c14 flex-s-c">
+                            <h3 class="f1-m-2 cl2 tab01-title">
+                                Artikel
+                            </h3>
+                        </div>
+
+                        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                        <ins class="adsbygoogle"
+                            style="display:block; text-align:center;"
+                            data-ad-layout="in-article"
+                            data-ad-format="fluid"
+                            data-ad-client="ca-pub-6746594015510305"
+                            data-ad-slot="7417722766"></ins>
+                        <script>
+                            (adsbygoogle = window.adsbygoogle || []).push({});
+                        </script>
+                        @foreach ($randomArtikel as $item)
+                        <div class="card artikel-card w-100 shadow-sm" style="border-radius: 15px">
+                        <div class="row">
+                            <div class="col-12 col-md-6 image-div-artikel-terkait">
+                                <img class="image-artikel-terkait" src="{{ Storage::url($item->foto) }}" alt="" srcset="" >
+                            </div>
+                            <div class="col-12 col-md-6 artikel-terkait" >
+                                <a href="{{ route('landing.artikel.show', $item->slug) }}" style="color: inherit; text-decoration:none"><h3 class="font-artikel-terkait"> {{ $item->judul }}</h3></a>
+                                <p class="time-artikel-terkait">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</p>
                             </div>
                         </div>
+                        </div>
+                        <hr>
+                        @endforeach
                     </div>
                 </div>
-                {{-- <div class="col-md-6">
-                    <div class="card card-regulasi shadow-lg mt-3">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <img src="https://jdih.lkpp.go.id/backend/web/uploads/images/surat-edaran.png" class="card-img-top img-regulasi" alt="...">
-                                </div>
-                                <div class="col-md-8">
-                                    <div class="date-regulasi">
-                                        <i class="fa fa-calendar-alt" aria-hidden="true"></i> 15 Maret 2021
-                                    </div>
-                                    <h5 class="title-regulasi mt-3">Surat Edaran Kepala LKPP Nomor 1 Tahun 2021</h5>
-                                    <a href="#" class="btn btn-secondary btn-sm mt-4">
-                                        <i class="fas fa-download mr-2"></i>Download
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
-                @endforeach
             </div>
         </div>
     </div>

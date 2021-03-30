@@ -1,7 +1,5 @@
 
-<div class="card m-2 h-100 shadow-lg" style="
-border-radius:20px;
-">
+<div class="card m-2 h-100 shadow-lg" style="border-radius:20px;">
     <div class="card-body" style="padding: 0;">
         <div class="mx-auto imgdiv">
             <img src="{{ Storage::url($imgsrc) }}" alt="" srcset="" style="
