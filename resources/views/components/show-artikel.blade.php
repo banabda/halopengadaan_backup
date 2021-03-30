@@ -38,6 +38,17 @@
                         Artikel
                     </h3>
                 </div>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Right Sidebar Halopengadaan -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-6746594015510305"
+                    data-ad-slot="4790228808"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
                 {{-- <div class="card">
                     <div class="card-body">
                         <h3 >Artikel Terkait</h3>
