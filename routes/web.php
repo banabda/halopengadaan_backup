@@ -48,6 +48,8 @@ Route::get('artikel/{slug}', 'Dashboard\ArtikelController@readArtikel')->name('l
 Route::get('regulasi', 'Dashboard\RegulasiController@menuRegulasi')->name('landing.regulasi');
 Route::get('regulasi/{id}', 'Dashboard\RegulasiController@seeDokumen')->name('landing.regulasi.dokumen');
 
+// FAQ
+Route::get('faq', 'Dashboard\FaqController@menuFaq')->name('landing.faq');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
