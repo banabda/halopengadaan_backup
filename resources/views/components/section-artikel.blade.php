@@ -8,9 +8,6 @@
                 <div class="row">
                     <div class="col-12 col-md-8">
                         <div class="row">
-                            @php
-                                $counter = 0;
-                            @endphp
                             @foreach ($artikel as $item)
                                 <div class="col-md-4 mb-4 p-0">
                                     @include('components.berita-card', ['title'=> $item->judul, 'detail'=> Str::limit(strip_tags($item->desc), 150, ''), 'imgsrc'=> $item->foto, 'slug' => $item->slug])

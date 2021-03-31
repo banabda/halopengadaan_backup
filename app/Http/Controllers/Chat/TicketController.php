@@ -33,6 +33,9 @@ class TicketController extends Controller
         $user_id = $room->user_id;
         $user_has_paket = UserhasPaket::where('user_id', $user_id)->first();
         $user_has_paket->saldo -= 1;
+        if ($user_has_paket->saldo == 0) {
+            $user_has_paket->status = 'Tidak Aktif';
+        }
         $user_has_paket->save();
 
 
