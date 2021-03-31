@@ -31,6 +31,18 @@
                       </div>
                     </div>
                 </div>
+                <br>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Bottom Page Halopengadaan -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-6746594015510305"
+                    data-ad-slot="1073333318"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
             <div class="col-12 col-md-4 section-two-artikel">
                 <div class="how2 how2-c14 flex-s-c">
@@ -38,6 +50,17 @@
                         Artikel
                     </h3>
                 </div>
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <!-- Right Sidebar Halopengadaan -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-6746594015510305"
+                    data-ad-slot="4790228808"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
                 {{-- <div class="card">
                     <div class="card-body">
                         <h3 >Artikel Terkait</h3>
@@ -50,7 +73,7 @@
                         <img class="image-artikel-terkait" src="{{ Storage::url($item->foto) }}" alt="" srcset="" >
                     </div>
                     <div class="col-12 col-md-6 artikel-terkait" >
-                        <h3 class="font-artikel-terkait"> {{ $item->judul }}</h3>
+                        <a href="{{ route('landing.artikel.show', $item->slug) }}" style="color: inherit; text-decoration:none"><h3 class="font-artikel-terkait"> {{ $item->judul }}</h3></a>
                         <p class="time-artikel-terkait">{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</p>
                     </div>
                 </div>
@@ -62,6 +85,4 @@
 
     </div>
 </div>
-
-
 @endsection

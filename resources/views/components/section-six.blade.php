@@ -13,10 +13,10 @@
                         @include('components.membership-card', ['title'=>'30 Menit / Sesi', 'harga'=>'50.000,- / Sesi', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga'], 'id' => 1])
                     </div> --}}
                     <div class="col-md-4 col-jenis six-btn-2 my-3 my-md-0">
-                        @include('components.membership-card', ['title'=>'Konsultasi Via Chat', 'harga'=>'250.000', 'waktu'=>' / Bulan', 'point' => ['5 kali kesempatan konsultasi','Bonus 2 kali kesempatan konsultasi','Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga'], 'id' => 2])
+                        @include('components.membership-card', ['title'=>'Konsultasi Via Chat', 'harga'=>'250.000', 'waktu'=>' / Bulan', 'point' => ['5 kali kesempatan konsultasi','Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga'], 'id' => 2])
                     </div>
                     <div class="col-md-4 col-jenis six-btn-3">
-                        @include('components.membership-card', ['title'=>'Konsultasi Via zoom', 'harga'=>'1.500.000', 'waktu'=>' / 1 Jam', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga', 'Konsultasi via Zoom'], 'id' => 3])
+                        @include('components.membership-card', ['title'=>'Konsultasi Privat Via zoom', 'harga'=>'1.500.000', 'waktu'=>' / 1 Jam', 'point' => ['Ditangani para ahli','Sumber jawaban terkelola','Fast response','Identitas terjaga', 'Konsultasi privat via Zoom'], 'id' => 3])
                     </div>
                 </div>
             </div>

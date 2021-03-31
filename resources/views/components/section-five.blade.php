@@ -7,7 +7,7 @@
                 </h1>
                 <div class="row justify-content-center mb-md-4">
                     <div class="col-md-4 text-center mb-3 five-btn-1">
-                        @include('components.section-five-card', ['big'=> false,'title'=>'Konsultasi Online', 'detail'=>'Rp250.000,- /bulan', 'imgsrc' => asset('images/section5/image2.png'), 'point' => []])
+                        @include('components.section-five-card', ['big'=> false,'title'=>'Konsultasi Online', 'detail'=>'Rp250.000,- / Bulan', 'imgsrc' => asset('images/section5/image2.png'), 'point' => []])
                     </div>
                     <div class="col-md-4 text-center mb-3 five-btn-2">
                         @include('components.section-five-card', ['big'=> false,'title'=>'Konsultasi Langsung via Zoom', 'detail'=>'Rp1.500.000,- / 1 jam', 'imgsrc' => asset('images/section5/image3.png'), 'point' => []])

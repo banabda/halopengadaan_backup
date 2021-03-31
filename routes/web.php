@@ -49,7 +49,10 @@ Route::get('regulasi', 'Dashboard\RegulasiController@menuRegulasi')->name('landi
 Route::get('regulasi/{id}', 'Dashboard\RegulasiController@seeDokumen')->name('landing.regulasi.dokumen');
 
 // FAQ
-Route::get('faq', 'Dashboard\FaqController@menuFaq')->name('landing.faq');
+Route::get('faq', 'Dashboard\FaqController@index')->name('landing.faq');
+
+// Menu Artikel
+Route::get('artikel', 'Dashboard\ArtikelController@menuArtikel')->name('landing.artikel');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
 {
@@ -88,6 +91,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
 
     // Data Profile Narasumber
     Route::get('narasumber/profile', 'Dashboard\HomeController@dataNarasumberProfile')->name('admin.dashboard.narasumber.profile');
+    Route::post('narasumber/profile/{id}', 'Dashboard\HomeController@detailDataNarasumberProfile')->name('admin.dashboard.narasumber.profile.detail');
+    Route::get('narasumber/profile/cv/{id}', 'Dashboard\HomeController@cvDataNarasumberProfile')->name('admin.dashboard.narasumber.profile.cv');
+    Route::post('narasumber/profile/verify/{id}', 'Dashboard\HomeController@verifyDataNarasumberProfile')->name('admin.dashboard.narasumber.profile.verify');
 
     // Data Paket Zoom
     Route::get('message/zoom', 'Dashboard\HomeController@dataPaketZoom')->name('admin.dashboard.zoom');

@@ -2,10 +2,10 @@
 
 @section('content')
 @include('components.navbar')
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 form-style">
-            <div class="login-form">
+<div class="back-reset">
+    <div class="the-row justify-content-center">
+        <div class="col-md-6 reset">
+            <div class="reset-form">
                 @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
@@ -13,7 +13,10 @@
                 @endif
                 <form method="POST" action="{{ route('password.email') }}">
                     @csrf
-                    <h4 class="modal-title">Reset Password</h4>
+                    <div class="title d-md-flex">
+                        <a class="modal-title" href="/">Halopengadaan</a>
+                        <h4 class="modal-reset ml-auto my-auto">Reset Password</h4>
+                    </div>
                     <div class="form-group">
                         <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="Email">
                         @error('email')
@@ -22,7 +25,10 @@
                             </span>
                         @enderror
                     </div>
-                    <input type="submit" class="btn btn-primary btn-block btn-lg" value="Reset Password">
+                    {{-- <input type="submit" class="btn btn-primary btn-block btn-lg" value="Reset Password"> --}}
+                    <div class="btn-div mt-5">
+                        <button class="btn btn-submit btn-block btn-lg" >Reset Password</button>
+                    </div>
                 </form>
             </div>
         </div>

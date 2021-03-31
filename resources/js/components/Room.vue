@@ -26,7 +26,13 @@
           id="chatbox"
         ></ChatBox>
       </div>
-      <RoomAll v-else :role="role" :rooms="rooms" @chat="startChat"></RoomAll>
+      <RoomAll
+        v-else
+        :role="role"
+        :rooms="rooms"
+        @back="back"
+        @chat="startChat"
+      ></RoomAll>
     </div>
   </div>
 </template>

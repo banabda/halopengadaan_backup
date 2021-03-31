@@ -28,7 +28,7 @@
                         <a class="nav-link" href="{{ route('landing.regulasi') }}">{{ __('Regulasi') }}</a>
                     </li>
                     <li class="nav-item mx-2">
-                        <a class="nav-link" role="button" id="section-three-nav">{{ __('Profil Praktisi Pengadaan') }}</a>
+                        <a class="nav-link" role="button" id="section-three-nav">{{ __('Profil') }}</a>
                     </li>
                     <li class="nav-item mx-2">
                         <a class="nav-link" href="{{ route('landing.faq') }}">{{ __('FAQ') }}</a>
@@ -78,7 +78,13 @@
                                     <a class="dropdown-item" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 @endif
                             @else
-                                <a class="dropdown-item" href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
+                                @role('user')
+                                    <a class="dropdown-item" href="{{ route('profile') }}">{{ Auth::user()->name }}</a>
+                                @elserole('narasumber')
+                                    <a class="dropdown-item" href="{{ route('narasumber.dashboard.profile') }}">{{ Auth::user()->name }}</a>
+                                @elserole('super admin')
+                                    <a class="dropdown-item" href="{{ route('dashboard.index') }}">Dashboard</a>
+                                @endrole
                             @endguest
                         </div>
                     </li>
@@ -87,8 +93,8 @@
                             {{ __('Layanan') }}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownLayanan">
-                            <a class="dropdown-item" href="https://lpkn.id/">{{ __('Pelatihan Pengadaan') }}</a>
-                            <a class="dropdown-item" href="https://kelassmart.com/">{{ __('Buku Pengadaan') }}</a>
+                            <a class="dropdown-item" target="_blank" href="https://lpkn.id/">{{ __('Pelatihan Pengadaan') }}</a>
+                            <a class="dropdown-item" target="_blank" href="https://lpkn.id/landing/layanan/3">{{ __('Buku Pengadaan') }}</a>
                         </div>
                     </li>
             </ul>

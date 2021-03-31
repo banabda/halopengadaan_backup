@@ -1,13 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
-@include('components.navbar')
 <style>
 
 </style>
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8 form-style">
+<div class="back-login">
+    <div class="the-row justify-content-center">
+        <div class="col-md-8 login">
             <div class="login-form">
                 <form method="POST" action="{{ route('password.update') }}">
                     @csrf
@@ -32,7 +31,7 @@
                     <div class="form-group">
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="current-password" placeholder="Password">
                     </div>
-                    <input type="submit" class="btn btn-primary btn-block btn-lg" value="Reset Password">
+                    <input type="submit" class="btn btn-submit btn-block btn-lg" value="Reset Password">
                 </form>
             </div>
         </div>

@@ -25,11 +25,18 @@
                     </a>
                 </li>
 
-                <li>
-                    <a href="{{ route('admin.dashboard.narasumber') }}">
+                <li class="treeview">
+                    <a href="#">
                         <i data-feather="server"></i>
-                        <span>Data Narasumber</span>
+                        <span>Narasumber</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-right pull-right"></i>
+                        </span>
                     </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{ route('admin.dashboard.narasumber') }}"><i class="ti-more"></i>User Narasumber</a></li>
+                        <li><a href="{{ route('admin.dashboard.narasumber.profile') }}"><i class="ti-more"></i>Profile Narasumber</a></li>
+                    </ul>
                 </li>
                 <li>
                     <a href="{{ route('admin.dashboard.invoice') }}">
