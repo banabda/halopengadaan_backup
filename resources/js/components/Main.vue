@@ -25,11 +25,27 @@ export default {
   },
   data() {
     return {
+      onlineNarasumber: [],
       bidang: null,
     };
   },
   mounted() {
-    // console.log("Component mounted.");
+    console.log("Component mounted.");
+    Echo.join("onlineuser")
+      .here((users) => {
+        users.forEach((usr) => {
+          if (usr.role === "narasumber") {
+            this.onlineNarasumber.push(usr);
+          }
+        });
+        console.log("here", users);
+      })
+      .joining((user) => {
+        console.log("joining", user);
+      })
+      .leaving((user) => {
+        console.log("leaving", user);
+      });
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
       this.bidang = JSON.parse(localStorage.getItem("room")).bidang_code;
     }

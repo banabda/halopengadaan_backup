@@ -25,3 +25,6 @@ Broadcast::channel('room.{id}', function ($user, $id) {
 Broadcast::channel('room-info', function ($user) {
     return true;
 });
+Broadcast::channel('onlineuser', function ($user) {
+    return ['id' => $user->id, 'name' => $user->name, "role" => $user->roles->pluck('name')[0]];
+});

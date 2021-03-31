@@ -2382,11 +2382,27 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
+      onlineNarasumber: [],
       bidang: null
     };
   },
   mounted: function mounted() {
-    // console.log("Component mounted.");
+    var _this = this;
+
+    console.log("Component mounted.");
+    Echo.join("onlineuser").here(function (users) {
+      users.forEach(function (usr) {
+        if (usr.role === "narasumber") {
+          _this.onlineNarasumber.push(usr);
+        }
+      });
+      console.log("here", users);
+    }).joining(function (user) {
+      console.log("joining", user);
+    }).leaving(function (user) {
+      console.log("leaving", user);
+    });
+
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
       this.bidang = JSON.parse(localStorage.getItem("room")).bidang_code;
     }
