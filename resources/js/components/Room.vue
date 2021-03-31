@@ -248,6 +248,8 @@ export default {
             this.audio.play();
           }
         }
+        this.$loading(false);
+
         this.handleNewMessage(e.message);
       });
     },

@@ -36,10 +36,17 @@
       <div class="filebtn d-flex mt-3">
         <button
           v-if="localUploadedFile"
-          class="btn btn-danger"
+          class="btn btn-danger mr-3"
           @click="removeFile"
         >
           remove
+        </button>
+        <button
+          v-if="localUploadedFile"
+          class="btn btn-success"
+          @click="sendFile"
+        >
+          Send
         </button>
       </div>
     </div>
@@ -104,12 +111,14 @@ export default {
           });
         });
     },
+    sendFile() {
+      this.$loading(true);
+      this.$emit("file", this.localUploadedFile);
+    },
     chooseFile() {
       // console.log("onclick");
     },
-    setUrl() {
-      this.$emit("file", this.localUploadedFile);
-    },
+    setUrl() {},
   },
   watch: {
     uploadedFile(uploadedFile) {

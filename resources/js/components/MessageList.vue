@@ -18,7 +18,8 @@
         >
           <div class="chat">
             <img
-              class="mx-auto mb-4"
+              class="mx-auto"
+              :class="message.text !== null ? 'mb-4' : 'mb-2'"
               width="250px"
               v-if="message.type.includes('image')"
               :src="message.path"
@@ -26,12 +27,13 @@
               @click="showImg(message.path)"
             />
             <button
-              class="btn btn-file mb-4"
+              class="btn btn-file"
+              :class="message.text !== null ? 'mb-4' : 'mb-2'"
               v-else-if="message.file_name != null"
             >
               {{ message.file_name }}
             </button>
-            <div class="text" v-html="message.text"></div>
+            <div class="text" v-if="message.text" v-html="message.text"></div>
             <span class="message-time">{{
               new Date(message.created_at).toLocaleTimeString("id", {
                 hour: "2-digit",
