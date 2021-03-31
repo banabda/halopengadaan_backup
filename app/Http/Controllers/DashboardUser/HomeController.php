@@ -362,6 +362,10 @@ class HomeController extends Controller
             'status' => 'Pesan Terkirim'
         ];
 
+        $userhaspaket = UserhasPaket::where('user_id', $request->user_id)->first();
+        $userhaspaket->status = 'Tidak Aktif';
+        $userhaspaket->save();
+
         $message = Message::create($data);
         return redirect()->route('user.dashboard.konsultasi');
     }

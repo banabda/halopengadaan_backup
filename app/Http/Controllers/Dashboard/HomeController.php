@@ -268,7 +268,7 @@ class HomeController extends Controller
     public function dataPaketZoom()
     {
         $data = Message::with('user.profile')->get();
-        // dd($data);
+        
         if (request()->ajax()) {
             return DataTables()->of($data)
             ->addColumn('nama_lengkap', function($name){
