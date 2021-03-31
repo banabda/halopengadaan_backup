@@ -248,12 +248,6 @@ class HomeController extends Controller
             return redirect()->route('profile');
         } else {
 
-
-            // $data = Invoice::with('user')->where([
-            //     ['user_id', Auth::user()->id],
-            //     ['status', 'Menunggu Pembayaran']
-            // ])->orWhere('status', 'Telah Terbayar')->get();
-
             $data = Invoice::with('user')->where('user_id', Auth::user()->id)->wherein('status', ['Menunggu Pembayaran',
                     'Telah Terbayar'])->get();
 
@@ -367,6 +361,10 @@ class HomeController extends Controller
             'message' => $request->message,
             'status' => 'Pesan Terkirim'
         ];
+
+        $userhaspaket = UserhasPaket::where('user_id', $request->user_id)->first();
+        $userhaspaket->status = 'Tidak Aktif';
+        $userhaspaket->save();
 
         $message = Message::create($data);
         return redirect()->route('user.dashboard.konsultasi');

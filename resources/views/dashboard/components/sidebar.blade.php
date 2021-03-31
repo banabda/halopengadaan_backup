@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('metodepembayaran') }}">
+                    <a href="{{ route('admin.dashboard.zoom') }}">
                         <i data-feather="video"></i>
                         <span>Paket Zoom</span>
                     </a>

@@ -1,5 +1,5 @@
 {
-    "authHost": "http://127.0.0.1:8000",
+    "authHost": "https://halopengadaan.id",
     "authEndpoint": "/broadcasting/auth",
     "clients": [
         {
@@ -21,7 +21,7 @@
     },
     "devMode": true,
     "host": null,
-    "port": "6001",
+    "port": "6068",
     "protocol": "http",
     "socketio": {},
     "secureOptions": 67108864,

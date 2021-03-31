@@ -30,6 +30,9 @@
                     <li class="nav-item mx-2">
                         <a class="nav-link" role="button" id="section-three-nav">{{ __('Profil') }}</a>
                     </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="{{ route('landing.faq') }}">{{ __('FAQ') }}</a>
+                 </li>
                     {{-- <li class="nav-item mx-2 dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMembership" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ __('Membership') }}

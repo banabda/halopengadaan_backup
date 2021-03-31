@@ -86,8 +86,8 @@ class HomeController extends Controller
             $expired_at = Carbon::now()->addDays(30)->toDateTimeString();
             $saldo = 1;
         } elseif ($data->paket == "2") {
-            $expired_at = Carbon::now()->addDays(60)->toDateTimeString();
-            $saldo = 2;
+            $expired_at = Carbon::now()->addDays(30)->toDateTimeString();
+            $saldo = 5 ;
         } elseif($data->paket == "3") {
             // $date_zoom = $data->date_zoom;
 
@@ -268,7 +268,7 @@ class HomeController extends Controller
     public function dataPaketZoom()
     {
         $data = Message::with('user.profile')->get();
-        // dd($data);
+        
         if (request()->ajax()) {
             return DataTables()->of($data)
             ->addColumn('nama_lengkap', function($name){
