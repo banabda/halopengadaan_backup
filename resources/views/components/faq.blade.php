@@ -11,7 +11,8 @@
 <h2 style="text-align: center">Frequently Asked Questions (FAQ)</h2>
 <h3 style="text-align: center">Halopengadaan</h3>
 <br><br>
-<div class="accordion" id="accordionExample">
+
+<div class="accordion container" id="accordionExample">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingOne">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -68,7 +69,6 @@
         <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
           <div class="accordion-body">
               <h6><strong>Tansfer Bank</strong></h6>
-              <p> - Anda dapat menggunakan metode pembayaran transfer manual caranya:</p>
             <ul>
                 <li>Klik daftar konsultasi</li>
                 <li>Isi data diri</li>
@@ -83,19 +83,40 @@
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingFive">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-              5. Bagaimana cara menjadi membership halo pengadaan?
+              5. Bagaimana cara membeli paket di halo pengadaan?
           </button>
         </h2>
         <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
           <div class="accordion-body">
               <ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
+                  <li>Klik Registrasi dan lakukan registrasi terlebih dahulu</li>
+                  <li>Lengkapi data profil</li>
+                  <li>Klik Daftar konsultasi</li>
+                  <li>Lakukan pemilihan paket sesuai yang diinginkan</li>
+                  <li>Lakukan pemilihan pembayaran dan klik save</li>
+                  <li>Lakukan pembayaran dan konfirmasi pembayaran</li>
+                  <li>Anda mendapat informasi bahwa bukti pembayaran berhasil diterima</li>
               </ul>
           </div>
         </div>
       </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingSix">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+              6. Konsultasi apa saja yang bisa saya lakukan di halo pengadaan?
+          </button>
+        </h2>
+        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+          <div class="accordion-body">
+              <p>konsultasi yang tersedia di halopengadaan yaitu :</p>
+              <ul>
+                  <li>Konsultasi via chat</li>
+                  <li>Konsultasi privat via zoom</li>
+              </ul>
+          </div>
+        </div>
+      </div>
+      <br><br>
   </div>
 @endsection
 
