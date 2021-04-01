@@ -67,4 +67,14 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\Models\NarasumberProfile', 'user_id', 'id');
     }
+
+    public function keahlianUtama()
+    {
+        return $this->hasMany('App\Models\NarasumberProfile\KeahlianUtama', 'user_id', 'id');
+    }
+
+    public function keahlianPendukung()
+    {
+        return $this->hasMany('App\Models\NarasumberProfile\KeahlianPendukung', 'user_id', 'id');
+    }
 }
