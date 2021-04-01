@@ -5,6 +5,8 @@ namespace App\Http\Controllers\DashboardNarasumber;
 use App\Http\Controllers\Controller;
 use App\Models\Bidang;
 use App\Models\NarasumberProfile;
+use App\Models\NarasumberProfile\KeahlianUPendukung;
+use App\Models\NarasumberProfile\KeahlianUtama;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -73,21 +75,37 @@ class NarasumberController extends Controller
 
     public function saveProfile(Request $request)
     {
+        // dd($request->all());
         $data = [
             'user_id' => $request->user_id,
             'name' => $request->name,
             'email' => $request->email,
             'no_hp' => $request->no_hp,
             'cv' => $request->cv,
-            'keahlian_utama' => $request->keahlian_utama,
-            'keahlian_pendukung' => $request->keahlian_pendukung,
             'status' => 'Belum Terverifikasi'
         ];
         // dd($data);
         $profile = NarasumberProfile::with('user')->where('user_id', Auth::user()->id)->first();
 
         if (is_null($profile)) {
-            // dd('Profile Kosong');
+            foreach ($request->keahlian_utama as $key => $value) {
+                $dataKeahlianUtama = [
+                    'user_id' => $request->user_id,
+                    'bidang_id' => $value
+                ];
+
+                KeahlianUtama::create($dataKeahlianUtama);
+            }
+
+            foreach ($request->keahlian_pendukung as $key => $value) {
+                $dataKeahlianPendukung = [
+                    'user_id' => $request->user_id,
+                    'bidang_id' => $value
+                ];
+
+                KeahlianUPendukung::create($dataKeahlianPendukung);
+            }
+
             $user = Auth::user()->id;
             $file = $request->file('cv');
             $path = 'dokumen/narasumber/cv/' . $user ;
@@ -101,8 +119,9 @@ class NarasumberController extends Controller
             $createProfile = NarasumberProfile::create($data);
 
         } else {
-            // dd('Profile Update');
-
+            $keahlian_utama = KeahlianUtama::where('user_id', $request->user_id)->get();
+            $keahlian_pendukung = KeahlianUPendukung::where('user_id', $request->user_id)->get();
+            dd($keahlian_utama, $keahlian_pendukung);
             // Jika Request CV Tidak Null
             if ($request->cv != null) {
                 Storage::disk('public')->delete([

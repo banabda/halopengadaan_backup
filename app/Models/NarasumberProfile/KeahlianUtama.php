@@ -11,6 +11,6 @@ class KeahlianUtama extends Model
     protected $table = 'narasumber_profile_keahlian_utama';
     protected $fillable = [
         'user_id',
-        'barang_id'
+        'bidang_id'
     ];
 }

@@ -16,8 +16,6 @@ class NarasumberProfile extends Model
         'email',
         'no_hp',
         'cv',
-        'keahlian_utama',
-        'keahlian_pendukung',
         'foto',
         'status'
     ];

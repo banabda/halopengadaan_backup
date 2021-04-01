@@ -11,6 +11,6 @@ class KeahlianUPendukung extends Model
     protected $table = 'narasumber_profile_keahlian_pendukung';
     protected $fillable = [
         'user_id',
-        'barang_id'
+        'bidang_id'
     ];
 }
