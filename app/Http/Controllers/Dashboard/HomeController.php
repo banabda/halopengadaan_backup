@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use App\Models\Message;
 use App\Models\NarasumberProfile;
+use App\Models\NarasumberProfile\KeahlianPendukung;
 use App\Models\NarasumberProfile\KeahlianUPendukung;
 use App\Models\NarasumberProfile\KeahlianUtama;
 use App\Models\Profile;
@@ -244,7 +245,7 @@ class HomeController extends Controller
     {
         $profile = NarasumberProfile::where('user_id', $id)->first();
         $keahlian_utama = KeahlianUtama::where('user_id', $id)->get();
-        $keahlian_pendukung = KeahlianUPendukung::where('user_id', $id)->get();
+        $keahlian_pendukung = KeahlianPendukung::where('user_id', $id)->get();
 
         $data = [
             'profile' => $profile,

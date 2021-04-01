@@ -5,7 +5,7 @@ namespace App\Http\Controllers\DashboardNarasumber;
 use App\Http\Controllers\Controller;
 use App\Models\Bidang;
 use App\Models\NarasumberProfile;
-use App\Models\NarasumberProfile\KeahlianUPendukung;
+use App\Models\NarasumberProfile\KeahlianPendukung;
 use App\Models\NarasumberProfile\KeahlianUtama;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -64,7 +64,7 @@ class NarasumberController extends Controller
         $user = User::with('profileNarasumber')->where('id', Auth::user()->id)->first();
         $bidang = Bidang::all();
         $keahlian_utama = KeahlianUtama::where('user_id', Auth::user()->id)->get();
-        $keahlian_pendukung = KeahlianUPendukung::where('user_id', Auth::user()->id)->get();
+        $keahlian_pendukung = KeahlianPendukung::where('user_id', Auth::user()->id)->get();
         // dd($keahlian_utama, $keahlian_pendukung);
 
         $data = [
@@ -107,7 +107,7 @@ class NarasumberController extends Controller
                     'bidang_id' => $value
                 ];
 
-                KeahlianUPendukung::create($dataKeahlianPendukung);
+                KeahlianPendukung::create($dataKeahlianPendukung);
             }
 
             $user = Auth::user()->id;
@@ -124,7 +124,7 @@ class NarasumberController extends Controller
 
         } else {
             $keahlian_utama = KeahlianUtama::where('user_id', $request->user_id)->delete();
-            $keahlian_pendukung = KeahlianUPendukung::where('user_id', $request->user_id)->delete();
+            $keahlian_pendukung = KeahlianPendukung::where('user_id', $request->user_id)->delete();
 
             foreach ($request->keahlian_utama as $key => $value) {
                 $dataKeahlianUtama = [
@@ -141,7 +141,7 @@ class NarasumberController extends Controller
                     'bidang_id' => $value
                 ];
 
-                KeahlianUPendukung::create($dataKeahlianPendukung);
+                KeahlianPendukung::create($dataKeahlianPendukung);
             }
 
             // Jika Request CV Tidak Null

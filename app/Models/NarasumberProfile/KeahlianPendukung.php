@@ -5,7 +5,7 @@ namespace App\Models\NarasumberProfile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class KeahlianUPendukung extends Model
+class KeahlianPendukung extends Model
 {
     use HasFactory;
     protected $table = 'narasumber_profile_keahlian_pendukung';
