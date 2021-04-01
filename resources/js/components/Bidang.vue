@@ -8,10 +8,10 @@
             <img
               :src="'/images/bidang/bidang' + (index + 1) + '.svg'"
               class="card-img-top"
-              :alt="bdng"
+              :alt="bdng.name"
             />
             <div class="card-body body-bidang">
-              <h5 class="card-title mb-3">{{ bdng }}</h5>
+              <h5 class="card-title mb-3">{{ bdng.name }}</h5>
               <button class="btn button-bidang" @click="selectBidang(index)">
                 Pilih
               </button>
@@ -24,24 +24,32 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      bidangList: [
-        "barang",
-        "jasa konstruksi",
-        "konsultasi non konstruksi",
-        "swakelola",
-        "jasa lainnya",
-        "perencanaan",
-        "pemilihan",
-        "pelaksanaan kontrak",
-      ],
-    };
+  props: {
+    bidangList: { type: Array, require: true },
   },
+  // data() {
+  //   return {
+  //     bidangList: [
+  //       "barang",
+  //       "jasa konstruksi",
+  //       "konsultasi non konstruksi",
+  //       "swakelola",
+  //       "jasa lainnya",
+  //       "perencanaan",
+  //       "pemilihan",
+  //       "pelaksanaan kontrak",
+  //     ],
+  //   };
+  // },
   mounted() {},
   methods: {
     selectBidang(index) {
       this.$emit("selectedBidang", index);
+    },
+  },
+  watch: {
+    bidangList(bidangList) {
+      this.bidangList = bidangList;
     },
   },
 };
