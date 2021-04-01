@@ -17,6 +17,13 @@
         float:left;
         width: 80%;
     }
+    .keahlian_utama{
+        border-top: 2px solid
+    }
+
+    .keahlian_pendukung{
+        border-top: 2px solid
+    }
 
 </style>
 <!-- Content Wrapper. Contains page content -->
@@ -130,7 +137,7 @@
 
                 </div>
             </div>
-            <div class="cv">
+            <div class="cv mt-2">
               <p>CV : </p>
               <div class="content-cv">
 
@@ -198,29 +205,36 @@
                 $(".content-keahlian_utama").html("");
                 $(".content-keahlian_pendukung").html("");
                 $(".content-cv").html("");
-                $(".name span").text(data.name);
-                $(".email span").text(data.email);
-                $(".no_hp span").text(data.no_hp);
+                $(".name span").text(data.profile.name);
+                $(".email span").text(data.profile.email);
+                $(".no_hp span").text(data.profile.no_hp);
 
                 $.each(data.keahlian_utama, function (index, value) {
+                    // console.log(value.bidang[0].name);
                     $(".content-keahlian_utama").append(
                         `
                         <ul style="list-style-type: -">
-                            <li>`+ value.bidang_id.name +`</li>
-                            <li>Tea</li>
-                            <li>Milk</li>
+                            <li>`+ value.bidang[0].name +`</li>
                         </ul>
 
                         `
                     );
-                    console.log(value.bidang_id.name);
+
                 });
-                $(".content-keahlian_utama").append(
-                    data.keahlian_utama
-                );
-                $(".content-keahlian_pendukung").append(
-                    data.keahlian_pendukung
-                );
+
+                $.each(data.keahlian_pendukung, function (index, value) {
+                    // console.log(value.bidang[0].name);
+                    $(".content-keahlian_pendukung").append(
+                        `
+                        <ul style="list-style-type: -">
+                            <li>`+ value.bidang[0].name +`</li>
+                        </ul>
+
+                        `
+                    );
+
+                });
+
                 $(".content-cv").append(
                     `
                     <a target="_target" href="{{ url('admin/narasumber/profile/cv/') }}/` + data.id +`"><button class="btn btn-sm btn-info download-cv" id="`+ data.id +`">Download</button></a>
