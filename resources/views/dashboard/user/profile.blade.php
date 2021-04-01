@@ -217,7 +217,6 @@
                             </div>
                             <div class="form-group row">
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Jenis Kerja</label>
-
                                 <div class="col-sm-10">
                                 <select name="jenis_kerja" id="jenis_kerja" class="form-control" required>
                                     <option>Jenis Kerja</option>
