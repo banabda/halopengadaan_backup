@@ -192,6 +192,8 @@
             url: "{{url('admin/narasumber/profile')}}/" + id_profileNarasumber,
             success:function(data)
             {
+                console.log(data);
+                console.log(data.keahlian_utama)
                 $(".modal-body div span").text("");
                 $(".content-keahlian_utama").html("");
                 $(".content-keahlian_pendukung").html("");
@@ -199,6 +201,13 @@
                 $(".name span").text(data.name);
                 $(".email span").text(data.email);
                 $(".no_hp span").text(data.no_hp);
+
+                $.each(data.keahlian_utama, function (index, value) {
+                    $(".content-keahlian_utama").append(
+                    data.keahlian_utama
+                );
+                    console.log(value);
+                });
                 $(".content-keahlian_utama").append(
                     data.keahlian_utama
                 );

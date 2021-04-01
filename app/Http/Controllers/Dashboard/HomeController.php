@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use App\Models\Message;
 use App\Models\NarasumberProfile;
+use App\Models\NarasumberProfile\KeahlianUPendukung;
+use App\Models\NarasumberProfile\KeahlianUtama;
 use App\Models\Profile;
 use App\Models\User;
 use App\Models\UserhasPaket;
@@ -193,7 +195,7 @@ class HomeController extends Controller
                 $role->where('name', 'narasumber');
             }
         );
-        // dd($data);
+
         if (request()->ajax()) {
             return DataTables()->of($data)
             ->addIndexColumn()
@@ -240,7 +242,15 @@ class HomeController extends Controller
 
     public function detailDataNarasumberProfile($id)
     {
-        $data = NarasumberProfile::where('user_id', $id)->first();
+        $profile = NarasumberProfile::where('user_id', $id)->first();
+        $keahlian_utama = KeahlianUtama::where('user_id', $id)->get();
+        $keahlian_pendukung = KeahlianUPendukung::where('user_id', $id)->get();
+
+        $data = [
+            'profile' => $profile,
+            'keahlian_utama' => $keahlian_utama,
+            'keahlian_pendukung' => $keahlian_pendukung,
+        ];
 
         return $data;
 
@@ -268,7 +278,7 @@ class HomeController extends Controller
     public function dataPaketZoom()
     {
         $data = Message::with('user.profile')->get();
-        
+
         if (request()->ajax()) {
             return DataTables()->of($data)
             ->addColumn('nama_lengkap', function($name){
