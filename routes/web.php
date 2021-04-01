@@ -55,15 +55,14 @@ Route::get('faq', 'Dashboard\FaqController@index')->name('landing.faq');
 // Menu Artikel
 Route::get('artikel', 'Dashboard\ArtikelController@menuArtikel')->name('landing.artikel');
 
-Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function()
-{
+Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], function () {
     // crud halaman metode pembayaran
-    Route::get('metode-pembayaran','Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
-    Route::post('buatmethod','Metodepembayaran\MetodepembayaranController@store')->name('metodepembayaran.store');
-    Route::get('detailmethod/{id}','Metodepembayaran\MetodepembayaranController@detailmethod');
-    Route::get('deletemethod/{id}','Metodepembayaran\MetodepembayaranController@deletemethod');
-    Route::get('editmethod/{id}','Metodepembayaran\MetodepembayaranController@editmethod');
-    Route::post('updatemethod','Metodepembayaran\MetodepembayaranController@updatemethod')->name('metodepembayaran.updatemethod');
+    Route::get('metode-pembayaran', 'Metodepembayaran\MetodepembayaranController@index')->name('metodepembayaran');
+    Route::post('buatmethod', 'Metodepembayaran\MetodepembayaranController@store')->name('metodepembayaran.store');
+    Route::get('detailmethod/{id}', 'Metodepembayaran\MetodepembayaranController@detailmethod');
+    Route::get('deletemethod/{id}', 'Metodepembayaran\MetodepembayaranController@deletemethod');
+    Route::get('editmethod/{id}', 'Metodepembayaran\MetodepembayaranController@editmethod');
+    Route::post('updatemethod', 'Metodepembayaran\MetodepembayaranController@updatemethod')->name('metodepembayaran.updatemethod');
 
     Route::get('dashboard', 'Dashboard\HomeController@index')->name('dashboard.index');
 
@@ -101,16 +100,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     Route::post('message/zoom/{id}', 'Dashboard\HomeController@prosesDataPaketZoom')->name('admin.dashboard.zoom.proses');
 });
 
-Route::group(['middleware' => ['auth']], function ()
-{
+Route::group(['middleware' => ['auth']], function () {
     // Update Profile
     Route::get('profile', 'DashboardUser\HomeController@profile')->name('profile');
     Route::post('profile/save', 'DashboardUser\HomeController@saveProfile')->name('profile.save');
     Route::post('profile/upload/save', 'DashboardUser\HomeController@uploadPicture')->name('profile.upload.save');
 });
 
-Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
-{
+Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function () {
     // Dashboard User Membership
     Route::get('membership', 'DashboardUser\HomeController@registerMembership')->name('user.dashboard.membership');
     Route::post('save/membership', 'DashboardUser\HomeController@saveRegisterMembership')->name('user.dashboard.membership.save');
@@ -130,14 +127,12 @@ Route::group(['prefix' => 'user', 'middleware' => ['role:user']], function ()
     Route::post('konsultasi/zoom', 'DashboardUser\HomeController@konsultasiZoom')->name('user.dashboard.konsultasi.zoom');
 });
 
-Route::group(['prefix' => 'narasumber', 'middleware' => ['role:narasumber']], function()
-{
+Route::group(['prefix' => 'narasumber', 'middleware' => ['role:narasumber']], function () {
     Route::get('profile', 'DashboardNarasumber\NarasumberController@profile')->name('narasumber.dashboard.profile');
     Route::post('profile/save', 'DashboardNarasumber\NarasumberController@saveProfile')->name('narasumber.dashboard.profile.save');
 });
 
-Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
-{
+Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function () {
     Route::get('/', 'Chat\HomeChatController@index')->name('dashboard.chat');
 
     // ROOMS
@@ -162,5 +157,4 @@ Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
 
     // SALDO
     Route::get('/saldo/{user_id}', [HomeChatController::class, 'getSaldo']);
-
 });

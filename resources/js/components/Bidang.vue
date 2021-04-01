@@ -3,15 +3,49 @@
     <div class="card-body">
       <div class="row title mb-3">Pilih Bidang</div>
       <div class="row row-cols-1 row-cols-md-3">
-        <div class="col mb-4" v-for="(bdng, index) in bidangList" :key="index">
-          <div class="card h-100">
+        <div
+          class="col mb-4 the-div"
+          v-for="(bdng, index) in bidangList"
+          :key="index"
+        >
+          <div class="card h-100 wrap-card">
             <img
               :src="'/images/bidang/bidang' + (index + 1) + '.svg'"
               class="card-img-top"
               :alt="bdng.name"
             />
             <div class="card-body body-bidang">
-              <h5 class="card-title mb-3">{{ bdng.name }}</h5>
+              <div class="nara-list">
+                <h5 class="card-title mb-3">{{ bdng.name }}</h5>
+                <h4 class="mb-1">Narasumber yang tersedia:</h4>
+                <ul class="p-0">
+                  <li
+                    v-for="(nara, index) in narasumber"
+                    :key="index"
+                    class="list-narasumber"
+                  >
+                    <div
+                      class="narasumber-name d-flex"
+                      v-if="
+                        nara.utama.findIndex((el) => el.id === bdng.id) !==
+                          -1 ||
+                        nara.pendukung.findIndex((el) => el.id === bdng.id) !==
+                          -1
+                      "
+                    >
+                      <span class="status-nara mr-2"></span>Narasumber
+                      {{ nara.id }}
+                    </div>
+                    <div
+                      v-else-if="narasumber.length == index + 1"
+                      class="narasumber-name"
+                    >
+                      Tidak ada narasumber
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
               <button class="btn button-bidang" @click="selectBidang(index)">
                 Pilih
               </button>
@@ -26,21 +60,8 @@
 export default {
   props: {
     bidangList: { type: Array, require: true },
+    narasumber: { type: Array },
   },
-  // data() {
-  //   return {
-  //     bidangList: [
-  //       "barang",
-  //       "jasa konstruksi",
-  //       "konsultasi non konstruksi",
-  //       "swakelola",
-  //       "jasa lainnya",
-  //       "perencanaan",
-  //       "pemilihan",
-  //       "pelaksanaan kontrak",
-  //     ],
-  //   };
-  // },
   mounted() {},
   methods: {
     selectBidang(index) {
@@ -55,6 +76,27 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+.the-div {
+  min-height: 500px;
+}
+.wrap-card {
+  align-items: center;
+}
+.list-narasumber {
+  list-style-type: none;
+}
+.narasumber-name {
+  font-weight: 700;
+  font-size: 1.3rem;
+  align-items: center;
+}
+.status-nara {
+  width: 14px;
+  height: 14px;
+  background-color: rgb(49, 255, 49);
+  border-radius: 50%;
+  border: none;
+}
 .title {
   justify-content: center;
   font-size: 50px;
@@ -75,6 +117,7 @@ export default {
 }
 img {
   object-fit: contain;
+  width: 75%;
 }
 .button-bidang {
   background: linear-gradient(to left, #ca4b7c, #6e376e);

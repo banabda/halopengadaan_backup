@@ -1946,27 +1946,50 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     bidangList: {
       type: Array,
       require: true
+    },
+    narasumber: {
+      type: Array
     }
   },
-  // data() {
-  //   return {
-  //     bidangList: [
-  //       "barang",
-  //       "jasa konstruksi",
-  //       "konsultasi non konstruksi",
-  //       "swakelola",
-  //       "jasa lainnya",
-  //       "perencanaan",
-  //       "pemilihan",
-  //       "pelaksanaan kontrak",
-  //     ],
-  //   };
-  // },
   mounted: function mounted() {},
   methods: {
     selectBidang: function selectBidang(index) {
@@ -2388,6 +2411,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2423,9 +2447,19 @@ __webpack_require__.r(__webpack_exports__);
       });
       console.log("here", users);
     }).joining(function (user) {
+      if (user.role === "narasumber") {
+        _this.onlineNarasumber.push(user);
+      }
+
       console.log("joining", user);
     }).leaving(function (user) {
-      console.log("leaving", user);
+      if (user.role === "narasumber") {
+        _this.onlineNarasumber.splice(_this.onlineNarasumber.findIndex(function (el) {
+          return el.id === user.id;
+        }), 1);
+
+        console.log("leaving", user);
+      }
     });
 
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
@@ -2438,6 +2472,11 @@ __webpack_require__.r(__webpack_exports__);
     },
     setBidang: function setBidang(index) {
       this.bidang = index; // console.log("bidang value :", this.bidang);
+    }
+  },
+  watch: {
+    onlineNarasumber: function onlineNarasumber(_onlineNarasumber) {
+      this.onlineNarasumber = _onlineNarasumber;
     }
   },
   components: {
@@ -10470,7 +10509,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".title[data-v-2f690768] {\n  justify-content: center;\n  font-size: 50px;\n  font-weight: 600;\n}\n.card-title[data-v-2f690768] {\n  text-align: center;\n  font-weight: bold;\n  font-size: 1.5rem;\n  text-transform: capitalize;\n}\n.card-body.body-bidang[data-v-2f690768] {\n  height: 150px;\n  justify-content: space-between;\n  flex-direction: column;\n  display: flex;\n  align-self: center;\n}\nimg[data-v-2f690768] {\n  -o-object-fit: contain;\n     object-fit: contain;\n}\n.button-bidang[data-v-2f690768] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  color: white;\n  width: 100px;\n  align-self: center;\n  transition: transform 0.3s ease-in-out;\n}\n.button-bidang[data-v-2f690768]:hover {\n  transform: scale(1.1);\n}\n.item-bidang[data-v-2f690768] {\n  transition: box-shadow 0.3s ease-in-out;\n}\n.item-bidang[data-v-2f690768]:hover {\n  box-shadow: 1px 1px 15px 1px rgba(128, 128, 128, 0.726);\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".the-div[data-v-2f690768] {\n  min-height: 500px;\n}\n.wrap-card[data-v-2f690768] {\n  align-items: center;\n}\n.list-narasumber[data-v-2f690768] {\n  list-style-type: none;\n}\n.narasumber-name[data-v-2f690768] {\n  font-weight: 700;\n  font-size: 1.3rem;\n  align-items: center;\n}\n.status-nara[data-v-2f690768] {\n  width: 14px;\n  height: 14px;\n  background-color: #31ff31;\n  border-radius: 50%;\n  border: none;\n}\n.title[data-v-2f690768] {\n  justify-content: center;\n  font-size: 50px;\n  font-weight: 600;\n}\n.card-title[data-v-2f690768] {\n  text-align: center;\n  font-weight: bold;\n  font-size: 1.5rem;\n  text-transform: capitalize;\n}\n.card-body.body-bidang[data-v-2f690768] {\n  height: 150px;\n  justify-content: space-between;\n  flex-direction: column;\n  display: flex;\n  align-self: center;\n}\nimg[data-v-2f690768] {\n  -o-object-fit: contain;\n     object-fit: contain;\n  width: 75%;\n}\n.button-bidang[data-v-2f690768] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  color: white;\n  width: 100px;\n  align-self: center;\n  transition: transform 0.3s ease-in-out;\n}\n.button-bidang[data-v-2f690768]:hover {\n  transform: scale(1.1);\n}\n.item-bidang[data-v-2f690768] {\n  transition: box-shadow 0.3s ease-in-out;\n}\n.item-bidang[data-v-2f690768]:hover {\n  box-shadow: 1px 1px 15px 1px rgba(128, 128, 128, 0.726);\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -54588,8 +54627,8 @@ var render = function() {
         "div",
         { staticClass: "row row-cols-1 row-cols-md-3" },
         _vm._l(_vm.bidangList, function(bdng, index) {
-          return _c("div", { key: index, staticClass: "col mb-4" }, [
-            _c("div", { staticClass: "card h-100" }, [
+          return _c("div", { key: index, staticClass: "col mb-4 the-div" }, [
+            _c("div", { staticClass: "card h-100 wrap-card" }, [
               _c("img", {
                 staticClass: "card-img-top",
                 attrs: {
@@ -54599,8 +54638,55 @@ var render = function() {
               }),
               _vm._v(" "),
               _c("div", { staticClass: "card-body body-bidang" }, [
-                _c("h5", { staticClass: "card-title mb-3" }, [
-                  _vm._v(_vm._s(bdng.name))
+                _c("div", { staticClass: "nara-list" }, [
+                  _c("h5", { staticClass: "card-title mb-3" }, [
+                    _vm._v(_vm._s(bdng.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("h4", { staticClass: "mb-1" }, [
+                    _vm._v("Narasumber yang tersedia:")
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "ul",
+                    { staticClass: "p-0" },
+                    _vm._l(_vm.narasumber, function(nara, index) {
+                      return _c(
+                        "li",
+                        { key: index, staticClass: "list-narasumber" },
+                        [
+                          nara.utama.findIndex(function(el) {
+                            return el.id === bdng.id
+                          }) !== -1 ||
+                          nara.pendukung.findIndex(function(el) {
+                            return el.id === bdng.id
+                          }) !== -1
+                            ? _c(
+                                "div",
+                                { staticClass: "narasumber-name d-flex" },
+                                [
+                                  _c("span", {
+                                    staticClass: "status-nara mr-2"
+                                  }),
+                                  _vm._v(
+                                    "Narasumber\n                    " +
+                                      _vm._s(nara.id) +
+                                      "\n                  "
+                                  )
+                                ]
+                              )
+                            : _vm.narasumber.length == index + 1
+                            ? _c("div", { staticClass: "narasumber-name" }, [
+                                _vm._v(
+                                  "\n                    Tidak ada narasumber\n                  "
+                                )
+                              ])
+                            : _vm._e()
+                        ]
+                      )
+                    }),
+                    0
+                  )
                 ]),
                 _vm._v(" "),
                 _c(
@@ -54897,7 +54983,11 @@ var render = function() {
     [
       _vm.bidang == null && _vm.role[0] != "super admin"
         ? _c("Bidang", {
-            attrs: { bidang: _vm.bidang, bidangList: _vm.bidangList },
+            attrs: {
+              bidang: _vm.bidang,
+              bidangList: _vm.bidangList,
+              narasumber: _vm.onlineNarasumber
+            },
             on: { selectedBidang: _vm.setBidang }
           })
         : _c("room", {

@@ -21,6 +21,6 @@ class KeahlianUtama extends Model
 
     public function bidang()
     {
-        return $this->hasMany('App\Models\Bidang', 'id', 'bidang_id');
+        return $this->hasOne('App\Models\Bidang', 'id', 'bidang_id');
     }
 }
