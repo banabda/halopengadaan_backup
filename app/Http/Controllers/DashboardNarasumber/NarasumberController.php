@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\DashboardNarasumber;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bidang;
 use App\Models\NarasumberProfile;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -21,7 +22,7 @@ class NarasumberController extends Controller
     public function saveRegister(Request $request)
     {
         $data = $request->all();
-        
+
         // $this->validate($request,[
         //     'name' => 'required|max:255',
         //     'email' => 'required|string|email|max:255|unique:users',
@@ -59,9 +60,13 @@ class NarasumberController extends Controller
     public function profile()
     {
         $user = User::with('profileNarasumber')->where('id', Auth::user()->id)->first();
+        $bidang = Bidang::all();
+
         $data = [
-            'user' => $user
+            'user' => $user,
+            'bidang' => $bidang
         ];
+
         // dd($user->profileNarasumber);
         return view('dashboard.narasumber.profile', $data);
     }

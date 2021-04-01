@@ -166,13 +166,25 @@
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Utama</label>
 
                                 <div class="col-sm-10">
-                                    <textarea name="keahlian_utama" class="form-control editor" rows="8" placeholder="Keahlian Utama"></textarea>
+                                    <div class="demo-checkbox">
+                                        @foreach ($bidang as $item)
+                                            <input type="checkbox" id="keahlianutama-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_utama[]" class="filled-in chk-col-primary"/>
+                                            <label for="keahlianutama-{{ $item->id }}">{{ $item->name }}</label>
+                                        @endforeach
+                                    </div>
+                                    {{-- <textarea name="keahlian_utama" class="form-control editor" rows="8" placeholder="Keahlian Utama"></textarea> --}}
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Pendukung</label>
                                 <div class="col-sm-10">
-                                    <textarea name="keahlian_pendukung" class="form-control editor" rows="8" placeholder="Keahlian Pendukung"></textarea>
+                                    <div class="demo-checkbox">
+                                        @foreach ($bidang as $item)
+                                            <input type="checkbox" id="keahlianpendukung-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_pendukung[]" class="filled-in chk-col-primary"/>
+                                            <label for="keahlianpendukung-{{ $item->id }}">{{ $item->name }}</label>
+                                        @endforeach
+                                    </div>
+                                    {{-- <textarea name="keahlian_pendukung" class="form-control editor" rows="8" placeholder="Keahlian Pendukung"></textarea> --}}
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -220,17 +232,31 @@
                                     <input type="file" id="upload_cv" name="cv">
                                 </div>
                             </div>
+                            <hr>
                             <div class="form-group row">
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Utama</label>
 
                                 <div class="col-sm-10">
-                                    <textarea name="keahlian_utama" class="form-control editor" rows="8" placeholder="Keahlian Utama">{{ $user->profileNarasumber->keahlian_utama }}</textarea>
+                                    <div class="demo-checkbox">
+                                        @foreach ($bidang as $item)
+                                            <input type="checkbox" id="keahlianutama-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_utama[]" class="filled-in chk-col-primary" />
+                                            <label for="keahlianutama-{{ $item->id }}">{{ $item->name }}</label>
+                                        @endforeach
+                                    </div>
+                                    {{-- <textarea name="keahlian_utama" class="form-control editor" rows="8" placeholder="Keahlian Utama">{{ $user->profileNarasumber->keahlian_utama }}</textarea> --}}
                                 </div>
                             </div>
+                            <hr>
                             <div class="form-group row">
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Pendukung</label>
                                 <div class="col-sm-10">
-                                    <textarea name="keahlian_pendukung" class="form-control editor" rows="8" placeholder="Keahlian Pendukung">{{ $user->profileNarasumber->keahlian_pendukung }}</textarea>
+                                    <div class="demo-checkbox">
+                                        @foreach ($bidang as $item)
+                                            <input type="checkbox" id="keahlianpendukung-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_pendukung[]" class="filled-in chk-col-primary"/>
+                                            <label for="keahlianpendukung-{{ $item->id }}" >{{ $item->name }}</label>
+                                        @endforeach
+                                    </div>
+                                    {{-- <textarea name="keahlian_pendukung" class="form-control editor" rows="8" placeholder="Keahlian Pendukung">{{ $user->profileNarasumber->keahlian_pendukung }}</textarea> --}}
                                 </div>
                             </div>
                             <div class="form-group row">
