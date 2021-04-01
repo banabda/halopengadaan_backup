@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function profile()
     {
         $user = User::with('profile', 'userHasPaket')->where('id', Auth::user()->id)->first();
-        // dd($user);
+        
         $data = [
             'user' => $user
         ];

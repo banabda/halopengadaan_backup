@@ -149,20 +149,6 @@
                             </div>
                             </div>
                             <div class="form-group row">
-                            <label for="inputExperience" class="col-sm-2 control-label pt-1">Alamat Rumah</label>
-
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="inputExperience" name="alamat_rumah" placeholder="Alamat Lengkap"></textarea>
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="inputSkills" class="col-sm-2 control-label pt-1">Alamat Kerja</label>
-
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="inputExperience" name="alamat_kerja" placeholder="Alamat Tempat Kerja / Bisnis"></textarea>
-                            </div>
-                            </div>
-                            <div class="form-group row">
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Jenis Kerja</label>
 
                                 <div class="col-sm-10">
@@ -227,20 +213,6 @@
 
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="inputPhone" name="no_hp" value="{{ $user->profile->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)" required>
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="inputExperience" class="col-sm-2 control-label pt-1">Alamat Rumah</label>
-
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="inputExperience" name="alamat_rumah" placeholder="Alamat Lengkap" required>{{ $user->profile->alamat_rumah }}</textarea>
-                            </div>
-                            </div>
-                            <div class="form-group row">
-                            <label for="inputSkills" class="col-sm-2 control-label pt-1">Alamat Kerja</label>
-
-                            <div class="col-sm-10">
-                                <textarea class="form-control" id="inputExperience" name="alamat_kerja" placeholder="Alamat Tempat Kerja / Bisnis" required>{{ $user->profile->alamat_kerja }}</textarea>
                             </div>
                             </div>
                             <div class="form-group row">
