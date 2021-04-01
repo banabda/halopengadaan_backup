@@ -63,10 +63,15 @@ class NarasumberController extends Controller
     {
         $user = User::with('profileNarasumber')->where('id', Auth::user()->id)->first();
         $bidang = Bidang::all();
+        $keahlian_utama = KeahlianUtama::where('user_id', Auth::user()->id)->get();
+        $keahlian_pendukung = KeahlianUPendukung::where('user_id', Auth::user()->id)->get();
+        // dd($keahlian_utama, $keahlian_pendukung);
 
         $data = [
             'user' => $user,
-            'bidang' => $bidang
+            'bidang' => $bidang,
+            'keahlian_utama' => $keahlian_utama,
+            'keahlian_pendukung' => $keahlian_pendukung
         ];
 
         // dd($user->profileNarasumber);
@@ -75,7 +80,6 @@ class NarasumberController extends Controller
 
     public function saveProfile(Request $request)
     {
-        // dd($request->all());
         $data = [
             'user_id' => $request->user_id,
             'name' => $request->name,
@@ -84,7 +88,7 @@ class NarasumberController extends Controller
             'cv' => $request->cv,
             'status' => 'Belum Terverifikasi'
         ];
-        // dd($data);
+
         $profile = NarasumberProfile::with('user')->where('user_id', Auth::user()->id)->first();
 
         if (is_null($profile)) {
@@ -119,9 +123,27 @@ class NarasumberController extends Controller
             $createProfile = NarasumberProfile::create($data);
 
         } else {
-            $keahlian_utama = KeahlianUtama::where('user_id', $request->user_id)->get();
-            $keahlian_pendukung = KeahlianUPendukung::where('user_id', $request->user_id)->get();
-            dd($keahlian_utama, $keahlian_pendukung);
+            $keahlian_utama = KeahlianUtama::where('user_id', $request->user_id)->delete();
+            $keahlian_pendukung = KeahlianUPendukung::where('user_id', $request->user_id)->delete();
+
+            foreach ($request->keahlian_utama as $key => $value) {
+                $dataKeahlianUtama = [
+                    'user_id' => $request->user_id,
+                    'bidang_id' => $value
+                ];
+
+                KeahlianUtama::create($dataKeahlianUtama);
+            }
+
+            foreach ($request->keahlian_pendukung as $key => $value) {
+                $dataKeahlianPendukung = [
+                    'user_id' => $request->user_id,
+                    'bidang_id' => $value
+                ];
+
+                KeahlianUPendukung::create($dataKeahlianPendukung);
+            }
+
             // Jika Request CV Tidak Null
             if ($request->cv != null) {
                 Storage::disk('public')->delete([
@@ -145,8 +167,6 @@ class NarasumberController extends Controller
             $profile->name = $data['name'];
             $profile->email = $data['email'];
             $profile->no_hp = $data['no_hp'];
-            $profile->keahlian_utama = $data['keahlian_utama'];
-            $profile->keahlian_pendukung = $data['keahlian_pendukung'];
             $profile->save();
 
             $user =  User::with('profileNarasumber')->where('id', $profile->user_id)->first();

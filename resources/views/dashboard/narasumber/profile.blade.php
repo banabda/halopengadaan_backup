@@ -162,6 +162,7 @@
                                     <input type="file" id="upload_cv" name="cv" required>
                                 </div>
                             </div>
+                            <hr>
                             <div class="form-group row">
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Utama</label>
 
@@ -175,6 +176,7 @@
                                     {{-- <textarea name="keahlian_utama" class="form-control editor" rows="8" placeholder="Keahlian Utama"></textarea> --}}
                                 </div>
                             </div>
+                            <hr>
                             <div class="form-group row">
                                 <label for="jenis_kerja" class="col-sm-2 control-label pt-2">Keahlian Pendukung</label>
                                 <div class="col-sm-10">
@@ -239,7 +241,13 @@
                                 <div class="col-sm-10">
                                     <div class="demo-checkbox">
                                         @foreach ($bidang as $item)
-                                            <input type="checkbox" id="keahlianutama-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_utama[]" class="filled-in chk-col-primary" />
+                                            <input type="checkbox" id="keahlianutama-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_utama[]" class="filled-in chk-col-primary"
+                                            @foreach ($keahlian_utama as $ku)
+                                            @if ($ku->bidang_id == $item->id)
+                                                checked
+                                            @endif
+                                            @endforeach
+                                            />
                                             <label for="keahlianutama-{{ $item->id }}">{{ $item->name }}</label>
                                         @endforeach
                                     </div>
@@ -252,7 +260,13 @@
                                 <div class="col-sm-10">
                                     <div class="demo-checkbox">
                                         @foreach ($bidang as $item)
-                                            <input type="checkbox" id="keahlianpendukung-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_pendukung[]" class="filled-in chk-col-primary"/>
+                                        <input type="checkbox" id="keahlianpendukung-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_pendukung[]" class="filled-in chk-col-primary"
+                                            @foreach ($keahlian_pendukung as $kp)
+                                            @if ($kp->bidang_id == $item->id)
+                                                checked
+                                            @endif
+                                            @endforeach
+                                            />
                                             <label for="keahlianpendukung-{{ $item->id }}" >{{ $item->name }}</label>
                                         @endforeach
                                     </div>
