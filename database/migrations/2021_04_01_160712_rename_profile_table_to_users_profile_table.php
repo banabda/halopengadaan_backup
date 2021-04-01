@@ -17,7 +17,6 @@ class RenameProfileTableToUsersProfileTable extends Migration
         Schema::table('users_profile', function (Blueprint $table) {
             $table->dropColumn('alamat_kerja');
             $table->dropColumn('alamat_rumah');
-            $table->dropColumn('alamat_kerja');
         });
     }
 
@@ -32,7 +31,6 @@ class RenameProfileTableToUsersProfileTable extends Migration
         Schema::table('users_profile', function (Blueprint $table) {
             $table->dropColumn('alamat_kerja');
             $table->dropColumn('alamat_rumah');
-            $table->dropColumn('alamat_kerja');
         });
     }
 }
