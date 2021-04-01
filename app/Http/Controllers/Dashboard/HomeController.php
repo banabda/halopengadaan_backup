@@ -244,9 +244,9 @@ class HomeController extends Controller
     public function detailDataNarasumberProfile($id)
     {
         $profile = NarasumberProfile::where('user_id', $id)->first();
-        $keahlian_utama = KeahlianUtama::where('user_id', $id)->get();
-        $keahlian_pendukung = KeahlianPendukung::where('user_id', $id)->get();
-
+        $keahlian_utama = KeahlianUtama::with('bidang')->where('user_id', $id)->get();
+        $keahlian_pendukung = KeahlianPendukung::with('bidang')->where('user_id', $id)->get();
+        dd($keahlian_utama, $keahlian_pendukung);
         $data = [
             'profile' => $profile,
             'keahlian_utama' => $keahlian_utama,

@@ -204,9 +204,16 @@
 
                 $.each(data.keahlian_utama, function (index, value) {
                     $(".content-keahlian_utama").append(
-                    data.keahlian_utama
-                );
-                    console.log(value);
+                        `
+                        <ul style="list-style-type: -">
+                            <li>`+ value.bidang_id.name +`</li>
+                            <li>Tea</li>
+                            <li>Milk</li>
+                        </ul>
+
+                        `
+                    );
+                    console.log(value.bidang_id.name);
                 });
                 $(".content-keahlian_utama").append(
                     data.keahlian_utama

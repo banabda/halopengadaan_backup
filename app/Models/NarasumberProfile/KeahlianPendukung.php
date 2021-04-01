@@ -18,4 +18,9 @@ class KeahlianPendukung extends Model
     {
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
+
+    public function bidang()
+    {
+        return $this->hasMany('App\Models\Bidang', 'id', 'bidang_id');
+    }
 }
