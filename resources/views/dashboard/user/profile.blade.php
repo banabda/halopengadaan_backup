@@ -276,8 +276,8 @@
 
 <script>
     $(document).ready(function () {
-        if(localStorage.getItem('popState') != 'shown'){
-        localStorage.setItem('popState','shown')
+        if(sessionStorage.getItem('popState') != 'shown'){
+        sessionStorage.setItem('popState','shown')
         $('#modalPendaftaran').modal('show');
     }
     });
