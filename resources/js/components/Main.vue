@@ -3,6 +3,7 @@
     <Bidang
       v-if="bidang == null && role[0] != 'super admin'"
       :bidang="bidang"
+      :bidangList="bidangList"
       @selectedBidang="setBidang"
     ></Bidang>
     <room
@@ -27,10 +28,12 @@ export default {
     return {
       onlineNarasumber: [],
       bidang: null,
+      bidangList: null,
     };
   },
   mounted() {
     console.log("Component mounted.");
+    axios.get("/chat/bidang").then((e) => (this.bidangList = e.data));
     Echo.join("onlineuser")
       .here((users) => {
         users.forEach((usr) => {

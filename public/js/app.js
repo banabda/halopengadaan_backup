@@ -1,3 +1,4 @@
+/******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/after/index.js":
@@ -1946,15 +1947,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  data: function data() {
-    return {
-      bidangList: ["barang", "jasa konstruksi", "konsultasi non konstruksi", "swakelola", "jasa lainnya", "perencanaan", "pemilihan", "pelaksanaan kontrak"]
-    };
+  props: {
+    bidangList: {
+      type: Array,
+      require: true
+    }
   },
+  // data() {
+  //   return {
+  //     bidangList: [
+  //       "barang",
+  //       "jasa konstruksi",
+  //       "konsultasi non konstruksi",
+  //       "swakelola",
+  //       "jasa lainnya",
+  //       "perencanaan",
+  //       "pemilihan",
+  //       "pelaksanaan kontrak",
+  //     ],
+  //   };
+  // },
   mounted: function mounted() {},
   methods: {
     selectBidang: function selectBidang(index) {
       this.$emit("selectedBidang", index);
+    }
+  },
+  watch: {
+    bidangList: function bidangList(_bidangList) {
+      this.bidangList = _bidangList;
     }
   }
 });
@@ -2366,6 +2387,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -2382,13 +2404,17 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       onlineNarasumber: [],
-      bidang: null
+      bidang: null,
+      bidangList: null
     };
   },
   mounted: function mounted() {
     var _this = this;
 
     console.log("Component mounted.");
+    axios.get("/chat/bidang").then(function (e) {
+      return _this.bidangList = e.data;
+    });
     Echo.join("onlineuser").here(function (users) {
       users.forEach(function (usr) {
         if (usr.role === "narasumber") {
@@ -54568,13 +54594,13 @@ var render = function() {
                 staticClass: "card-img-top",
                 attrs: {
                   src: "/images/bidang/bidang" + (index + 1) + ".svg",
-                  alt: bdng
+                  alt: bdng.name
                 }
               }),
               _vm._v(" "),
               _c("div", { staticClass: "card-body body-bidang" }, [
                 _c("h5", { staticClass: "card-title mb-3" }, [
-                  _vm._v(_vm._s(bdng))
+                  _vm._v(_vm._s(bdng.name))
                 ]),
                 _vm._v(" "),
                 _c(
@@ -54871,7 +54897,7 @@ var render = function() {
     [
       _vm.bidang == null && _vm.role[0] != "super admin"
         ? _c("Bidang", {
-            attrs: { bidang: _vm.bidang },
+            attrs: { bidang: _vm.bidang, bidangList: _vm.bidangList },
             on: { selectedBidang: _vm.setBidang }
           })
         : _c("room", {

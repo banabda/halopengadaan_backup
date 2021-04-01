@@ -15,18 +15,18 @@ class HomeChatController extends Controller
 {
     public function index()
     {
-        $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
         $user = User::where('id', Auth::user()->id)->first();
-        $invoice = Invoice::where('user_id', Auth::user()->id)->latest()->first();
-        $message = Message::where('invoice_id', $invoice->id)->first();
-
-        $data = [
-            'userHasPaket' => $userhaspaket,
-            'message' => $message,
-            'invoice' => $invoice
-        ];
-
+        
         if ($user->hasRole('user')) {
+            $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
+            $invoice = Invoice::where('user_id', Auth::user()->id)->latest()->first();
+            $message = Message::where('invoice_id', $invoice->id)->first();
+    
+            $data = [
+                'userHasPaket' => $userhaspaket,
+                'message' => $message,
+                'invoice' => $invoice
+            ];
             if (is_null($userhaspaket)) {
                 return redirect()->route('user.dashboard.membership');
             } elseif ($userhaspaket->expired_at <= Carbon::now()) {

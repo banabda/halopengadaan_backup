@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Chat\BidangController;
 use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Chat\HomeChatController;
 use App\Http\Controllers\Chat\RoomController;
@@ -144,6 +145,9 @@ Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function ()
     Route::get('/rooms/{bidang_code}', [RoomController::class, 'getBidang']);
     Route::post('/joinroom', [RoomController::class, 'join']);
     Route::post('/exitroom', [RoomController::class, 'exit']);
+
+    // BIDANG
+    Route::get('/bidang', [BidangController::class, 'index']);
 
     // CHAT
     Route::get('/contacts', [ChatController::class, 'index']);
