@@ -1,14 +1,14 @@
 <template>
   <div class="container chat-component pt-4">
     <Bidang
-      v-if="bidang == null && role[0] != 'super admin'"
+      v-if="bidang == null && role[0] == 'user'"
       :bidang="bidang"
       :bidangList="bidangList"
       :narasumber="onlineNarasumber"
       @selectedBidang="setBidang"
     ></Bidang>
     <room
-      v-else
+      v-else-if="bidang != null"
       :role="role"
       :user="user"
       :bidang="bidang"
@@ -33,7 +33,12 @@ export default {
     };
   },
   mounted() {
-    console.log("Component mounted.");
+    if (this.role[0] == "narasumber") {
+      axios
+        .get("/chat/keahlian/" + this.user.id)
+        .then((e) => (this.bidang = e.data));
+    }
+    // console.log("Component mounted.");
     axios.get("/chat/bidang").then((e) => (this.bidangList = e.data));
     Echo.join("onlineuser")
       .here((users) => {

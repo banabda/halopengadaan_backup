@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Chat;
 
 use App\Http\Controllers\Controller;
 use App\Models\Bidang;
+use App\Models\NarasumberProfile\KeahlianPendukung;
+use App\Models\NarasumberProfile\KeahlianUtama;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class BidangController extends Controller
@@ -82,5 +85,21 @@ class BidangController extends Controller
     public function destroy(Bidang $bidang)
     {
         //
+    }
+
+    public function keahlian(User $user)
+    {
+        $bidangs = [];
+        $pendukungs = $user->keahlianPendukung;
+        $utamas = $user->keahlianUtama;
+        foreach ($pendukungs as $value) {
+            $ahli = KeahlianPendukung::find($value->id)->bidang;
+            array_push($bidangs, $ahli);
+        }
+        foreach ($utamas as $value) {
+            $ahli = KeahlianUtama::find($value->id)->bidang;
+            array_push($bidangs, $ahli);
+        }
+        return $bidangs;
     }
 }

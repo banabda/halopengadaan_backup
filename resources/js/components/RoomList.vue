@@ -121,7 +121,7 @@ export default {
       display: flex;
       border-radius: 8px;
       background-color: white;
-      box-shadow: 0px 3px 4px 3px rgb(128 128 128 / 10%);
+      box-shadow: 0px 3px 6px rgb(128 128 128 / 30%);
     }
   }
   ul {
@@ -141,7 +141,7 @@ export default {
         display: flex;
         border-radius: 8px;
         background-color: white;
-        box-shadow: 0px 3px 11px 3px rgb(128 128 128 / 30%);
+        box-shadow: 0px 3px 6px rgb(128 128 128 / 30%);
       }
     }
 
