@@ -94,7 +94,11 @@ export default {
       if (this.role[0] == "user" && e.room.user_id == null) {
         this.exitRoom();
       }
-      if (this.role[0] == "user" && e.room.user_id != null) {
+      if (
+        this.role[0] == "user" &&
+        e.room.user_id != null &&
+        e.room.user_id == this.user.id
+      ) {
         localStorage.setItem("room", JSON.stringify(e.room));
       }
       if (this.role[0] == "narasumber" && e.room.user_id) {

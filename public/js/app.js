@@ -2864,7 +2864,7 @@ __webpack_require__.r(__webpack_exports__);
         _this.exitRoom();
       }
 
-      if (_this.role[0] == "user" && e.room.user_id != null) {
+      if (_this.role[0] == "user" && e.room.user_id != null && e.room.user_id == _this.user.id) {
         localStorage.setItem("room", JSON.stringify(e.room));
       }
 
@@ -3190,6 +3190,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: {
     role: {
@@ -3203,7 +3206,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     startChat: function startChat(room) {
-      if (room.narasumber_id !== null) {
+      if (room.narasumber_id !== null && room.user_id === null) {
         this.$emit("chat", room);
       }
     }
@@ -10712,7 +10715,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".back[data-v-7ad935aa] {\n  position: relative;\n  padding: 8px 8px 8px 16px;\n  cursor: pointer;\n}\n.back .back-div[data-v-7ad935aa] {\n  font-size: 1rem;\n  justify-content: center;\n  align-items: center;\n  padding: 16px 4px;\n  width: 200px;\n  height: 80px;\n  display: flex;\n}\n.back .back-div .back-button[data-v-7ad935aa] {\n  height: 40px;\n}\n.button-list[data-v-7ad935aa] {\n  overflow-y: scroll;\n  height: 85vh;\n}\n.button-list button[data-v-7ad935aa] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  border: none;\n}\n.btn-1[data-v-7ad935aa] {\n  width: 200px;\n  cursor: pointer;\n}\n.btn-1.disabled[data-v-7ad935aa] {\n  cursor: default;\n}\n.div-button[data-v-7ad935aa] {\n  justify-content: center;\n  align-items: center;\n  height: 100px;\n}\n.admin .btn-1[data-v-7ad935aa] {\n  width: 120px;\n  height: 70px;\n  margin-left: 0px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".back[data-v-7ad935aa] {\n  position: relative;\n  padding: 8px 8px 8px 16px;\n  cursor: pointer;\n}\n.back .back-div[data-v-7ad935aa] {\n  font-size: 1rem;\n  justify-content: center;\n  align-items: center;\n  padding: 16px 4px;\n  width: 200px;\n  height: 80px;\n  display: flex;\n}\n.back .back-div .back-button[data-v-7ad935aa] {\n  height: 40px;\n}\n.button-list[data-v-7ad935aa] {\n  overflow-y: scroll;\n  height: 85vh;\n}\n.button-list button[data-v-7ad935aa] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  border: none;\n}\n.btn-1[data-v-7ad935aa] {\n  width: 200px;\n  cursor: pointer;\n}\n.btn-1.disabled[data-v-7ad935aa] {\n  cursor: default;\n}\n.div-button[data-v-7ad935aa] {\n  align-items: center;\n  height: 100px;\n}\n.admin .btn-1[data-v-7ad935aa] {\n  width: 120px;\n  height: 70px;\n  margin-left: 0px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -55489,15 +55492,18 @@ var render = function() {
       _vm.role[0] != "super admin"
         ? _c(
             "div",
-            { staticClass: "row pt-3 button-list" },
+            { staticClass: "row pt-3 button-list px-4" },
             _vm._l(_vm.rooms, function(room, index) {
               return _c(
                 "div",
                 { key: index, staticClass: "col-md-6 div-button d-flex" },
                 [
                   _c("img", {
-                    staticClass: "btn-1",
-                    class: room.narasumber_id ? "" : "disabled",
+                    staticClass: "btn-1 ml-md-4",
+                    class: [
+                      room.narasumber_id ? "" : "disabled",
+                      room.user_id ? "disabled" : ""
+                    ],
                     attrs: {
                       src:
                         "/images/room/" +

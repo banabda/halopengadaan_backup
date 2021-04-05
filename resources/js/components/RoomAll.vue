@@ -10,7 +10,7 @@
         <div class="font-weight-bold">Kembali untuk pilih bidang</div>
       </div>
     </div>
-    <div class="row pt-3 button-list" v-if="role[0] != 'super admin'">
+    <div class="row pt-3 button-list px-4" v-if="role[0] != 'super admin'">
       <div
         class="col-md-6 div-button d-flex"
         v-for="(room, index) in rooms"
@@ -18,8 +18,11 @@
       >
         <!-- :src="'/images/bidang/bidang' + (index + 1) + '.svg'" -->
         <img
-          class="btn-1"
-          :class="room.narasumber_id ? '' : 'disabled'"
+          class="btn-1 ml-md-4"
+          :class="[
+            room.narasumber_id ? '' : 'disabled',
+            room.user_id ? 'disabled' : '',
+          ]"
           :src="
             '/images/room/' +
             bidangList[room.bidang_code] +
@@ -68,7 +71,7 @@ export default {
   },
   methods: {
     startChat(room) {
-      if (room.narasumber_id !== null) {
+      if (room.narasumber_id !== null && room.user_id === null) {
         this.$emit("chat", room);
       }
     },
@@ -128,7 +131,6 @@ export default {
 }
 
 .div-button {
-  justify-content: center;
   align-items: center;
   height: 100px;
 }
