@@ -19,6 +19,7 @@
         <!-- :src="'/images/bidang/bidang' + (index + 1) + '.svg'" -->
         <img
           class="btn-1"
+          :class="room.narasumber_id ? '' : 'disabled'"
           :src="
             '/images/room/' +
             bidangList[room.bidang_code] +
@@ -30,7 +31,7 @@
         />
         <div class="in-room ml-3">
           <div :class="room.user_name ? 'font-weight-bold' : ''">
-            {{ room.user_name ? room.user_name : "no user" }}
+            {{ room.user_name ? "Room sedang digunakan" : "no user" }}
           </div>
           <div :class="room.narasumber_name ? 'font-weight-bold' : ''">
             {{
@@ -67,7 +68,9 @@ export default {
   },
   methods: {
     startChat(room) {
-      this.$emit("chat", room);
+      if (room.narasumber_id !== null) {
+        this.$emit("chat", room);
+      }
     },
   },
   data() {
@@ -119,6 +122,9 @@ export default {
 .btn-1 {
   width: 200px;
   cursor: pointer;
+  &.disabled {
+    cursor: default;
+  }
 }
 
 .div-button {
