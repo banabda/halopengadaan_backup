@@ -8,13 +8,13 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-                  <h3 class="page-title">Data Artikel</h3>
+                  <h3 class="page-title">Tambah FAQ</h3>
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
                               <li class="breadcrumb-item" aria-current="page">Auth</li>
-                              <li class="breadcrumb-item active" aria-current="page">Data Artikel</li>
+                              <li class="breadcrumb-item active" aria-current="page">Tambah FAQ</li>
                           </ol>
                       </nav>
                   </div>
@@ -29,18 +29,17 @@
 
            <div class="box">
               <div class="box-header with-border">
-                  <a href="{{ route('artikel.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5" >New Artikel</button></a>
+                  <a href="{{ route('faq.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5" >Tambah FAQ</button></a>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
-                    <table id="tableArtikel" class="table table-bordered table-striped">
+                    <table id="tableFaqadmin" class="table table-bordered table-striped">
                       <thead>
                           <tr>
                               <th>No</th>
-                              <th>Judul</th>
-                              <th>Link Artikel</th>
-                              <th>Foto</th>
+                              <th>Pertanyaan</th>
+                              <th>Jawaban</th>
                               <th>Action</th>
                           </tr>
                       </thead>
@@ -50,10 +49,9 @@
                       <tfoot>
                           <tr>
                               <th>No</th>
-                              <th>Judul</th>
-                              <th>Link Artikel</th>
-                              <th>Foto</th>
-                              <th >Action</th>
+                              <th>Pertanyaan</th>
+                              <th>Jawaban</th>
+                              <th style="width: 200px;">Action</th>
                           </tr>
                       </tfoot>
                     </table>
@@ -73,57 +71,18 @@
 </div>
 <!-- /.content-wrapper -->
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Create Artikel</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <form id="createArtikel" action="{{ route('artikel.store') }}" method="POST" enctype="multipart/form-data">
-            <div class="modal-body">
-                @csrf
-                <input type="hidden" name="id" id="id_artikel">
-                <div class="form-group">
-                    <label for="judul_artikel" class="col-form-label">Judul:</label>
-                    <input type="text" class="form-control" name="judul" id="judul_artikel">
-                </div>
-                <div class="form-group">
-                    <label for="deskripsi_artikel" class="col-form-label">Deskripsi:</label>
-                    <textarea class="form-control" name="desc" id="deskripsi_artikel"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="link_artikel" class="col-form-label">Link Terkait:</label>
-                    <input type="url" class="form-control" name="link" id="link_artikel">
-                </div>
-                <div class="form-group">
-                    <label for="foto_artikel" class="col-form-label">Foto Thumbnail:</label>
-                    <input type="file" class="form-control" name="foto" id="foto_artikel">
-                </div>
 
-            </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-primary">Simpan!</button>
-            </div>
-        </form>
-      </div>
-    </div>
-</div>
 <script>
     var table;
       $(function() {
-          table = $('#tableArtikel').DataTable({
+          table = $('#tableFaqadmin').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{ route('artikel.index') }}",
+              ajax: "{{ route('faq.index') }}",
               columns: [
                 {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
-                {data: 'judul', name: 'judul'},
-                {data: 'link_url', name: 'link_url'},
-                {data: 'foto_artikel', name: 'foto_artikel'},
+                {data: 'pertanyaan', name: 'pertanyaan'},
+                {data: 'jawaban', name: 'jawaban'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
               ]
           });
@@ -134,9 +93,12 @@
         } ).draw();
       });
 </script>
+
+
+
 <script>
     $(document).on('click', '   .delete-confirm', function(){
-        var id_artikel = $(this).attr("id");
+        var id_faq = $(this).attr("id");
         // console.log(id_artikel);
         $.ajaxSetup({
             headers: {
@@ -159,7 +121,7 @@
             if (result.isConfirmed) {
                 $.ajax({
                     type:'DELETE',
-                    url: "{{url('admin/artikel')}}/" + id_artikel,
+                    url: "{{url('admin/faq')}}/" + id_faq,
                     success:function(data)
                     {
                         if(data.status == "ok"){
@@ -174,3 +136,10 @@
     });
 </script>
 @endsection
+
+
+
+
+
+
+

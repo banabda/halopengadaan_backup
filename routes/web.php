@@ -81,6 +81,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     // Regulasi
     Route::resource('regulasi', 'Dashboard\RegulasiController');
 
+     // faq
+     Route::resource('faq', 'Dashboard\Faq_pertanyaanController');
+
     // Data Pembayaran Invoice
     Route::get('invoice', 'Dashboard\HomeController@invoice')->name('admin.dashboard.invoice');
     Route::post('proses/invoice/{id}', 'Dashboard\HomeController@prosesInvoice')->name('admin.dashboard.invoice.proses');

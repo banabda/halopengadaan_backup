@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Faq;
+use App\Models\Faq_jawaban;
 
 class FaqController extends Controller
 {
@@ -14,7 +16,8 @@ class FaqController extends Controller
      */
     public function index()
     {
-        return view('components.faq');
+        $data_faq = Faq::all();
+        return view('components.faq', compact('data_faq'));
     }
 
     /**
