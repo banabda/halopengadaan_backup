@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function profile()
     {
         $user = User::with('profile', 'userHasPaket')->where('id', Auth::user()->id)->first();
-        
+
         $data = [
             'user' => $user
         ];
@@ -49,8 +49,6 @@ class HomeController extends Controller
             'nama_lengkap' => "required",
             'email' => "required",
             'no_hp' => "required",
-            'alamat_rumah' => "required",
-            'alamat_kerja' => "required",
             'jenis_kerja'  => "required",
             'status' => "required"
         ));
@@ -69,8 +67,6 @@ class HomeController extends Controller
             $profile->nama_lengkap = $data['nama_lengkap'];
             $profile->email = $data['email'];
             $profile->no_hp = $data['no_hp'];
-            $profile->alamat_rumah = $data['alamat_rumah'];
-            $profile->alamat_kerja = $data['alamat_kerja'];
             $profile->jenis_kerja = $data['jenis_kerja'];
             $profile->status = $data['status'];
             $profile->is_complete = 1;
