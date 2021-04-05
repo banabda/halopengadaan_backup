@@ -164,17 +164,14 @@ export default {
         });
     },
     setFile(file) {
-      this.uploadedFile = file;
-      // console.log("cb", file);
-    },
-    sendMessage(text) {
-      var _role = false;
-      var _fileName = null;
-      var _fileType = "text";
-      var _filePath = null;
       if (!this.room) {
         return;
       }
+      this.uploadedFile = file;
+      var _role = false;
+      var _fileName = null;
+      var _fileType = "file";
+      var _filePath = null;
       if (this.role[0] == "narasumber") {
         _role = true;
       }
@@ -188,7 +185,7 @@ export default {
         .post("/chat/conversation/send", {
           isNarasumber: _role,
           room_id: this.room.id,
-          text: text,
+          text: null,
           ticket: this.room.ticket,
           filename: _fileName,
           filetype: _fileType,
@@ -196,6 +193,39 @@ export default {
         })
         .then((response) => {
           this.uploadedFile = null;
+          this.$modal.hide("upload-file");
+          // this.$emit("new", response.data);
+        });
+    },
+    sendMessage(text) {
+      var _role = false;
+      var _fileName = null;
+      var _fileType = "text";
+      var _filePath = null;
+      if (!this.room) {
+        return;
+      }
+      if (this.role[0] == "narasumber") {
+        _role = true;
+      }
+      // if (this.uploadedFile) {
+      //   _fileName = this.uploadedFile.name;
+      //   _fileType = this.uploadedFile.type;
+      //   _filePath = this.uploadedFile.path;
+      // }
+      // console.log();
+      axios
+        .post("/chat/conversation/send", {
+          isNarasumber: _role,
+          room_id: this.room.id,
+          text: text,
+          ticket: this.room.ticket,
+          filename: _fileName,
+          filetype: _fileType,
+          filepath: _filePath,
+        })
+        .then((response) => {
+          // this.uploadedFile = null;
           // this.$emit("new", response.data);
         });
     },

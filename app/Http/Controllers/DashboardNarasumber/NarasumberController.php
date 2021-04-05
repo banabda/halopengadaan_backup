@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\DashboardNarasumber;
 
 use App\Http\Controllers\Controller;
+use App\Models\Bidang;
 use App\Models\NarasumberProfile;
+use App\Models\NarasumberProfile\KeahlianPendukung;
+use App\Models\NarasumberProfile\KeahlianUtama;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +24,7 @@ class NarasumberController extends Controller
     public function saveRegister(Request $request)
     {
         $data = $request->all();
-        
+
         // $this->validate($request,[
         //     'name' => 'required|max:255',
         //     'email' => 'required|string|email|max:255|unique:users',
@@ -59,9 +62,18 @@ class NarasumberController extends Controller
     public function profile()
     {
         $user = User::with('profileNarasumber')->where('id', Auth::user()->id)->first();
+        $bidang = Bidang::all();
+        $keahlian_utama = KeahlianUtama::where('user_id', Auth::user()->id)->get();
+        $keahlian_pendukung = KeahlianPendukung::where('user_id', Auth::user()->id)->get();
+        // dd($keahlian_utama, $keahlian_pendukung);
+
         $data = [
-            'user' => $user
+            'user' => $user,
+            'bidang' => $bidang,
+            'keahlian_utama' => $keahlian_utama,
+            'keahlian_pendukung' => $keahlian_pendukung
         ];
+
         // dd($user->profileNarasumber);
         return view('dashboard.narasumber.profile', $data);
     }
@@ -74,15 +86,30 @@ class NarasumberController extends Controller
             'email' => $request->email,
             'no_hp' => $request->no_hp,
             'cv' => $request->cv,
-            'keahlian_utama' => $request->keahlian_utama,
-            'keahlian_pendukung' => $request->keahlian_pendukung,
             'status' => 'Belum Terverifikasi'
         ];
-        // dd($data);
+
         $profile = NarasumberProfile::with('user')->where('user_id', Auth::user()->id)->first();
 
         if (is_null($profile)) {
-            // dd('Profile Kosong');
+            foreach ($request->keahlian_utama as $key => $value) {
+                $dataKeahlianUtama = [
+                    'user_id' => $request->user_id,
+                    'bidang_id' => $value
+                ];
+
+                KeahlianUtama::create($dataKeahlianUtama);
+            }
+
+            foreach ($request->keahlian_pendukung as $key => $value) {
+                $dataKeahlianPendukung = [
+                    'user_id' => $request->user_id,
+                    'bidang_id' => $value
+                ];
+
+                KeahlianPendukung::create($dataKeahlianPendukung);
+            }
+
             $user = Auth::user()->id;
             $file = $request->file('cv');
             $path = 'dokumen/narasumber/cv/' . $user ;
@@ -96,7 +123,26 @@ class NarasumberController extends Controller
             $createProfile = NarasumberProfile::create($data);
 
         } else {
-            // dd('Profile Update');
+            $keahlian_utama = KeahlianUtama::where('user_id', $request->user_id)->delete();
+            $keahlian_pendukung = KeahlianPendukung::where('user_id', $request->user_id)->delete();
+
+            foreach ($request->keahlian_utama as $key => $value) {
+                $dataKeahlianUtama = [
+                    'user_id' => $request->user_id,
+                    'bidang_id' => $value
+                ];
+
+                KeahlianUtama::create($dataKeahlianUtama);
+            }
+
+            foreach ($request->keahlian_pendukung as $key => $value) {
+                $dataKeahlianPendukung = [
+                    'user_id' => $request->user_id,
+                    'bidang_id' => $value
+                ];
+
+                KeahlianPendukung::create($dataKeahlianPendukung);
+            }
 
             // Jika Request CV Tidak Null
             if ($request->cv != null) {
@@ -121,8 +167,6 @@ class NarasumberController extends Controller
             $profile->name = $data['name'];
             $profile->email = $data['email'];
             $profile->no_hp = $data['no_hp'];
-            $profile->keahlian_utama = $data['keahlian_utama'];
-            $profile->keahlian_pendukung = $data['keahlian_pendukung'];
             $profile->save();
 
             $user =  User::with('profileNarasumber')->where('id', $profile->user_id)->first();

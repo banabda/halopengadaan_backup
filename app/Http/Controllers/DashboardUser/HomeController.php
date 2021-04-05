@@ -33,7 +33,7 @@ class HomeController extends Controller
     public function profile()
     {
         $user = User::with('profile', 'userHasPaket')->where('id', Auth::user()->id)->first();
-        // dd($user);
+
         $data = [
             'user' => $user
         ];
@@ -49,8 +49,6 @@ class HomeController extends Controller
             'nama_lengkap' => "required",
             'email' => "required",
             'no_hp' => "required",
-            'alamat_rumah' => "required",
-            'alamat_kerja' => "required",
             'jenis_kerja'  => "required",
             'status' => "required"
         ));
@@ -69,8 +67,6 @@ class HomeController extends Controller
             $profile->nama_lengkap = $data['nama_lengkap'];
             $profile->email = $data['email'];
             $profile->no_hp = $data['no_hp'];
-            $profile->alamat_rumah = $data['alamat_rumah'];
-            $profile->alamat_kerja = $data['alamat_kerja'];
             $profile->jenis_kerja = $data['jenis_kerja'];
             $profile->status = $data['status'];
             $profile->is_complete = 1;
@@ -248,12 +244,6 @@ class HomeController extends Controller
             return redirect()->route('profile');
         } else {
 
-
-            // $data = Invoice::with('user')->where([
-            //     ['user_id', Auth::user()->id],
-            //     ['status', 'Menunggu Pembayaran']
-            // ])->orWhere('status', 'Telah Terbayar')->get();
-
             $data = Invoice::with('user')->where('user_id', Auth::user()->id)->wherein('status', ['Menunggu Pembayaran',
                     'Telah Terbayar'])->get();
 
@@ -367,6 +357,10 @@ class HomeController extends Controller
             'message' => $request->message,
             'status' => 'Pesan Terkirim'
         ];
+
+        $userhaspaket = UserhasPaket::where('user_id', $request->user_id)->first();
+        $userhaspaket->status = 'Tidak Aktif';
+        $userhaspaket->save();
 
         $message = Message::create($data);
         return redirect()->route('user.dashboard.konsultasi');

@@ -3,6 +3,8 @@
     <Bidang
       v-if="bidang == null && role[0] != 'super admin'"
       :bidang="bidang"
+      :bidangList="bidangList"
+      :narasumber="onlineNarasumber"
       @selectedBidang="setBidang"
     ></Bidang>
     <room
@@ -25,11 +27,38 @@ export default {
   },
   data() {
     return {
+      onlineNarasumber: [],
       bidang: null,
+      bidangList: null,
     };
   },
   mounted() {
-    // console.log("Component mounted.");
+    console.log("Component mounted.");
+    axios.get("/chat/bidang").then((e) => (this.bidangList = e.data));
+    Echo.join("onlineuser")
+      .here((users) => {
+        users.forEach((usr) => {
+          if (usr.role === "narasumber") {
+            this.onlineNarasumber.push(usr);
+          }
+        });
+        console.log("here", users);
+      })
+      .joining((user) => {
+        if (user.role === "narasumber") {
+          this.onlineNarasumber.push(user);
+        }
+        console.log("joining", user);
+      })
+      .leaving((user) => {
+        if (user.role === "narasumber") {
+          this.onlineNarasumber.splice(
+            this.onlineNarasumber.findIndex((el) => el.id === user.id),
+            1
+          );
+          console.log("leaving", user);
+        }
+      });
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
       this.bidang = JSON.parse(localStorage.getItem("room")).bidang_code;
     }
@@ -41,6 +70,11 @@ export default {
     setBidang(index) {
       this.bidang = index;
       // console.log("bidang value :", this.bidang);
+    },
+  },
+  watch: {
+    onlineNarasumber(onlineNarasumber) {
+      this.onlineNarasumber = onlineNarasumber;
     },
   },
   components: { Bidang, Room },

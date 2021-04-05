@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\NarasumberProfile\KeahlianPendukung;
+use App\Models\NarasumberProfile\KeahlianUtama;
 use Illuminate\Support\Facades\Broadcast;
 
 /*
@@ -24,4 +26,23 @@ Broadcast::channel('room.{id}', function ($user, $id) {
 });
 Broadcast::channel('room-info', function ($user) {
     return true;
+});
+Broadcast::channel('onlineuser', function ($user) {
+    if ($user->roles->pluck('name')[0] == "narasumber") {
+        $pendukungList = [];
+        $utamaList = [];
+        $pendukungs = $user->keahlianPendukung;
+        $utamas = $user->keahlianUtama;
+        foreach ($pendukungs as $value) {
+            $ahli = KeahlianPendukung::find($value->id)->bidang;
+            array_push($pendukungList, $ahli);
+        }
+        foreach ($utamas as $value) {
+            $ahli = KeahlianUtama::find($value->id)->bidang;
+            array_push($utamaList, $ahli);
+        }
+        return ['id' => $user->id, 'name' => $user->name, "role" => $user->roles->pluck('name')[0], "pendukung" => $pendukungList, "utama" => $utamaList];
+    }
+
+    return ['id' => $user->id, 'name' => $user->name, "role" => $user->roles->pluck('name')[0]];
 });

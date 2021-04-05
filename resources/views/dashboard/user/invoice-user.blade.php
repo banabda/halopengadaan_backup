@@ -1,5 +1,5 @@
   <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div class="content-wrapper">R
     <div class="container-full">
       <!-- Content Header (Page header) -->
       @include('dashboard.user.content-header')

@@ -43,6 +43,9 @@ Vue.filter("two_digits", value => {
 });
 import Notifications from "vue-notification";
 Vue.use(Notifications);
+
+import VueLoading from "vuejs-loading-plugin";
+Vue.use(VueLoading, { text: "Loading..." });
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application

@@ -10,8 +10,8 @@
                     @csrf
                     {{-- <div class="avatar"><p>Halo Pengadaan</p></div> --}}
                     <div class="title d-md-flex">
-                        <a class="modal-title" href="/">Halopengadaan</a>
-                        <h4 class="modal-register-narasumber ml-auto my-auto">Registration Form For <b>Narasumber</b></h4>
+                        <a class="modal-title" href="/">Register for Narasumber</a>
+                        {{-- <h4 class="modal-register-narasumber ml-auto my-auto">Registration Form For <b>Narasumber</b></h4> --}}
                     </div>
                     <div class="form-group">
                         <h5>Full Name</h5>
