@@ -1,17 +1,22 @@
 <template>
   <div class="room-list">
-    <div
-      class="back d-flex"
-      @click="$emit('back')"
-      v-if="role[0] == 'narasumber'"
-    >
-      <div class="back-div">
-        <img
+    <div class="sort" v-if="role[0] !== 'user'">
+      <div class="sort-div">
+        <!-- <img
           src="/images/bidang/back.svg"
           alt="back"
           class="back-button mr-2"
-        />
-        <div class="font-weight-bold">Kembali untuk pilih bidang</div>
+        /> -->
+        <div class="font-weight-bold text-center">Urutkan Room</div>
+        <div class="sort-btn d-flex">
+          <button class="btn btn-room" @click="$emit('sortById')">id</button>
+          <button class="btn btn-room" @click="$emit('sortByBidang')">
+            bidang
+          </button>
+          <button class="btn btn-room" @click="$emit('sortByActive')">
+            aktif
+          </button>
+        </div>
       </div>
     </div>
     <ul class="room-list-content">
@@ -93,11 +98,11 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-.back-button {
+.sort-button {
   height: 40px;
 }
 .room-list-content,
-.room-list .back,
+.room-list .sort,
 .room-list:hover,
 .room-list:focus {
   visibility: visible;
@@ -109,19 +114,34 @@ export default {
   overflow-y: auto;
   transition: flex 0.2s ease-in-out;
   flex: 2;
-  .back {
+  .sort {
     padding: 8px 8px 8px 16px;
-    cursor: pointer;
-    .back-div {
+    .sort-div {
       font-size: 1rem;
-      justify-content: center;
+      display: grid;
+      height: 120px;
       align-items: center;
       padding: 16px 4px;
       width: 100%;
-      display: flex;
       border-radius: 8px;
       background-color: white;
       box-shadow: 0px 3px 6px rgb(128 128 128 / 30%);
+      .sort-btn {
+        justify-content: space-around;
+        .btn-room {
+          background-color: transparent;
+          color: #6e376e;
+          border-color: #6e376e;
+          &:hover {
+            background-color: #6e376e;
+            color: white;
+          }
+        }
+        button {
+          width: 60px;
+          padding: 6px 0;
+        }
+      }
     }
   }
   ul {

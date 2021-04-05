@@ -10,7 +10,9 @@
           :roomselect="selectedRoom"
           :role="role"
           @selected="startChat"
-          @back="back"
+          @sortById="sortById"
+          @sortByBidang="sortByBidang"
+          @sortByActive="sortByActive"
           id="room"
         ></RoomList>
         <ChatBox
@@ -122,6 +124,15 @@ export default {
     this.getRooms();
   },
   methods: {
+    sortById() {
+      this.rooms = _.sortBy(this.rooms, "id");
+    },
+    sortByActive() {
+      this.rooms = _.sortBy(this.rooms, "ticket");
+    },
+    sortByBidang() {
+      this.rooms = _.sortBy(this.rooms, "bidang_code");
+    },
     back() {
       this.$emit("back");
     },

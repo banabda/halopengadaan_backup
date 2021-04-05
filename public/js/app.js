@@ -2792,6 +2792,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 
 
 
@@ -2896,6 +2898,15 @@ __webpack_require__.r(__webpack_exports__);
     this.getRooms();
   },
   methods: {
+    sortById: function sortById() {
+      this.rooms = _.sortBy(this.rooms, "id");
+    },
+    sortByActive: function sortByActive() {
+      this.rooms = _.sortBy(this.rooms, "ticket");
+    },
+    sortByBidang: function sortByBidang() {
+      this.rooms = _.sortBy(this.rooms, "bidang_code");
+    },
     back: function back() {
       this.$emit("back");
     },
@@ -3216,6 +3227,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+//
+//
+//
+//
+//
 //
 //
 //
@@ -10717,7 +10733,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".back-button[data-v-777f2104] {\n  height: 40px;\n}\n.room-list-content[data-v-777f2104],\n.room-list .back[data-v-777f2104],\n.room-list[data-v-777f2104]:hover,\n.room-list[data-v-777f2104]:focus {\n  visibility: visible;\n}\n.room-list[data-v-777f2104] {\n  max-height: 85vh;\n  visibility: hidden;\n  overflow-y: auto;\n  transition: flex 0.2s ease-in-out;\n  flex: 2;\n}\n.room-list .back[data-v-777f2104] {\n  padding: 8px 8px 8px 16px;\n  cursor: pointer;\n}\n.room-list .back .back-div[data-v-777f2104] {\n  font-size: 1rem;\n  justify-content: center;\n  align-items: center;\n  padding: 16px 4px;\n  width: 100%;\n  display: flex;\n  border-radius: 8px;\n  background-color: white;\n  box-shadow: 0px 3px 6px rgba(128, 128, 128, 0.3);\n}\n.room-list ul[data-v-777f2104] {\n  padding: 8px 8px 16px 16px;\n  list-style-type: none;\n}\n.room-list ul li[data-v-777f2104] {\n  margin-bottom: 16px;\n  position: relative;\n  cursor: pointer;\n}\n.room-list ul li .the-room[data-v-777f2104] {\n  padding: 16px 4px;\n  width: 100%;\n  display: flex;\n  border-radius: 8px;\n  background-color: white;\n  box-shadow: 0px 3px 6px rgba(128, 128, 128, 0.3);\n}\n.room-list ul li .the-room.roomselected[data-v-777f2104] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  color: white;\n}\n.room-list ul .unread[data-v-777f2104] {\n  background-color: #2db42d;\n  color: white;\n  position: absolute;\n  right: 11px;\n  top: 30px;\n  display: flex;\n  font-weight: 700;\n  min-width: 20px;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  font-size: 12px;\n  padding: 0 4px;\n  border-radius: 50%;\n}\n.room-list ul .room[data-v-777f2104] {\n  flex: 2;\n  display: flex;\n  align-items: center;\n  font-size: 12px;\n  font-weight: bold;\n}\n.room-list ul .room p[data-v-777f2104] {\n  margin: 10px 0;\n  padding: 0;\n}\n.room-list ul .room img[data-v-777f2104] {\n  width: 35px;\n  border-radius: 50%;\n  margin: 0 auto;\n}\n.room-list ul .room .room-name[data-v-777f2104] {\n  text-transform: capitalize;\n  font-weight: bolder;\n}\n.room-list ul .contact[data-v-777f2104] {\n  flex: 3;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.room-list ul .contact p[data-v-777f2104] {\n  margin: 0;\n}\n.room-list ul .contact p.name[data-v-777f2104] {\n  font-size: 15px;\n}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".sort-button[data-v-777f2104] {\n  height: 40px;\n}\n.room-list-content[data-v-777f2104],\n.room-list .sort[data-v-777f2104],\n.room-list[data-v-777f2104]:hover,\n.room-list[data-v-777f2104]:focus {\n  visibility: visible;\n}\n.room-list[data-v-777f2104] {\n  max-height: 85vh;\n  visibility: hidden;\n  overflow-y: auto;\n  transition: flex 0.2s ease-in-out;\n  flex: 2;\n}\n.room-list .sort[data-v-777f2104] {\n  padding: 8px 8px 8px 16px;\n}\n.room-list .sort .sort-div[data-v-777f2104] {\n  font-size: 1rem;\n  display: grid;\n  height: 120px;\n  align-items: center;\n  padding: 16px 4px;\n  width: 100%;\n  border-radius: 8px;\n  background-color: white;\n  box-shadow: 0px 3px 6px rgba(128, 128, 128, 0.3);\n}\n.room-list .sort .sort-div .sort-btn[data-v-777f2104] {\n  justify-content: space-around;\n}\n.room-list .sort .sort-div .sort-btn .btn-room[data-v-777f2104] {\n  background-color: transparent;\n  color: #6e376e;\n  border-color: #6e376e;\n}\n.room-list .sort .sort-div .sort-btn .btn-room[data-v-777f2104]:hover {\n  background-color: #6e376e;\n  color: white;\n}\n.room-list .sort .sort-div .sort-btn button[data-v-777f2104] {\n  width: 60px;\n  padding: 6px 0;\n}\n.room-list ul[data-v-777f2104] {\n  padding: 8px 8px 16px 16px;\n  list-style-type: none;\n}\n.room-list ul li[data-v-777f2104] {\n  margin-bottom: 16px;\n  position: relative;\n  cursor: pointer;\n}\n.room-list ul li .the-room[data-v-777f2104] {\n  padding: 16px 4px;\n  width: 100%;\n  display: flex;\n  border-radius: 8px;\n  background-color: white;\n  box-shadow: 0px 3px 6px rgba(128, 128, 128, 0.3);\n}\n.room-list ul li .the-room.roomselected[data-v-777f2104] {\n  background: linear-gradient(to left, #ca4b7c, #6e376e);\n  color: white;\n}\n.room-list ul .unread[data-v-777f2104] {\n  background-color: #2db42d;\n  color: white;\n  position: absolute;\n  right: 11px;\n  top: 30px;\n  display: flex;\n  font-weight: 700;\n  min-width: 20px;\n  justify-content: center;\n  align-items: center;\n  line-height: 20px;\n  font-size: 12px;\n  padding: 0 4px;\n  border-radius: 50%;\n}\n.room-list ul .room[data-v-777f2104] {\n  flex: 2;\n  display: flex;\n  align-items: center;\n  font-size: 12px;\n  font-weight: bold;\n}\n.room-list ul .room p[data-v-777f2104] {\n  margin: 10px 0;\n  padding: 0;\n}\n.room-list ul .room img[data-v-777f2104] {\n  width: 35px;\n  border-radius: 50%;\n  margin: 0 auto;\n}\n.room-list ul .room .room-name[data-v-777f2104] {\n  text-transform: capitalize;\n  font-weight: bolder;\n}\n.room-list ul .contact[data-v-777f2104] {\n  flex: 3;\n  overflow: hidden;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n}\n.room-list ul .contact p[data-v-777f2104] {\n  margin: 0;\n}\n.room-list ul .contact p.name[data-v-777f2104] {\n  font-size: 15px;\n}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -55387,7 +55403,12 @@ var render = function() {
                           role: _vm.role,
                           id: "room"
                         },
-                        on: { selected: _vm.startChat, back: _vm.back }
+                        on: {
+                          selected: _vm.startChat,
+                          sortById: _vm.sortById,
+                          sortByBidang: _vm.sortByBidang,
+                          sortByActive: _vm.sortByActive
+                        }
                       })
                     : _vm._e(),
                   _vm._v(" "),
@@ -55604,19 +55625,55 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "room-list" }, [
-    _vm.role[0] == "narasumber"
-      ? _c(
-          "div",
-          {
-            staticClass: "back d-flex",
-            on: {
-              click: function($event) {
-                return _vm.$emit("back")
-              }
-            }
-          },
-          [_vm._m(0)]
-        )
+    _vm.role[0] !== "user"
+      ? _c("div", { staticClass: "sort" }, [
+          _c("div", { staticClass: "sort-div" }, [
+            _c("div", { staticClass: "font-weight-bold text-center" }, [
+              _vm._v("Urutkan Room")
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "sort-btn d-flex" }, [
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-room",
+                  on: {
+                    click: function($event) {
+                      return _vm.$emit("sortById")
+                    }
+                  }
+                },
+                [_vm._v("id")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-room",
+                  on: {
+                    click: function($event) {
+                      return _vm.$emit("sortByBidang")
+                    }
+                  }
+                },
+                [_vm._v("\n          bidang\n        ")]
+              ),
+              _vm._v(" "),
+              _c(
+                "button",
+                {
+                  staticClass: "btn btn-room",
+                  on: {
+                    click: function($event) {
+                      return _vm.$emit("sortByActive")
+                    }
+                  }
+                },
+                [_vm._v("\n          aktif\n        ")]
+              )
+            ])
+          ])
+        ])
       : _vm._e(),
     _vm._v(" "),
     _c(
@@ -55700,23 +55757,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "back-div" }, [
-      _c("img", {
-        staticClass: "back-button mr-2",
-        attrs: { src: "/images/bidang/back.svg", alt: "back" }
-      }),
-      _vm._v(" "),
-      _c("div", { staticClass: "font-weight-bold" }, [
-        _vm._v("Kembali untuk pilih bidang")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
