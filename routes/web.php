@@ -141,11 +141,15 @@ Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function () {
     // ROOMS
     Route::get('/rooms', [RoomController::class, 'index']);
     Route::get('/rooms/{bidang_code}', [RoomController::class, 'getBidang']);
+    Route::post('/rooms', [RoomController::class, 'getManyBidang']);
     Route::post('/joinroom', [RoomController::class, 'join']);
     Route::post('/exitroom', [RoomController::class, 'exit']);
 
     // BIDANG
     Route::get('/bidang', [BidangController::class, 'index']);
+
+    // KEAHLIAN
+    Route::get('/keahlian/{user}', [BidangController::class, 'keahlian']);
 
     // CHAT
     Route::get('/contacts', [ChatController::class, 'index']);

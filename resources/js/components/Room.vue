@@ -10,7 +10,9 @@
           :roomselect="selectedRoom"
           :role="role"
           @selected="startChat"
-          @back="back"
+          @sortById="sortById"
+          @sortByBidang="sortByBidang"
+          @sortByActive="sortByActive"
           id="room"
         ></RoomList>
         <ChatBox
@@ -92,7 +94,11 @@ export default {
       if (this.role[0] == "user" && e.room.user_id == null) {
         this.exitRoom();
       }
-      if (this.role[0] == "user" && e.room.user_id != null) {
+      if (
+        this.role[0] == "user" &&
+        e.room.user_id != null &&
+        e.room.user_id == this.user.id
+      ) {
         localStorage.setItem("room", JSON.stringify(e.room));
       }
       if (this.role[0] == "narasumber" && e.room.user_id) {
@@ -122,6 +128,15 @@ export default {
     this.getRooms();
   },
   methods: {
+    sortById() {
+      this.rooms = _.sortBy(this.rooms, "id");
+    },
+    sortByActive() {
+      this.rooms = _.sortBy(this.rooms, "ticket");
+    },
+    sortByBidang() {
+      this.rooms = _.sortBy(this.rooms, "bidang_code");
+    },
     back() {
       this.$emit("back");
     },
@@ -190,9 +205,13 @@ export default {
       }
     },
     getRooms() {
-      if (this.role[0] != "super admin") {
+      if (this.role[0] == "user") {
         axios.get("/chat/rooms/" + this.bidang_code).then((response) => {
           this.rooms = response.data;
+        });
+      } else if (this.role[0] == "narasumber") {
+        axios.post("/chat/rooms", { bidang: this.bidang }).then((response) => {
+          this.rooms = _.sortBy(response.data, "id");
         });
       } else {
         axios.get("/chat/rooms").then((response) => {
@@ -272,8 +291,12 @@ export default {
     },
   },
   watch: {
+    bidang(bidang) {
+      this.bidang = bidang;
+      console.log(bidang);
+    },
     bidang_code(bidang_code) {
-      if (this.role != "super admin")
+      if (this.role == "user")
         axios.get("/chat/rooms/" + bidang_code).then((response) => {
           this.rooms = response.data;
         });

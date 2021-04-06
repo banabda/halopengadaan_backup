@@ -6,6 +6,7 @@ use App\Events\JoinRoomEvent;
 use App\Models\Chat;
 use App\Models\Room;
 use App\Http\Controllers\Controller;
+use App\Models\Bidang;
 use App\Models\UserhasPaket;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -94,5 +95,18 @@ class RoomController extends Controller
         $room->save();
         broadcast(new JoinRoomEvent($room));
         return response()->json(['room' => $room, 'status' => $stat]);
+    }
+
+    public function getManyBidang(Request $request)
+    {
+        $rooms = [];
+        $bidang = $request->bidang;
+        foreach ($bidang as $value) {
+            $room = Room::where('bidang_code', ($value['id'] - 1))->get();
+            foreach ($room as $rm) {
+                array_push($rooms, $rm);
+            }
+        }
+        return $rooms;
     }
 }

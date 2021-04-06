@@ -16,23 +16,23 @@ class HomeChatController extends Controller
     public function index()
     {
         $user = User::where('id', Auth::user()->id)->first();
-        
+
         if ($user->hasRole('user')) {
             $userhaspaket = UserhasPaket::where('user_id', Auth::user()->id)->first();
-            $invoice = Invoice::where('user_id', Auth::user()->id)->latest()->first();
-            $message = Message::where('invoice_id', $invoice->id)->first();
-    
-            $data = [
-                'userHasPaket' => $userhaspaket,
-                'message' => $message,
-                'invoice' => $invoice
-            ];
             if (is_null($userhaspaket)) {
                 return redirect()->route('user.dashboard.membership');
             } elseif ($userhaspaket->expired_at <= Carbon::now()) {
                 return redirect()->route('user.dashboard.membership');
             } elseif ($userhaspaket->saldo == 0) {
                 if ($userhaspaket->paket == 3) {
+                    $invoice = Invoice::where('user_id', Auth::user()->id)->latest()->first();
+                    $message = Message::where('invoice_id', $invoice->id)->first();
+
+                    $data = [
+                        'userHasPaket' => $userhaspaket,
+                        'message' => $message,
+                        'invoice' => $invoice
+                    ];
                     return view('dashboard.user.konsultasi', $data);
                 } else {
                     return redirect()->route('user.dashboard.membership');
@@ -45,11 +45,9 @@ class HomeChatController extends Controller
             } else {
                 return view('layouts.chat');
             }
-
         } else {
             return view('layouts.chat');
         }
-
     }
 
     public function getSaldo($user_id)

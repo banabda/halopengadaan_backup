@@ -10,7 +10,7 @@
         <div class="font-weight-bold">Kembali untuk pilih bidang</div>
       </div>
     </div>
-    <div class="row pt-3 button-list" v-if="role[0] != 'super admin'">
+    <div class="row pt-3 button-list px-4" v-if="role[0] != 'super admin'">
       <div
         class="col-md-6 div-button d-flex"
         v-for="(room, index) in rooms"
@@ -18,7 +18,11 @@
       >
         <!-- :src="'/images/bidang/bidang' + (index + 1) + '.svg'" -->
         <img
-          class="btn-1"
+          class="btn-1 ml-md-4"
+          :class="[
+            room.narasumber_id ? '' : 'disabled',
+            room.user_id ? 'disabled' : '',
+          ]"
           :src="
             '/images/room/' +
             bidangList[room.bidang_code] +
@@ -30,7 +34,7 @@
         />
         <div class="in-room ml-3">
           <div :class="room.user_name ? 'font-weight-bold' : ''">
-            {{ room.user_name ? room.user_name : "no user" }}
+            {{ room.user_name ? "Room sedang digunakan" : "no user" }}
           </div>
           <div :class="room.narasumber_name ? 'font-weight-bold' : ''">
             {{
@@ -67,7 +71,9 @@ export default {
   },
   methods: {
     startChat(room) {
-      this.$emit("chat", room);
+      if (room.narasumber_id !== null && room.user_id === null) {
+        this.$emit("chat", room);
+      }
     },
   },
   data() {
@@ -119,10 +125,12 @@ export default {
 .btn-1 {
   width: 200px;
   cursor: pointer;
+  &.disabled {
+    cursor: default;
+  }
 }
 
 .div-button {
-  justify-content: center;
   align-items: center;
   height: 100px;
 }
