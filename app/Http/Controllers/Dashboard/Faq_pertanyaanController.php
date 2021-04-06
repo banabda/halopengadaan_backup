@@ -26,7 +26,11 @@ class Faq_pertanyaanController extends Controller
 
                 return $btn;
             })
-            ->rawColumns(['action'])
+            ->addColumn('jawaban', function($row){
+
+                return $row->jawaban;
+            })
+            ->rawColumns(['action','jawaban'])
             ->addIndexColumn()
             ->make(true);
         }

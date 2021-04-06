@@ -18,12 +18,12 @@
 
 
     <div class="accordion-item">
-      <h2 class="accordion-header" id="heading{{$item->id}}">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$item->id}}" aria-expanded="true" aria-controls="collapse{{$item->id}}">
-           {{$item->id}}. {{$item->pertanyaan}}
+      <h2 class="accordion-header" id="heading{{$loop->iteration }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$loop->iteration }}" aria-expanded="true" aria-controls="collapse{{$loop->iteration }}">
+           {{$loop->iteration }}.{{$item->pertanyaan}}
         </button>
       </h2>
-      <div id="collapse{{$item->id}}" class="accordion-collapse collapse" aria-labelledby="heading{{$item->id}}" data-bs-parent="#accordionExample">
+      <div id="collapse{{$loop->iteration }}" class="accordion-collapse collapse" aria-labelledby="heading{{$loop->iteration }}" data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <ul>
                 <li>{!! $item->jawaban !!}</li>
@@ -33,11 +33,6 @@
     </div>
 
     @endforeach
-
-
-
-
 </div>
-<br><br><br><br>
+<img class="img1" src="{{ asset('images/section2/kontak.png') }}" alt="" style="width:100%;">
 @endsection
-
