@@ -199,8 +199,8 @@
             url: "{{url('admin/narasumber/profile')}}/" + id_profileNarasumber,
             success:function(data)
             {
-                console.log(data);
-                console.log(data.keahlian_utama)
+                // console.log(data);
+                // console.log(data.keahlian_utama)
                 $(".modal-body div span").text("");
                 $(".content-keahlian_utama").html("");
                 $(".content-keahlian_pendukung").html("");
@@ -210,11 +210,11 @@
                 $(".no_hp span").text(data.profile.no_hp);
 
                 $.each(data.keahlian_utama, function (index, value) {
-                    // console.log(value.bidang[0].name);
+                    // console.log(value.bidang.name);
                     $(".content-keahlian_utama").append(
                         `
                         <ul style="list-style-type: -">
-                            <li>`+ value.bidang[0].name +`</li>
+                            <li>`+ value.bidang.name +`</li>
                         </ul>
 
                         `
@@ -223,11 +223,11 @@
                 });
 
                 $.each(data.keahlian_pendukung, function (index, value) {
-                    // console.log(value.bidang[0].name);
+                    // console.log(value.bidang.name);
                     $(".content-keahlian_pendukung").append(
                         `
                         <ul style="list-style-type: -">
-                            <li>`+ value.bidang[0].name +`</li>
+                            <li>`+ value.bidang.name +`</li>
                         </ul>
 
                         `
