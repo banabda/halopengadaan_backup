@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Controllers\Controller;
 use App\Models\Invoice;
 use App\Models\Message;
+use App\Models\Metodepembayaran;
 use App\Models\NarasumberProfile;
 use App\Models\NarasumberProfile\KeahlianPendukung;
 use App\Models\NarasumberProfile\KeahlianUPendukung;
@@ -26,12 +27,35 @@ class HomeController extends Controller
         return view('dashboard.components.content');
     }
 
-    public function invoice()
+    public function invoice(Request $request)
     {
-        $data = Invoice::with('user')->get();
+        $invoice = Invoice::with('user');
+
+        $metode_pembayaran = Metodepembayaran::all();
+
+        $data = [
+            'metode_pembayaran' => $metode_pembayaran
+        ];
 
         if (request()->ajax()) {
-            return DataTables()->of($data)
+            return DataTables()->eloquent($invoice)
+            ->addIndexColumn()
+            ->filter(function ($query) use ($request) {
+                if (!empty($request->get('status'))) {
+                    $status = $request->get('status');
+                    // dd($query->where('status', $status));
+                    if ($status != -1) {
+                        $query->where('status', $status);
+                    }
+                }
+
+                if (!empty($request->get('metode_pembayaran'))) {
+                    $metode_pembayaran = $request->get('metode_pembayaran');
+                    if ($metode_pembayaran != -1) {
+                        $query->where('nama_bank', $metode_pembayaran);
+                    }
+                }
+            })
             ->addColumn('nama_lengkap', function($nama_lengkap) {
                 return $nama_lengkap->user->name;
             })
@@ -74,7 +98,7 @@ class HomeController extends Controller
             ->make(true);
         }
 
-        return view('dashboard.admin.data-invoice');
+        return view('dashboard.admin.data-invoice', $data);
     }
 
     public function prosesInvoice($id)
