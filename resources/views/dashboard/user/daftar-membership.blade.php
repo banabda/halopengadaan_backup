@@ -76,7 +76,7 @@
                                     <label for="membership">Pilih Paket</label>
                                     <select class="custom-select form-control" id="membership" name="paket">
                                         <option>Pilih Membership</option>
-                                        <option value="2">7x Konsultasi / Bulan, (Rp. 250,000,-)</option>
+                                        <option value="2">5x Konsultasi / Bulan, (Rp. 250,000,-)</option>
                                         <option value="3">1 Jam via Zoom, (Rp. 1.500.000,-)</option>
                                     </select>
                                 </div>
