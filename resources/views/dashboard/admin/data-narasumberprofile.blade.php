@@ -61,7 +61,7 @@
                             <select id="status" name="status" class="form-control">
                                 <option selected value="-1">ALL</option>
                                 <option value="Belum Terverifikasi">Belum Terverifikasi</option>
-                                <option value="Teraktifasi">Teraktifasi</option>
+                                <option value="Terverifikasi">Terverifikasi</option>
                             </select>
                         </div>
                     </div>

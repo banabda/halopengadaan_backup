@@ -203,8 +203,11 @@ class HomeController extends Controller
             ->filter(function ($query) use ($request) {
                 if (!empty($request->get('status'))) {
                     $status = $request->get('status');
+                    
                     if ($status != -1) {
-                        $query->where('status', $status);
+                        $query->whereHas('profileNarasumber', function($q) use ($status){
+                            $q->where('status', '=', $status);
+                        });
                     }
                 }
             })
@@ -246,7 +249,7 @@ class HomeController extends Controller
         $profile = NarasumberProfile::where('user_id', $id)->first();
         $keahlian_utama = KeahlianUtama::with('bidang')->where('user_id', $id)->get();
         $keahlian_pendukung = KeahlianPendukung::with('bidang')->where('user_id', $id)->get();
-        
+
         $data = [
             'profile' => $profile,
             'keahlian_utama' => $keahlian_utama,
