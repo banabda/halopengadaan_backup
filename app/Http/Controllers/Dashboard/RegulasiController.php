@@ -91,7 +91,7 @@ class RegulasiController extends Controller
      */
     public function edit($id)
     {
-        $regulasi = Regulasi::find($id)->first();
+        $regulasi = Regulasi::find($id);
 
         $data =[
             'regulasi' => $regulasi
