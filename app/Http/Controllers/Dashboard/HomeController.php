@@ -203,7 +203,7 @@ class HomeController extends Controller
             ->filter(function ($query) use ($request) {
                 if (!empty($request->get('status'))) {
                     $status = $request->get('status');
-                    
+
                     if ($status != -1) {
                         $query->whereHas('profileNarasumber', function($q) use ($status){
                             $q->where('status', '=', $status);
