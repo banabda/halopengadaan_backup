@@ -30,6 +30,28 @@
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
+                    <div class="row">
+                        {{-- Status Pembayaran --}}
+                        <div class="form-group col-md-4">
+                            <label for="status">Status Pembayaran</label>
+                            <select id="status" name="status" class="form-control">
+                                <option value="-1">ALL</option>
+                                <option value="Menunggu Pembayaran">Menunggu Pembayaran</option>
+                                <option value="Telah Terbayar">Menunggu Konfirmasi</option>
+                                <option value="Terkonfirmasi">Terkonfirmasi</option>
+                            </select>
+                        </div>
+                        {{-- Metode Pembayaran --}}
+                        <div class="form-group col-md-4">
+                            <label for="metode_pembayaran">Metode Pembayaran</label>
+                            <select id="metode_pembayaran" name="metode_pembayaran" class="form-control">
+                                <option selected value="-1">ALL</option>
+                                @foreach ($metode_pembayaran as $item)
+                                    <option value="{{ $item->nama_provider }}">{{ $item->nama_provider }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
                     <table id="dataInvoice" class="table table-bordered table-striped">
                       <thead>
                           <tr>
@@ -86,9 +108,15 @@
           table = $('#dataInvoice').DataTable({
               processing: true,
               serverSide: true,
-              ajax: "{{ route('admin.dashboard.invoice') }}",
+              ajax: {
+                  url: "{{ route('admin.dashboard.invoice') }}",
+                  data : function(invoice){
+                     invoice.status = $('#status').val();
+                     invoice.metode_pembayaran = $('#metode_pembayaran').val();
+                  }
+              },
               columns: [
-                {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
+                {data: 'id', name: 'id', className : "text-center"},
                 {data: 'nama_lengkap', name: 'nama_lengkap'},
                 {data: 'email', name: 'email'},
                 {data: 'paket_detail', name: 'paket_detail'},
@@ -105,7 +133,15 @@
             table.column(0, {order:'applied', search:'applied'}).nodes().each( function (cell, i) {
                 cell.innerHTML = i+1;
             } );
-        } ).draw();
+          }).draw();
+
+          $('#status').on('change', function(){
+			table.draw(false);
+          });
+
+          $('#metode_pembayaran').on('change', function(){
+			table.draw(false);
+          });
       });
 </script>
 <script>

@@ -5,7 +5,6 @@
 @endphp --}}
 @if (is_null($invoice) )
 
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <div class="container-full">
@@ -42,31 +41,24 @@
                                 <hr class="my-15">
                                 <div class="row">
                                     <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Nama Lengkap</label>
-                                        <input type="text" class="form-control" name="nama_lengkap" value="{{ Auth::user()->profile->nama_lengkap }}" placeholder="Nama Lengkap">
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Nama Lengkap</label>
+                                            <input type="text" class="form-control" name="nama_lengkap" value="{{ Auth::user()->profile->nama_lengkap }}" placeholder="Nama Lengkap" required>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" class="form-control" name="email" value="{{ Auth::user()->profile->email }}" placeholder="E-mail">
-                                    </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control" name="email" value="{{ Auth::user()->profile->email }}" placeholder="E-mail" disabled>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label >No HP</label>
-                                        <input type="text" id="password" name="no_hp" class="form-control" value="{{ Auth::user()->profile->no_hp }}" placeholder="Password">
-                                        <p id="message"></p>
-                                    </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="alamat_rumah">Alamat Rumah </label>
-                                        <textarea name="alamat_rumah" id="alamat_rumah" class="form-control" placeholder="Alamat Lengkap Rumah">{{ Auth::user()->profile->alamat_rumah }}</textarea>
-                                    </div>
+                                        <div class="form-group">
+                                            <label >No HP</label>
+                                            <input type="text" name="no_hp" class="form-control" value="{{ Auth::user()->profile->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
+                                        </div>
                                     </div>
                                 </div>
 
@@ -74,9 +66,9 @@
                                 <hr class="my-15">
                                 <div class="form-group">
                                     <label for="membership">Pilih Paket</label>
-                                    <select class="custom-select form-control" id="membership" name="paket">
-                                        <option>Pilih Membership</option>
-                                        <option value="2">7x Konsultasi / Bulan, (Rp. 250,000,-)</option>
+                                    <select class="custom-select form-control" id="membership" name="paket" required>
+                                        <option value="">Pilih Membership</option>
+                                        <option value="2">5x Konsultasi / Bulan, (Rp. 250,000,-)</option>
                                         <option value="3">1 Jam via Zoom, (Rp. 1.500.000,-)</option>
                                     </select>
                                 </div>
@@ -96,19 +88,19 @@
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="nama_method">Pilih Metode :</label>
-                                            <select class="custom-select form-control" id="nama_method" name="nama_method">
-                                            <option>Pilih Metode Pembayaran</option>
-                                            @foreach ($metode_pembayaran as $key => $value)
-                                                <option value="{{ $key }}">{{ $key }}</option>
-                                            @endforeach
+                                            <select class="custom-select form-control" id="nama_method" name="nama_method" required>
+                                                <option value="">Pilih Metode Pembayaran</option>
+                                                @foreach ($metode_pembayaran as $key => $value)
+                                                    <option value="{{ $key }}">{{ $key }}</option>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-6 col-12">
                                         <div class="form-group">
                                             <label for="nama_provider">Pilih Providers :</label>
-                                            <select class="custom-select form-control" id="nama_provider" name="nama_provider">
-                                                <option>Pilih Providers</option>
+                                            <select class="custom-select form-control" id="nama_provider" name="nama_provider" required>
+                                                <option value="">Pilih Providers</option>
                                             </select>
                                         </div>
                                     </div>
@@ -243,31 +235,24 @@
                                     <hr class="my-15">
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Nama Lengkap</label>
-                                            <input type="text" class="form-control" name="nama_lengkap" value="{{ Auth::user()->profile->nama_lengkap }}" placeholder="Nama Lengkap">
-                                        </div>
+                                            <div class="form-group">
+                                                <label>Nama Lengkap</label>
+                                                <input type="text" class="form-control" name="nama_lengkap" value="{{ Auth::user()->profile->nama_lengkap }}" placeholder="Nama Lengkap" required>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="email" class="form-control" name="email" value="{{ Auth::user()->profile->email }}" placeholder="E-mail">
-                                        </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="email" class="form-control" name="email" value="{{ Auth::user()->profile->email }}" placeholder="E-mail" disabled>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label >No HP</label>
-                                            <input type="text" id="password" name="no_hp" class="form-control" value="{{ Auth::user()->profile->no_hp }}" placeholder="Password">
-                                            <p id="message"></p>
-                                        </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="alamat_rumah">Alamat Rumah </label>
-                                            <textarea name="alamat_rumah" id="alamat_rumah" class="form-control" placeholder="Alamat Lengkap Rumah">{{ Auth::user()->profile->alamat_rumah }}</textarea>
-                                        </div>
+                                            <div class="form-group">
+                                                <label >No HP</label>
+                                                <input type="text" name="no_hp" class="form-control" value="{{ Auth::user()->profile->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
+                                            </div>
                                         </div>
                                     </div>
 
@@ -275,9 +260,9 @@
                                     <hr class="my-15">
                                     <div class="form-group">
                                         <label for="membership">Pilih Paket</label>
-                                        <select class="custom-select form-control" id="membership" name="paket">
-                                            <option>Pilih Membership</option>
-                                            <option value="2">7x Konsultasi / Bulan, (Rp. 250,000,-)</option>
+                                        <select class="custom-select form-control" id="membership" name="paket" required>
+                                            <option value="">Pilih Membership</option>
+                                            <option value="2">5x Konsultasi / Bulan, (Rp. 250,000,-)</option>
                                             <option value="3">1 Jam via Zoom, (Rp. 1.500.000,-)</option>
                                         </select>
                                     </div>
@@ -297,19 +282,19 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="nama_method">Pilih Metode :</label>
-                                                <select class="custom-select form-control" id="nama_method" name="nama_method">
-                                                <option>Pilih Metode Pembayaran</option>
-                                                @foreach ($metode_pembayaran as $key => $value)
-                                                    <option value="{{ $key }}">{{ $key }}</option>
-                                                @endforeach
+                                                <select class="custom-select form-control" id="nama_method" name="nama_method" required>
+                                                    <option value="">Pilih Metode Pembayaran</option>
+                                                    @foreach ($metode_pembayaran as $key => $value)
+                                                        <option value="{{ $key }}">{{ $key }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="nama_provider">Pilih Providers :</label>
-                                                <select class="custom-select form-control" id="nama_provider" name="nama_provider">
-                                                    <option>Pilih Providers</option>
+                                                <select class="custom-select form-control" id="nama_provider" name="nama_provider" required>
+                                                    <option value="">Pilih Providers</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -443,31 +428,24 @@
                                     <hr class="my-15">
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Nama Lengkap</label>
-                                            <input type="text" class="form-control" name="nama_lengkap" value="{{ Auth::user()->profile->nama_lengkap }}" placeholder="Nama Lengkap">
-                                        </div>
+                                            <div class="form-group">
+                                                <label>Nama Lengkap</label>
+                                                <input type="text" class="form-control" name="nama_lengkap" value="{{ Auth::user()->profile->nama_lengkap }}" placeholder="Nama Lengkap" required>
+                                            </div>
                                         </div>
                                         <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label>Email</label>
-                                            <input type="email" class="form-control" name="email" value="{{ Auth::user()->profile->email }}" placeholder="E-mail">
-                                        </div>
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="email" class="form-control" name="email" value="{{ Auth::user()->profile->email }}" placeholder="E-mail" disabled>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label >No HP</label>
-                                            <input type="text" id="password" name="no_hp" class="form-control" value="{{ Auth::user()->profile->no_hp }}" placeholder="Password">
-                                            <p id="message"></p>
-                                        </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label for="alamat_rumah">Alamat Rumah </label>
-                                            <textarea name="alamat_rumah" id="alamat_rumah" class="form-control" placeholder="Alamat Lengkap Rumah">{{ Auth::user()->profile->alamat_rumah }}</textarea>
-                                        </div>
+                                            <div class="form-group">
+                                                <label >No HP</label>
+                                                <input type="text" name="no_hp" class="form-control" value="{{ Auth::user()->profile->no_hp }}" placeholder="Terhubung dengan WhatsApp (6285683xxx)">
+                                            </div>
                                         </div>
                                     </div>
 
@@ -475,9 +453,9 @@
                                     <hr class="my-15">
                                     <div class="form-group">
                                         <label for="membership">Pilih Paket</label>
-                                        <select class="custom-select form-control" id="membership" name="paket">
-                                            <option>Pilih Membership</option>
-                                            <option value="2">7x Konsultasi / Bulan, (Rp. 250,000,-)</option>
+                                        <select class="custom-select form-control" id="membership" name="paket" required>
+                                            <option value="">Pilih Membership</option>
+                                            <option value="2">5x Konsultasi / Bulan, (Rp. 250,000,-)</option>
                                             <option value="3">1 Jam via Zoom, (Rp. 1.500.000,-)</option>
                                         </select>
                                     </div>
@@ -497,19 +475,19 @@
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="nama_method">Pilih Metode :</label>
-                                                <select class="custom-select form-control" id="nama_method" name="nama_method">
-                                                <option>Pilih Metode Pembayaran</option>
-                                                @foreach ($metode_pembayaran as $key => $value)
-                                                    <option value="{{ $key }}">{{ $key }}</option>
-                                                @endforeach
+                                                <select class="custom-select form-control" id="nama_method" name="nama_method" required>
+                                                    <option value="">Pilih Metode Pembayaran</option>
+                                                    @foreach ($metode_pembayaran as $key => $value)
+                                                        <option value="{{ $key }}">{{ $key }}</option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="form-group">
                                                 <label for="nama_provider">Pilih Providers :</label>
-                                                <select class="custom-select form-control" id="nama_provider" name="nama_provider">
-                                                    <option>Pilih Providers</option>
+                                                <select class="custom-select form-control" id="nama_provider" name="nama_provider" required>
+                                                    <option value="">Pilih Providers</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -533,7 +511,7 @@
 
         <script>
             $(document).ready(function () {
-                $('#modalNotification').modal('show');
+
                 // Select Membership
                 $('#membership').on('change', function () {
                     var membership = $('#membership').val();

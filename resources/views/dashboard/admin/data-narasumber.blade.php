@@ -107,7 +107,7 @@
 
           $('#status').on('change', function(){
 			table.draw(false);
-		});
+          });
       });
 </script>
 <script>
