@@ -34,5 +34,5 @@
 
     @endforeach
 </div>
-<img class="img1" src="{{ asset('images/section2/kontak.png') }}" alt="" style="width:100%;">
+<img class="img1" src="{{ asset('images/section2/person.png') }}" alt="" style="width:100%;">
 @endsection
