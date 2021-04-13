@@ -1,7 +1,7 @@
 <nav class="fixed-top navbar navbar-expand-md navbar-light shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <img src="{{ asset('images/landing icon/logohalo.svg') }}" style="height: 30px;" alt="logo">
+            <img src="{{ asset('images/landing icon/logo_br.svg') }}" style="height: 37px;" alt="logo">
             {{-- asd --}}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
