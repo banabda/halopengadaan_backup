@@ -8,6 +8,7 @@ use App\Models\ArtikelViews;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Image;
 
 class ArtikelController extends Controller
 {
@@ -21,23 +22,23 @@ class ArtikelController extends Controller
         $data = Artikel::all();
         if (request()->ajax()) {
             return DataTables()->of($data)
-            ->addColumn('link_url', function($url){
-                return '<a target="_blank" href="'. route('landing.artikel.show', $url->slug) .'">Link Artikel</a>';
-            })
-            ->addColumn('foto_artikel', function($foto){
-                return "<a target='_blank' href='". Storage::url($foto->foto) ."'><img src=". Storage::url($foto->foto). " height='150px' width='auto' alt='". $foto->foto ."'></a>";
-            })
-            ->addColumn('action', function($row){
-                $btn = '<a class="btn btn-xs btn-info mr-2 edit-artikel" href="'. route('artikel.edit', $row->id) .'" id="'. $row->id .'">
+                ->addColumn('link_url', function ($url) {
+                    return '<a target="_blank" href="' . route('landing.artikel.show', $url->slug) . '">Link Artikel</a>';
+                })
+                ->addColumn('foto_artikel', function ($foto) {
+                    return "<a target='_blank' href='" . Storage::url($foto->foto) . "'><img src=" . Storage::url($foto->foto) . " height='150px' width='auto' alt='" . $foto->foto . "'></a>";
+                })
+                ->addColumn('action', function ($row) {
+                    $btn = '<a class="btn btn-xs btn-info mr-2 edit-artikel" href="' . route('artikel.edit', $row->id) . '" id="' . $row->id . '">
                 <i class="fa fa-edit"></i> Edit </a>';
-                $btn .= '<a class="btn btn-xs btn-info delete-confirm" id="'. $row->id .'" href="javascript:void(0)">
+                    $btn .= '<a class="btn btn-xs btn-info delete-confirm" id="' . $row->id . '" href="javascript:void(0)">
                 <i class="fa fa-trash"></i> Hapus </a>';
 
-                return $btn;
-            })
-            ->rawColumns(['action', 'link_url', 'foto_artikel'])
-            ->addIndexColumn()
-            ->make(true);
+                    return $btn;
+                })
+                ->rawColumns(['action', 'link_url', 'foto_artikel'])
+                ->addIndexColumn()
+                ->make(true);
         }
 
         return view('dashboard.admin.artikel.index');
@@ -68,15 +69,28 @@ class ArtikelController extends Controller
             'slug' => Str::slug($request->judul)
         ];
 
-        $path = 'images/artikel';
-        $file = $request->file('foto');
-        $path = Storage::disk('public')->put(
-            $path,
-            $file
-        );
+        $image = $request->file('foto');
+        $input['imagename'] = time() . '.' . $image->extension();
 
-        $data['foto'] = $path;
-        $artikel = Artikel::create($data);
+        $destinationPath = storage_path() . '/app/public/images/artikel/' . $input['imagename'];
+
+        $img = Image::make($image->path());
+        $img->resize(750, 750, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath);
+
+        $url = 'images/artikel/' . $input['imagename'];
+
+
+        // $path = 'images/artikel';
+        // $file = $request->file('foto');
+        // $path = Storage::disk('public')->put(
+        //     $path,
+        //     $file
+        // );
+
+        $data['foto'] = $url;
+        Artikel::create($data);
 
         return redirect()->route('artikel.index');
     }
@@ -134,7 +148,7 @@ class ArtikelController extends Controller
 
         // Delete Foto Artikel
         if (!is_null($request->foto)) {
-            unlink(storage_path('app/public/'.$artikel->foto));
+            unlink(storage_path('app/public/' . $artikel->foto));
 
             // Re - Upload Foto Artikel
             $path = 'images/artikel';
@@ -162,7 +176,7 @@ class ArtikelController extends Controller
     {
         $data = Artikel::find($id);
         $data->delete();
-        unlink(storage_path('app/public/'.$data->foto));
+        unlink(storage_path('app/public/' . $data->foto));
 
         return response()->json([
             'status' => 'ok'
@@ -196,7 +210,7 @@ class ArtikelController extends Controller
 
         $data = [
             'artikel' => $artikel,
-            'view'=> $countView,
+            'view' => $countView,
             'randomArtikel' => $randomArtikel
         ];
 
