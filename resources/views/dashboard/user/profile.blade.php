@@ -21,19 +21,19 @@
           </div>
       </div>
       @if (is_null($user->profile))
-      <div class="px-30 my-15 no-print">
-        <div class="callout callout-danger" style="margin-bottom: 0!important;">
-          <h4><i class="fa fa-info"></i> Note:</h4>
-          Lengkapi bagian profil terlebih dahulu !
+        <div class="px-30 my-15 no-print">
+            <div class="callout callout-danger" style="margin-bottom: 0!important;">
+            <h4><i class="fa fa-info"></i> Note:</h4>
+            Lengkapi bagian profil terlebih dahulu !
+            </div>
         </div>
-      </div>
       @elseif(is_null($user->profile->nama_lengkap) && is_null($user->profile->email) && is_null($user->profile->no_hp))
-      <div class="px-30 my-15 no-print">
-        <div class="callout callout-danger" style="margin-bottom: 0!important;">
-          <h4><i class="fa fa-info"></i> Note:</h4>
-          Lengkapi bagian profil terlebih dahulu !
+        <div class="px-30 my-15 no-print">
+            <div class="callout callout-danger" style="margin-bottom: 0!important;">
+            <h4><i class="fa fa-info"></i> Note:</h4>
+            Lengkapi bagian profil terlebih dahulu !
+            </div>
         </div>
-      </div>
       @else
 
       @endif
@@ -78,9 +78,8 @@
                             @else
                                 <span class="font-size-20">Paket Platinum</span>
                             @endif
-                            {{-- <span class="font-size-20">Active</span> --}}
                         @endif
-                        {{-- <span class="font-size-20">Active</span> --}}
+                        
                       </li>
                     </ul>
                   </div>
@@ -205,7 +204,7 @@
                             <label for="inputEmail" class="col-sm-2 control-label pt-1">Email</label>
 
                             <div class="col-sm-10">
-                                <input type="email" class="form-control" id="inputEmail" name="email" value="{{ Auth::user()->email }}" placeholder="Email Aktif" required>
+                                <input type="email" class="form-control" id="inputEmail" name="email" value="{{ Auth::user()->email }}" placeholder="Email Aktif" disabled>
                             </div>
                             </div>
                             <div class="form-group row">

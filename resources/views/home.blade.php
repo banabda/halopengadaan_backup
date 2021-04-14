@@ -7,7 +7,7 @@
 
 </div>
 <div class="sect2img">
-    <img class="sect2imgtag" src="{{ asset('images/section2/image.png') }}" alt="">
+    <img class="sect2imgtag" src="{{ asset('images/section2/image2.png') }}" alt="">
 
 </div>
 <div class="sect3img">

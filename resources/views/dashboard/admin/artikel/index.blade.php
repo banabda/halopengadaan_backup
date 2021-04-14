@@ -53,7 +53,7 @@
                               <th>Judul</th>
                               <th>Link Artikel</th>
                               <th>Foto</th>
-                              <th>Action</th>
+                              <th >Action</th>
                           </tr>
                       </tfoot>
                     </table>

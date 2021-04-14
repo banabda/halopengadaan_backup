@@ -95,6 +95,13 @@
                     </a>
                 </li>
 
+                <li>
+                    <a href="{{ route('faq.index') }}">
+                        <i class="fa fa-question" aria-hidden="true"></i>
+                        <span>FAQ</span>
+                    </a>
+                </li>
+
                 {{-- <li>
           <a href="{{ route('logout') }}"
                 onclick="event.preventDefault();

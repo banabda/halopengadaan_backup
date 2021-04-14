@@ -8,12 +8,13 @@
       <div class="content-header">
           <div class="d-flex align-items-center">
               <div class="mr-auto">
-                  <h3 class="page-title">Data Narasumber</h3>
+                  <h3 class="page-title">Tambah FAQ</h3>
                   <div class="d-inline-block align-items-center">
                       <nav>
                           <ol class="breadcrumb">
                               <li class="breadcrumb-item"><a href="#"><i class="mdi mdi-home-outline"></i></a></li>
-                              <li class="breadcrumb-item active" aria-current="page">Data Narasumber</li>
+                              <li class="breadcrumb-item" aria-current="page">Auth</li>
+                              <li class="breadcrumb-item active" aria-current="page">Tambah FAQ</li>
                           </ol>
                       </nav>
                   </div>
@@ -27,26 +28,18 @@
           <div class="col-12">
 
            <div class="box">
+              <div class="box-header with-border">
+                  <a href="{{ route('faq.create') }}"><button type="button" class="btn btn-outline btn-primary mb-5" >Tambah FAQ</button></a>
+              </div>
               <!-- /.box-header -->
               <div class="box-body">
                   <div class="table-responsive">
-                    <div class="row">
-                        <div class="form-group col-md-4">
-                            <label for="status">Status User</label>
-                            <select id="status" name="status" class="form-control">
-                                <option selected value="-1">ALL</option>
-                                <option value="Belum Teraktifasi">Belum Teraktifasi</option>
-                                <option value="Teraktifasi">Teraktifasi</option>
-                            </select>
-                        </div>
-                    </div>
-                    <table id="tableNarasumber" class="table table-bordered table-striped">
+                    <table id="tableFaqadmin" class="table table-bordered table-striped">
                       <thead>
                           <tr>
                               <th>No</th>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Status</th>
+                              <th>Pertanyaan</th>
+                              <th>Jawaban</th>
                               <th>Action</th>
                           </tr>
                       </thead>
@@ -56,10 +49,9 @@
                       <tfoot>
                           <tr>
                               <th>No</th>
-                              <th>Name</th>
-                              <th>Email</th>
-                              <th>Status</th>
-                              <th>Action</th>
+                              <th>Pertanyaan</th>
+                              <th>Jawaban</th>
+                              <th style="width: 200px;">Action</th>
                           </tr>
                       </tfoot>
                     </table>
@@ -78,61 +70,76 @@
     </div>
 </div>
 <!-- /.content-wrapper -->
+
+
 <script>
     var table;
       $(function() {
-          table = $('#tableNarasumber').DataTable({
+          table = $('#tableFaqadmin').DataTable({
               processing: true,
               serverSide: true,
-              ajax: {
-                  url: "{{ route('admin.dashboard.narasumber') }}",
-                  data : function(narasumber){
-                     narasumber.status = $('#status').val();
-                  }
-              },
+              ajax: "{{ route('faq.index') }}",
               columns: [
-                {data: 'nomor', name: 'nomor', className : "text-center"},
-                {data: 'name', name: 'name'},
-                {data: 'email', name: 'email'},
-                {data: 'status', name: 'status'},
+                {data: 'DT_RowIndex', name: 'DT_RowIndex', className : "text-center"},
+                {data: 'pertanyaan', name: 'pertanyaan'},
+                {data: 'jawaban', name: 'jawaban'},
                 {data: 'action', name: 'action', orderable: false, searchable: false, className : "text-center"},
               ]
           });
-
           table.on( 'order.dt search.dt', function () {
             table.column(0, {order:'applied', search:'applied'}).nodes().each( function (cell, i) {
                 cell.innerHTML = i+1;
             } );
-          }).draw();
-
-          $('#status').on('change', function(){
-			table.draw(false);
-          });
+        } ).draw();
       });
 </script>
+
+
+
 <script>
-    $(document).on('click', '.user-confirm', function(){
-        var id_user = $(this).attr("id");
-        console.log(id_user);
-        event.preventDefault();
+    $(document).on('click', '   .delete-confirm', function(){
+        var id_faq = $(this).attr("id");
+        // console.log(id_artikel);
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
             }
         });
-        $.ajax({
-            type:'POST',
-            url: "{{url('admin/narasumber/verify')}}/" + id_user,
-            success:function(data)
-            {
-                if(data.status == "ok"){
-                    table.draw(false);
-                }
-            },
-            error: function(data){
-
+        event.preventDefault();
+        Swal.fire({
+            title: "Apakah Anda Yakin Ingin Menghapus Ini?",
+            // type: "info",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: "Hapus",
+            confirmButtonColor: "#ff0055",
+            cancelButtonColor: "#999999",
+            reverseButtons: true,
+            focusConfirm: false,
+            focusCancel: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type:'DELETE',
+                    url: "{{url('admin/faq')}}/" + id_faq,
+                    success:function(data)
+                    {
+                        if(data.status == "ok"){
+                            table.draw(false);
+                        }
+                    },
+                    error: function(data){
+                    }
+                });
             }
-        });
+        })
     });
 </script>
 @endsection
+
+
+
+
+
+
+

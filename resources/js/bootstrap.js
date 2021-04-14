@@ -7,10 +7,10 @@ window._ = require("lodash");
  */
 
 try {
-    window.Popper = require("popper.js").default;
-    window.$ = window.jQuery = require("jquery");
+	window.Popper = require("popper.js").default;
+	window.$ = window.jQuery = require("jquery");
 
-    require("bootstrap");
+	require("bootstrap");
 } catch (e) {}
 
 /**
@@ -43,6 +43,6 @@ import Echo from "laravel-echo";
 window.io = require("socket.io-client");
 
 window.Echo = new Echo({
-    broadcaster: "socket.io",
-    host: window.location.hostname + ":6001" // this is laravel-echo-server host
+	broadcaster: "socket.io",
+	host: window.location.hostname, // this is laravel-echo-server host
 });
