@@ -253,7 +253,7 @@ class HomeController extends Controller
                       return 'Rp. '.number_format($tagihan->tagihan,0, ',', '.');
                   })
                   ->addColumn('tanggal', function($tanggal){
-                      return Carbon::parse($tanggal->updated_at)->format('d F Y');
+                      return Carbon::parse($tanggal->created_at)->format('d F Y');
                   })
                   ->addColumn('paket_detail', function($paket){
                       if ($paket->paket == "1") {
