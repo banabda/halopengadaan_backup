@@ -49,7 +49,7 @@
                 </td>
 				<td>Rp. {{ number_format($invoice->tagihan,2,",",".") }}</td>
 				<td>
-                    {{ Carbon\Carbon::parse($invoice->expired_at)->translatedFormat('d F Y ') }}
+                    {{ Carbon\Carbon::parse($invoice->created_at)->translatedFormat('d F Y ') }}
                 </td>
                 <td>
                     @if ($invoice->status == "Menunggu Pembayaran")
@@ -90,7 +90,7 @@
         <div class="col-xs-3" style="padding-top: 10px;">
             <br><br><br><br>
             <center>
-                Jakarta, {{ Carbon\Carbon::parse($invoice->expired_at)->translatedFormat('d F Y ') }}
+                Jakarta, {{ Carbon\Carbon::parse($invoice->created_at)->translatedFormat('d F Y ') }}
                 {{-- <br><br><br><br>
                 <br><b><u>Yenny Yulianty</u></b>
                 <br>Keuangan LPKN --}}
