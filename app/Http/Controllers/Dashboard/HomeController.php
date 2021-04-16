@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function invoice(Request $request)
     {
-        $invoice = Invoice::with('user');
+        $invoice = Invoice::with('user')->orderBy('id','desc');
 
         $metode_pembayaran = Metodepembayaran::all();
 
