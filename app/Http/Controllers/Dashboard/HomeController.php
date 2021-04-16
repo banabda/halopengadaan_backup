@@ -49,6 +49,15 @@ class HomeController extends Controller
                     }
                 }
 
+                if (!empty($request->get('tanggal'))) {
+                    $tanggal = $request->get('tanggal');
+
+                    if ($tanggal != -1) {
+                        $query->whereDate('updated_at', $tanggal)->get();
+
+                    }
+                }
+
                 if (!empty($request->get('metode_pembayaran'))) {
                     $metode_pembayaran = $request->get('metode_pembayaran');
                     if ($metode_pembayaran != -1) {
