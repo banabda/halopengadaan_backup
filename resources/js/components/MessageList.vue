@@ -30,6 +30,7 @@
               class="btn btn-file"
               :class="message.text !== null ? 'mb-4' : 'mb-2'"
               v-else-if="message.file_name != null"
+              @click="openNewTab(message.path)"
             >
               {{ message.file_name }}
             </button>
@@ -80,6 +81,9 @@ export default {
     }
   },
   methods: {
+    openNewTab(url) {
+      window.open(url, "_blank");
+    },
     showImg(url) {
       console.log("test");
       this.$emit("imgUrl", url);
