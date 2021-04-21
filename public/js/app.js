@@ -54815,7 +54815,7 @@ var render = function() {
                             _vm.role[0] == "user"
                               ? _vm.room.narasumber_name == null
                                 ? "no narasumber"
-                                : _vm.room.narasumber_name
+                                : "Narasumber " + _vm.room.narasumber_id
                               : _vm.room.user_name == null
                               ? "no user"
                               : _vm.room.user_name

@@ -27,7 +27,7 @@
                 role[0] == "user"
                   ? room.narasumber_name == null
                     ? "no narasumber"
-                    : room.narasumber_name
+                    : "Narasumber " + room.narasumber_id
                   : room.user_name == null
                   ? "no user"
                   : room.user_name
