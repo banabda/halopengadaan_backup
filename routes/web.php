@@ -150,7 +150,7 @@ Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function () {
     Route::get('/bidang', [BidangController::class, 'index']);
 
     // LAST ONLINE
-    Route::get('/lastonline', [NarasumberController::class, 'updateLastOnline']);
+    Route::get('/lastonline/{online}', [NarasumberController::class, 'updateLastOnline']);
 
     // KEAHLIAN
     Route::get('/keahlian/{user}', [BidangController::class, 'keahlian']);

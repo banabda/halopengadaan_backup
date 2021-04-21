@@ -45,6 +45,7 @@ export default {
         users.forEach((usr) => {
           if (usr.role === "narasumber") {
             this.onlineNarasumber.push(usr);
+            axios.get("/chat/lastonline/" + 1);
           }
         });
       })
@@ -59,7 +60,7 @@ export default {
             this.onlineNarasumber.findIndex((el) => el.id === user.id),
             1
           );
-          axios.get("/chat/lastonline");
+          axios.get("/chat/lastonline/" + 0);
         }
       });
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {

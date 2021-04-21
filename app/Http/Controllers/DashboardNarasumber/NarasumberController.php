@@ -8,6 +8,7 @@ use App\Models\NarasumberProfile;
 use App\Models\NarasumberProfile\KeahlianPendukung;
 use App\Models\NarasumberProfile\KeahlianUtama;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -177,11 +178,16 @@ class NarasumberController extends Controller
         return redirect()->route('narasumber.dashboard.profile');
     }
 
-    public function updateLastOnline()
+    public function updateLastOnline($online)
     {
+        // $profile = NarasumberProfile::all();
+        $time_online = Carbon::now();
+        if ($online == 1) {
+            $time_online = null;
+        }
         $profile = NarasumberProfile::where('user_id', Auth::user()->id)->first();
         $profile->update([
-            'last_online' => now()
+            'last_online' => $time_online
         ]);
         return $profile;
     }

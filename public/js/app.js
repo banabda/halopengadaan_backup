@@ -2449,6 +2449,8 @@ __webpack_require__.r(__webpack_exports__);
       users.forEach(function (usr) {
         if (usr.role === "narasumber") {
           _this.onlineNarasumber.push(usr);
+
+          axios.get("/chat/lastonline/" + 1);
         }
       });
     }).joining(function (user) {
@@ -2461,7 +2463,7 @@ __webpack_require__.r(__webpack_exports__);
           return el.id === user.id;
         }), 1);
 
-        axios.get("/chat/lastonline");
+        axios.get("/chat/lastonline/" + 0);
       }
     });
 
