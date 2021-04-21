@@ -2451,20 +2451,17 @@ __webpack_require__.r(__webpack_exports__);
           _this.onlineNarasumber.push(usr);
         }
       });
-      console.log("here", users);
     }).joining(function (user) {
       if (user.role === "narasumber") {
         _this.onlineNarasumber.push(user);
       }
-
-      console.log("joining", user);
     }).leaving(function (user) {
       if (user.role === "narasumber") {
         _this.onlineNarasumber.splice(_this.onlineNarasumber.findIndex(function (el) {
           return el.id === user.id;
         }), 1);
 
-        console.log("leaving", user);
+        axios.get("/chat/lastonline");
       }
     });
 

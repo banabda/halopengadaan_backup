@@ -47,13 +47,11 @@ export default {
             this.onlineNarasumber.push(usr);
           }
         });
-        console.log("here", users);
       })
       .joining((user) => {
         if (user.role === "narasumber") {
           this.onlineNarasumber.push(user);
         }
-        console.log("joining", user);
       })
       .leaving((user) => {
         if (user.role === "narasumber") {
@@ -61,7 +59,7 @@ export default {
             this.onlineNarasumber.findIndex((el) => el.id === user.id),
             1
           );
-          console.log("leaving", user);
+          axios.get("/chat/lastonline");
         }
       });
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {

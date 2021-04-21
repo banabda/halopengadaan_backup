@@ -47,7 +47,6 @@ class NarasumberController extends Controller
             'messages' => 'Pendaftaran Berhasil! Menunggu Konfirmasi Admin',
             'route' => route('login')
         ]);
-
     }
 
     protected function validator(array $data)
@@ -112,7 +111,7 @@ class NarasumberController extends Controller
 
             $user = Auth::user()->id;
             $file = $request->file('cv');
-            $path = 'dokumen/narasumber/cv/' . $user ;
+            $path = 'dokumen/narasumber/cv/' . $user;
             $path = Storage::disk('public')->put(
                 $path,
                 $file
@@ -121,7 +120,6 @@ class NarasumberController extends Controller
             $data['cv'] = $path;
 
             $createProfile = NarasumberProfile::create($data);
-
         } else {
             $keahlian_utama = KeahlianUtama::where('user_id', $request->user_id)->delete();
             $keahlian_pendukung = KeahlianPendukung::where('user_id', $request->user_id)->delete();
@@ -152,7 +150,7 @@ class NarasumberController extends Controller
 
                 $user = Auth::user()->id;
                 $file = $request->file('cv');
-                $path = 'dokumen/narasumber/cv/' . $user ;
+                $path = 'dokumen/narasumber/cv/' . $user;
                 $path = Storage::disk('public')->put(
                     $path,
                     $file
@@ -173,11 +171,18 @@ class NarasumberController extends Controller
             $user->email = $data['email'];
             $user->name = $data['name'];
             $user->save();
-
         }
 
 
         return redirect()->route('narasumber.dashboard.profile');
+    }
 
+    public function updateLastOnline()
+    {
+        $profile = NarasumberProfile::where('user_id', Auth::user()->id)->first();
+        $profile->update([
+            'last_online' => now()
+        ]);
+        return $profile;
     }
 }
