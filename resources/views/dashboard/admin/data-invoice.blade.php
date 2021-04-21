@@ -51,6 +51,10 @@
                                 @endforeach
                             </select>
                         </div>
+                        <div class="form-group col-md-4">
+                            <label for="tanggal">Pilih Tanggal</label>
+                            <input type="date" name="tanggal" id="tanggal" class="form-control">
+                        </div>
                     </div>
                     <table id="dataInvoice" class="table table-bordered table-striped">
                       <thead>
@@ -113,6 +117,7 @@
                   data : function(invoice){
                      invoice.status = $('#status').val();
                      invoice.metode_pembayaran = $('#metode_pembayaran').val();
+                     invoice.tanggal = $('#tanggal').val();
                   }
               },
               columns: [
@@ -140,6 +145,10 @@
           });
 
           $('#metode_pembayaran').on('change', function(){
+			table.draw(false);
+          });
+
+          $('#tanggal').on('change', function(){
 			table.draw(false);
           });
       });
