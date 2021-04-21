@@ -88,7 +88,7 @@ class ChatController extends Controller
                 $constraint->aspectRatio();
             })->save($destinationPath);
 
-            $url = 'upload/sendMedia/' . $input['imagename'];
+            $url = 'storage/upload/sendMedia/' . $input['imagename'];
         } else {
             $path = 'upload/sendMedia';
             $path = Storage::disk('public')->put(
