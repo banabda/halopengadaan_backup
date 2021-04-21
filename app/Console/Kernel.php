@@ -25,7 +25,7 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('userhaspaket:checkExpired')->everyMinute();
-        $schedule->command('test:cron')->everyMinute();
+        $schedule->command('remove:narasumber')->everyMinute();
     }
 
     /**

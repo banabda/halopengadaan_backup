@@ -27,7 +27,7 @@
                 role[0] == "user"
                   ? room.narasumber_name == null
                     ? "no narasumber"
-                    : room.narasumber_name
+                    : "Narasumber " + room.narasumber_id
                   : room.user_name == null
                   ? "no user"
                   : room.user_name
@@ -100,6 +100,7 @@ import MessageInput from "./MessageInput";
 import MessageList from "./MessageList";
 import UploadFile from "./UploadFile.vue";
 import ImagePreview from "./ImagePreview";
+import Swal from "sweetalert2";
 export default {
   props: {
     room: { type: Object, default: null },
@@ -156,12 +157,23 @@ export default {
       this.$modal.show("upload-file");
     },
     exit() {
-      axios
-        .post("/chat/exitroom", { room: this.room, role: this.role })
-        .then(() => {
-          this.stopTime();
-          this.$emit("exit");
-        });
+      Swal.fire({
+        title: "Do you want to end the chat?",
+        showDenyButton: true,
+        showCancelButton: true,
+        showConfirmButton: false,
+        denyButtonText: `End chat`,
+      }).then((result) => {
+        if (result.isDenied) {
+          axios
+            .post("/chat/exitroom", { room: this.room, role: this.role })
+            .then(() => {
+              this.stopTime();
+              this.$emit("exit");
+              Swal.fire("Chat ended", "", "warning");
+            });
+        }
+      });
     },
     setFile(file) {
       if (!this.room) {

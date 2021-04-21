@@ -8,7 +8,7 @@
       @selectedBidang="setBidang"
     ></Bidang>
     <room
-      v-else-if="bidang != null"
+      v-else-if="role[0] == 'super admin' || bidang != null"
       :role="role"
       :user="user"
       :bidang="bidang"
@@ -45,15 +45,14 @@ export default {
         users.forEach((usr) => {
           if (usr.role === "narasumber") {
             this.onlineNarasumber.push(usr);
+            axios.get("/chat/lastonline/" + 1);
           }
         });
-        console.log("here", users);
       })
       .joining((user) => {
         if (user.role === "narasumber") {
           this.onlineNarasumber.push(user);
         }
-        console.log("joining", user);
       })
       .leaving((user) => {
         if (user.role === "narasumber") {
@@ -61,7 +60,7 @@ export default {
             this.onlineNarasumber.findIndex((el) => el.id === user.id),
             1
           );
-          console.log("leaving", user);
+          axios.get("/chat/lastonline/" + 0);
         }
       });
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
