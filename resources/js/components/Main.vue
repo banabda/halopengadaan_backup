@@ -32,6 +32,9 @@ export default {
       bidangList: null,
     };
   },
+  created() {
+    window.addEventListener("beforeunload", this.leaving);
+  },
   mounted() {
     if (this.role[0] == "narasumber") {
       axios
@@ -45,7 +48,10 @@ export default {
         users.forEach((usr) => {
           if (usr.role === "narasumber") {
             this.onlineNarasumber.push(usr);
-            axios.get("/chat/lastonline/" + 1);
+            axios.post("/chat/lastonline/", {
+              online: true,
+              id: usr.id,
+            });
           }
         });
       })
@@ -60,7 +66,10 @@ export default {
             this.onlineNarasumber.findIndex((el) => el.id === user.id),
             1
           );
-          axios.get("/chat/lastonline/" + 0);
+          axios.post("/chat/lastonline/", {
+            online: false,
+            id: user.id,
+          });
         }
       });
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
@@ -68,6 +77,13 @@ export default {
     }
   },
   methods: {
+    leaving() {
+      axios.post("/chat/lastonline/", {
+        online: false,
+        id: this.user.id,
+      });
+      alert("bye");
+    },
     removeBidang() {
       this.bidang = null;
     },

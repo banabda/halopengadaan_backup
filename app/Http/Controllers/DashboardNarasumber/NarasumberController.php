@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class NarasumberController extends Controller
 {
@@ -178,14 +179,16 @@ class NarasumberController extends Controller
         return redirect()->route('narasumber.dashboard.profile');
     }
 
-    public function updateLastOnline($online)
+    public function updateLastOnline(Request $request)
     {
         // $profile = NarasumberProfile::all();
         $time_online = Carbon::now();
-        if ($online == 1) {
+        $id = $request->id;
+        if ($request->online) {
             $time_online = null;
+            $id = Auth::user()->id;
         }
-        $profile = NarasumberProfile::where('user_id', Auth::user()->id)->first();
+        $profile = NarasumberProfile::where('user_id', $id)->first();
         $profile->update([
             'last_online' => $time_online
         ]);
