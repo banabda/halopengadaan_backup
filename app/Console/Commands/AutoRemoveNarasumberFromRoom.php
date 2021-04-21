@@ -44,7 +44,6 @@ class AutoRemoveNarasumberFromRoom extends Command
         $narasumbers = NarasumberProfile::all();
         $rooms = Room::all();
         foreach ($narasumbers as $narasumber) {
-            // Log::info(['carbon', Carbon::parse($narasumber->last_online)->addMinutes(30)->format('d.m.y H:i')]);
             if (Carbon::parse($narasumber->last_online)->addMinutes(30)->format('d.m.y H:i') == Carbon::now()->format('d.m.y H:i')) {
                 foreach ($rooms as $room) {
                     if ($room->narasumber_id == $narasumber->user_id) {

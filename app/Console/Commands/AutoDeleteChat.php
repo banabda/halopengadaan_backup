@@ -42,9 +42,7 @@ class AutoDeleteChat extends Command
     {
         $chats = Chat::all();
         foreach ($chats as $chat) {
-            // Log::info([$chat->created_at->addDays(3)->format('Y-m-d'), Carbon::now()->format('Y-m-d'), $chat->created_at->addDays(3)->format('Y-m-d') < Carbon::now()->format('Y-m-d')]);
-            if ($chat->created_at->addDays(3)->format('Y-m-d') < Carbon::now()->format('Y-m-d')) {
-                // Log::info("ok");
+            if ($chat->created_at->addDays(1)->format('Y-m-d') < Carbon::now()->format('Y-m-d')) {
                 $chat->delete();
             }
         }
