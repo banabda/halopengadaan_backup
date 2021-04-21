@@ -2020,6 +2020,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _MessageList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MessageList */ "./resources/js/components/MessageList.vue");
 /* harmony import */ var _UploadFile_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UploadFile.vue */ "./resources/js/components/UploadFile.vue");
 /* harmony import */ var _ImagePreview__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ImagePreview */ "./resources/js/components/ImagePreview.vue");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! sweetalert2 */ "./node_modules/sweetalert2/dist/sweetalert2.all.js");
+/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_4__);
 //
 //
 //
@@ -2117,6 +2119,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+
 
 
 
@@ -2197,13 +2200,25 @@ __webpack_require__.r(__webpack_exports__);
     exit: function exit() {
       var _this2 = this;
 
-      axios.post("/chat/exitroom", {
-        room: this.room,
-        role: this.role
-      }).then(function () {
-        _this2.stopTime();
+      sweetalert2__WEBPACK_IMPORTED_MODULE_4___default().fire({
+        title: "Do you want to end the chat?",
+        showDenyButton: true,
+        showCancelButton: true,
+        showConfirmButton: false,
+        denyButtonText: "End chat"
+      }).then(function (result) {
+        if (result.isDenied) {
+          axios.post("/chat/exitroom", {
+            room: _this2.room,
+            role: _this2.role
+          }).then(function () {
+            _this2.stopTime();
 
-        _this2.$emit("exit");
+            _this2.$emit("exit");
+
+            sweetalert2__WEBPACK_IMPORTED_MODULE_4___default().fire("Chat ended", "", "warning");
+          });
+        }
       });
     },
     setFile: function setFile(file) {
