@@ -254,7 +254,7 @@ export default {
       this.nowTime();
     },
     minute(minute) {
-      if (minute > 5 && minute < 10) {
+      if (minute == 9) {
         var notifprops = {
           group: "timer",
           type: "warn",
@@ -263,7 +263,7 @@ export default {
           text: "<p>Sisa waktu sesi konsultasi anda kurang dari 10 menit</p>",
         };
         this.$emit("notif", notifprops);
-      } else if (this.minute > 1 && this.minute < 5) {
+      } else if (this.minute == 4) {
         var notifprops = {
           group: "timer",
           type: "warn",

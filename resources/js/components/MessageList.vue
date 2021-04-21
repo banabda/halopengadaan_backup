@@ -52,6 +52,7 @@
   </div>
 </template>
 <script>
+import Swal from "sweetalert2";
 export default {
   props: {
     room: {
@@ -85,8 +86,11 @@ export default {
       window.open(url, "_blank");
     },
     showImg(url) {
-      console.log("test");
-      this.$emit("imgUrl", url);
+      Swal.fire({
+        imageUrl: url,
+        imageAlt: "Preview picture",
+      });
+      // this.$emit("imgUrl", url);
     },
     scrollToBottom() {
       setTimeout(() => {
