@@ -8,7 +8,7 @@
       @selectedBidang="setBidang"
     ></Bidang>
     <room
-      v-else-if="bidang != null"
+      v-else-if="role[0] == 'super admin' || bidang != null"
       :role="role"
       :user="user"
       :bidang="bidang"
@@ -32,6 +32,10 @@ export default {
       bidangList: null,
     };
   },
+  created() {
+    if (this.role[0] == "narasumber")
+      window.addEventListener("beforeunload", this.leaving);
+  },
   mounted() {
     if (this.role[0] == "narasumber") {
       axios
@@ -45,15 +49,17 @@ export default {
         users.forEach((usr) => {
           if (usr.role === "narasumber") {
             this.onlineNarasumber.push(usr);
+            axios.post("/chat/lastonline/", {
+              online: true,
+              id: usr.id,
+            });
           }
         });
-        console.log("here", users);
       })
       .joining((user) => {
         if (user.role === "narasumber") {
           this.onlineNarasumber.push(user);
         }
-        console.log("joining", user);
       })
       .leaving((user) => {
         if (user.role === "narasumber") {
@@ -61,7 +67,10 @@ export default {
             this.onlineNarasumber.findIndex((el) => el.id === user.id),
             1
           );
-          console.log("leaving", user);
+          axios.post("/chat/lastonline/", {
+            online: false,
+            id: user.id,
+          });
         }
       });
     if (this.role == "user" && JSON.parse(localStorage.getItem("room"))) {
@@ -69,6 +78,13 @@ export default {
     }
   },
   methods: {
+    leaving() {
+      axios.post("/chat/lastonline/", {
+        online: false,
+        id: this.user.id,
+      });
+      alert("bye");
+    },
     removeBidang() {
       this.bidang = null;
     },

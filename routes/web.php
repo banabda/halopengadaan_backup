@@ -5,6 +5,7 @@ use App\Http\Controllers\Chat\ChatController;
 use App\Http\Controllers\Chat\HomeChatController;
 use App\Http\Controllers\Chat\RoomController;
 use App\Http\Controllers\Chat\TicketController;
+use App\Http\Controllers\DashboardNarasumber\NarasumberController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -81,8 +82,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['role:super admin']], functi
     // Regulasi
     Route::resource('regulasi', 'Dashboard\RegulasiController');
 
-     // faq
-     Route::resource('faq', 'Dashboard\Faq_pertanyaanController');
+    // faq
+    Route::resource('faq', 'Dashboard\Faq_pertanyaanController');
 
     // Data Pembayaran Invoice
     Route::get('invoice', 'Dashboard\HomeController@invoice')->name('admin.dashboard.invoice');
@@ -147,6 +148,9 @@ Route::group(['prefix' => 'chat', 'middleware' => ['auth']], function () {
 
     // BIDANG
     Route::get('/bidang', [BidangController::class, 'index']);
+
+    // LAST ONLINE
+    Route::post('/lastonline', [NarasumberController::class, 'updateLastOnline']);
 
     // KEAHLIAN
     Route::get('/keahlian/{user}', [BidangController::class, 'keahlian']);

@@ -29,7 +29,7 @@ class HomeController extends Controller
 
     public function invoice(Request $request)
     {
-        $invoice = Invoice::with('user');
+        $invoice = Invoice::with('user')->orderBy('id','desc');
 
         $metode_pembayaran = Metodepembayaran::all();
 
@@ -46,6 +46,15 @@ class HomeController extends Controller
                     // dd($query->where('status', $status));
                     if ($status != -1) {
                         $query->where('status', $status);
+                    }
+                }
+
+                if (!empty($request->get('tanggal'))) {
+                    $tanggal = $request->get('tanggal');
+
+                    if ($tanggal != -1) {
+                        $query->whereDate('updated_at', $tanggal)->get();
+
                     }
                 }
 

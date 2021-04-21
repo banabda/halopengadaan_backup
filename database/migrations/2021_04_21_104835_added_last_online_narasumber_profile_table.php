@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTicketsTable extends Migration
+class AddedLastOnlineNarasumberProfileTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,8 @@ class CreateTicketsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tickets', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->integer('room_id')->unsigned();
-            $table->timestamp('expired_at')->nullable();
-            $table->timestamps();
+        Schema::table('narasumber_profile', function (Blueprint $table) {
+            $table->timestamp('last_online')->after('status')->nullable();
         });
     }
 
@@ -29,6 +25,8 @@ class CreateTicketsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tickets');
+        Schema::table('narasumber_profile', function (Blueprint $table) {
+            $table->dropColumn('last_online');
+        });
     }
 }

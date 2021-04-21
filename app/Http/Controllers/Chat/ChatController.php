@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
+use Image;
 
 class ChatController extends Controller
 {
@@ -16,18 +17,17 @@ class ChatController extends Controller
     {
         return Chat::all();
     }
-    
+
     public function index()
     {
         $contacts = User::where('id', '!=', auth()->id())->get();
         $unReadIds = Chat::select(DB::raw('`from` as sender_id, count(`from`) as message_count'))
-        ->where('to', auth()->id())
-        ->where('read', false)
-        ->groupBy('from')
-        ->get();
+            ->where('to', auth()->id())
+            ->where('read', false)
+            ->groupBy('from')
+            ->get();
 
-        $contacts = $contacts->map(function ($contact) use ($unReadIds)
-        {
+        $contacts = $contacts->map(function ($contact) use ($unReadIds) {
             $contactUnread = $unReadIds->where('sender_id', $contact->id)->first();
             $contact->unread = $contactUnread ? $contactUnread->message_count : 0;
             return $contact;
@@ -38,11 +38,10 @@ class ChatController extends Controller
     public function getMessageFor(Request $request)
     {
         // $messages = Message::where('from', $id)->Where('to', auth()->id())->update(['read'=>true]);
-        $messages = Chat::Where('to', $request->id)->update(['read'=>true]);
+        $messages = Chat::Where('to', $request->id)->update(['read' => true]);
         $id = $request->id;
         $ticket = $request->ticket;
-        $messages = Chat::where(function ($q) use ($id, $ticket)
-        {
+        $messages = Chat::where(function ($q) use ($id, $ticket) {
             $q->where('ticket', $ticket);
             $q->where('to', $id);
         })->get();
@@ -66,10 +65,10 @@ class ChatController extends Controller
             'to' => $request->room_id,
             'text' => $request->text,
             'is_narasumber' => $request->isNarasumber,
-            'file_name'=> $request->filename,
-            'type'=> $request->filetype,
-            'path'=> $request->filepath,
-            'ticket'=> $request->ticket
+            'file_name' => $request->filename,
+            'type' => $request->filetype,
+            'path' => $request->filepath,
+            'ticket' => $request->ticket
         ]);
 
         // broadcast(new NewMessageEvent($message));
@@ -80,21 +79,27 @@ class ChatController extends Controller
 
     public function uploadFile(Request $request)
     {
-        $data = $request->all();
         $file = $request->file('file');
-        $path = 'upload/sendMedia';
-        $filename = $file->getClientOriginalName();
-        
-        $path = Storage::disk('public')->put(
-            $path,
-            $file
-        );
+        if (@is_array(getimagesize($file))) {
+            $input['imagename'] = time() . '.' . $file->extension();
+            $destinationPath = storage_path() . '/app/public/upload/sendMedia/' . $input['imagename'];
+            $img = Image::make($file->path());
+            $img->resize(750, 750, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath);
 
-        $media_url = $path;
-
+            $url = 'storage/upload/sendMedia/' . $input['imagename'];
+        } else {
+            $path = 'upload/sendMedia';
+            $path = Storage::disk('public')->put(
+                $path,
+                $file
+            );
+            $url = Storage::url($path);
+        }
         return response()->json([
             'status' => 'ok',
-            'media_url' => Storage::url($path)
+            'media_url' => $url
         ]);
     }
 }

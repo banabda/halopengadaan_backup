@@ -8,11 +8,13 @@ use App\Models\NarasumberProfile;
 use App\Models\NarasumberProfile\KeahlianPendukung;
 use App\Models\NarasumberProfile\KeahlianUtama;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Log;
 
 class NarasumberController extends Controller
 {
@@ -47,7 +49,6 @@ class NarasumberController extends Controller
             'messages' => 'Pendaftaran Berhasil! Menunggu Konfirmasi Admin',
             'route' => route('login')
         ]);
-
     }
 
     protected function validator(array $data)
@@ -112,7 +113,7 @@ class NarasumberController extends Controller
 
             $user = Auth::user()->id;
             $file = $request->file('cv');
-            $path = 'dokumen/narasumber/cv/' . $user ;
+            $path = 'dokumen/narasumber/cv/' . $user;
             $path = Storage::disk('public')->put(
                 $path,
                 $file
@@ -121,7 +122,6 @@ class NarasumberController extends Controller
             $data['cv'] = $path;
 
             $createProfile = NarasumberProfile::create($data);
-
         } else {
             $keahlian_utama = KeahlianUtama::where('user_id', $request->user_id)->delete();
             $keahlian_pendukung = KeahlianPendukung::where('user_id', $request->user_id)->delete();
@@ -152,7 +152,7 @@ class NarasumberController extends Controller
 
                 $user = Auth::user()->id;
                 $file = $request->file('cv');
-                $path = 'dokumen/narasumber/cv/' . $user ;
+                $path = 'dokumen/narasumber/cv/' . $user;
                 $path = Storage::disk('public')->put(
                     $path,
                     $file
@@ -173,11 +173,25 @@ class NarasumberController extends Controller
             $user->email = $data['email'];
             $user->name = $data['name'];
             $user->save();
-
         }
 
 
         return redirect()->route('narasumber.dashboard.profile');
+    }
 
+    public function updateLastOnline(Request $request)
+    {
+        // $profile = NarasumberProfile::all();
+        $time_online = Carbon::now();
+        $id = $request->id;
+        if ($request->online) {
+            $time_online = null;
+            $id = Auth::user()->id;
+        }
+        $profile = NarasumberProfile::where('user_id', $id)->first();
+        $profile->update([
+            'last_online' => $time_online
+        ]);
+        return $profile;
     }
 }
