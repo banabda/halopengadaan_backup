@@ -8,7 +8,7 @@
       @selectedBidang="setBidang"
     ></Bidang>
     <room
-      v-else-if="bidang != null"
+      v-else-if="role[0] == 'super admin' || bidang != null"
       :role="role"
       :user="user"
       :bidang="bidang"
