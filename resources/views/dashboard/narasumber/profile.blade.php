@@ -169,7 +169,7 @@
                                 <div class="col-sm-10">
                                     <div class="demo-checkbox">
                                         @foreach ($bidang as $item)
-                                            <input type="checkbox" id="keahlianutama-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_utama[]" class="filled-in chk-col-primary"/>
+                                            <input type="checkbox" id="keahlianutama-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_utama[]" class="filled-in chk-col-primary keahlian-utama"/>
                                             <label for="keahlianutama-{{ $item->id }}">{{ $item->name }}</label>
                                         @endforeach
                                     </div>
@@ -182,7 +182,7 @@
                                 <div class="col-sm-10">
                                     <div class="demo-checkbox">
                                         @foreach ($bidang as $item)
-                                            <input type="checkbox" id="keahlianpendukung-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_pendukung[]" class="filled-in chk-col-primary"/>
+                                            <input type="checkbox" id="keahlianpendukung-{{ $item->id }}" value="{{ $item->id }}" name="keahlian_pendukung[]" class="filled-in chk-col-primary keahlian-pendukung"/>
                                             <label for="keahlianpendukung-{{ $item->id }}">{{ $item->name }}</label>
                                         @endforeach
                                     </div>
@@ -323,6 +323,21 @@
     $("#uploadFoto").change(function() {
         readURL(this);
     });
+
+    $(document).on('click', '.keahlian-utama', function(){
+        var keahlian_utama = $(this).attr("id");
+        var id = keahlian_utama.replace("keahlianutama-", "");
+
+        var selector = "#"+keahlian_utama+"";
+
+        if ($(selector).is(':checked')) {
+            $("#keahlianpendukung-"+ id +"").prop("disabled", true);
+        } else {
+            $("#keahlianpendukung-"+ id +"").prop("disabled", false);
+        }
+
+    });
+
 </script>
 <script>
 
