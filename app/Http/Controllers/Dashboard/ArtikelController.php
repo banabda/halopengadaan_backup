@@ -151,14 +151,25 @@ class ArtikelController extends Controller
             unlink(storage_path('app/public/' . $artikel->foto));
 
             // Re - Upload Foto Artikel
-            $path = 'images/artikel';
-            $file = $request->file('foto');
-            $path = Storage::disk('public')->put(
-                $path,
-                $file
-            );
+            // $path = 'images/artikel';
+            // $file = $request->file('foto');
+            // $path = Storage::disk('public')->put(
+            //     $path,
+            //     $file
+            // );\
+            $image = $request->file('foto');
+            $input['imagename'] = time() . '.' . $image->extension();
 
-            $data['foto'] = $path;
+            $destinationPath = storage_path() . '/app/public/images/artikel/' . $input['imagename'];
+
+            $img = Image::make($image->path());
+            $img->resize(750, 750, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath);
+
+            $url = 'images/artikel/' . $input['imagename'];
+
+            $data['foto'] = $url;
         }
 
         $artikel->update($data);
