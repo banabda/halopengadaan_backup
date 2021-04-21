@@ -33,7 +33,8 @@ export default {
     };
   },
   created() {
-    window.addEventListener("beforeunload", this.leaving);
+    if (this.role[0] == "narasumber")
+      window.addEventListener("beforeunload", this.leaving);
   },
   mounted() {
     if (this.role[0] == "narasumber") {
