@@ -9,7 +9,7 @@
     <div slot="top-right" class="ct-top-right" @click="$modal.hide('photo')">
       Slot for close button
     </div>
-    <img :src="imgUrl" />
+    <img :src="imgUrl" class="img" />
   </modal>
 </template>
 <script>
@@ -21,6 +21,10 @@ export default {
 };
 </script>
 <style lang="scss">
+.img {
+  max-height: 500px;
+  object-fit: contain;
+}
 .photo-preview {
   background-color: transparent;
   box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.4);

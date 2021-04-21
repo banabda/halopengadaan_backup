@@ -36,12 +36,12 @@
                       <span class="status-nara mr-2"></span>Narasumber
                       {{ nara.id }}
                     </div>
-                    <div
-                      v-else-if="narasumber.length == index + 1"
+                    <!-- <div
+                      v-else-if="index == 0"
                       class="narasumber-name"
                     >
                       Tidak ada narasumber
-                    </div>
+                    </div> -->
                   </li>
                 </ul>
               </div>

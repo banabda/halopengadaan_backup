@@ -26,6 +26,7 @@ class Kernel extends ConsoleKernel
     {
         $schedule->command('userhaspaket:checkExpired')->everyMinute();
         $schedule->command('remove:narasumber')->everyMinute();
+        $schedule->command('deletechat')->everyMinute();
     }
 
     /**
