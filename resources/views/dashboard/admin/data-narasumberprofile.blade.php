@@ -199,7 +199,7 @@
             url: "{{url('admin/narasumber/profile')}}/" + id_profileNarasumber,
             success:function(data)
             {
-                // console.log(data);
+                console.log(data);
                 // console.log(data.keahlian_utama)
                 $(".modal-body div span").text("");
                 $(".content-keahlian_utama").html("");
@@ -237,7 +237,7 @@
 
                 $(".content-cv").append(
                     `
-                    <a target="_target" href="{{ url('admin/narasumber/profile/cv/') }}/` + data.id +`"><button class="btn btn-sm btn-info download-cv" id="`+ data.id +`">Download</button></a>
+                    <a target="_target" href="{{ url('admin/narasumber/profile/cv/') }}/` + data.profile.id +`"><button class="btn btn-sm btn-info download-cv" id="`+ data.id +`">Download</button></a>
                     `
                 );
                 $("#modalProfileNarasumber").modal("show");
