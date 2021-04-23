@@ -76,7 +76,7 @@ class RoomController extends Controller
     public function exit(Request $request)
     {
         $room = Room::find($request->room['id']);
-        // dd($room);
+
         $role = $request->role[0];
         $stat = [];
         if ($role == 'narasumber') {
