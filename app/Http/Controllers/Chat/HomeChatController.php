@@ -43,7 +43,12 @@ class HomeChatController extends Controller
             if (is_null($user->profileNarasumber)) {
                 return redirect()->route('narasumber.dashboard.profile');
             } else {
-                return view('layouts.chat');
+                if($user->profileNarasumber->status == "Belum Terverifikasi") {
+                    return redirect()->route('narasumber.dashboard.profile');
+                }
+                else {
+                    return view('layouts.chat');
+                }
             }
         } else {
             return view('layouts.chat');
