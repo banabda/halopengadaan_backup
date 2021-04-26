@@ -45,6 +45,13 @@
           Lengkapi bagian profil terlebih dahulu !
         </div>
       </div>
+      @elseif($user->profileNarasumber->status == "Belum Terverifikasi")
+      <div class="px-30 my-15 no-print">
+        <div class="callout callout-danger" style="margin-bottom: 0!important;">
+          <h4><i class="fa fa-info"></i> Note:</h4>
+          Profile Kamu Belum Diverifikasi oleh Admin !
+        </div>
+      </div>
       @else
 
       @endif
