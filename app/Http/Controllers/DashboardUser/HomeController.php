@@ -43,8 +43,19 @@ class HomeController extends Controller
 
     public function saveProfile(Request $request)
     {
-        $data = $request->all();
-
+        $user = User::where('id', Auth::user()->id)->first();
+        $data = [
+            'user_id' => $request->user_id,
+            'is_complete' => $request->is_complete,
+            'nama_lengkap' => $request->nama_lengkap,
+            'email' => $user->email,
+            'no_hp' => $request->no_hp,
+            'jenis_kerja' => $request->jenis_kerja,
+            'status' => $request->status,
+            
+        ]; 
+        // $request->all();
+        // dd($data, $user);
         $validator = Validator::make($data, array(
             'nama_lengkap' => "required",
             'email' => "required",
